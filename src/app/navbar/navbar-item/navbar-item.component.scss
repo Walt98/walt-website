@@ -1,0 +1,22 @@
+.noAnchorLine
+{
+    text-decoration: none;
+}
+
+.walt-navbar-font-color
+{
+    color: #72645b;
+    font-size: x-large;
+}
+
+.walt-navbar-item-a-padding
+{
+    padding: 15px 19px;
+    border-radius: 15px;
+    transition: .25s;
+
+    &:hover
+    {
+        background-color: white;
+    }
+}
