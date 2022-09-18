@@ -1,3 +1,6 @@
-<a [href]="href" class="noAnchorLine walt-navbar-font-color walt-navbar-item-a-padding">
-    <i class="{{ icon }}"></i>
-</a>
+<div class="d-flex align-items-center">
+    <a routerLink="{{ routerLink }}" class="noAnchorLine walt-navbar-font-color walt-navbar-item-a-padding" (click)="this.rLink.emit(routerLink)" (mouseover)="mouseOver()" (mouseleave)="isOver = false; showNavbarTitle = false">
+        <i class="{{ icon }}"></i>
+    </a>
+    <span *ngIf="isOver && showNavbarTitle" class="navbar-item-title"> {{ title }} </span>
+</div>

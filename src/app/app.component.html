@@ -1,3 +1,10 @@
-<!-- <router-outlet></router-outlet> -->
+<app-logo></app-logo>
 
-<app-navbar></app-navbar>
+<div class="container-fluid p-0 m-0 d-flex">
+    <span class="container-fluid d-flex p-0 m-0 wMaxContent">
+        <app-navbar></app-navbar>
+    </span>
+    <span class="container-fluid bg-router-outlet p-router-outlet marginT-18 borderTL overflowY">
+        <router-outlet></router-outlet>
+    </span>
+</div>

@@ -1,13 +1,18 @@
 .walt-bg-navbar
 {
-    // background-image: linear-gradient(#fefefe, #bbcedb);
-    background-image: linear-gradient(#edd8c9, transparent);
     height: 100vh;
     width: max-content;
     padding-top: 10px;
 }
 
-.walt-navbar-item-padding
+app-navbar-item
 {
-    padding: 20px 21px;
+    padding: 8px 21px;
+}
+::ng-deep app-navbar-item.active div > a
+{
+    background-color: #fefefe;
+
+    &:hover { background-color: #fefefe !important; }
+    & i { color: #4b95b5; }
 }

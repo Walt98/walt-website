@@ -5,11 +5,18 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit
+{
+  public routerLink: string = 'home';
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void
+  {
+    
   }
 
+  active = (router: string): string => this.routerLink == router ? 'active' : '';
+
+  log = (event: any) => console.log(event);
 }
