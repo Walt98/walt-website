@@ -9,4 +9,22 @@
 
 .p-router-outlet { padding: 1rem 0 0 1.75rem; }
 
-// .overflowY { overflow-y: scroll; }
+.overflowY
+{
+    overflow-y: scroll;
+    
+    &::-webkit-scrollbar {
+        background-color: transparent;
+        opacity: 20%;
+        width: 13px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-clip: content-box;
+        background-image: linear-gradient(147.38deg, #4C96B6 0%, #19496C 100%);
+        border: 3px solid transparent;
+        border-radius: 100px;
+        margin: 2px;
+        -webkit-transition: .2s ease-in;
+        transition: .2s ease-in;
+    }
+}

@@ -1,0 +1,22 @@
+<div class="offcanvasAbsolute" [ngClass]="clicked ? 'top0' : ''">
+    <!-- OFFCANVAS BUTTON -->
+    <div class="settings-div-button d-flex align-items-center justify-content-center" [ngClass]="offcanvasClassList" (click)="clicked = !clicked">
+        <i class="bi bi-gear settings-button-size"></i>
+    </div>
+    
+    <!-- OFFCANVAS BODY -->
+    <div *ngIf="clicked" class="settings-canvas" [ngClass]="clicked ? 'offcanvasActive' : ''">
+        <div class="container-fluid">
+            <div class="col-12 layout-style-title">
+                Tema Layout
+            </div>
+            <div class="col-12 d-flex align-items-center justify-content-between icons-palette">
+                <app-icon-palette [bg]="'#2c82a7'" (color)="color = $event" [ngClass]="activeIcon(color)"></app-icon-palette>
+                <app-icon-palette [bg]="'red'" (color)="color = $event" [ngClass]="activeIcon(color)"></app-icon-palette>
+                <app-icon-palette [bg]="'green'" (color)="color = $event" [ngClass]="activeIcon(color)"></app-icon-palette>
+                <app-icon-palette [bg]="'yellow'" (color)="color = $event" [ngClass]="activeIcon(color)"></app-icon-palette>
+                <app-icon-palette [bg]="'grey'" (color)="color = $event" [ngClass]="activeIcon(color)"></app-icon-palette>
+            </div>
+        </div>
+    </div>
+</div>

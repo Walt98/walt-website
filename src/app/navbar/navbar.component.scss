@@ -2,17 +2,17 @@
 {
     height: 100vh;
     width: max-content;
-    padding-top: 10px;
 }
 
 app-navbar-item
 {
     padding: 8px 21px;
+    &:first-child { padding-top: 0; }
 }
-::ng-deep app-navbar-item.active div > a
+::ng-deep app-navbar-item.active div > i
 {
     background-color: #fefefe;
+    color: #4b95b5 !important;
 
     &:hover { background-color: #fefefe !important; }
-    & i { color: #4b95b5; }
 }

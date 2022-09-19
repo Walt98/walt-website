@@ -13,8 +13,7 @@ export class NavbarItemComponent implements OnInit, OnChanges
 
   @Output() rLink: EventEmitter<any> = new EventEmitter();
 
-  public isOver: boolean = false;
-  public showNavbarTitle: boolean = false;
+  public showTitle: boolean = false;
 
   constructor() { }
 
@@ -26,12 +25,6 @@ export class NavbarItemComponent implements OnInit, OnChanges
   ngOnChanges(): void
   {
 
-  }
-
-  mouseOver()
-  {
-    this.isOver = true;
-    setTimeout(() => this.showNavbarTitle = true, 250);
   }
 
   log = (event: any) => console.log(event);

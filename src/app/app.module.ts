@@ -9,6 +9,8 @@ import { NavbarItemComponent } from './navbar/navbar-item/navbar-item.component'
 import { LogoComponent } from './logo/logo.component';
 import { HomeComponent } from './home/home.component';
 import { AboutMeComponent } from './about-me/about-me.component';
+import { SettingsCanvasComponent } from './settings-canvas/settings-canvas.component';
+import { IconPaletteComponent } from './settings-canvas/icon-palette/icon-palette.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { AboutMeComponent } from './about-me/about-me.component';
     NavbarItemComponent,
     LogoComponent,
     HomeComponent,
-    AboutMeComponent
+    AboutMeComponent,
+    SettingsCanvasComponent,
+    IconPaletteComponent
   ],
   imports: [
     BrowserModule,

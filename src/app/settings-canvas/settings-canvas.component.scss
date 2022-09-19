@@ -1,0 +1,64 @@
+.offcanvasAbsolute
+{
+    position: absolute;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    right: 0;
+    top: 46.3%;
+}
+.top0 { top: 0 !important; }
+
+.settings-div-button
+{
+    width: 53px;
+    height: 53px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    cursor: pointer;
+
+    &:hover > i
+    {
+        transition: transform .7s ease-out;
+        transform: rotate(180deg);
+    }
+}
+
+.settings-button-size
+{
+    font-size: 33px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.settings-button-color-default
+{
+    color: #fefefe;
+    background-image: linear-gradient(147.38deg, #4C96B6 0%, #19496C 100%);
+    &:hover { background-image: linear-gradient(147.38deg, #6cb3d1 0%, #2f678e 100%); }
+}
+
+.settings-canvas
+{
+    height: 100vh;
+    width: 300px;
+    background-color: #F5F7FA;
+    border-left: 0 none;
+    transform: translateX(100%);
+}
+
+.offcanvasActive
+{
+    transform: translateX(0);
+    box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.layout-style-title
+{
+    padding: 10px;
+    font-size: larger;
+    font-weight: 500;
+}
+
+.icons-palette { padding: 5px 10px; }
