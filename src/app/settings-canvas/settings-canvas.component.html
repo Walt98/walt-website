@@ -1,6 +1,6 @@
 <div class="offcanvasAbsolute" [ngClass]="clicked ? 'top0' : ''">
     <!-- OFFCANVAS BUTTON -->
-    <div class="settings-div-button d-flex align-items-center justify-content-center" [ngClass]="offcanvasClassList" (click)="clicked = !clicked">
+    <div class="settings-div-button d-flex align-items-center justify-content-center" [ngClass]="colorClass" (click)="clicked = !clicked">
         <i class="bi bi-gear settings-button-size"></i>
     </div>
     
@@ -11,11 +11,11 @@
                 Tema Layout
             </div>
             <div class="col-12 d-flex align-items-center justify-content-between icons-palette">
-                <app-icon-palette [bg]="'#2c82a7'" (color)="color = $event" [ngClass]="activeIcon(color)"></app-icon-palette>
-                <app-icon-palette [bg]="'red'" (color)="color = $event" [ngClass]="activeIcon(color)"></app-icon-palette>
-                <app-icon-palette [bg]="'green'" (color)="color = $event" [ngClass]="activeIcon(color)"></app-icon-palette>
-                <app-icon-palette [bg]="'yellow'" (color)="color = $event" [ngClass]="activeIcon(color)"></app-icon-palette>
-                <app-icon-palette [bg]="'grey'" (color)="color = $event" [ngClass]="activeIcon(color)"></app-icon-palette>
+                <app-icon-palette [bg]="'#2c82a7'" (color)="setColor($event)" [ngClass]="activeIcon('#2c82a7')"></app-icon-palette>
+                <app-icon-palette [bg]="'#b44b4b'" (color)="setColor($event)" [ngClass]="activeIcon('#b44b4b')"></app-icon-palette>
+                <app-icon-palette [bg]="'#67b34d'" (color)="setColor($event)" [ngClass]="activeIcon('#67b34d')"></app-icon-palette>
+                <app-icon-palette [bg]="'#b39c4a'" (color)="setColor($event)" [ngClass]="activeIcon('#b39c4a')"></app-icon-palette>
+                <app-icon-palette [bg]="'#aa85bd'" (color)="setColor($event)" [ngClass]="activeIcon('#aa85bd')"></app-icon-palette>
             </div>
         </div>
     </div>

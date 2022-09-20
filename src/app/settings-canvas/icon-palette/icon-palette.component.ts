@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-icon-palette',
@@ -7,15 +8,15 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class IconPaletteComponent implements OnInit
 {
-  @Input() bg?: string;
-  @Output() color: EventEmitter<string> = new EventEmitter<string>();
-
-  public clicked: boolean = false; 
+  @Input() bg: string | undefined;
+  @Output() color: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit(): void
   {
-
+    
   }
+
+  log = (e: any) => console.log(e);
 }
