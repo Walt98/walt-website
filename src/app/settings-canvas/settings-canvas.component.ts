@@ -8,11 +8,13 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class SettingsCanvasComponent implements OnInit
 {
   @Output() palette: EventEmitter<any> = new EventEmitter<any>();
+  @Output() darkMode: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   public paletteColors: any;
   public colorClass?: string;
 
   public clicked: boolean = false;
+  public toggleClicked: boolean = false;
 
   constructor() { }
 
@@ -63,6 +65,12 @@ export class SettingsCanvasComponent implements OnInit
 
     localStorage.setItem('palette', JSON.stringify({'color': color, 'bgImage': bgImage}));
     this.palette.emit(JSON.parse(localStorage.getItem('palette') ?? ''));
+  }
+
+  emitDark()
+  {
+    this.toggleClicked = !this.toggleClicked;
+    this.darkMode.emit(this.toggleClicked);
   }
 
   log = (event: any) => console.log(event);

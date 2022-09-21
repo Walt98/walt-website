@@ -9,7 +9,7 @@ export class NavbarComponent implements OnInit
 {
   @Input() palette: any;
 
-  public routerLink: string = 'home';
+  public routerLink?: string;
 
   constructor() { }
 

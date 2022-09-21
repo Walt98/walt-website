@@ -1,3 +1,5 @@
+.p-10 { padding: 10px; } 
+
 .offcanvasAbsolute
 {
     position: absolute;
@@ -74,22 +76,55 @@
     width: 300px;
     background-color: #F5F7FA;
     border-left: 0 none;
-    transform: translateX(100%);
-}
-
-.offcanvasActive
-{
-    transform: translateX(0);
     box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
 }
 
+.canvasDarkMode { background-color: #162a41; }
+.canvasTitleDarkMode, .text-advice { color: #d5dfec; }
+
+.h-62 { height: 67.5px; } 
+
 .layout-style-title
 {
-    padding: 10px;
     font-size: larger;
     font-weight: 500;
 }
 
-.icons-palette { padding: 5px 10px; }
+.pY-13 { padding: 13px 0; }
+
+.pY-7-13 { padding: 7px 0 13px; }
 
 ::ng-deep .activeIcon > div > i { opacity: 1 !important; }
+
+.slider-toggle
+{
+    width: 55px;
+    height: 30px;
+    margin-block: 13px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    background-color: #d3dbe3;
+    cursor: pointer;
+    transition: .4s;
+
+    &:hover { background-color: #b8c5d2; }
+}
+
+.toggleClicked
+{
+    background-color: #00df84;
+    &:hover { background-color: #00d07b; }
+}
+
+.translateX23 { transform: translateX(23px); }
+
+.slider-button
+{
+    width: 24px;
+    height: 24px;
+    margin: 0 4px;
+    border-radius: 50%;
+    background-color: white;
+    transition: .4s;
+}

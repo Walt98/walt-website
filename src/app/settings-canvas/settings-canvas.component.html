@@ -5,17 +5,28 @@
     </div>
     
     <!-- OFFCANVAS BODY -->
-    <div *ngIf="clicked" class="settings-canvas" [ngClass]="clicked ? 'offcanvasActive' : ''">
+    <div *ngIf="clicked" class="settings-canvas p-10" [ngClass]="toggleClicked ? 'canvasDarkMode' : ''">
         <div class="container-fluid">
-            <div class="col-12 layout-style-title">
-                Tema Layout
+            <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'canvasTitleDarkMode' : ''">
+                Tema layout
             </div>
-            <div class="col-12 d-flex align-items-center justify-content-between icons-palette">
+            <div *ngIf="!toggleClicked" class="col-12 d-flex align-items-center justify-content-between pY-13 h-62">
                 <app-icon-palette [bg]="'#2c82a7'" (color)="setColor($event)" [ngClass]="activeIcon('#2c82a7')"></app-icon-palette>
                 <app-icon-palette [bg]="'#b44b4b'" (color)="setColor($event)" [ngClass]="activeIcon('#b44b4b')"></app-icon-palette>
                 <app-icon-palette [bg]="'#67b34d'" (color)="setColor($event)" [ngClass]="activeIcon('#67b34d')"></app-icon-palette>
                 <app-icon-palette [bg]="'#b39c4a'" (color)="setColor($event)" [ngClass]="activeIcon('#b39c4a')"></app-icon-palette>
                 <app-icon-palette [bg]="'#aa85bd'" (color)="setColor($event)" [ngClass]="activeIcon('#aa85bd')"></app-icon-palette>
+            </div>
+            <div class="text-advice pY-7-13" *ngIf="toggleClicked">
+                <i> Temi non disponibili in "Modalità notturna". </i>
+            </div>
+        </div>
+        <div class="container-fluid my-2">
+            <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'canvasTitleDarkMode' : ''">
+                Modalità notturna
+            </div>
+            <div class="slider-toggle" [ngClass]="toggleClicked ? 'toggleClicked' : ''" (click)="emitDark()">
+                <div class="slider-button" [ngClass]="toggleClicked ? 'translateX23' : ''"></div>
             </div>
         </div>
     </div>
