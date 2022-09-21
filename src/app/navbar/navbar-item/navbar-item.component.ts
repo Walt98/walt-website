@@ -1,13 +1,13 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-navbar-item',
   templateUrl: './navbar-item.component.html',
   styleUrls: ['./navbar-item.component.scss']
 })
-export class NavbarItemComponent implements OnInit, OnChanges
+export class NavbarItemComponent implements OnInit
 {
-  @Input() routerLink?: string;
+  @Input() routeLink?: string;
   @Input() icon?: string;
   @Input() title: string = '';
   @Input() palette: any;
@@ -23,18 +23,16 @@ export class NavbarItemComponent implements OnInit, OnChanges
     
   }
 
-  ngOnChanges(): void
-  {
-
-  }
-
   color(color: string): string
   {
-    if (color == '#b44b4b') return 'title-color-red';
-    else if (color == '#67b34d') return 'title-color-green';
-    else if (color == '#b39c4a') return 'title-color-yellow';
-    else if (color == '#aa85bd') return 'title-color-purple';
-    else return  'title-color-default';
+    switch (color)
+    {
+      case '#b44b4b': return 'title-color-red';
+      case '#67b34d': return 'title-color-green';
+      case '#b39c4a': return 'title-color-yellow';
+      case '#aa85bd': return 'title-color-purple';
+      default: return 'title-color-default';
+    }
   }
 
   log = (event: any) => console.log(event);

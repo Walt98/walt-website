@@ -20,16 +20,13 @@ export class NavbarComponent implements OnInit
 
   active(router: string): string
   {
-    if (this.routerLink == router)
+    if (this.routerLink == router) switch (this.palette.color)
     {
-      let itemClass = '';
-      if (this.palette.color == '#b44b4b') itemClass = 'item-color-red';
-      else if (this.palette.color == '#67b34d') itemClass = 'item-color-green';
-      else if (this.palette.color == '#b39c4a') itemClass = 'item-color-yellow';
-      else if (this.palette.color == '#aa85bd') itemClass = 'item-color-purple';
-      else itemClass =  'item-color-default';
-
-      return itemClass + ' active';
+      case '#b44b4b': return 'active ' + 'item-color-red';
+      case '#67b34d': return 'active ' + 'item-color-green';
+      case '#b39c4a': return 'active ' + 'item-color-yellow';
+      case '#aa85bd': return 'active ' + 'item-color-purple';
+      default: return 'active ' + 'item-color-default';
     }
     else return '';
   }
