@@ -20,6 +20,9 @@ export class AppComponent implements OnInit
       localStorage.setItem('palette', JSON.stringify(this.palette));
     }
     else this.palette = JSON.parse(localStorage.getItem('palette') ?? '');
+    
+    if (!localStorage.getItem('darkMode')) localStorage.setItem('darkMode', 'off');
+    this.darkMode = localStorage.getItem('darkMode') == 'on';
   }
 
   log = (e: any) => console.log(e);

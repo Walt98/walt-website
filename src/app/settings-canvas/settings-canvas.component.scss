@@ -98,7 +98,7 @@
 
 .slider-toggle
 {
-    width: 55px;
+    width: 58px;
     height: 30px;
     margin-block: 13px;
     border-radius: 20px;
@@ -114,10 +114,10 @@
 .toggleClicked
 {
     background-color: #00df84;
-    &:hover { background-color: #00d07b; }
+    &:hover { background-color: #02c473; }
 }
 
-.translateX23 { transform: translateX(23px); }
+.translateX23 { transform: translateX(26px); }
 
 .slider-button
 {

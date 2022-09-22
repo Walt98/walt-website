@@ -20,6 +20,7 @@ export class SettingsCanvasComponent implements OnInit
 
   ngOnInit(): void
   {
+    this.toggleClicked = localStorage.getItem('darkMode') == 'on';
     this.paletteColors = JSON.parse(localStorage.getItem('palette') ?? '');
     this.palette.emit(this.paletteColors);
     
@@ -70,6 +71,7 @@ export class SettingsCanvasComponent implements OnInit
   emitDark()
   {
     this.toggleClicked = !this.toggleClicked;
+    localStorage.setItem('darkMode', this.toggleClicked ? 'on' : 'off');
     this.darkMode.emit(this.toggleClicked);
   }
 

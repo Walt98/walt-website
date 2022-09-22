@@ -1,6 +1,6 @@
 <div class="offcanvasAbsolute" [ngClass]="clicked ? 'top0' : ''">
     <!-- OFFCANVAS BUTTON -->
-    <div class="settings-div-button d-flex align-items-center justify-content-center" [ngClass]="colorClass" (click)="clicked = !clicked">
+    <div class="settings-div-button d-flex align-items-center justify-content-center" [ngClass]="toggleClicked ? 'color-default' : colorClass" (click)="clicked = !clicked">
         <i class="bi bi-gear settings-button-size"></i>
     </div>
     

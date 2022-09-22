@@ -15,6 +15,7 @@ app-navbar-item
     &:hover { background-color: #fefefe !important; }
 }
 
+::ng-deep .item-color-dark div > i { color: #004766 !important; }
 ::ng-deep .item-color-default div > i { color: #2c82a7 !important; }
 ::ng-deep .item-color-red div > i { color: #b44b4b !important; }
 ::ng-deep .item-color-green div > i { color: #67b34d !important; }

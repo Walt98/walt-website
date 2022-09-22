@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit
 {
   @Input() palette: any;
+  @Input() darkMode?: boolean;
 
   public routerLink?: string;
 
@@ -20,13 +21,19 @@ export class NavbarComponent implements OnInit
 
   active(router: string): string
   {
-    if (this.routerLink == router) switch (this.palette.color)
+    let classDark: string = '';
+    if (this.darkMode) classDark = 'item-color-dark';
+    if (this.routerLink == router)
     {
-      case '#b44b4b': return 'active ' + 'item-color-red';
-      case '#67b34d': return 'active ' + 'item-color-green';
-      case '#b39c4a': return 'active ' + 'item-color-yellow';
-      case '#aa85bd': return 'active ' + 'item-color-purple';
-      default: return 'active ' + 'item-color-default';
+      if (!this.darkMode) switch (this.palette.color)
+      {
+        case '#b44b4b': return 'active ' + 'item-color-red';
+        case '#67b34d': return 'active ' + 'item-color-green';
+        case '#b39c4a': return 'active ' + 'item-color-yellow';
+        case '#aa85bd': return 'active ' + 'item-color-purple';
+        default: return 'active ' + 'item-color-default';
+      }
+      else return classDark += ' active';
     }
     else return '';
   }

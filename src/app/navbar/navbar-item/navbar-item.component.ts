@@ -11,6 +11,7 @@ export class NavbarItemComponent implements OnInit
   @Input() icon?: string;
   @Input() title: string = '';
   @Input() palette: any;
+  @Input() darkMode?: boolean;
 
   @Output() rLink: EventEmitter<any> = new EventEmitter();
 
@@ -25,7 +26,8 @@ export class NavbarItemComponent implements OnInit
 
   color(color: string): string
   {
-    switch (color)
+    if (this.darkMode) return 'title-color-dark';
+    else switch (color)
     {
       case '#b44b4b': return 'title-color-red';
       case '#67b34d': return 'title-color-green';
