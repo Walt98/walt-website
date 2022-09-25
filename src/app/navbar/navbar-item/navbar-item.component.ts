@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AppService } from 'src/app/app.service';
 
 @Component({
   selector: 'app-navbar-item',
@@ -11,17 +12,19 @@ export class NavbarItemComponent implements OnInit
   @Input() icon?: string;
   @Input() title: string = '';
   @Input() palette: any;
-  @Input() darkMode?: boolean;
+  // @Input() darkMode?: boolean;
 
   @Output() rLink: EventEmitter<any> = new EventEmitter();
 
   public showTitle: boolean = false;
+  public darkMode?: boolean;
+  public colorClass?: string;
 
-  constructor() { }
+  constructor(private appService: AppService) { }
 
   ngOnInit(): void
   {
-    
+    this.appService.darkModeBS$.subscribe((value: string) => this.darkMode = value == 'on');
   }
 
   color(color: string): string

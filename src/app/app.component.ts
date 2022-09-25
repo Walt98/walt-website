@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
@@ -9,20 +10,23 @@ export class AppComponent implements OnInit
 {
   public palette: any;
   public darkMode?: boolean;
-
   public bgDark: string = 'linear-gradient(147.38deg, rgb(20 54 80) 0%, #000000 100%)';
+
+  constructor(private appService: AppService) {  }
 
   ngOnInit(): void
   {
-    if (!localStorage.getItem('palette'))
-    {
-      this.palette = {'color': '#2c82a7', 'bgImage': 'linear-gradient(147.38deg, #4C96B6 0%, #19496C 100%)'};
-      localStorage.setItem('palette', JSON.stringify(this.palette));
-    }
-    else this.palette = JSON.parse(localStorage.getItem('palette') ?? '');
-    
-    if (!localStorage.getItem('darkMode')) localStorage.setItem('darkMode', 'off');
-    this.darkMode = localStorage.getItem('darkMode') == 'on';
+    this.palette = this.appService.setPalette();
+    // this.darkMode = this.appService.setDarkMode();
+    this.appService.darkModeBS$.subscribe((value: string) => this.darkMode = value == 'on');
+
+    // this.appService.darkMode$.subscribe((darkMode: boolean) =>
+    // {
+    //   this.darkMode = darkMode;
+    //   this.appService.darkModeNav$.next(darkMode);
+    // });
+
+    this.appService.paletteApp$.subscribe((value: any) => this.palette = value);
   }
 
   log = (e: any) => console.log(e);

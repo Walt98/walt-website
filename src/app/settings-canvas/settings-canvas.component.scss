@@ -76,7 +76,10 @@
     width: 300px;
     background-color: #F5F7FA;
     border-left: 0 none;
-    box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+    box-shadow: 0 2px 4px -1px
+    rgb(0 0 0 / 20%), 0 4px 5px 0
+    rgb(0 0 0 / 14%), 0 1px 10px 0
+    rgb(0 0 0 / 12%);
 }
 
 .canvasDarkMode { background-color: #162a41; }
@@ -87,12 +90,12 @@
 .layout-style-title
 {
     font-size: larger;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .pY-13 { padding: 13px 0; }
 
-.pY-7-13 { padding: 7px 0 13px; }
+.pY-7-12_6 { padding: 7px 0 12.6px; }
 
 ::ng-deep .activeIcon > div > i { opacity: 1 !important; }
 

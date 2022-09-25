@@ -11,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { SettingsCanvasComponent } from './settings-canvas/settings-canvas.component';
 import { IconPaletteComponent } from './settings-canvas/icon-palette/icon-palette.component';
+import { ContactMeComponent } from './contact-me/contact-me.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { IconPaletteComponent } from './settings-canvas/icon-palette/icon-palett
     HomeComponent,
     AboutMeComponent,
     SettingsCanvasComponent,
-    IconPaletteComponent
+    IconPaletteComponent,
+    ContactMeComponent
   ],
   imports: [
     BrowserModule,

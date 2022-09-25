@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,15 +9,17 @@ import { Component, Input, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit
 {
   @Input() palette: any;
-  @Input() darkMode?: boolean;
+  // @Input() darkMode?: boolean;
+  @Input() activeAppLogo?: string;
 
   public routerLink?: string;
+  public darkMode?: boolean;
 
-  constructor() { }
+  constructor(private appService: AppService) { }
 
   ngOnInit(): void
   {
-    
+    this.appService.darkModeBS$.subscribe((value: string) => this.darkMode = value == 'on');
   }
 
   active(router: string): string

@@ -1,6 +1,25 @@
-.logo-padding
+.h-104 { height: 104px; }
+.w-25px { width: 25px; }
+
+.img-logo
 {
-    padding-top: 30px;
-    padding-bottom: 15px;
-    padding-left: 25px;
+    width: 160px;
+    height: auto;
+    cursor: pointer;
+}
+
+.contacts
+{
+    padding: 100% 20px;
+    text-decoration: none;
+    color: #fefefe;
+    font-size: 18px;
+    &:hover { animation: contactMe 2s linear infinite; }
+}
+@keyframes contactMe
+{
+    10% { margin-bottom: 10px; }
+    20% { margin-bottom: 0; }
+    30% { margin-bottom: 10px; }
+    40% { margin-bottom: 0; }
 }

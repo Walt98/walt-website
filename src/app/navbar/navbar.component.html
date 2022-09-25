@@ -1,4 +1,7 @@
 <div class="d-flex flex-column align-items-center walt-bg-navbar">
-    <app-navbar-item (rLink)="routerLink = $event" [ngClass]="active('home')" [routeLink]="'home'" [icon]="'bi bi-house'" [title]="'Home'" [darkMode]="darkMode" [palette]="palette"></app-navbar-item>
-    <app-navbar-item (rLink)="routerLink = $event" [ngClass]="active('about-me')" [routeLink]="'about-me'" [icon]="'bi bi-person-check'" [title]="'Chi sono?'" [darkMode]="darkMode" [palette]="palette"></app-navbar-item>
+    <app-navbar-item (rLink)="routerLink = $event" [ngClass]="active('home')" [routeLink]="'home'" [icon]="'bi bi-house'" [title]="'Home'" [palette]="palette"></app-navbar-item>
+
+    <app-navbar-item (rLink)="routerLink = $event" [ngClass]="active('about-me')" [routeLink]="'about-me'" [icon]="'bi bi-person-check'" [title]="'Chi sono?'" [palette]="palette"></app-navbar-item>
+    
+    <app-navbar-item (rLink)="routerLink = $event" [ngClass]="active('contact-me')" [routeLink]="'contact-me'" [icon]="'bi bi-send'" [title]="'Contattami'" [palette]="palette"></app-navbar-item>
 </div>

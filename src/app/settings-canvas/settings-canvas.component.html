@@ -11,21 +11,23 @@
                 Tema layout
             </div>
             <div *ngIf="!toggleClicked" class="col-12 d-flex align-items-center justify-content-between pY-13 h-62">
-                <app-icon-palette [bg]="'#2c82a7'" (color)="setColor($event)" [ngClass]="activeIcon('#2c82a7')"></app-icon-palette>
-                <app-icon-palette [bg]="'#b44b4b'" (color)="setColor($event)" [ngClass]="activeIcon('#b44b4b')"></app-icon-palette>
-                <app-icon-palette [bg]="'#67b34d'" (color)="setColor($event)" [ngClass]="activeIcon('#67b34d')"></app-icon-palette>
-                <app-icon-palette [bg]="'#b39c4a'" (color)="setColor($event)" [ngClass]="activeIcon('#b39c4a')"></app-icon-palette>
-                <app-icon-palette [bg]="'#aa85bd'" (color)="setColor($event)" [ngClass]="activeIcon('#aa85bd')"></app-icon-palette>
+                <app-icon-palette [bg]="'#2c82a7'" [ngClass]="activeIcon('#2c82a7')"></app-icon-palette>
+                <app-icon-palette [bg]="'#b44b4b'" [ngClass]="activeIcon('#b44b4b')"></app-icon-palette>
+                <app-icon-palette [bg]="'#67b34d'" [ngClass]="activeIcon('#67b34d')"></app-icon-palette>
+                <app-icon-palette [bg]="'#b39c4a'" [ngClass]="activeIcon('#b39c4a')"></app-icon-palette>
+                <app-icon-palette [bg]="'#aa85bd'" [ngClass]="activeIcon('#aa85bd')"></app-icon-palette>
             </div>
-            <div class="text-advice pY-7-13" *ngIf="toggleClicked">
+            <div class="text-advice pY-7-12_6" *ngIf="toggleClicked">
                 <i> Temi non disponibili in "Modalità notturna". </i>
             </div>
         </div>
+
+        <!-- DARK MODE -->
         <div class="container-fluid my-2">
             <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'canvasTitleDarkMode' : ''">
                 Modalità notturna
             </div>
-            <div class="slider-toggle" [ngClass]="toggleClicked ? 'toggleClicked' : ''" (click)="emitDark()">
+            <div class="slider-toggle" [ngClass]="toggleClicked ? 'toggleClicked' : ''" (click)="setDarkMode()">
                 <div class="slider-button" [ngClass]="toggleClicked ? 'translateX23' : ''"></div>
             </div>
         </div>
