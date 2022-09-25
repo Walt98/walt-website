@@ -11,20 +11,20 @@ export class NavbarItemComponent implements OnInit
   @Input() routeLink?: string;
   @Input() icon?: string;
   @Input() title: string = '';
-  @Input() palette: any;
-  // @Input() darkMode?: boolean;
 
   @Output() rLink: EventEmitter<any> = new EventEmitter();
 
   public showTitle: boolean = false;
   public darkMode?: boolean;
+  public palette: any;
   public colorClass?: string;
 
   constructor(private appService: AppService) { }
 
   ngOnInit(): void
   {
-    this.appService.darkModeBS$.subscribe((value: string) => this.darkMode = value == 'on');
+    this.appService.darkMode$.subscribe((value: string) => this.darkMode = value == 'on');
+    this.appService.palette$.subscribe((value: any) => this.palette = value);
   }
 
   color(color: string): string

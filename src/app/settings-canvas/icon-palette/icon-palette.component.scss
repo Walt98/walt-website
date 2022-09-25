@@ -6,7 +6,7 @@
     cursor: pointer;
     transition: .2s;
 
-    &:hover { transform: scale(1.2); } 
+    &:hover { transform: scale(1.15); } 
 }
 
 .center
@@ -20,7 +20,7 @@
 {
     font-size: xx-large;
     color: #fefefe;
-    transition: .2s;
+    transition: .15s;
 }
 
 .opacity0 { opacity: 0; }

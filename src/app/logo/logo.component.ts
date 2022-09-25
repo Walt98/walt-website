@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-logo',
@@ -7,8 +7,6 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class LogoComponent implements OnInit
 {
-  // @Output() activeAppLogo = new EventEmitter<string>();
-
   constructor() { }
 
   ngOnInit(): void {
