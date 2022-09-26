@@ -17,7 +17,7 @@
                 <app-icon-palette [bg]="'#b39c4a'" [ngClass]="activeIcon('#b39c4a')"></app-icon-palette>
                 <app-icon-palette [bg]="'#aa85bd'" [ngClass]="activeIcon('#aa85bd')"></app-icon-palette>
             </div>
-            <div class="text-advice pY-7-12_6" *ngIf="toggleClicked">
+            <div class="textDark pY-7-12_6" *ngIf="toggleClicked">
                 <i> Temi non disponibili in "Modalità notturna". </i>
             </div>
         </div>
@@ -29,6 +29,17 @@
             </div>
             <div class="slider-toggle" [ngClass]="toggleClicked ? 'toggleClicked' : ''" (click)="setDarkMode()">
                 <div class="slider-button" [ngClass]="toggleClicked ? 'translateX23' : ''"></div>
+            </div>
+        </div>
+
+        <!-- FONT -->
+        <div class="container-fluid p-10">
+            <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'canvasTitleDarkMode' : ''">
+                Font
+            </div>
+            <div class="d-flex flex-column">
+                <app-font-text [font]="'Montserrat'" [ngClass]="activeFont('Montserrat')"></app-font-text>
+                <app-font-text [font]="'Roboto'" [ngClass]="activeFont('Roboto')"></app-font-text>
             </div>
         </div>
     </div>

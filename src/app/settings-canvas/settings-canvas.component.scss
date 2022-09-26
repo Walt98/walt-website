@@ -83,7 +83,7 @@
 }
 
 .canvasDarkMode { background-color: #162a41; }
-.canvasTitleDarkMode, .text-advice { color: #d5dfec; }
+.canvasTitleDarkMode, .textDark { color: #d5dfec; }
 
 .h-62 { height: 67.5px; } 
 
@@ -94,7 +94,6 @@
 }
 
 .pY-13 { padding: 13px 0; }
-
 .pY-7-12_6 { padding: 7px 0 12.6px; }
 
 ::ng-deep .activeIcon > div > i { opacity: 1 !important; }
@@ -120,7 +119,7 @@
     &:hover { background-color: #00bd6e; }
 }
 
-.translateX23 { transform: translateX(26px); }
+.translateX23 { transform: translateX(27px); }
 
 .slider-button
 {
@@ -131,3 +130,7 @@
     background-color: white;
     transition: .4s;
 }
+
+.pT-5 { padding-top: 5px; }
+
+::ng-deep .activeFont > div > i { opacity: 1 !important; }

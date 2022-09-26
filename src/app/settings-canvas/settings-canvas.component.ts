@@ -10,7 +10,7 @@ export class SettingsCanvasComponent implements OnInit
 {
   public palette: any;
   public colorClass?: string;
-
+  public font?: string;
   public clicked: boolean = false;
   public toggleClicked: boolean = false;
 
@@ -33,9 +33,12 @@ export class SettingsCanvasComponent implements OnInit
         default: this.colorClass = 'color-default'; break;
       }
     });
+
+    this.appService.font$.subscribe((value: string) => this.font = value);
   }
 
   activeIcon = (color: string): string => this.palette.color == color ? 'activeIcon' : '';
+  activeFont = (font: string): string => this.font == font ? 'activeFont' : '';
 
   setDarkMode()
   {

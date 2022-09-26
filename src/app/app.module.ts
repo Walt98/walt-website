@@ -12,6 +12,7 @@ import { AboutMeComponent } from './about-me/about-me.component';
 import { SettingsCanvasComponent } from './settings-canvas/settings-canvas.component';
 import { IconPaletteComponent } from './settings-canvas/icon-palette/icon-palette.component';
 import { ContactMeComponent } from './contact-me/contact-me.component';
+import { FontTextComponent } from './settings-canvas/font-text/font-text.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ContactMeComponent } from './contact-me/contact-me.component';
     AboutMeComponent,
     SettingsCanvasComponent,
     IconPaletteComponent,
-    ContactMeComponent
+    ContactMeComponent,
+    FontTextComponent
   ],
   imports: [
     BrowserModule,

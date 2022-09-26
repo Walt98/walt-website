@@ -11,6 +11,7 @@ export class AppComponent implements OnInit
   public palette: any;
   public darkMode?: boolean;
   public bgDark: string = 'linear-gradient(147.38deg, rgb(20 54 80) 0%, #000000 100%)';
+  public font?: string;
 
   constructor(private appService: AppService) { }
 
@@ -18,6 +19,7 @@ export class AppComponent implements OnInit
   {
     this.appService.darkMode$.subscribe((value: string) => this.darkMode = value == 'on');
     this.appService.palette$.subscribe((value: any) => this.palette = value);
+    this.appService.font$.subscribe((value: string) => this.font = value);
   }
 
   log = (e: any) => console.log(e);

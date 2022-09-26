@@ -1,4 +1,4 @@
-<div class="body" [style]="'background-image: ' + (darkMode ? bgDark : palette.bgImage)">
+<div class="body" [ngClass]="font" [style]="'background-image: ' + (darkMode ? bgDark : palette.bgImage)">
     <app-logo></app-logo>
 
     <app-settings-canvas></app-settings-canvas>
