@@ -9,6 +9,13 @@
     &:hover { transform: scale(1.15); } 
 }
 
+.icon-shadow
+{
+    box-shadow: 0 0 10px -10px rgb(0 0 0 / 20%),
+    0 0 10px -5px rgb(0 0 0 / 14%),
+    0 0 10px 5px rgb(0 0 0 / 12%);
+}
+
 .center
 {
     display: flex;

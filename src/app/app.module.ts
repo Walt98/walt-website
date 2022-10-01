@@ -13,6 +13,7 @@ import { SettingsCanvasComponent } from './settings-canvas/settings-canvas.compo
 import { IconPaletteComponent } from './settings-canvas/icon-palette/icon-palette.component';
 import { ContactMeComponent } from './contact-me/contact-me.component';
 import { FontTextComponent } from './settings-canvas/font-text/font-text.component';
+import { RadioComponent } from './settings-canvas/radio/radio.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FontTextComponent } from './settings-canvas/font-text/font-text.compone
     SettingsCanvasComponent,
     IconPaletteComponent,
     ContactMeComponent,
-    FontTextComponent
+    FontTextComponent,
+    RadioComponent
   ],
   imports: [
     BrowserModule,

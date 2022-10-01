@@ -5,9 +5,9 @@
     </div>
     
     <!-- OFFCANVAS BODY -->
-    <div *ngIf="clicked" class="settings-canvas p-10" [ngClass]="toggleClicked ? 'canvasDarkMode' : ''">
+    <div *ngIf="clicked" class="settings-canvas p10" [ngClass]="canvasColor">
         <div class="container-fluid">
-            <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'canvasTitleDarkMode' : ''">
+            <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'textDark' : ''">
                 Tema layout
             </div>
             <div *ngIf="!toggleClicked" class="col-12 d-flex align-items-center justify-content-between pY-13 h-62">
@@ -23,8 +23,8 @@
         </div>
 
         <!-- DARK MODE -->
-        <div class="container-fluid my-2">
-            <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'canvasTitleDarkMode' : ''">
+        <div class="container-fluid p10">
+            <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'textDark' : ''">
                 Modalità notturna
             </div>
             <div class="slider-toggle" [ngClass]="toggleClicked ? 'toggleClicked' : ''" (click)="setDarkMode()">
@@ -33,14 +33,22 @@
         </div>
 
         <!-- FONT -->
-        <div class="container-fluid p-10">
-            <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'canvasTitleDarkMode' : ''">
+        <div class="container-fluid p10">
+            <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'textDark' : ''">
                 Font
             </div>
             <div class="d-flex flex-column">
                 <app-font-text [font]="'Montserrat'" [ngClass]="activeFont('Montserrat')"></app-font-text>
                 <app-font-text [font]="'Roboto'" [ngClass]="activeFont('Roboto')"></app-font-text>
             </div>
+        </div>
+
+        <!-- BLURRED OFFCANVAS -->
+        <div class="container-fluid p10">
+            <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'textDark' : ''">
+                Sfocatura finestra
+            </div>
+            <app-radio></app-radio>
         </div>
     </div>
 </div>

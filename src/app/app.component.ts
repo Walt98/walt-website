@@ -18,7 +18,11 @@ export class AppComponent implements OnInit
   ngOnInit(): void
   {
     this.appService.darkMode$.subscribe((value: string) => this.darkMode = value == 'on');
-    this.appService.palette$.subscribe((value: any) => this.palette = value);
+    this.appService.palette$.subscribe((value: any) =>
+    {
+      this.palette = value;
+      if (!localStorage.getItem('palette')) localStorage.setItem('palette', JSON.stringify(value));
+    });
     this.appService.font$.subscribe((value: string) => this.font = value);
   }
 

@@ -13,16 +13,30 @@ export class SettingsCanvasComponent implements OnInit
   public font?: string;
   public clicked: boolean = false;
   public toggleClicked: boolean = false;
+  public blur?: boolean;
+
+  public canvasColor?: string;
 
   constructor(private appService: AppService) { }
 
   ngOnInit(): void
   {
-    this.appService.darkMode$.subscribe((value: string) => this.toggleClicked = value == 'on');
+    this.appService.darkMode$.subscribe((value: string) =>
+    {
+      this.toggleClicked = value == 'on';
+      if (value == 'on') this.canvasColor = this.blur ? 'darkBlur' : 'canvasDarkMode';
+      else this.canvasColor = this.blur ? 'blur' : '';
+    });
+    
+    this.appService.blur$.subscribe((value: string) =>
+    {
+      this.blur = value == 'on';
+      if (this.toggleClicked) this.canvasColor = this.blur ? 'darkBlur' : 'canvasDarkMode';
+      else this.canvasColor = this.blur ? 'blur' : '';
+    });
 
     this.appService.palette$.subscribe((value: any) =>
     {
-      localStorage.setItem('palette', JSON.stringify(value));
       this.palette = value;
       switch (value.color)
       {

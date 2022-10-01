@@ -24,7 +24,11 @@
     rgb(0 0 0 / 12%);
 }
 
-.bg-router-outlet-dark { background-color: #123752; }
+.bg-router-outlet-dark
+{
+    color: #fefefe;
+    background-color: #123752;
+}
 
 .p-router-outlet { padding: 1rem 0 0 1.75rem; }
 

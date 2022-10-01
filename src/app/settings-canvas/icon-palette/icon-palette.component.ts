@@ -10,11 +10,13 @@ export class IconPaletteComponent implements OnInit
 {
   @Input() bg: string | undefined;
 
+  public blur?: boolean;
+
   constructor(private appService: AppService) { }
 
   ngOnInit(): void
   {
-    
+    this.appService.blur$.subscribe((value: string) => this.blur = value == 'on');
   }
 
   setPalette()
@@ -40,7 +42,9 @@ export class IconPaletteComponent implements OnInit
         break;
     }
 
-    this.appService.setPalette({ 'color': this.bg, 'bgImage': bgImage });
+    let palette = { 'color': this.bg, 'bgImage': bgImage };
+    localStorage.setItem('palette', JSON.stringify(palette));
+    this.appService.setPalette(palette);
   }
 
   log = (e: any) => console.log(e);
