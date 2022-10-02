@@ -1,15 +1,15 @@
-<div class="d-flex align-items-center mY8">
+<div class="d-flex align-items-center mT9">
     <div class="d-flex align-items-center justify-content-center radio" [ngClass]="darkMode ? 'radioDark' : radioColor" (click)="blurCanvas()">
         <div *ngIf="!isBlur" class="radio-button" [ngClass]="darkMode ? 'radioButtonDark' : radioButtonColor"></div>
     </div>
 
-    <span class="radio-text" [ngClass]="darkMode ? 'textDark' : ''" (click)="blurCanvas()"> Opacizza </span>
+    <span class="radio-text" [ngClass]="darkMode ? 'textDark' : ''" (click)="blurCanvas()"> Nessuna </span>
 </div>
 
-<div class="d-flex align-items-center mY8">
-    <div class="d-flex align-items-center justify-content-center radio" [ngClass]="darkMode ? 'radioDark' : radioColor" (click)="blurCanvas()">
+<div class="d-flex align-items-center mT12">
+    <div class="d-flex align-items-center justify-content-center radio" [ngClass]="darkMode ? 'radioDark' : radioColor" (click)="blurCanvas('on')">
         <div *ngIf="isBlur" class="radio-button" [ngClass]="darkMode ? 'radioButtonDark' : radioButtonColor"></div>
     </div>
 
-    <span class="radio-text" [ngClass]="darkMode ? 'textDark' : ''" (click)="blurCanvas()"> Sfoca </span>
+    <span class="radio-text" [ngClass]="darkMode ? 'textDark' : ''" (click)="blurCanvas('on')"> Sfoca </span>
 </div>

@@ -49,9 +49,9 @@ export class RadioComponent implements OnInit
     });
   }
 
-  blurCanvas()
+  blurCanvas(input: string = 'off')
   {
-    this.isBlur = !this.isBlur;
+    this.isBlur = input == 'on';
     let blur = this.isBlur ? 'on' : 'off';
     localStorage.setItem('blur', blur);
     this.appService.setBlur(blur);
