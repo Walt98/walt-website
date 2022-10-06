@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AppService } from 'src/app/app.service';
 
 @Component({
@@ -11,8 +11,6 @@ export class NavbarItemComponent implements OnInit
   @Input() routeLink?: string;
   @Input() icon?: string;
   @Input() title: string = '';
-
-  @Output() rLink: EventEmitter<any> = new EventEmitter();
 
   public showTitle: boolean = false;
   public darkMode?: boolean;
