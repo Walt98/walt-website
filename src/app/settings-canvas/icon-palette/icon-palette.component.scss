@@ -11,9 +11,16 @@
 
 .icon-shadow
 {
-    box-shadow: 0 0 10px -10px rgb(0 0 0 / 20%),
-    0 0 10px -5px rgb(0 0 0 / 14%),
-    0 0 10px 5px rgb(0 0 0 / 12%);
+    box-shadow: 0 0 5px 0px rgb(0 0 0 / 20%),
+    0 0 5px 0px rgb(0 0 0 / 14%),
+    0 0 0px 0px rgb(0 0 0 / 12%);
+    &:hover
+    {
+        // transform: scale(1) !important;
+        box-shadow: 0 0 10px 0px rgb(0 0 0 / 20%),
+        0 0 5px 0px rgb(0 0 0 / 14%),
+        0 0 0px 0px rgb(0 0 0 / 12%);
+    }
 }
 
 .center
