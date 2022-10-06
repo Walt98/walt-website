@@ -14,6 +14,7 @@ import { IconPaletteComponent } from './settings-canvas/icon-palette/icon-palett
 import { ContactMeComponent } from './contact-me/contact-me.component';
 import { FontTextComponent } from './settings-canvas/font-text/font-text.component';
 import { RadioComponent } from './settings-canvas/radio/radio.component';
+import { RadialMenuComponent } from './settings-canvas/radial-menu/radial-menu.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RadioComponent } from './settings-canvas/radio/radio.component';
     IconPaletteComponent,
     ContactMeComponent,
     FontTextComponent,
-    RadioComponent
+    RadioComponent,
+    RadialMenuComponent
   ],
   imports: [
     BrowserModule,

@@ -5,50 +5,55 @@
     </div>
     
     <!-- OFFCANVAS BODY -->
-    <div *ngIf="clicked" class="settings-canvas p10" [ngClass]="canvasColor">
-        <div class="container-fluid">
-            <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'textDark' : ''">
-                Tema layout
+    <div *ngIf="clicked" class="d-flex flex-wrap align-content-between justify-content-center settings-canvas p10" [ngClass]="canvasColor">
+        <div class="w-100 hMax">
+            <div class="container-fluid">
+                <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'textDark' : ''">
+                    Tema layout
+                </div>
+                <div *ngIf="!toggleClicked" class="col-12 d-flex align-items-center justify-content-between pY-13 h-62">
+                    <app-icon-palette bg="#2c82a7" [ngClass]="activeIcon('#2c82a7')"></app-icon-palette>
+                    <app-icon-palette bg="#b44b4b" [ngClass]="activeIcon('#b44b4b')"></app-icon-palette>
+                    <app-icon-palette bg="#67b34d" [ngClass]="activeIcon('#67b34d')"></app-icon-palette>
+                    <app-icon-palette bg="#b39c4a" [ngClass]="activeIcon('#b39c4a')"></app-icon-palette>
+                    <app-icon-palette bg="#aa85bd" [ngClass]="activeIcon('#aa85bd')"></app-icon-palette>
+                </div>
+                <div class="textDark pY-7-12_6" *ngIf="toggleClicked">
+                    <i> Temi non disponibili in "Modalità notturna". </i>
+                </div>
             </div>
-            <div *ngIf="!toggleClicked" class="col-12 d-flex align-items-center justify-content-between pY-13 h-62">
-                <app-icon-palette bg="#2c82a7" [ngClass]="activeIcon('#2c82a7')"></app-icon-palette>
-                <app-icon-palette bg="#b44b4b" [ngClass]="activeIcon('#b44b4b')"></app-icon-palette>
-                <app-icon-palette bg="#67b34d" [ngClass]="activeIcon('#67b34d')"></app-icon-palette>
-                <app-icon-palette bg="#b39c4a" [ngClass]="activeIcon('#b39c4a')"></app-icon-palette>
-                <app-icon-palette bg="#aa85bd" [ngClass]="activeIcon('#aa85bd')"></app-icon-palette>
+    
+            <!-- DARK MODE -->
+            <div class="container-fluid p10">
+                <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'textDark' : ''">
+                    Modalità notturna
+                </div>
+                <div class="switch-toggle" [ngClass]="toggleClicked ? 'toggleClicked' : ''" (click)="setDarkMode()">
+                    <div class="switch-button" [ngClass]="toggleClicked ? 'translateX23' : ''"></div>
+                </div>
             </div>
-            <div class="textDark pY-7-12_6" *ngIf="toggleClicked">
-                <i> Temi non disponibili in "Modalità notturna". </i>
+    
+            <!-- FONT -->
+            <div class="container-fluid p10">
+                <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'textDark' : ''">
+                    Font
+                </div>
+                <div class="d-flex flex-column">
+                    <app-font-text font="Montserrat" [ngClass]="activeFont('Montserrat')"></app-font-text>
+                    <app-font-text font="Roboto" [ngClass]="activeFont('Roboto')"></app-font-text>
+                </div>
+            </div>
+    
+            <!-- BLURRED OFFCANVAS -->
+            <div class="container-fluid p10">
+                <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'textDark' : ''">
+                    Sfocatura finestra
+                </div>
+                <app-radio></app-radio>
             </div>
         </div>
 
-        <!-- DARK MODE -->
-        <div class="container-fluid p10">
-            <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'textDark' : ''">
-                Modalità notturna
-            </div>
-            <div class="switch-toggle" [ngClass]="toggleClicked ? 'toggleClicked' : ''" (click)="setDarkMode()">
-                <div class="switch-button" [ngClass]="toggleClicked ? 'translateX23' : ''"></div>
-            </div>
-        </div>
-
-        <!-- FONT -->
-        <div class="container-fluid p10">
-            <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'textDark' : ''">
-                Font
-            </div>
-            <div class="d-flex flex-column">
-                <app-font-text font="Montserrat" [ngClass]="activeFont('Montserrat')"></app-font-text>
-                <app-font-text font="Roboto" [ngClass]="activeFont('Roboto')"></app-font-text>
-            </div>
-        </div>
-
-        <!-- BLURRED OFFCANVAS -->
-        <div class="container-fluid p10">
-            <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'textDark' : ''">
-                Sfocatura finestra
-            </div>
-            <app-radio></app-radio>
-        </div>
+        <!-- LENGUAGE RADIAL MENU -->
+        <app-radial-menu class="hMax"></app-radial-menu>
     </div>
 </div>
