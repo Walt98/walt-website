@@ -1,14 +1,14 @@
 <div class="d-flex flex-column align-items-center">
-    <div class="d-flex justify-content-between flags">
-        <div class="d-flex justify-content-center align-items-center radial-button" [ngClass]="darkMode ? 'radial-dark' : radialColor">
+    <div *ngIf="radialClicked" class="d-flex justify-content-between flags">
+        <div class="d-flex justify-content-center align-items-center radial-button" [ngClass]="darkMode ? 'radial-dark' : radialColor" (click)="setLanguage('it')">
             <span class="flag-icon flag-icon-it"></span>
         </div>
-        <div class="d-flex justify-content-center align-items-center radial-button" [ngClass]="darkMode ? 'radial-dark' : radialColor">
+        <div class="d-flex justify-content-center align-items-center radial-button" [ngClass]="darkMode ? 'radial-dark' : radialColor" (click)="setLanguage('gb')">
             <span class="flag-icon flag-icon-gb"></span>
         </div>
     </div>
 
-    <div class="d-flex justify-content-center align-items-center radial-button" [ngClass]="darkMode ? 'radial-dark' : radialColor">
-        <span class="flag-icon flag-icon-{{ countryCode | lowercase }}"></span>
+    <div class="d-flex justify-content-center align-items-center radial-button" [ngClass]="darkMode ? 'radial-dark' : radialColor" (click)="radialClicked = !radialClicked">
+        <span class="flag-icon flag-icon-{{ countryCode }}"></span>
     </div>
 </div>

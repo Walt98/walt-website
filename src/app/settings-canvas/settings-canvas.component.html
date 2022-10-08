@@ -8,8 +8,8 @@
     <div *ngIf="clicked" class="d-flex flex-wrap align-content-between justify-content-center settings-canvas p10" [ngClass]="canvasColor">
         <div class="w-100 hMax">
             <div class="container-fluid">
-                <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'textDark' : ''">
-                    Tema layout
+                <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'textDark' : ''" translate>
+                    app.layoutTheme
                 </div>
                 <div *ngIf="!toggleClicked" class="col-12 d-flex align-items-center justify-content-between pY-13 h-62">
                     <app-icon-palette bg="#2c82a7" [ngClass]="activeIcon('#2c82a7')"></app-icon-palette>
@@ -19,14 +19,14 @@
                     <app-icon-palette bg="#aa85bd" [ngClass]="activeIcon('#aa85bd')"></app-icon-palette>
                 </div>
                 <div class="textDark pY-7-12_6" *ngIf="toggleClicked">
-                    <i> Temi non disponibili in "Modalità notturna". </i>
+                    <span translate> app.layoutThemeNotAvailable </span>
                 </div>
             </div>
     
             <!-- DARK MODE -->
             <div class="container-fluid p10">
-                <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'textDark' : ''">
-                    Modalità notturna
+                <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'textDark' : ''" translate>
+                    app.darkMode
                 </div>
                 <div class="switch-toggle" [ngClass]="toggleClicked ? 'toggleClicked' : ''" (click)="setDarkMode()">
                     <div class="switch-button" [ngClass]="toggleClicked ? 'translateX23' : ''"></div>
@@ -46,8 +46,8 @@
     
             <!-- BLURRED OFFCANVAS -->
             <div class="container-fluid p10">
-                <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'textDark' : ''">
-                    Sfocatura finestra
+                <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'textDark' : ''" translate>
+                    app.canvasBlur
                 </div>
                 <app-radio></app-radio>
             </div>

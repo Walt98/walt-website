@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -17,7 +18,7 @@ export class AppService
   public font$ = new BehaviorSubject(localStorage.getItem('font') ?? 'Montserrat');
   public blur$ = new BehaviorSubject(localStorage.getItem('blur') ?? 'off');
 
-  constructor() { }
+  constructor(private translate: TranslateService) { }
 
   setDarkMode = (value: string) => this.darkMode$.next(value);
   setPalette = (value: any) => this.palette$.next(value);

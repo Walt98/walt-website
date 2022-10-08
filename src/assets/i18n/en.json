@@ -1,0 +1,13 @@
+{
+    "app":
+    {
+        "contactMe": "Contact me",
+        "aboutMe": "About me",
+        "layoutTheme": "Layout theme",
+        "layoutThemeNotAvailable": "Themes are not available in \"Dark mode\".",
+        "darkMode": "Dark mode",
+        "canvasBlur": "Off-canvas blur",
+        "blurNone": "None",
+        "blurs": "Blurs"
+    }
+}

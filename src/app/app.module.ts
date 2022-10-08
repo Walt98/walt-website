@@ -15,6 +15,9 @@ import { ContactMeComponent } from './contact-me/contact-me.component';
 import { FontTextComponent } from './settings-canvas/font-text/font-text.component';
 import { RadioComponent } from './settings-canvas/radio/radio.component';
 import { RadialMenuComponent } from './settings-canvas/radial-menu/radial-menu.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @NgModule({
   declarations: [
@@ -34,9 +37,22 @@ import { RadialMenuComponent } from './settings-canvas/radial-menu/radial-menu.c
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// required for AOT compilation
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}

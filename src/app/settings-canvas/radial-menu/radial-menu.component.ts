@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { AppService } from 'src/app/app.service';
 
 @Component({
@@ -14,10 +15,14 @@ export class RadialMenuComponent implements OnInit
   public radialColor?: string;
   public countryCode: string = 'it';
 
-  constructor(private appService: AppService) { }
+  public radialClicked?: boolean;
+
+  constructor(private appService: AppService, private translate: TranslateService) { }
 
   ngOnInit(): void
   {
+    // this.appService.lang$.subscribe((lang: string) => this.countryCode = lang == 'it' ? 'it' : 'gb');
+    this.countryCode = this.translate.currentLang == 'it' ? 'it' : 'gb';
     this.appService.darkMode$.subscribe((darkMode: string) => this.darkMode = darkMode == 'on');
     this.appService.palette$.subscribe((palette: any) =>
     {
@@ -41,5 +46,12 @@ export class RadialMenuComponent implements OnInit
           break;
       }
     });
+  }
+
+  setLanguage(country: string)
+  {
+    this.countryCode = country;
+    this.translate.use(country == 'it' ? 'it' : 'en');
+    localStorage.setItem('lang', country == 'it' ? 'it' : 'en');
   }
 }

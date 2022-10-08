@@ -38,7 +38,7 @@ export class NavbarComponent implements OnInit
     {
       if (e.type == 1)
       {
-        if (e.url.includes('home'))
+        if (e.url.includes('home') || e.url == '/')
         {
           this.currentRoute = 'home';
           this.homeClass = this.active();
@@ -65,7 +65,7 @@ export class NavbarComponent implements OnInit
 
   onChangesActive()
   {
-    if (this.currentRoute == 'home')
+    if (this.currentRoute == 'home' || this.currentRoute == '/')
     {
       this.homeClass = this.active();
       this.aboutMeClass = '';
