@@ -1,0 +1,24 @@
+<div class="d-flex flex-column align-items-end">
+    <div *ngIf="langClicked && showSelect" class="d-flex flex-column dropdownLangs">
+        <div class="d-flex align-items-center justify-content-center" (click)="setLanguage('it')">
+            <i class="flag-icon flag-icon-it"></i>
+            <span> ITA </span>
+        </div>
+        <div class="d-flex align-items-center justify-content-center" (click)="setLanguage('gb')">
+            <i class="flag-icon flag-icon-gb"></i>
+            <span> ENG </span>
+        </div>
+    </div>
+    
+    <div class="d-flex justify-content-center align-items-center" [ngClass]="langClicked ? 'langClicked' : ''">
+        <span class="d-flex justify-content-center align-items-center lang-button {{ countryCode == 'it' ? 'translate1' : 'translate2' }}" [ngClass]="langClicked ? 'noTranslateX' : ''" role="button" tabindex="0" (click)="showLang()">
+            <i class="bi bi-globe2 fs-4"></i>
+        </span>
+    
+        <span class="lang" [ngClass]="langClicked ? 'showLang' : ''" (click)="showSelect = !showSelect">
+            <i class="flag-icon flag-icon-{{ countryCode }}"></i>
+            <span> {{ countryCode == 'it' ? 'ITA' : 'ENG' }} </span>
+            <i class="bi bi-arrow-up-short" [ngClass]="showSelect ? 'revertArrow' : ''"></i>
+        </span>
+    </div>
+</div>

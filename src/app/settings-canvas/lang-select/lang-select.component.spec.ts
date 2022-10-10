@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RadialMenuComponent } from './radial-menu.component';
+import { LangSelectComponent } from './lang-select.component';
 
-describe('RadialMenuComponent', () => {
-  let component: RadialMenuComponent;
-  let fixture: ComponentFixture<RadialMenuComponent>;
+describe('LangSelectComponent', () => {
+  let component: LangSelectComponent;
+  let fixture: ComponentFixture<LangSelectComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RadialMenuComponent ]
+      declarations: [ LangSelectComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RadialMenuComponent);
+    fixture = TestBed.createComponent(LangSelectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

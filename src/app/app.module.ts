@@ -14,7 +14,7 @@ import { IconPaletteComponent } from './settings-canvas/icon-palette/icon-palett
 import { ContactMeComponent } from './contact-me/contact-me.component';
 import { FontTextComponent } from './settings-canvas/font-text/font-text.component';
 import { RadioComponent } from './settings-canvas/radio/radio.component';
-import { RadialMenuComponent } from './settings-canvas/radial-menu/radial-menu.component';
+import { LangSelectComponent } from './settings-canvas/lang-select/lang-select.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -32,7 +32,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     ContactMeComponent,
     FontTextComponent,
     RadioComponent,
-    RadialMenuComponent
+    LangSelectComponent
   ],
   imports: [
     BrowserModule,
