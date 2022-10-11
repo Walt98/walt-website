@@ -1,6 +1,8 @@
+@import '../../scssVariables.scss';
+
 .navbar-item-font-color
 {
-    color: white;
+    color: $white;
     font-size: x-large;
 }
 
@@ -16,12 +18,12 @@
 
 .navbar-item-title
 {
-    z-index: 999;
+    z-index: 1000;
     position: absolute;
     padding: 7.5px 15px;
     border-radius: 7px;
     margin-left: 70px;
-    color: #fefefe;
+    color: $white
 }
 
 .title-color-dark { background-color: #3d5568; }

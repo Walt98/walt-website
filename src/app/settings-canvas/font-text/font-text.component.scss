@@ -1,4 +1,6 @@
-.textDark { color: #d5dfec; }
+@import '../../scssVariables.scss';
+
+.textDark { color: $dmWhite; }
 
 span
 {
@@ -8,6 +10,6 @@ span
 
 .size-x-large { font-size: x-large; }
 
-.icon-white { color: #fefefe; }
+.icon-white { color: $white; }
 
 .opacity0 { opacity: 0; }

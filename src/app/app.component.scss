@@ -1,3 +1,5 @@
+@import './scssVariables.scss';
+
 .Montserrat { font-family: 'Montserrat', sans-serif; }
 .Roboto { font-family: 'Roboto', sans-serif; }
 
@@ -10,14 +12,14 @@
 
 .marginT-18 { margin-top: 18px; }
 
-.wMaxContent { width: max-content; }
-.hMaxContent { height: max-content; }
+.wMaxContent { width: $maxContent; }
+.hMaxContent { height: $maxContent; }
 
 .borderTL { border-top-left-radius: 30px; }
 
 .bg-router-outlet
 {
-    background-color: #F5F7FA;
+    background-color: $bgWhite;
     box-shadow: -5px -5px 20px 0px
     rgb(0 0 0 / 20%), 0 4px 5px 0
     rgb(0 0 0 / 14%), 0 1px 10px 0

@@ -1,11 +1,13 @@
+@import '../scssVariables.scss';
+
 .p10 { padding: 10px; } 
-.hMax { height: max-content; }
+.hMax { height: $maxContent; }
 
 .settings-canvas
 {
     height: 100vh;
     width: 270px;
-    background-color: #F5F7FA;
+    background-color: $bgWhite;
     border-left: 0 none;
     box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%),
     0 4px 5px 0 rgb(0 0 0 / 14%),
@@ -25,9 +27,6 @@
 .offcanvasAbsolute
 {
     position: absolute;
-    display: flex;
-    justify-content: end;
-    align-items: center;
     right: 0;
     top: 46.3%;
 }
@@ -36,7 +35,7 @@
 
 .settings-div-button
 {
-    color: #fefefe;
+    color: $white;
     width: 50px;
     height: 50px;
     border-top-left-radius: 5px;
@@ -50,13 +49,7 @@
     }
 }
 
-.settings-button-size
-{
-    font-size: 33px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+.fontSize33 { font-size: 33px; }
 
 .color-default
 {
@@ -88,9 +81,9 @@
     &:hover { background-image: linear-gradient(147.38deg, rgb(197, 156, 214) 0%, rgb(67, 149, 165) 100%); }
 }
 
-.textDark { color: #d5dfec; }
+.textDark { color: $dmWhite; }
 
-.h-62 { height: 67.5px; } 
+.h-67_5 { height: 67.5px; } 
 
 .layout-style-title
 {
@@ -109,8 +102,6 @@
     height: 29px;
     margin-block: 13px;
     border-radius: 20px;
-    display: flex;
-    align-items: center;
     background-color: #d3dbe3;
     cursor: pointer;
     transition: .4s;
@@ -132,7 +123,7 @@
     height: 22px;
     margin: 0 4px;
     border-radius: 50%;
-    background-color: white;
+    background-color: $white;
     transition: .4s;
 }
 

@@ -1,3 +1,5 @@
+@import '../../scssVariables.scss';
+
 .color-icon
 {
     width: 35px;
@@ -22,17 +24,10 @@
     }
 }
 
-.center
-{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .check-icon
 {
     font-size: xx-large;
-    color: #fefefe;
+    color: $white;
     transition: .1s;
 }
 

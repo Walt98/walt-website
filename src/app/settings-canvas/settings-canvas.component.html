@@ -1,7 +1,7 @@
-<div class="offcanvasAbsolute" [ngClass]="clicked ? 'top0' : ''">
+<div class="d-flex align-items-center offcanvasAbsolute" [ngClass]="clicked ? 'top0' : ''">
     <!-- OFFCANVAS BUTTON -->
     <div class="settings-div-button d-flex align-items-center justify-content-center" [ngClass]="toggleClicked ? 'color-default' : colorClass" (click)="clicked = !clicked">
-        <i class="bi bi-gear settings-button-size"></i>
+        <i class="bi bi-gear d-flex justify-content-center align-items-center fontSize33"></i>
     </div>
     
     <!-- OFFCANVAS BODY -->
@@ -11,7 +11,7 @@
                 <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'textDark' : ''" translate>
                     layoutTheme
                 </div>
-                <div *ngIf="!toggleClicked" class="col-12 d-flex align-items-center justify-content-between pY-13 h-62">
+                <div *ngIf="!toggleClicked" class="col-12 d-flex align-items-center justify-content-between pY-13 h-67_5">
                     <app-icon-palette bg="#2c82a7" [ngClass]="activeIcon('#2c82a7')"></app-icon-palette>
                     <app-icon-palette bg="#b44b4b" [ngClass]="activeIcon('#b44b4b')"></app-icon-palette>
                     <app-icon-palette bg="#67b34d" [ngClass]="activeIcon('#67b34d')"></app-icon-palette>
@@ -28,7 +28,7 @@
                 <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'textDark' : ''" translate>
                     darkMode
                 </div>
-                <div class="switch-toggle" [ngClass]="toggleClicked ? 'toggleClicked' : ''" (click)="setDarkMode()">
+                <div class="d-flex align-items-center switch-toggle" [ngClass]="toggleClicked ? 'toggleClicked' : ''" (click)="setDarkMode()">
                     <div class="switch-button" [ngClass]="toggleClicked ? 'translateX23' : ''"></div>
                 </div>
             </div>
