@@ -11,11 +11,11 @@
     </div>
     
     <div class="d-flex justify-content-center align-items-center" [ngClass]="langClicked ? 'langClicked' : ''">
-        <span class="d-flex justify-content-center align-items-center lang-button {{ countryCode == 'it' ? 'translate1' : 'translate2' }}" [ngClass]="langClicked ? 'noTranslateX' : ''" role="button" tabindex="0" (click)="showLang()">
+        <span class="d-flex justify-content-center align-items-center lang-button br50 zIndex1000 transition {{ countryCode == 'it' ? 'translate1' : 'translate2' }}" [ngClass]="langClicked ? 'noTranslateX' : ''" role="button" tabindex="0" (click)="showLang()">
             <i class="bi bi-globe2 fs-4"></i>
         </span>
     
-        <span class="lang" [ngClass]="langClicked ? 'showLang' : ''" (click)="showSelect = !showSelect">
+        <span class="lang transition opacity0" [ngClass]="langClicked ? 'opacity1 pointer' : ''" (click)="showSelect = !showSelect">
             <i class="flag-icon flag-icon-{{ countryCode }}"></i>
             <span> {{ countryCode == 'it' ? 'ITA' : 'ENG' }} </span>
             <i class="bi bi-arrow-up-short" [ngClass]="showSelect ? 'revertArrow' : ''"></i>

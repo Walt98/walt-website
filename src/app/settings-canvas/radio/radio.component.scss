@@ -1,4 +1,5 @@
-@import '../../scssVariables.scss';
+@import '../../variables.scss';
+@import '../../classes.scss';
 
 .mT9 { margin-top: 9px; }
 .mT12 { margin-top: 12px; }
@@ -7,20 +8,20 @@
 {
     width: 22px;
     height: 22px;
-    background-color: transparent;
-    border-radius: 50%;
+    background-color: $transparent;
+    // border-radius: 50%;
 }
 
 .radio-button
 {
     width: 12px;
     height: 12px;
-    border-radius: 50%;
+    // border-radius: 50%;
 }
 
 .radio-text { padding-left: 10px; }
 
-.radio, .radio-text { cursor: pointer; }
+// .radio, .radio-text { cursor: pointer; }
 .radio { border: $radioBorder; }
 
 .textDark { color: $dmWhite; }

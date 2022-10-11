@@ -1,33 +1,20 @@
-@import '../../scssVariables.scss';
+@import '../../variables.scss';
+@import '../../classes.scss';
 
 .lang-button
 {
     width: 45px;
     height: 45px;
-    border-radius: 50%;
-    z-index: 1000;
-    transition: .2s;
 }
-.translate1 { transform: translateX(35px); }
-.translate2 { transform: translateX(40px); }
-
-.noTranslateX { transform: translateX(0); }
+.translate1 { @include translateX(35px); }
+.translate2 { @include translateX(40px); }
+.noTranslateX { @include translateX(0); }
 
 .lang
 {
-    opacity: 0;
-    transition: .2s;
     padding: 5px 0;
-    cursor: default;
+    & .bi-arrow-up-short::before { @extend .transition; }
 }
-
-.showLang
-{
-    opacity: 1;
-    cursor: pointer;
-}
-
-.lang > .bi-arrow-up-short::before { transition: .2s; }
 .revertArrow::before { transform: rotate(-180deg); }
 
 // .langClicked

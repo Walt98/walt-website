@@ -1,4 +1,5 @@
-@import '../scssVariables.scss';
+@import '../variables.scss';
+@import '../classes.scss';
 
 .h-104 { height: 104px; }
 .w-25px { width: 25px; }
@@ -7,7 +8,7 @@
 {
     width: 160px;
     height: auto;
-    cursor: pointer;
+    @extend .pointer;
 }
 
 .contacts

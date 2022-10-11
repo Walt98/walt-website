@@ -1,4 +1,5 @@
-@import '../scssVariables.scss';
+@import '../variables.scss';
+@import '../classes.scss';
 
 .walt-bg-navbar
 {
@@ -13,12 +14,12 @@ app-navbar-item
 }
 ::ng-deep app-navbar-item.active div > i
 {
-    background-color: $white;
-    &:hover { background-color: $white !important; }
+    @include bgColor($white);
+    &:hover { @include bgColor($white !important); }
 }
-::ng-deep .item-color-dark div > i { color: #004766 !important; }
-::ng-deep .item-color-default div > i { color: $default !important; }
-::ng-deep .item-color-red div > i { color: $red !important; }
-::ng-deep .item-color-green div > i { color: $green !important; }
-::ng-deep .item-color-yellow div > i { color: $yellow !important; }
-::ng-deep .item-color-purple div > i { color: $purple !important; }
+::ng-deep .item-color-dark div > i { @include color(#004766 !important); }
+::ng-deep .item-color-default div > i { @include color($default !important); }
+::ng-deep .item-color-red div > i { @include color($red !important); }
+::ng-deep .item-color-green div > i { @include color($green !important); }
+::ng-deep .item-color-yellow div > i { @include color($yellow !important); }
+::ng-deep .item-color-purple div > i { @include color($purple !important); }

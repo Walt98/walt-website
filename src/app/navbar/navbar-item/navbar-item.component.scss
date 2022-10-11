@@ -1,34 +1,28 @@
-@import '../../scssVariables.scss';
+@import '../../variables.scss';
+@import '../../classes.scss';
 
-.navbar-item-font-color
-{
-    color: $white;
-    font-size: x-large;
-}
+.colorWhite { color: $white; }
 
 .navbar-item-padding
 {
     padding: 15px 19px;
     border-radius: 15px;
     transition: .25s;
-    cursor: pointer;
+    @extend .pointer;
     
-    &:hover { background-color: #ffffff2e; }
+    &:hover { @include bgColor(#ffffff2e); }
 }
 
 .navbar-item-title
 {
-    z-index: 1000;
-    position: absolute;
     padding: 7.5px 15px;
     border-radius: 7px;
     margin-left: 70px;
-    color: $white
 }
 
-.title-color-dark { background-color: #3d5568; }
-.title-color-default { background-color: #19496C !important; }
-.title-color-red { background-color: #802424 !important; }
-.title-color-green { background-color: #3a7826 !important; }
-.title-color-yellow { background-color: #7a5825 !important; }
-.title-color-purple { background-color: #644075 !important; }
+.title-color-dark { @include bgColor(#3d5568); }
+.title-color-default { @include bgColor(#19496C); }
+.title-color-red { @include bgColor(#802424); }
+.title-color-green { @include bgColor(#3a7826); }
+.title-color-yellow { @include bgColor(#7a5825); }
+.title-color-purple { @include bgColor(#644075); }

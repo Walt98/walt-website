@@ -1,15 +1,6 @@
-@import '../../scssVariables.scss';
+@import '../../variables.scss';
+@import '../../classes.scss';
 
 .textDark { color: $dmWhite; }
-
-span
-{
-    cursor: pointer;
-    padding: 5px 5px 5px 0;
-}
-
-.size-x-large { font-size: x-large; }
-
 .icon-white { color: $white; }
-
-.opacity0 { opacity: 0; }
+span { padding: 5px 5px 5px 0; }

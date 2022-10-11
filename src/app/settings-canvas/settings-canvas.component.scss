@@ -1,4 +1,5 @@
-@import '../scssVariables.scss';
+@import '../variables.scss';
+@import '../classes.scss';
 
 .p10 { padding: 10px; } 
 .hMax { height: $maxContent; }
@@ -7,26 +8,25 @@
 {
     height: 100vh;
     width: 270px;
-    background-color: $bgWhite;
+    @include bgColor($bgWhite);
     border-left: 0 none;
     box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%),
     0 4px 5px 0 rgb(0 0 0 / 14%),
     0 1px 10px 0 rgb(0 0 0 / 12%);
 }
 
-.canvasDarkMode { background-color: #162a41; }
+.canvasDarkMode { @include bgColor(#162a41); }
 
 .blur, .darkBlur
 {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
-.blur { background-color: rgba(245, 247, 250, .3); }
-.darkBlur { background-color: rgba(22, 42, 65, .5); }
+.blur { @include bgColor(#f5f7fa4d); }
+.darkBlur { @include bgColor(#162a4180); }
 
-.offcanvasAbsolute
+.myOffcanvas
 {
-    position: absolute;
     right: 0;
     top: 46.3%;
 }
@@ -40,7 +40,6 @@
     height: 50px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-    cursor: pointer;
 
     &:hover > i
     {
@@ -94,6 +93,7 @@
 .pY-13 { padding: 13px 0; }
 .pY-7-12_6 { padding: 7px 0 12.6px; }
 
+::ng-deep .activeFont > div > i,
 ::ng-deep .activeIcon > div > i { opacity: 1 !important; }
 
 .switch-toggle
@@ -102,17 +102,16 @@
     height: 29px;
     margin-block: 13px;
     border-radius: 20px;
-    background-color: #d3dbe3;
-    cursor: pointer;
+    @include bgColor(#d3dbe3);
     transition: .4s;
 
-    &:hover { background-color: #b8c5d2; }
+    &:hover { @include bgColor(#b8c5d2); }
 }
 
 .toggleClicked
 {
-    background-color: #00df84;
-    &:hover { background-color: #00bd6e; }
+    @include bgColor(#00df84);
+    &:hover { @include bgColor(#00bd6e); }
 }
 
 .translateX23 { transform: translateX(27px); }
@@ -122,11 +121,8 @@
     width: 22px;
     height: 22px;
     margin: 0 4px;
-    border-radius: 50%;
-    background-color: $white;
+    @include bgColor($white);
     transition: .4s;
 }
 
 .pT-5 { padding-top: 5px; }
-
-::ng-deep .activeFont > div > i { opacity: 1 !important; }

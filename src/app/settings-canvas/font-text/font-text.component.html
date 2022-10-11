@@ -1,7 +1,7 @@
 <div class="d-flex align-items-center">
-    <span (click)="setFont(font ?? '')" [ngClass]="darkMode ? 'textDark' : ''" [style]="'font-family: ' + font + ', sans-serif'">
+    <span class="pointer" (click)="setFont(font ?? '')" [ngClass]="darkMode ? 'textDark' : ''" [style]="'font-family: ' + font + ', sans-serif'">
         {{ font }}
     </span>
     
-    <i class="bi bi-check center size-x-large opacity0" [ngClass]="darkMode ? 'icon-white' : ''"></i>
+    <i class="bi bi-check center font-xLarge opacity0" [ngClass]="darkMode ? 'icon-white' : ''"></i>
 </div>
