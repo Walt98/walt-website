@@ -4,26 +4,29 @@
 .p10 { padding: 10px; } 
 .hMax { height: $maxContent; }
 
+$gradientDeg: 147.38deg;
+
 .settings-canvas
 {
     height: 100vh;
     width: 270px;
-    @include bgColor($bgWhite);
+    background-color: $bgWhite;
     border-left: 0 none;
-    box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%),
-    0 4px 5px 0 rgb(0 0 0 / 14%),
-    0 1px 10px 0 rgb(0 0 0 / 12%);
+    box-shadow: 0 2px 4px -1px #00000033,
+    0 4px 5px 0 #00000024,
+    0 1px 10px 0 #0000001f;
 }
 
-.canvasDarkMode { @include bgColor(#162a41); }
+.canvasDarkMode { background-color: #162a41; }
 
 .blur, .darkBlur
 {
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    $blur: 10px;
+    -webkit-backdrop-filter: blur($blur);
+    backdrop-filter: blur($blur);
 }
-.blur { @include bgColor(#f5f7fa4d); }
-.darkBlur { @include bgColor(#162a4180); }
+.blur { background-color: #f5f7fa4d; }
+.darkBlur { background-color: #162a4180; }
 
 .myOffcanvas
 {
@@ -35,16 +38,19 @@
 
 .settings-div-button
 {
+    $size: 50px;
+    $blRadius: 5px;
     color: $white;
-    width: 50px;
-    height: 50px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    width: $size;
+    height: $size;
+    border-top-left-radius: $blRadius;
+    border-bottom-left-radius: $blRadius;
 
     &:hover > i
     {
         transition: transform .9s cubic-bezier(0.42, 0.17, 0.53, 0.77);
-        transform: rotate(180deg);
+        @include rotate(180deg);
+
     }
 }
 
@@ -52,32 +58,32 @@
 
 .color-default
 {
-    background-image: linear-gradient(147.38deg, #4C96B6 0%, #19496C 100%);
-    &:hover { background-image: linear-gradient(147.38deg, #6cb3d1 0%, #2f678e 100%); }
+    @include gradient($gradientDeg, #4C96B6 0%, #19496C 100%);
+    &:hover { @include gradient($gradientDeg, #6cb3d1 0%, #2f678e 100%); }
 }
 
 .color-red
 {
-    background-image: linear-gradient(147.38deg, rgb(182 76 76) 0%, rgb(108 25 25) 100%);
-    &:hover { background-image: linear-gradient(147.38deg, rgb(199, 101, 101) 0%, rgb(143, 53, 53) 100%); }
+    @include gradient($gradientDeg, #b64c4c 0%, #6c1919 100%);
+    &:hover { @include gradient($gradientDeg, #c76565 0%, #8f3535 100%); }
 }
 
 .color-green
 {
-    background-image: linear-gradient(147.38deg, rgb(106 182 76) 0%, rgb(25 108 89) 100%);
-    &:hover { background-image: linear-gradient(147.38deg, rgb(134, 200, 108) 0%, rgb(61, 143, 124) 100%); }
+    @include gradient($gradientDeg, #6ab64c 0%, #196c59 100%);
+    &:hover { @include gradient($gradientDeg, #86c86c 0%, #3d8f7c 100%); }
 }
 
 .color-yellow
 {
-    background-image: linear-gradient(147.38deg, rgb(182 161 76) 0%, rgb(108 42 25) 100%);
-    &:hover { background-image: linear-gradient(147.38deg, rgb(198, 178, 94) 0%, rgb(147, 78, 60) 100%); }
+    @include gradient($gradientDeg, #b6a14c 0%, #6c2a19 100%);
+    &:hover { @include gradient($gradientDeg, #c6b25e 0%, #934e3c 100%); }
 }
 
 .color-purple
 {
-    background-image: linear-gradient(147.38deg, rgb(176 134 192) 0%, rgb(34 107 121) 100%);
-    &:hover { background-image: linear-gradient(147.38deg, rgb(197, 156, 214) 0%, rgb(67, 149, 165) 100%); }
+    @include gradient($gradientDeg, #b086c0 0%, #574b8e 100%);
+    &:hover { @include gradient($gradientDeg, #c59cd6 0%, #5c4fa6 100%); }
 }
 
 .textDark { color: $dmWhite; }
@@ -102,26 +108,27 @@
     height: 29px;
     margin-block: 13px;
     border-radius: 20px;
-    @include bgColor(#d3dbe3);
+    background-color: #d3dbe3;
     transition: .4s;
 
-    &:hover { @include bgColor(#b8c5d2); }
+    &:hover { background-color: #b8c5d2; }
 }
 
 .toggleClicked
 {
-    @include bgColor(#00df84);
-    &:hover { @include bgColor(#00bd6e); }
+    background-color: #00df84;
+    &:hover { background-color: #00bd6e; }
 }
 
-.translateX23 { transform: translateX(27px); }
+.translateX27 { @include translateX(27px); }
 
 .switch-button
 {
-    width: 22px;
-    height: 22px;
+    $size: 22px;
+    width: $size;
+    height: $size;
     margin: 0 4px;
-    @include bgColor($white);
+    background-color: $white;
     transition: .4s;
 }
 

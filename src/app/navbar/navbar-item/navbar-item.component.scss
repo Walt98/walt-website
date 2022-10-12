@@ -8,9 +8,8 @@
     padding: 15px 19px;
     border-radius: 15px;
     transition: .25s;
-    @extend .pointer;
     
-    &:hover { @include bgColor(#ffffff2e); }
+    &:hover { background-color: #ffffff2e; }
 }
 
 .navbar-item-title
@@ -20,9 +19,9 @@
     margin-left: 70px;
 }
 
-.title-color-dark { @include bgColor(#3d5568); }
-.title-color-default { @include bgColor(#19496C); }
-.title-color-red { @include bgColor(#802424); }
-.title-color-green { @include bgColor(#3a7826); }
-.title-color-yellow { @include bgColor(#7a5825); }
-.title-color-purple { @include bgColor(#644075); }
+.title-color-dark { background-color: #3d5568; }
+.title-color-default { background-color: #19496C; }
+.title-color-red { background-color: #802424; }
+.title-color-green { background-color: #3a7826; }
+.title-color-yellow { background-color: #7a5825; }
+.title-color-purple { background-color: #644075; }

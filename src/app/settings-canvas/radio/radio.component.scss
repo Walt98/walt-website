@@ -6,22 +6,21 @@
 
 .radio
 {
-    width: 22px;
-    height: 22px;
+    $rButton: 22px;
+    width: $rButton;
+    height: $rButton;
     background-color: $transparent;
-    // border-radius: 50%;
 }
 
 .radio-button
 {
-    width: 12px;
-    height: 12px;
-    // border-radius: 50%;
+    $rButtonSize: 12px;
+    width: $rButtonSize;
+    height: $rButtonSize;
 }
 
 .radio-text { padding-left: 10px; }
 
-// .radio, .radio-text { cursor: pointer; }
 .radio { border: $radioBorder; }
 
 .textDark { color: $dmWhite; }

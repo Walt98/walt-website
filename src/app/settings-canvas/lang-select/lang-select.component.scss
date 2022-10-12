@@ -3,8 +3,9 @@
 
 .lang-button
 {
-    width: 45px;
-    height: 45px;
+    $size: 45px;
+    width: $size;
+    height: $size;
 }
 .translate1 { @include translateX(35px); }
 .translate2 { @include translateX(40px); }
@@ -15,7 +16,7 @@
     padding: 5px 0;
     & .bi-arrow-up-short::before { @extend .transition; }
 }
-.revertArrow::before { transform: rotate(-180deg); }
+.revertArrow::before { @include rotate(-180deg); }
 
 // .langClicked
 // {
