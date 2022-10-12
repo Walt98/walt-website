@@ -7,10 +7,15 @@
 .br50 { border-radius: 50%; }
 .transition { transition: .2s; }
 
-// @mixin bgColor($color) { background-color: $color; }
-// @mixin color($color) { color: $color; }
+.center
+{ 
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
 @mixin translateX($px) { transform: translateX($px); }
 @mixin translateX($px) { transform: translateX($px); }
 @mixin rotate($deg) { transform: rotate($deg); }
 @mixin gradient($deg, $c1, $c2) { background-image: linear-gradient($deg, $c1, $c2); }
-@mixin font($font, $style: sans-serif) { font-family: $font, $style; }
+@mixin font($name, $family: sans-serif) { font-family: $name, $family; }

@@ -16,8 +16,10 @@ export class LangSelectComponent implements OnInit
   public countryCode: string = 'it';
   public language: string = 'ITA';
 
- public langClicked?: boolean;
- public showSelect?: boolean;
+  public countries = ['it', 'gb'];
+
+  public langClicked?: boolean;
+  public showSelect?: boolean;
 
   constructor(private appService: AppService, private translate: TranslateService) { }
 

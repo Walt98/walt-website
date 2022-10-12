@@ -1,5 +1,5 @@
 <div class="d-flex align-items-center mT9">
-    <div class="d-flex align-items-center justify-content-center radio br50 pointer" [ngClass]="darkMode ? 'radioDark' : radioColor" (click)="blurCanvas()">
+    <div class="center radio br50 pointer" [ngClass]="darkMode ? 'radioDark' : radioColor" (click)="blurCanvas()">
         <div *ngIf="!isBlur" class="radio-button br50" [ngClass]="darkMode ? 'radioButtonDark' : radioButtonColor"></div>
     </div>
 
@@ -7,7 +7,7 @@
 </div>
 
 <div class="d-flex align-items-center mT12">
-    <div class="d-flex align-items-center justify-content-center radio br50 pointer" [ngClass]="darkMode ? 'radioDark' : radioColor" (click)="blurCanvas('on')">
+    <div class="center radio br50 pointer" [ngClass]="darkMode ? 'radioDark' : radioColor" (click)="blurCanvas('on')">
         <div *ngIf="isBlur" class="radio-button br50" [ngClass]="darkMode ? 'radioButtonDark' : radioButtonColor"></div>
     </div>
 
