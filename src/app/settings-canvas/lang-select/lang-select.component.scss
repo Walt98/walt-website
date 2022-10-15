@@ -10,6 +10,10 @@
 .translate1 { @include translateX(35px); }
 .translate2 { @include translateX(40px); }
 .noTranslateX { @include translateX(0); }
+.noTranslateY { transform: translateY(0); }
+.translateY10 { transform: translateY(10px); }
+
+.zIndex999 { z-index: 999; }
 
 .lang
 {
@@ -19,3 +23,12 @@
 .revertArrow::before { @include rotate(-180deg); }
 
 .dmColor { color: $dmWhite; }
+
+.dropdownLangs
+{
+    box-shadow: #00000063 0 0 10px 0;
+    padding: 7px 10px 7px 12px;
+    border-radius: 5px;
+}
+
+.pL-4px { padding-left: 4px; }

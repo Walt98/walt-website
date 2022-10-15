@@ -1,8 +1,8 @@
 <div class="d-flex flex-column align-items-end" [ngClass]="darkMode ? 'dmColor' : ''">
-    <div *ngIf="langClicked && showSelect" class="d-flex flex-column dropdownLangs">
-        <div *ngFor="let country of countries" class="center pointer" (click)="setLanguage(country)">
+    <div *ngIf="langClicked" class="d-flex flex-column align-items-start dropdownLangs opacity0 transition" [ngClass]="showSelect ? 'opacity1 pointer noTranslateY' : 'cursorDefault translateY10'">
+        <div *ngFor="let country of countries" class="center" (click)="setLanguage(country)">
             <i class="flag-icon flag-icon-{{ country }}"></i>
-            <span> {{ country == 'it' ? 'ITA' : 'ENG' }} </span>
+            <span class="pL-4px"> {{ country == 'it' ? 'ITA' : 'ENG' }} </span>
         </div>
     </div>
     
@@ -11,7 +11,7 @@
             <i class="bi bi-globe2 fs-4"></i>
         </span>
     
-        <span class="lang transition opacity0" [ngClass]="langClicked ? 'opacity1 pointer' : ''" (click)="showSelect = !showSelect">
+        <span class="lang transition zIndex999 opacity0" [ngClass]="langClicked ? 'opacity1 pointer' : 'cursorDefault'" (click)="showSelect = !showSelect">
             <i class="flag-icon flag-icon-{{ countryCode }}"></i>
             <span> {{ countryCode == 'it' ? 'ITA' : 'ENG' }} </span>
             <i class="bi bi-arrow-up-short" [ngClass]="showSelect ? 'revertArrow' : ''"></i>
