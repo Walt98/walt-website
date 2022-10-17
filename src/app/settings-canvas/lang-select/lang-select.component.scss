@@ -32,3 +32,12 @@
 }
 
 .pL-4px { padding-left: 4px; }
+
+.blur, .darkBlur
+{
+    $blur: 10px;
+    -webkit-backdrop-filter: blur($blur);
+    backdrop-filter: blur($blur);
+}
+.blur { background-color: #f5f7fa4d; }
+.darkBlur { background-color: #162a4180; }

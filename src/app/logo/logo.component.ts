@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-logo',
@@ -8,14 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogoComponent implements OnInit
 {
-  constructor(
-    // private translate: TranslateService
-    )
-  {
-    // translate.setDefaultLang('it');
-    // translate.use('en');
-    // translate.use('it');
-  }
+  constructor() { }
 
   ngOnInit(): void { }
 }

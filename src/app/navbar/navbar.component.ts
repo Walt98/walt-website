@@ -9,14 +9,17 @@ import { AppService } from '../app.service';
 })
 export class NavbarComponent implements OnInit
 {
+  // CUSTOMIZERS
   public routerLink?: string;
   public darkMode?: boolean;
   public palette: any;
 
+  // NAVBAR ITEMS CLASSES
   public homeClass: string = '';
   public aboutMeClass: string = '';
   public contactMeClass: string = '';
 
+  // CURRENT ROUTE
   public currentRoute: string = 'home';
 
   constructor(private appService: AppService, private router: Router) { }
@@ -28,12 +31,14 @@ export class NavbarComponent implements OnInit
       this.darkMode = value == 'on';
       if (this.palette) this.onChangesActive();
     });
+
     this.appService.palette$.subscribe((value: any) =>
     {
       this.palette = value;
       this.onChangesActive();
     });
     
+    // SET CURRENT ROUTE
     this.router.events.subscribe((e: any) =>
     {
       if (e.type == 1)
@@ -63,7 +68,8 @@ export class NavbarComponent implements OnInit
     });
   }
 
-  onChangesActive()
+  // SET NAVBAR-ITEM ACTIVE CLASS
+  public onChangesActive()
   {
     if (this.currentRoute == 'home' || this.currentRoute == '/')
     {
@@ -85,7 +91,7 @@ export class NavbarComponent implements OnInit
     }
   }
 
-  active(): string
+  public active(): string
   {
     if (!this.darkMode) switch (this.palette.color)
     {
@@ -97,6 +103,4 @@ export class NavbarComponent implements OnInit
     }
     else return 'active item-color-dark';
   }
-
-  log = (event: any) => console.log(event);
 }

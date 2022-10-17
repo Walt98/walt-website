@@ -18,6 +18,7 @@ import { LangSelectComponent } from './settings-canvas/lang-select/lang-select.c
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ToggleComponent } from './settings-canvas/toggle/toggle.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     ContactMeComponent,
     FontTextComponent,
     RadioComponent,
-    LangSelectComponent
+    LangSelectComponent,
+    ToggleComponent
   ],
   imports: [
     BrowserModule,

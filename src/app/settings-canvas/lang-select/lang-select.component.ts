@@ -9,14 +9,13 @@ import { AppService } from 'src/app/app.service';
 })
 export class LangSelectComponent implements OnInit
 {
+  // CUSTOMIZERS
   public darkMode?: boolean;
-  public palette: any;
-
-  public countryCode: string = 'it';
+  public isBlur?: boolean;
+  public country: string = 'it';
   public language: string = 'ITA';
 
-  public countries = ['it', 'gb'];
-
+  // BOOLEANS
   public langClicked?: boolean;
   public showSelect?: boolean;
 
@@ -24,20 +23,21 @@ export class LangSelectComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.countryCode = this.translate.currentLang == 'it' ? 'it' : 'gb';
+    this.country = this.translate.currentLang == 'it' ? 'it' : 'gb';
     this.language = this.translate.currentLang == 'it' ? 'ITA' : 'ENG';
     this.appService.darkMode$.subscribe((darkMode: string) => this.darkMode = darkMode == 'on');
+    this.appService.blur$.subscribe((value: string) => this.isBlur = value == 'on');
   }
 
-  setLanguage(country: string)
+  public setLanguage(country: string)
   {
-    this.countryCode = country;
+    this.country = country;
     this.language = country == 'it' ? 'ITA' : 'ENG';
     this.translate.use(country == 'it' ? 'it' : 'en');
     localStorage.setItem('lang', country == 'it' ? 'it' : 'en');
   }
 
-  showLang()
+  public showLang()
   {
     this.langClicked = !this.langClicked;
     this.showSelect = false;

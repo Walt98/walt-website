@@ -7,17 +7,22 @@
     <!-- OFFCANVAS BODY -->
     <div *ngIf="clicked" class="d-flex flex-wrap align-content-between justify-content-center settings-canvas p10" [ngClass]="canvasColor">
         <div class="w-100 hMax">
+
+            <!-- CHANGE LAYOUT THEME -->
             <div class="container-fluid">
                 <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'textDark' : ''" translate>
                     layoutTheme
                 </div>
                 <div *ngIf="!toggleClicked" class="col-12 d-flex align-items-center justify-content-between pY-13 h-67_5">
+                    <!-- LAYOUT THEMES -->
                     <app-icon-palette bg="#2c82a7" [ngClass]="activeIcon('#2c82a7')"></app-icon-palette>
                     <app-icon-palette bg="#b44b4b" [ngClass]="activeIcon('#b44b4b')"></app-icon-palette>
                     <app-icon-palette bg="#67b34d" [ngClass]="activeIcon('#67b34d')"></app-icon-palette>
                     <app-icon-palette bg="#b39c4a" [ngClass]="activeIcon('#b39c4a')"></app-icon-palette>
                     <app-icon-palette bg="#aa85bd" [ngClass]="activeIcon('#aa85bd')"></app-icon-palette>
                 </div>
+
+                <!-- LAYOUT THEMES NON AVAILABLES -->
                 <div class="textDark pY-7-12_6" *ngIf="toggleClicked">
                     <span translate> layoutThemeNotAvailable </span>
                 </div>
@@ -28,9 +33,9 @@
                 <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'textDark' : ''" translate>
                     darkMode
                 </div>
-                <div class="d-flex align-items-center switch-toggle pointer" [ngClass]="toggleClicked ? 'toggleClicked' : ''" (click)="setDarkMode()">
-                    <div class="switch-button br50" [ngClass]="toggleClicked ? 'translateX27' : ''"></div>
-                </div>
+                
+                <!-- DARK-MODE TOGGLE -->
+                <app-toggle></app-toggle>
             </div>
     
             <!-- FONT -->
@@ -39,6 +44,7 @@
                     Font
                 </div>
                 <div class="d-flex flex-column">
+                    <!-- FONTS -->
                     <app-font-text font="Montserrat" [ngClass]="activeFont('Montserrat')"></app-font-text>
                     <app-font-text font="Roboto" [ngClass]="activeFont('Roboto')"></app-font-text>
                 </div>
@@ -49,6 +55,8 @@
                 <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'textDark' : ''" translate>
                     canvasBlur
                 </div>
+
+                <!-- RADIOS -->
                 <app-radio></app-radio>
             </div>
         </div>

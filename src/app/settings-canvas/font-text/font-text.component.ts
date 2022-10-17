@@ -8,8 +8,10 @@ import { AppService } from 'src/app/app.service';
 })
 export class FontTextComponent implements OnInit
 {
+  // INPUTS
   @Input() font?: string;
 
+  // CUSTOMIZERS
   public darkMode?: boolean;
 
   constructor(private appService: AppService) { }
@@ -19,7 +21,7 @@ export class FontTextComponent implements OnInit
     this.appService.darkMode$.subscribe((value: string) => this.darkMode = value == 'on');
   }
 
-  setFont(font: string)
+  public setFont(font: string)
   {
     localStorage.setItem('font', font);
     this.appService.setFont(font);

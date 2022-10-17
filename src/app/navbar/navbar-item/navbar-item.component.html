@@ -1,5 +1,7 @@
-<div class="d-flex align-items-center">
-    <i [routerLink]="routeLink" [ngClass]="icon" class="colorWhite font-xLarge navbar-item-padding pointer" (mouseover)="showTitle = true" (mouseleave)="showTitle = false"></i>
+<div class="d-flex align-items-center colorWhite">
+    <!-- ICON -->
+    <i [routerLink]="routeLink" [ngClass]="icon" class="bi font-xLarge pointer transition navbar-item-padding" (mouseover)="showTitle = true" (mouseleave)="showTitle = false"></i>
     
-    <span *ngIf="showTitle" class="navbar-item-title zIndex1000 absolute colorWhite" [ngClass]="color(palette.color)" [translate]="title"></span>
+    <!-- TITLE -->
+    <span *ngIf="showTitle" class="navbar-item-title zIndex1000 absolute" [ngClass]="color(palette.color)" [translate]="title"></span>
 </div>

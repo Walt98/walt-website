@@ -11,28 +11,26 @@
     overflow: hidden;
 }
 
-.marginT-18 { margin-top: 18px; }
-
-.wMaxContent { width: $maxContent; }
-.hMaxContent { height: $maxContent; }
-
-.borderTL { border-top-left-radius: 30px; }
-
-.bg-router-outlet
+.router-outlet
 {
+    height: calc(100vh - 104px);
+    // width: calc(100vw - 104px);
+    border-top-left-radius: 30px;
+    padding: 1rem 0 0 1.75rem;
     background-color: $bgWhite;
     box-shadow: -5px -5px 20px 0px #00000033,
     0 4px 5px 0 #00000024,
     0 1px 10px 0 #0000001f;
 }
 
-.bg-router-outlet-dark
+.bgDark
 {
     color: $white;
     background-color: #123752;
 }
 
-.p-router-outlet { padding: 1rem 0 0 1.75rem; }
+.wMaxContent { width: $maxContent; }
+.hMaxContent { height: $maxContent; }
 
 .overflowY
 {

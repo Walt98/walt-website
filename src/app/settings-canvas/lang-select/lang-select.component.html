@@ -1,19 +1,30 @@
 <div class="d-flex flex-column align-items-end" [ngClass]="darkMode ? 'dmColor' : ''">
-    <div *ngIf="langClicked" class="d-flex flex-column align-items-start dropdownLangs opacity0 transition" [ngClass]="showSelect ? 'opacity1 pointer noTranslateY' : 'cursorDefault translateY10'">
-        <div *ngFor="let country of countries" class="center" (click)="setLanguage(country)">
-            <i class="flag-icon flag-icon-{{ country }}"></i>
-            <span class="pL-4px"> {{ country == 'it' ? 'ITA' : 'ENG' }} </span>
+    <!-- LANGS LIST -->
+    <div *ngIf="langClicked" class="d-flex flex-column align-items-start dropdownLangs opacity0 transition {{ isBlur ? (darkMode ? 'darkBlur' : 'blur') : '' }}" [ngClass]="showSelect ? 'opacity1 pointer noTranslateY' : 'cursorDefault translateY10'">
+        <div *ngFor="let code of ['it', 'gb']" class="center" (click)="setLanguage(code)">
+            <!-- COUNTRY ICON -->
+            <i class="flag-icon flag-icon-{{ code }}"></i>
+
+            <!-- COUNTRY NAME -->
+            <span class="pL-4px"> {{ code == 'it' ? 'ITA' : 'ENG' }} </span>
         </div>
     </div>
     
     <div class="center" [ngClass]="langClicked ? 'langClicked' : ''">
-        <span class="center lang-button br50 zIndex1000 transition {{ countryCode == 'it' ? 'translate1' : 'translate2' }}" [ngClass]="langClicked ? 'noTranslateX' : ''" role="button" tabindex="0" (click)="showLang()">
+        <!-- GLOBE BUTTON -->
+        <span class="center lang-button br50 zIndex1000 transition {{ country == 'it' ? 'translate1' : 'translate2' }}" [ngClass]="langClicked ? 'noTranslateX' : ''" role="button" tabindex="0" (click)="showLang()">
             <i class="bi bi-globe2 fs-4"></i>
         </span>
     
+        <!-- SELECTED LANG -->
         <span class="lang transition zIndex999 opacity0" [ngClass]="langClicked ? 'opacity1 pointer' : 'cursorDefault'" (click)="showSelect = !showSelect">
-            <i class="flag-icon flag-icon-{{ countryCode }}"></i>
-            <span> {{ countryCode == 'it' ? 'ITA' : 'ENG' }} </span>
+            <!-- COUNTRY ICON -->
+            <i class="flag-icon flag-icon-{{ country }}"></i>
+
+            <!-- COUNTRY NAME -->
+            <span> {{ country == 'it' ? 'ITA' : 'ENG' }} </span>
+            
+            <!-- CHECK ICON -->
             <i class="bi bi-arrow-up-short" [ngClass]="showSelect ? 'revertArrow' : ''"></i>
         </span>
     </div>

@@ -9,6 +9,7 @@ import { AppService } from './app.service';
 })
 export class AppComponent implements OnInit
 {
+  // CUSTOMIZERS
   public palette: any;
   public darkMode?: boolean;
   public bgDark: string = 'linear-gradient(147.38deg, rgb(20 54 80) 0%, #000000 100%)';
@@ -16,6 +17,7 @@ export class AppComponent implements OnInit
 
   constructor(private appService: AppService, private translate: TranslateService)
   {
+    // SET DEFAULT LANGUAGE
     translate.setDefaultLang('it');
     translate.use(localStorage.getItem('lang') ?? 'it');
   }
@@ -31,6 +33,4 @@ export class AppComponent implements OnInit
     });
     this.appService.font$.subscribe((value: string) => this.font = value);
   }
-
-  log = (e: any) => console.log(e);
 }

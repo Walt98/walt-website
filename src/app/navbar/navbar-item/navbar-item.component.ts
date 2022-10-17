@@ -8,14 +8,18 @@ import { AppService } from 'src/app/app.service';
 })
 export class NavbarItemComponent implements OnInit
 {
+  // INPUTS
   @Input() routeLink?: string;
   @Input() icon?: string;
   @Input() title: string = '';
 
-  public showTitle: boolean = false;
+  // CUSTOMIZERS
   public darkMode?: boolean;
   public palette: any;
   public colorClass?: string;
+  
+  // BOOLEANS
+  public showTitle: boolean = false;
 
   constructor(private appService: AppService) { }
 
@@ -25,7 +29,7 @@ export class NavbarItemComponent implements OnInit
     this.appService.palette$.subscribe((value: any) => this.palette = value);
   }
 
-  color(color: string): string
+  public color(color: string): string
   {
     if (this.darkMode) return 'title-color-dark';
     else switch (color)
@@ -37,6 +41,4 @@ export class NavbarItemComponent implements OnInit
       default: return 'title-color-default';
     }
   }
-
-  log = (event: any) => console.log(event);
 }

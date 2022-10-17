@@ -1,0 +1,31 @@
+@import '../../variables.scss';
+@import '../../classes.scss';
+
+.switch-toggle
+{
+    width: 56px;
+    height: 29px;
+    margin-block: 13px;
+    border-radius: 20px;
+    background-color: #d3dbe3;
+    transition: .4s;
+    &:hover { background-color: #b8c5d2; }
+}
+
+.toggleClicked
+{
+    background-color: #00df84;
+    &:hover { background-color: #00bd6e; }
+}
+
+.translateX27 { @include translateX(27px); }
+
+.switch-button
+{
+    $size: 22px;
+    width: $size;
+    height: $size;
+    margin: 0 4px;
+    background-color: $white;
+    transition: .4s;
+}

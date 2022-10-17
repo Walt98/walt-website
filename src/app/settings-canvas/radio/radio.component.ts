@@ -8,10 +8,12 @@ import { AppService } from 'src/app/app.service';
 })
 export class RadioComponent implements OnInit
 {
+  // CUSTOMIZERS
   public darkMode?: boolean;
   public radioColor?: string;
   public radioButtonColor?: string;
   
+  // BOOLEANS
   public isBlur?: boolean;
 
   constructor(private appService: AppService) { }
@@ -21,6 +23,7 @@ export class RadioComponent implements OnInit
     this.appService.darkMode$.subscribe((value: string) => this.darkMode = value == 'on');
     this.appService.blur$.subscribe((value: string) => this.isBlur = value == 'on');
 
+    // SET RADIO BUTTONS COLOR
     this.appService.palette$.subscribe((palette: any) =>
     {
       switch (palette.color)
@@ -49,13 +52,12 @@ export class RadioComponent implements OnInit
     });
   }
 
-  blurCanvas(input: string = 'off')
+  // SET BLUR
+  public blurCanvas(input: string = 'off')
   {
     this.isBlur = input == 'on';
     let blur = this.isBlur ? 'on' : 'off';
     localStorage.setItem('blur', blur);
     this.appService.setBlur(blur);
   }
-
-  log = (e: any) => console.log(e);
 }

@@ -8,8 +8,10 @@ import { AppService } from 'src/app/app.service';
 })
 export class IconPaletteComponent implements OnInit
 {
+  // INPUTS
   @Input() bg: string | undefined;
 
+  // BOOLEANS
   public blur?: boolean;
 
   constructor(private appService: AppService) { }
@@ -19,7 +21,8 @@ export class IconPaletteComponent implements OnInit
     this.appService.blur$.subscribe((value: string) => this.blur = value == 'on');
   }
 
-  setPalette()
+  // SET PALETTE
+  public setPalette()
   {
     let bgImage: string = '';
     
@@ -46,6 +49,4 @@ export class IconPaletteComponent implements OnInit
     localStorage.setItem('palette', JSON.stringify(palette));
     this.appService.setPalette(palette);
   }
-
-  log = (e: any) => console.log(e);
 }

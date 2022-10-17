@@ -8,14 +8,16 @@ import { AppService } from '../app.service';
 })
 export class SettingsCanvasComponent implements OnInit
 {
+  // CUSTOMIZERS
   public palette: any;
   public colorClass?: string;
   public font?: string;
+  public blur?: boolean;
+  public canvasColor?: string;
+  
+  // BOOLEANS
   public clicked: boolean = false;
   public toggleClicked: boolean = false;
-  public blur?: boolean;
-
-  public canvasColor?: string;
 
   constructor(private appService: AppService) { }
 
@@ -51,16 +53,6 @@ export class SettingsCanvasComponent implements OnInit
     this.appService.font$.subscribe((value: string) => this.font = value);
   }
 
-  activeIcon = (color: string): string => this.palette.color == color ? 'activeIcon' : '';
-  activeFont = (font: string): string => this.font == font ? 'activeFont' : '';
-
-  setDarkMode()
-  {
-    this.toggleClicked = !this.toggleClicked;
-    let dark = this.toggleClicked ? 'on' : 'off';
-    localStorage.setItem('darkMode', dark);
-    this.appService.setDarkMode(dark);
-  }
-
-  log = (event: any) => console.log(event);
+  public activeIcon = (color: string): string => this.palette.color == color ? 'activeIcon' : '';
+  public activeFont = (font: string): string => this.font == font ? 'activeFont' : '';
 }

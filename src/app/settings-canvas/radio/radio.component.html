@@ -1,15 +1,23 @@
 <div class="d-flex align-items-center mT9">
+    <!-- RADIO -->
     <div class="center radio br50 pointer" [ngClass]="darkMode ? 'radioDark' : radioColor" (click)="blurCanvas()">
+
+        <!-- RADIO CHECKED -->
         <div *ngIf="!isBlur" class="radio-button br50" [ngClass]="darkMode ? 'radioButtonDark' : radioButtonColor"></div>
     </div>
 
+    <!-- TEXT -->
     <span class="radio-text pointer" [ngClass]="darkMode ? 'textDark' : ''" (click)="blurCanvas()" translate> blurNone </span>
 </div>
 
 <div class="d-flex align-items-center mT12">
+    <!-- RADIO -->
     <div class="center radio br50 pointer" [ngClass]="darkMode ? 'radioDark' : radioColor" (click)="blurCanvas('on')">
+
+        <!-- RADIO CHECKED -->
         <div *ngIf="isBlur" class="radio-button br50" [ngClass]="darkMode ? 'radioButtonDark' : radioButtonColor"></div>
     </div>
 
+    <!-- TEXT -->
     <span class="radio-text pointer" [ngClass]="darkMode ? 'textDark' : ''" (click)="blurCanvas('on')" translate> blurs </span>
 </div>
