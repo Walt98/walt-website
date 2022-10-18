@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AppService } from 'src/app/app.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { AppService } from 'src/app/app.service';
 export class ToggleComponent implements OnInit
 {
   // BOOLEANS
-  public toggleClicked: boolean = false;
+  @Input() toggleClicked?: boolean;
 
   constructor(private appService: AppService) { }
 

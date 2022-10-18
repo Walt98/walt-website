@@ -5,6 +5,10 @@
 .hMax { height: $maxContent; }
 
 $gradientDeg: 147.38deg;
+$canvasShadow: 0 2px 4px -1px #00000033, 0 4px 5px 0 #00000024, 0 1px 10px 0 #0000001f;
+
+.right270 { right: -270px; }
+.right0 { right: 0; }
 
 .settings-canvas
 {
@@ -12,10 +16,8 @@ $gradientDeg: 147.38deg;
     width: 270px;
     background-color: $bgWhite;
     border-left: 0 none;
-    box-shadow: 0 2px 4px -1px #00000033,
-    0 4px 5px 0 #00000024,
-    0 1px 10px 0 #0000001f;
 }
+.canvasShadow { box-shadow: $canvasShadow }
 
 .canvasDarkMode { background-color: #162a41; }
 
@@ -28,13 +30,7 @@ $gradientDeg: 147.38deg;
 .blur { background-color: #f5f7fa4d; }
 .darkBlur { background-color: #162a4180; }
 
-.myOffcanvas
-{
-    right: 0;
-    top: 46.3%;
-}
-
-.top0 { top: 0 !important; }
+.canvasTransition { transition: .3s; }
 
 .settings-div-button
 {
@@ -50,7 +46,6 @@ $gradientDeg: 147.38deg;
     {
         transition: transform .9s cubic-bezier(0.42, 0.17, 0.53, 0.77);
         @include rotate(180deg);
-
     }
 }
 

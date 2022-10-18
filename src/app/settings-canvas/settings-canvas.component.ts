@@ -17,7 +17,7 @@ export class SettingsCanvasComponent implements OnInit
   
   // BOOLEANS
   public clicked: boolean = false;
-  public toggleClicked: boolean = false;
+  public toggleClicked?: boolean;
 
   constructor(private appService: AppService) { }
 

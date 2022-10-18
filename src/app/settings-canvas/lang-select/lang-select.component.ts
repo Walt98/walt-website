@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AppService } from 'src/app/app.service';
 
@@ -7,8 +7,11 @@ import { AppService } from 'src/app/app.service';
   templateUrl: './lang-select.component.html',
   styleUrls: ['./lang-select.component.scss']
 })
-export class LangSelectComponent implements OnInit
+export class LangSelectComponent implements OnInit, OnChanges
 {
+  // INPUTS
+  @Input() settingsClicked?: boolean;
+
   // CUSTOMIZERS
   public darkMode?: boolean;
   public isBlur?: boolean;
@@ -27,6 +30,15 @@ export class LangSelectComponent implements OnInit
     this.language = this.translate.currentLang == 'it' ? 'ITA' : 'ENG';
     this.appService.darkMode$.subscribe((darkMode: string) => this.darkMode = darkMode == 'on');
     this.appService.blur$.subscribe((value: string) => this.isBlur = value == 'on');
+  }
+
+  ngOnChanges(changes: SimpleChanges): void
+  {
+    if (!this.settingsClicked)
+    {
+      this.langClicked = false;
+      this.showSelect = false;
+    }
   }
 
   public setLanguage(country: string)

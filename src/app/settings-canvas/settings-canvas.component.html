@@ -1,11 +1,11 @@
-<div class="d-flex align-items-center myOffcanvas absolute" [ngClass]="clicked ? 'top0' : ''">
+<div class="d-flex align-items-center top0 canvasTransition absolute" [ngClass]="clicked ? 'right0' : 'right270'">
     <!-- OFFCANVAS BUTTON -->
     <div class="settings-div-button pointer center" [ngClass]="toggleClicked ? 'color-default' : colorClass" (click)="clicked = !clicked">
         <i class="bi bi-gear center fontSize33"></i>
     </div>
     
     <!-- OFFCANVAS BODY -->
-    <div *ngIf="clicked" class="d-flex flex-wrap align-content-between justify-content-center settings-canvas p10" [ngClass]="canvasColor">
+    <div class="d-flex flex-wrap align-content-between justify-content-center settings-canvas p10 {{ clicked ? 'canvasShadow' : '' }}" [ngClass]="canvasColor">
         <div class="w-100 hMax">
 
             <!-- CHANGE LAYOUT THEME -->
@@ -35,7 +35,7 @@
                 </div>
                 
                 <!-- DARK-MODE TOGGLE -->
-                <app-toggle></app-toggle>
+                <app-toggle [toggleClicked]="toggleClicked"></app-toggle>
             </div>
     
             <!-- FONT -->
@@ -62,6 +62,6 @@
         </div>
 
         <!-- CHANGE LANGUAGE SELECT -->
-        <app-lang-select></app-lang-select>
+        <app-lang-select [settingsClicked]="clicked"></app-lang-select>
     </div>
 </div>
