@@ -10,10 +10,14 @@ export class ToggleComponent implements OnInit
 {
   // BOOLEANS
   @Input() toggleClicked?: boolean;
+  public isBlur?: boolean;
 
   constructor(private appService: AppService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void
+  {
+    this.appService.blur$.subscribe((value: string) => this.isBlur = value == 'on');
+  }
 
   // SET DARK MODE
   public setDarkMode()

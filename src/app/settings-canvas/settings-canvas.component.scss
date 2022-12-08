@@ -16,6 +16,7 @@ $canvasShadow: 0 2px 4px -1px #00000033, 0 4px 5px 0 #00000024, 0 1px 10px 0 #00
     width: 270px;
     background-color: $bgWhite;
     border-left: 0 none;
+    z-index: 102;
 }
 .canvasShadow { box-shadow: $canvasShadow }
 
@@ -27,7 +28,7 @@ $canvasShadow: 0 2px 4px -1px #00000033, 0 4px 5px 0 #00000024, 0 1px 10px 0 #00
     -webkit-backdrop-filter: blur($blur);
     backdrop-filter: blur($blur);
 }
-.blur { background-color: #f5f7fa4d; }
+.blur { background-color: #f5f7fabf; }
 .darkBlur { background-color: #162a4180; }
 
 .canvasTransition { transition: .3s; }
@@ -41,11 +42,12 @@ $canvasShadow: 0 2px 4px -1px #00000033, 0 4px 5px 0 #00000024, 0 1px 10px 0 #00
     height: $size;
     border-top-left-radius: $blRadius;
     border-bottom-left-radius: $blRadius;
+    z-index: 102;
 
     &:hover > i
     {
         transition: transform .9s cubic-bezier(0.42, 0.17, 0.53, 0.77);
-        @include rotate(180deg);
+        @include rotate(225deg);
     }
 }
 
@@ -94,7 +96,10 @@ $canvasShadow: 0 2px 4px -1px #00000033, 0 4px 5px 0 #00000024, 0 1px 10px 0 #00
 .pY-13 { padding: 13px 0; }
 .pY-7-12_6 { padding: 7px 0 12.6px; }
 
-::ng-deep .activeFont > div > i,
-::ng-deep .activeIcon > div > i { opacity: 1 !important; }
-
 .pT-5 { padding-top: 5px; }
+
+:host
+{
+    ::ng-deep .activeFont > div > i,
+    ::ng-deep .activeIcon > div > i { opacity: 1 !important; }
+}

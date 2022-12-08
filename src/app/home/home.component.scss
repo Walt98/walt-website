@@ -1,0 +1,27 @@
+.home-testata
+{
+    background-color: #00000033;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: calc(100% + 20px);
+    height: 400px;
+    padding: 0 50px;
+    border-top-left-radius: 13px;
+    border-bottom-left-radius: 13px;
+    box-shadow: -5px -5px 20px 0px #00000014,
+    0 4px 5px 0 #0000000a,
+    0 1px 10px 0 #0000002e;
+}
+
+.title
+{
+    // padding: 160px 0;
+    font-weight: 700;
+    font-size: calc(1.5rem + 3vw);
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}

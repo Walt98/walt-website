@@ -12,14 +12,18 @@ app-navbar-item
     padding: 8px 21px;
     &:first-child { padding-top: 0; }
 }
-::ng-deep app-navbar-item.active div > i
+
+:host
 {
-    background-color: $white;
-    &:hover { background-color: $white !important; }
+    ::ng-deep app-navbar-item.active div > i
+    {
+        background-color: $white;
+        &:hover { background-color: $white !important; }
+    }
+    ::ng-deep .item-color-dark div > i { color: #004766 !important; }
+    ::ng-deep .item-color-default div > i { color: $default !important; }
+    ::ng-deep .item-color-red div > i { color: $red !important; }
+    ::ng-deep .item-color-green div > i { color: $green !important; }
+    ::ng-deep .item-color-yellow div > i { color: $yellow !important; }
+    ::ng-deep .item-color-purple div > i { color: $purple !important; }
 }
-::ng-deep .item-color-dark div > i { color: #004766 !important; }
-::ng-deep .item-color-default div > i { color: $default !important; }
-::ng-deep .item-color-red div > i { color: $red !important; }
-::ng-deep .item-color-green div > i { color: $green !important; }
-::ng-deep .item-color-yellow div > i { color: $yellow !important; }
-::ng-deep .item-color-purple div > i { color: $purple !important; }

@@ -12,11 +12,12 @@
 
 .contacts
 {
-    padding: 100% 20px;
+    padding: 43px 20px;
     text-decoration: none;
     color: $white;
     font-size: 18px;
     &:hover { animation: contactMe 2s linear infinite; }
+    z-index: 100;
 }
 @keyframes contactMe
 {

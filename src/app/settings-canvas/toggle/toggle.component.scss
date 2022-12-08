@@ -1,6 +1,12 @@
 @import '../../variables.scss';
 @import '../../classes.scss';
 
+.toggle-shadow
+{
+    $shadow: #00000033, 0 0 5px 0 #00000024, 0 0 0 0 #0000001f;
+    box-shadow: 0 0 5px 0 $shadow;
+}
+
 .switch-toggle
 {
     width: 56px;

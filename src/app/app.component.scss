@@ -15,11 +15,12 @@
 {
     height: calc(100vh - 104px);
     border-top-left-radius: 30px;
-    padding: 1rem 0 0 1.75rem;
-    background-color: $bgWhite;
+    padding: 20px 20px 0 20px;
+    background-color: #fffffff2;
     box-shadow: -5px -5px 20px 0px #00000033,
     0 4px 5px 0 #00000024,
     0 1px 10px 0 #0000001f;
+    z-index: 101;
 }
 
 .bgDark
@@ -33,7 +34,8 @@
 
 .overflowY
 {
-    overflow-y: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
     
     &::-webkit-scrollbar
     {
@@ -44,11 +46,23 @@
     &::-webkit-scrollbar-thumb
     {
         background-clip: content-box;
-        @include gradient(147.38deg, #4C96B6 0%, #19496C 100%);
+        @include gradient(147.38deg, #cbcbcb 0%, #8d8d8d 100%);
         border: 3px solid transparent;
         border-radius: 100px;
         margin: 2px;
         -webkit-transition: .2s ease-in;
         transition: .2s ease-in;
     }
+}
+
+.wallpaper
+{
+    position: absolute;
+    top: 104px;
+    left: 104px;
+    width: auto;
+    height: 100%;
+    border-top-left-radius: 30px;
+    opacity: .3;
+    filter: saturate(0);
 }

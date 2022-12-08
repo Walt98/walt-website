@@ -6,7 +6,7 @@
             <i class="flag-icon flag-icon-{{ code }}"></i>
 
             <!-- COUNTRY NAME -->
-            <span class="pL-4px"> {{ code == 'it' ? 'ITA' : 'ENG' }} </span>
+            <span class="pL-6px"> {{ code == 'it' ? 'ITA' : 'ENG' }} </span>
         </div>
     </div>
     
@@ -22,7 +22,7 @@
             <i class="flag-icon flag-icon-{{ country }}"></i>
 
             <!-- COUNTRY NAME -->
-            <span> {{ country == 'it' ? 'ITA' : 'ENG' }} </span>
+            <span class="mL-2px"> {{ country == 'it' ? 'ITA' : 'ENG' }} </span>
             
             <!-- CHECK ICON -->
             <i class="bi bi-arrow-up-short" [ngClass]="showSelect ? 'revertArrow' : ''"></i>
