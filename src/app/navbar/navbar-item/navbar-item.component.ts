@@ -37,7 +37,7 @@ export class NavbarItemComponent implements OnInit
       case 'red': return 'title-color-red';
       case 'green': return 'title-color-green';
       case 'yellow': return 'title-color-yellow';
-      case '#purple': return 'title-color-purple';
+      case 'purple': return 'title-color-purple';
       default: return 'title-color-default';
     }
   }
