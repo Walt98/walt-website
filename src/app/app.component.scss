@@ -23,11 +23,7 @@
     z-index: 101;
 }
 
-.bgDark
-{
-    color: $white;
-    background-color: #123752;
-}
+.bgDark { background-color: #123752; }
 
 .wMaxContent { width: $maxContent; }
 .hMaxContent { height: $maxContent; }
