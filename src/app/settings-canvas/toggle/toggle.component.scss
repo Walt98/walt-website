@@ -16,16 +16,7 @@
     height: 29px;
     margin-block: 13px;
     border-radius: 20px;
-    // background-color: #d3dbe3;
-    transition: .4s;
-    // &:hover { background-color: #b8c5d2; }
 }
-
-// .toggleClicked
-// {
-//     background-color: #00df84;
-//     &:hover { background-color: #00bd6e; }
-// }
 
 .translateX27 { @include translateX(27px); }
 
@@ -34,6 +25,5 @@
     $size: 22px;
     width: $size;
     height: $size;
-    margin-left: -22px;
-    background-color: $white;
+    margin-left: calc($size * -1);
 }

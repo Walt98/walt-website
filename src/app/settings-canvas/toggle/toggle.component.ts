@@ -8,10 +8,11 @@ import { AppService } from 'src/app/app.service';
 })
 export class ToggleComponent implements OnInit
 {
-  // BOOLEANS
+  // INPUTS
   @Input() toggleClicked?: boolean;
+
+  // CUSTOMIZERS
   public isBlur?: boolean;
-  
   public palette: any;
   public darkMode?: boolean;
 
@@ -22,21 +23,28 @@ export class ToggleComponent implements OnInit
   ngOnInit(): void
   {
     this.appService.blur$.subscribe((value: string) => this.isBlur = value == 'on');
+
     this.appService.palette$.subscribe((palette: any) =>
     {
       this.palette = palette;
-      if (!this.darkMode) this.gradient = palette.bgImage;
+      this.setGradient();
     });
+
     this.appService.darkMode$.subscribe((value: string) =>
     {
       this.darkMode = value == "on";
-      this.gradient = this.darkMode
-        ? "linear-gradient(327.38deg, #6d93a3 0%, #1e3e55 100%);"
-        : this.palette.bgImage;
+      this.setGradient();
     });
   }
 
-  // SET DARK MODE
+  // SET TOGGLE BACKGROUND GRADIENT
+  public setGradient()
+  {
+    this.gradient = this.darkMode
+      ? "linear-gradient(327.38deg, #6d93a3 0%, #1e3e55 100%);"
+      : this.palette.bgImage;
+  }
+
   public setDarkMode()
   {
     this.toggleClicked = !this.toggleClicked;

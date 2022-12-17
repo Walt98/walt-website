@@ -15,6 +15,8 @@
 .right0 { right: 0; }
 .white { color: $white; }
 .bgWhite { background-color: $white; }
+.dmWhite { color: $dmWhite }
+.BGwhite { background-color: $bgWhite; }
 
 .center
 { 
@@ -23,8 +25,15 @@
     align-items: center !important;
 }
 
+.backdrop-filter
+{
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -moz-backdrop-filter: blur(10px);
+}
+
 @mixin translateX($px) { transform: translateX($px); }
-@mixin translateX($px) { transform: translateX($px); }
+@mixin translateY($px) { transform: translateY($px); }
 @mixin rotate($deg) { transform: rotate($deg); }
-@mixin gradient($deg, $c1, $c2) { background-image: linear-gradient($deg, $c1, $c2); }
 @mixin font($name, $family: sans-serif) { font-family: $name, $family; }
+@mixin gradient($c1, $c2, $gDeg: $deg) { background-image: linear-gradient($gDeg, $c1 0%, $c2 100%); }

@@ -19,7 +19,7 @@
 ::-webkit-scrollbar-thumb
 {
     background-clip: content-box;
-    @include gradient(147.38deg, #cbcbcb 0%, #8d8d8d 100%);
+    @include gradient(#cbcbcb, #8d8d8d);
     border: 3px solid transparent;
     border-radius: 100px;
     margin: 2px;

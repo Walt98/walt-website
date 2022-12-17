@@ -1,6 +1,6 @@
-<div class="d-flex flex-column align-items-end justify-content-end h107" [ngClass]="darkMode ? 'dmColor' : ''">
+<div class="d-flex flex-column align-items-end justify-content-end h107" [ngClass]="darkMode ? 'dmWhite' : ''">
     <!-- LANGS LIST -->
-    <div *ngIf="langClicked" class="d-flex flex-column align-items-start dropdownLangs opacity0 transition {{ isBlur ? (darkMode ? 'darkBlur' : 'blur') : '' }}" [ngClass]="showSelect ? 'opacity1 pointer noTranslateY' : 'cursorDefault translateY10'">
+    <div *ngIf="langClicked" class="d-flex flex-column align-items-start dropdownLangs opacity0 transition backdrop-filter {{ isBlur ? (darkMode ? 'darkBlur' : 'blur') : '' }}" [ngClass]="showSelect ? 'opacity1 pointer noTranslateY' : 'cursorDefault translateY10'">
         <div *ngFor="let code of ['it', 'gb']" class="center" (click)="setLanguage(code)">
             <!-- COUNTRY ICON -->
             <i class="flag-icon flag-icon-{{ code }}"></i>

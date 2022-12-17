@@ -10,8 +10,8 @@
 .translate1 { @include translateX(35px); }
 .translate2 { @include translateX(40px); }
 .noTranslateX { @include translateX(0); }
-.noTranslateY { transform: translateY(0); }
-.translateY10 { transform: translateY(10px); }
+.noTranslateY { @include translateY(0); }
+.translateY10 { @include translateY(10px); }
 
 .zIndex999 { z-index: 999; }
 .mL-2px { margin-left: 2px; }
@@ -22,8 +22,6 @@
     & .bi-arrow-up-short::before { @extend .transition; }
 }
 .revertArrow::before { @include rotate(-180deg); }
-
-.dmColor { color: $dmWhite; }
 
 .dropdownLangs
 {
@@ -36,11 +34,5 @@
 .pL-6px { padding-left: 6px; }
 .h107 { min-height: 107px; }
 
-.blur, .darkBlur
-{
-    $blur: 10px;
-    -webkit-backdrop-filter: blur($blur);
-    backdrop-filter: blur($blur);
-}
 .blur { background-color: #f5f7fa4d; }
 .darkBlur { background-color: #162a4180; }

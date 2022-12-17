@@ -16,6 +16,7 @@ export class NavbarItemComponent implements OnInit
   // CUSTOMIZERS
   public darkMode?: boolean;
   public palette: any;
+
   public colorClass?: string;
   
   // BOOLEANS
@@ -26,7 +27,7 @@ export class NavbarItemComponent implements OnInit
   ngOnInit(): void
   {
     this.appService.darkMode$.subscribe((value: string) => this.darkMode = value == 'on');
-    this.appService.palette$.subscribe((value: any) => this.palette = value);
+    this.appService.palette$.subscribe((palette: any) => this.palette = palette);
   }
 
   public color(color: string): string

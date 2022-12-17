@@ -8,11 +8,12 @@ import { AppService } from '../app.service';
 })
 export class HomeComponent implements OnInit
 {
+  // CUSTOMIZERS
   public palette: any;
-  public gradient?: string;
   public darkMode: boolean = false;
   public font: string = 'Montserrat';
-
+  
+  public gradient?: string;
   public titleStyle?: string;
 
   constructor(private appService: AppService) { }

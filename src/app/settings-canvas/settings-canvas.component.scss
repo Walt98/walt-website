@@ -4,7 +4,6 @@
 .p10 { padding: 10px; } 
 .hMax { height: $maxContent; }
 
-$gradientDeg: 147.38deg;
 $canvasShadow: 0 2px 4px -1px #00000033, 0 4px 5px 0 #00000024, 0 1px 10px 0 #0000001f;
 
 .right270 { right: -270px; }
@@ -15,7 +14,6 @@ $canvasShadow: 0 2px 4px -1px #00000033, 0 4px 5px 0 #00000024, 0 1px 10px 0 #00
     overflow-y: auto;
     height: 100vh;
     width: 270px;
-    background-color: $bgWhite;
     border-left: 0 none;
     z-index: 102;
 }
@@ -23,12 +21,6 @@ $canvasShadow: 0 2px 4px -1px #00000033, 0 4px 5px 0 #00000024, 0 1px 10px 0 #00
 
 .canvasDarkMode { background-color: #162a41; }
 
-.blur, .darkBlur
-{
-    $blur: 10px;
-    -webkit-backdrop-filter: blur($blur);
-    backdrop-filter: blur($blur);
-}
 .blur { background-color: #f5f7fabf; }
 .darkBlur { background-color: #162a4180; }
 
@@ -37,15 +29,14 @@ $canvasShadow: 0 2px 4px -1px #00000033, 0 4px 5px 0 #00000024, 0 1px 10px 0 #00
 .settings-div-button
 {
     $size: 50px;
-    $blRadius: 5px;
-    $shadow: 0 0 5px 0 #00000033, 0 0 5px 0 #0000000f, 0 0 0 0 #0000001f;
-    color: $white;
+    $radius: 5px;
+    $settingsShadow: 0 0 5px 0 #00000033, 0 0 5px 0 #0000000f, 0 0 0 0 #0000001f;
     width: $size;
     height: $size;
-    border-top-left-radius: $blRadius;
-    border-bottom-left-radius: $blRadius;
+    border-top-left-radius: $radius;
+    border-bottom-left-radius: $radius;
     z-index: 102;
-    box-shadow: $shadow;
+    box-shadow: $settingsShadow;
 
     &:hover > i
     {
@@ -58,41 +49,39 @@ $canvasShadow: 0 2px 4px -1px #00000033, 0 4px 5px 0 #00000024, 0 1px 10px 0 #00
 
 .color-dark
 {
-    @include gradient(327.38deg, #587987 0%, #1e3e55 100%);
-    &:hover { @include gradient(327.38deg, #6d93a3 0%, #30536d 100%); }
+    @include gradient(#587987, #1e3e55, $degRevert);
+    &:hover { @include gradient(#6d93a3, #30536d, $degRevert); }
 }
 
 .color-default
 {
-    @include gradient($gradientDeg, #4C96B6 0%, #19496C 100%);
-    &:hover { @include gradient($gradientDeg, #6cb3d1 0%, #2f678e 100%); }
+    @include gradient(#4C96B6, #19496C);
+    &:hover { @include gradient(#6cb3d1, #2f678e); }
 }
 
 .color-red
 {
-    @include gradient($gradientDeg, #b64c4c 0%, #6c1919 100%);
-    &:hover { @include gradient($gradientDeg, #c76565 0%, #8f3535 100%); }
+    @include gradient(#b64c4c, #6c1919);
+    &:hover { @include gradient(#c76565, #8f3535); }
 }
 
 .color-green
 {
-    @include gradient($gradientDeg, #6ab64c 0%, #196c59 100%);
-    &:hover { @include gradient($gradientDeg, #86c86c 0%, #3d8f7c 100%); }
+    @include gradient(#6ab64c, #196c59);
+    &:hover { @include gradient(#86c86c, #3d8f7c); }
 }
 
 .color-yellow
 {
-    @include gradient($gradientDeg, #b6a14c 0%, #6c2a19 100%);
-    &:hover { @include gradient($gradientDeg, #c6b25e 0%, #934e3c 100%); }
+    @include gradient(#b6a14c, #6c2a19);
+    &:hover { @include gradient(#c6b25e, #934e3c); }
 }
 
 .color-purple
 {
-    @include gradient($gradientDeg, #b086c0 0%, #226b79 100%);
-    &:hover { @include gradient($gradientDeg, #c699d8 0%, #287f91 100%); }
+    @include gradient(#b086c0, #226b79);
+    &:hover { @include gradient(#c699d8, #287f91); }
 }
-
-.textDark { color: $dmWhite; }
 
 .h-67_5 { height: 67.5px; } 
 

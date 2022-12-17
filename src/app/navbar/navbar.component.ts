@@ -10,7 +10,6 @@ import { AppService } from '../app.service';
 export class NavbarComponent implements OnInit
 {
   // CUSTOMIZERS
-  public routerLink?: string;
   public darkMode?: boolean;
   public palette: any;
 

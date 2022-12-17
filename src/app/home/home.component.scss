@@ -1,12 +1,11 @@
+@import '../variables.scss';
+@import '../classes.scss';
+
 .home-testata
 {
     background-color: #00000033;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    -moz-backdrop-filter: blur(10px);
     border: 1px solid #00000005;
     width: 100%;
-    // height: 400px;
     padding: 30px 20px;
     border-radius: 13px;
     box-shadow: -5px -5px 20px 0px #00000014,
