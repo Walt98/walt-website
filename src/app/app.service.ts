@@ -11,7 +11,7 @@ export class AppService
   private palette = localStorage.getItem('palette')
   ?? JSON.stringify({
     'color': 'default',
-    'bgImage': 'linear-gradient(147.38deg, rgb(76, 150, 182) 0%, rgb(25, 73, 108) 100%)'
+    'bgImage': 'linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)'
   });
 
   // BEHAVIOR SUBJECTS

@@ -38,19 +38,19 @@ export class IconPaletteComponent implements OnInit
     switch (bg)
     {
       case 'red':
-        this.bgImage = 'linear-gradient(147.38deg, rgb(182 76 76) 0%, rgb(108 25 25) 100%)';
+        this.bgImage = 'linear-gradient(147.38deg, #b64c4c 0%, #6c1919 100%)';
         break;
       case 'green':
-        this.bgImage = 'linear-gradient(147.38deg, rgb(106 182 76) 0%, rgb(25 108 89) 100%)';
+        this.bgImage = 'linear-gradient(147.38deg, #6ab64c 0%, #196c59 100%)';
         break;
       case 'yellow':
-        this.bgImage = 'linear-gradient(147.38deg, rgb(182 161 76) 0%, rgb(108 42 25) 100%)';
+        this.bgImage = 'linear-gradient(147.38deg, #b6a14c 0%, #6c2a19 100%)';
         break;
       case 'purple':
-        this.bgImage = 'linear-gradient(147.38deg, rgb(176 134 192) 0%, rgb(34 107 121) 100%)';
+        this.bgImage = 'linear-gradient(147.38deg, #b086c0 0%, #226b79 100%)';
         break;
       default:
-        this.bgImage = 'linear-gradient(147.38deg, rgb(76, 150, 182) 0%, rgb(25, 73, 108) 100%)';
+        this.bgImage = 'linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)';
         break;
     }
   }

@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit
     let arr: string[] = [];
     arr.push(
       `background-image: ${this.darkMode
-        ? 'linear-gradient(147.38deg, rgb(157 176 185) 0%, rgb(54 93 120) 100%)'
+        ? 'linear-gradient(147.38deg, #9db0b9 0%, #365d78 100%)'
         : this.palette.bgImage}`,
       `font-weight: ${this.font == "Roboto" ? 800 : 700}`,
     );

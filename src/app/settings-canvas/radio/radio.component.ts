@@ -10,7 +10,7 @@ export class RadioComponent implements OnInit
 {
   // CUSTOMIZERS
   public darkMode?: boolean;
-  public radioColor: string = "linear-gradient(147.38deg, rgb(76, 150, 182) 0%, rgb(25, 73, 108) 100%)";
+  public radioColor: string = "linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)";
   public borderColor?: string;
   public palette: any;
   // public gradient?: string;
