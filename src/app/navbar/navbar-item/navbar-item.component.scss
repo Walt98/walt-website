@@ -17,7 +17,14 @@
     margin-left: 70px;
 }
 
-.title-color-dark { background-color: #3d5568; }
+.title-color-dark
+{
+    background-color: #3b5462;
+    box-shadow: 0 0 20px -5px #00000033,
+    0 0 10px 0px #00000024,
+    0 0 0 0 #0000001f;
+}
+
 .title-color-default { background-color: #19496C; }
 .title-color-red { background-color: #802424; }
 .title-color-green { background-color: #3a7826; }
