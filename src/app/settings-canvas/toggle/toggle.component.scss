@@ -1,9 +1,12 @@
 @import '../../variables.scss';
 @import '../../classes.scss';
 
+.mL10 { margin-left: 10px; }
+.t4ms { transition: .4s; }
+
 .toggle-shadow
 {
-    $shadow: #00000033, 0 0 5px 0 #00000024, 0 0 0 0 #0000001f;
+    $shadow: #00000033, 0 0 5px 0 #0000000f, 0 0 0 0 #0000001f;
     box-shadow: 0 0 5px 0 $shadow;
 }
 
@@ -13,16 +16,16 @@
     height: 29px;
     margin-block: 13px;
     border-radius: 20px;
-    background-color: #d3dbe3;
+    // background-color: #d3dbe3;
     transition: .4s;
-    &:hover { background-color: #b8c5d2; }
+    // &:hover { background-color: #b8c5d2; }
 }
 
-.toggleClicked
-{
-    background-color: #00df84;
-    &:hover { background-color: #00bd6e; }
-}
+// .toggleClicked
+// {
+//     background-color: #00df84;
+//     &:hover { background-color: #00bd6e; }
+// }
 
 .translateX27 { @include translateX(27px); }
 
@@ -31,7 +34,6 @@
     $size: 22px;
     width: $size;
     height: $size;
-    margin: 0 4px;
+    margin-left: -22px;
     background-color: $white;
-    transition: .4s;
 }

@@ -1,23 +1,16 @@
-<div class="d-flex align-items-center mT9" (click)="blurCanvas()">
-    <!-- RADIO -->
-    <div class="center radio br50 pointer" [ngClass]="darkMode ? 'radioDark' : radioColor">
+<ng-container *ngTemplateOutlet="radio; context: {$implicit: false}"></ng-container>
+<ng-container *ngTemplateOutlet="radio; context: {$implicit: true}"></ng-container>
 
-        <!-- RADIO CHECKED -->
-        <div class="radio-button transition br50 opacity{{ isBlur ? '0' : '1' }}" [ngClass]="darkMode ? 'radioButtonDark' : radioButtonColor"></div>
+<ng-template #radio let-blur>
+    <div class="d-flex align-items-center mT{{ blur ? 12 : 9 }}" (click)="blurCanvas(blur)">
+        <!-- RADIO -->
+        <div class="center radio pointer br50" [ngClass]="darkMode ? 'radioDark' : borderColor">
+    
+            <!-- RADIO CHECKED -->
+            <div *ngIf="blur ? isBlur : !isBlur" class="radio-button br50" [style]="'background-' + (darkMode ? 'color: #d5dfec;' : 'image: ' + radioColor)"></div>
+        </div>
+    
+        <!-- TEXT -->
+        <span class="radio-text pointer" [ngClass]="darkMode ? 'textDark' : ''" translate> {{ blur ? 'blurs' : 'blurNone' }} </span>
     </div>
-
-    <!-- TEXT -->
-    <span class="radio-text pointer" [ngClass]="darkMode ? 'textDark' : ''" translate> blurNone </span>
-</div>
-
-<div class="d-flex align-items-center pointer mT12" (click)="blurCanvas(true)">
-    <!-- RADIO -->
-    <div class="center radio br50" [ngClass]="darkMode ? 'radioDark' : radioColor">
-
-        <!-- RADIO CHECKED -->
-        <div class="radio-button transition br50 opacity{{ isBlur ? '1' : '0' }}" [ngClass]="darkMode ? 'radioButtonDark' : radioButtonColor"></div>
-    </div>
-
-    <!-- TEXT -->
-    <span class="radio-text" [ngClass]="darkMode ? 'textDark' : ''" translate> blurs </span>
-</div>
+</ng-template>

@@ -10,8 +10,10 @@ export class RadioComponent implements OnInit
 {
   // CUSTOMIZERS
   public darkMode?: boolean;
-  public radioColor?: string;
-  public radioButtonColor?: string;
+  public radioColor: string = "linear-gradient(147.38deg, rgb(76, 150, 182) 0%, rgb(25, 73, 108) 100%)";
+  public borderColor?: string;
+  public palette: any;
+  // public gradient?: string;
   
   // BOOLEANS
   public isBlur?: boolean;
@@ -20,40 +22,71 @@ export class RadioComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.appService.darkMode$.subscribe((value: string) => this.darkMode = value == 'on');
     this.appService.blur$.subscribe((value: string) => this.isBlur = value == 'on');
+    
+    this.appService.darkMode$.subscribe((value: string) =>
+    {
+      this.darkMode = value == 'on';
+      // this.radioColor = this.darkMode
+      //   ? "#d5dfec;"
+      //   : this.palette.bgImage;
+      // if (!this.darkMode) this.gradient;
+    });
 
-    // SET RADIO BUTTONS COLOR
     this.appService.palette$.subscribe((palette: any) =>
     {
+      this.palette = palette;
+      if (!this.darkMode) this.radioColor = palette.bgImage;
       switch (palette.color)
       {
-        case '#b44b4b':
-          this.radioColor = 'radio-red';
-          this.radioButtonColor = 'radio-button-red';
+        case 'red':
+          this.borderColor = 'radio-red';
+          // this.radioButtonColor = 'radio-button-red';
           break;
-        case '#67b34d':
-          this.radioColor = 'radio-green';
-          this.radioButtonColor = 'radio-button-green';
+        case 'green':
+          this.borderColor = 'radio-green';
+          // this.radioButtonColor = 'radio-button-green';
           break;
-        case '#b39c4a':
-          this.radioColor = 'radio-yellow';
-          this.radioButtonColor = 'radio-button-yellow';
+        case 'yellow':
+          this.borderColor = 'radio-yellow';
+          // this.radioButtonColor = 'radio-button-yellow';
           break;
-        case '#aa85bd':
-          this.radioColor = 'radio-purple';
-          this.radioButtonColor = 'radio-button-purple';
+        case 'purple':
+          this.borderColor = 'radio-purple';
+          // this.radioButtonColor = 'radio-button-purple';
           break;
         default:
-          this.radioColor = 'radio-default';
-          this.radioButtonColor = 'radio-button-default';
+          this.borderColor = 'radio-default';
+          // this.radioButtonColor = 'radio-button-default';
           break;
       }
     });
   }
 
+  // public setGradient(bg: string)
+  // {
+  //   switch (bg)
+  //   {
+  //     case '#b44b4b':
+  //       this.gradient = 'linear-gradient(147.38deg, rgb(182 76 76) 0%, rgb(108 25 25) 100%)';
+  //       break;
+  //     case '#67b34d':
+  //       this.gradient = 'linear-gradient(147.38deg, rgb(106 182 76) 0%, rgb(25 108 89) 100%)';
+  //       break;
+  //     case '#b39c4a':
+  //       this.gradient = 'linear-gradient(147.38deg, rgb(182 161 76) 0%, rgb(108 42 25) 100%)';
+  //       break;
+  //     case '#aa85bd':
+  //       this.gradient = 'linear-gradient(147.38deg, rgb(176 134 192) 0%, rgb(34 107 121) 100%)';
+  //       break;
+  //     default:
+  //       this.gradient = 'linear-gradient(147.38deg, rgb(76, 150, 182) 0%, rgb(25, 73, 108) 100%)';
+  //       break;
+  //   }
+  // }
+
   // SET BLUR
-  public blurCanvas(isBlur: boolean = false)
+  public blurCanvas(isBlur: boolean)
   {
     this.isBlur = isBlur;
     let blur = this.isBlur ? 'on' : 'off';

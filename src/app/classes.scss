@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 .opacity0 { opacity: 0; }
 .opacity1 { opacity: 1; }
 .pointer { cursor: pointer; }
@@ -11,6 +13,8 @@
 .bottom0 { bottom: 0; }
 .left0 { left: 0; }
 .right0 { right: 0; }
+.white { color: $white; }
+.bgWhite { background-color: $white; }
 
 .center
 { 

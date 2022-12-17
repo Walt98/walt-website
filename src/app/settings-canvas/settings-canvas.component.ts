@@ -42,10 +42,10 @@ export class SettingsCanvasComponent implements OnInit
       this.palette = value;
       switch (value.color)
       {
-        case '#b44b4b': this.colorClass = 'color-red'; break;
-        case '#67b34d': this.colorClass = 'color-green'; break;
-        case '#b39c4a': this.colorClass = 'color-yellow'; break;
-        case '#aa85bd': this.colorClass = 'color-purple'; break;
+        case 'red': this.colorClass = 'color-red'; break;
+        case 'green': this.colorClass = 'color-green'; break;
+        case 'yellow': this.colorClass = 'color-yellow'; break;
+        case 'purple': this.colorClass = 'color-purple'; break;
         default: this.colorClass = 'color-default'; break;
       }
     });

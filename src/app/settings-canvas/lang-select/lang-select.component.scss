@@ -27,12 +27,14 @@
 
 .dropdownLangs
 {
+    width: max-content;
     box-shadow: #00000063 0 0 10px 0;
     padding: 7px 10px 7px 12px;
     border-radius: 5px;
 }
 
 .pL-6px { padding-left: 6px; }
+.h107 { min-height: 107px; }
 
 .blur, .darkBlur
 {

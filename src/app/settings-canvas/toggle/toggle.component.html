@@ -1,4 +1,7 @@
-<div class="d-flex align-items-center switch-toggle pointer" [ngClass]="(toggleClicked ? 'toggleClicked ' : '') + (isBlur ? 'toggle-shadow' : '')" (click)="setDarkMode()">
+<div class="d-flex align-items-center switch-toggle toggle-shadow pointer" [style]="'background-image: ' + gradient" (click)="setDarkMode()">
+    <!-- DARK MODE ICON -->
+    <i class="bi bi-moon-fill t4ms white mL10 d-flex opacity{{ toggleClicked ? 1 : 0 }}"></i>
+
     <!-- CIRCLE -->
-    <div class="switch-button br50" [ngClass]="toggleClicked ? 'translateX27' : ''"></div>
+    <div class="switch-button br50 t4ms" [ngClass]="toggleClicked ? 'translateX27' : ''"></div>
 </div>

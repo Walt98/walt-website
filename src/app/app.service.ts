@@ -10,7 +10,7 @@ export class AppService
   // SET DEFAULT PALETTE
   private palette = localStorage.getItem('palette')
   ?? JSON.stringify({
-    'color': '#2c82a7',
+    'color': 'default',
     'bgImage': 'linear-gradient(147.38deg, rgb(76, 150, 182) 0%, rgb(25, 73, 108) 100%)'
   });
 
@@ -20,7 +20,7 @@ export class AppService
   public font$ = new BehaviorSubject(localStorage.getItem('font') ?? 'Montserrat');
   public blur$ = new BehaviorSubject(localStorage.getItem('blur') ?? 'off');
 
-  constructor(private translate: TranslateService) { }
+  constructor() { }
 
   // NEXTS
   public setDarkMode = (value: string) => this.darkMode$.next(value);

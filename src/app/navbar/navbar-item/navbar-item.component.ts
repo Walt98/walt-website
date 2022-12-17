@@ -34,10 +34,10 @@ export class NavbarItemComponent implements OnInit
     if (this.darkMode) return 'title-color-dark';
     else switch (color)
     {
-      case '#b44b4b': return 'title-color-red';
-      case '#67b34d': return 'title-color-green';
-      case '#b39c4a': return 'title-color-yellow';
-      case '#aa85bd': return 'title-color-purple';
+      case 'red': return 'title-color-red';
+      case 'green': return 'title-color-green';
+      case 'yellow': return 'title-color-yellow';
+      case '#purple': return 'title-color-purple';
       default: return 'title-color-default';
     }
   }
