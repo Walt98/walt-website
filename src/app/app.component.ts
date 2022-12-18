@@ -12,7 +12,7 @@ export class AppComponent implements OnInit
   // CUSTOMIZERS
   public palette: any;
   public darkMode?: boolean;
-  public bgDark: string = 'linear-gradient(147.38deg, #143650 0%, #000000 100%)';
+  public biDark: string = 'linear-gradient(147.38deg, #143650 0%, #000000 100%)';
   public font?: string;
 
   constructor(private appService: AppService, private translate: TranslateService)
