@@ -9,7 +9,7 @@ import { AppService } from 'src/app/app.service';
 export class FontTextComponent implements OnInit
 {
   // INPUTS
-  @Input() font?: string;
+  @Input() font: string = "Montserrat";
 
   // CUSTOMIZERS
   public darkMode?: boolean;
