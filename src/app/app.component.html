@@ -1,4 +1,4 @@
-<div class="body absolute" [ngClass]="font" [style]="'background-image: ' + (darkMode ? biDark : palette.bgImage)">
+<div class="body absolute {{ font }}" [style]="'background-image: ' + (darkMode ? biDark : palette.bgImage)">
     <!-- LOGO & CONTACT ME -->
     <app-logo></app-logo>
 
@@ -10,7 +10,7 @@
             <!-- VERTICAL NAVBAR -->
             <app-navbar></app-navbar>
         </span>
-        <span class="container-fluid router-outlet overflowY" [ngClass]="darkMode ? 'bgDark white' : ''">
+        <span class="container-fluid router-outlet overflowY {{ darkMode ? 'bgDark white' : '' }}">
             <!-- BACKGROUND -->
             <img class="wallpaper absolute" src="/assets/images/background.jpg" alt="background">
             

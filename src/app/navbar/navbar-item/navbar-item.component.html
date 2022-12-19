@@ -1,6 +1,6 @@
 <div class="d-flex align-items-center white">
     <!-- ICON -->
-    <i [routerLink]="routeLink" [ngClass]="icon" class="bi font-xLarge pointer transition navbar-item-padding" (mouseover)="showTitle = true" (mouseleave)="showTitle = false"></i>
+    <i [routerLink]="routeLink" class="bi {{ icon }} font-xLarge pointer transition navbar-item-padding" (mouseover)="showTitle = true" (mouseleave)="showTitle = false"></i>
     
     <!-- TITLE -->
     <span *ngIf="showTitle" class="navbar-item-title zIndex1000 absolute" [ngClass]="color(palette.color)" [translate]="title"></span>

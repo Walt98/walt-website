@@ -1,17 +1,33 @@
 @import '../variables.scss';
 @import '../classes.scss';
 
-.p10 { padding: 10px; } 
+.p10 { padding: 10px; }
+.p12 { padding: 12px; }
 .hMax { height: $maxContent; }
+.settings-padding { padding: 0 10px 10px 10px; }
+
+.settings
+{
+    height: calc(100vh - 67px);
+    overflow-y: auto;
+}
 
 $canvasShadow: 0 2px 4px -1px #00000033, 0 4px 5px 0 #00000024, 0 1px 10px 0 #0000001f;
 
 .right270 { right: -270px; }
 .right0 { right: 0; }
 
+.x-button
+{
+    padding: 7px;
+    -webkit-text-stroke: thin;
+    &:hover { background-color: #e9ecef; }
+}
+
+.x-dark:hover { background-color: #253a53; }
+
 .settings-canvas
 {
-    overflow-y: auto;
     height: 100vh;
     width: 270px;
     border-left: 0 none;

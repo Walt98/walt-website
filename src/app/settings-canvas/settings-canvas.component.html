@@ -1,67 +1,76 @@
-<div class="d-flex align-items-center top0 canvasTransition absolute" [ngClass]="clicked ? 'right0' : 'right270'">
+<div class="d-flex align-items-center top0 canvasTransition absolute {{ clicked ? 'right0' : 'right270' }}">
     <!-- OFFCANVAS BUTTON -->
-    <div class="settings-div-button white pointer center" [ngClass]="toggleClicked ? 'color-dark' : colorClass" (click)="clicked = !clicked">
+    <div class="settings-div-button white pointer center {{ toggleClicked ? 'color-dark' : colorClass }}" (click)="clicked = !clicked">
         <i class="bi bi-gear center fontSize33"></i>
     </div>
     
     <!-- OFFCANVAS BODY -->
-    <div class="d-flex flex-wrap align-content-between justify-content-center settings-canvas BGwhite backdrop-filter p10 {{ clicked ? 'canvasShadow' : '' }}" [ngClass]="canvasColor">
-        <div class="w-100 hMax">
-
-            <!-- CHANGE LAYOUT THEME -->
-            <div class="container-fluid p10">
-                <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'dmWhite' : ''" translate>
-                    layoutTheme
-                </div>
-                <div *ngIf="!toggleClicked" class="col-12 d-flex align-items-center justify-content-between pY-13 h-67_5">
-                    <!-- LAYOUT THEMES -->
-                    <app-icon-palette bg="default" [ngClass]="activeIcon('default')"></app-icon-palette>
-                    <app-icon-palette bg="red" [ngClass]="activeIcon('red')"></app-icon-palette>
-                    <app-icon-palette bg="green" [ngClass]="activeIcon('green')"></app-icon-palette>
-                    <app-icon-palette bg="yellow" [ngClass]="activeIcon('yellow')"></app-icon-palette>
-                    <app-icon-palette bg="purple" [ngClass]="activeIcon('purple')"></app-icon-palette>
-                </div>
-
-                <!-- LAYOUT THEMES NON AVAILABLES -->
-                <div class="dmWhite pY-7-12_6" *ngIf="toggleClicked">
-                    <span translate> layoutThemeNotAvailable </span>
-                </div>
-            </div>
-    
-            <!-- DARK MODE -->
-            <div class="container-fluid p10">
-                <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'dmWhite' : ''" translate>
-                    darkMode
-                </div>
-                
-                <!-- DARK-MODE TOGGLE -->
-                <app-toggle [toggleClicked]="toggleClicked"></app-toggle>
-            </div>
-    
-            <!-- FONT -->
-            <div class="container-fluid p10">
-                <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'dmWhite' : ''">
-                    Font
-                </div>
-                <div class="d-flex flex-column">
-                    <!-- FONTS -->
-                    <app-font-text font="Montserrat" [ngClass]="activeFont('Montserrat')"></app-font-text>
-                    <app-font-text font="Roboto" [ngClass]="activeFont('Roboto')"></app-font-text>
-                </div>
-            </div>
-    
-            <!-- BLURRED OFFCANVAS -->
-            <div class="container-fluid p10">
-                <div class="col-12 layout-style-title" [ngClass]="toggleClicked ? 'dmWhite' : ''" translate>
-                    canvasBlur
-                </div>
-
-                <!-- RADIOS -->
-                <app-radio></app-radio>
-            </div>
+    <div class="settings-canvas BGwhite backdrop-filter p10 {{ clicked ? 'canvasShadow' : '' }} {{ toggleClicked ? 'dmWhite' : '' }} {{ canvasColor }}">
+        <!-- CLOSE OFFCANVAS -->
+        <div class="container-fluid p12 d-flex justify-content-end">
+            <i class="bi bi-x-lg br50 pointer transition d-flex x-button {{ toggleClicked ? 'x-dark' : '' }}" (click)="clicked = false"></i>
         </div>
-
-        <!-- CHANGE LANGUAGE SELECT -->
-        <app-lang-select [settingsClicked]="clicked"></app-lang-select>
+        
+        <!-- SETTINGS -->
+        <div class="d-flex flex-wrap align-content-between justify-content-center settings">
+            <div class="w-100 hMax">
+                <!-- CHANGE LAYOUT THEME -->
+                <div class="container-fluid settings-padding">
+                    <div class="col-12 layout-style-title" translate>
+                        layoutTheme
+                    </div>
+                    <div *ngIf="!toggleClicked" class="col-12 d-flex align-items-center justify-content-between pY-13 h-67_5">
+                        <!-- LAYOUT THEMES -->
+                        <app-icon-palette bg="default" [ngClass]="activeIcon('default')"></app-icon-palette>
+                        <app-icon-palette bg="red" [ngClass]="activeIcon('red')"></app-icon-palette>
+                        <app-icon-palette bg="green" [ngClass]="activeIcon('green')"></app-icon-palette>
+                        <app-icon-palette bg="yellow" [ngClass]="activeIcon('yellow')"></app-icon-palette>
+                        <app-icon-palette bg="purple" [ngClass]="activeIcon('purple')"></app-icon-palette>
+                    </div>
+    
+                    <!-- LAYOUT THEMES NON AVAILABLES -->
+                    <div *ngIf="toggleClicked" class="dmWhite pY-7-12_6">
+                        <span translate>
+                            layoutThemeNotAvailable
+                        </span>
+                    </div>
+                </div>
+        
+                <!-- DARK MODE -->
+                <div class="container-fluid p10">
+                    <div class="col-12 layout-style-title" translate>
+                        darkMode
+                    </div>
+                    
+                    <!-- DARK-MODE TOGGLE -->
+                    <app-toggle [toggleClicked]="toggleClicked"></app-toggle>
+                </div>
+        
+                <!-- FONT -->
+                <div class="container-fluid p10">
+                    <div class="col-12 layout-style-title">
+                        Font
+                    </div>
+                    <div class="d-flex flex-column">
+                        <!-- FONTS -->
+                        <app-font-text font="Montserrat" [ngClass]="activeFont('Montserrat')"></app-font-text>
+                        <app-font-text font="Roboto" [ngClass]="activeFont('Roboto')"></app-font-text>
+                    </div>
+                </div>
+        
+                <!-- BLURRED OFFCANVAS -->
+                <div class="container-fluid p10">
+                    <div class="col-12 layout-style-title" translate>
+                        canvasBlur
+                    </div>
+    
+                    <!-- RADIOS -->
+                    <app-radio></app-radio>
+                </div>
+            </div>
+    
+            <!-- CHANGE LANGUAGE SELECT -->
+            <app-lang-select [settingsClicked]="clicked"></app-lang-select>
+        </div>
     </div>
 </div>

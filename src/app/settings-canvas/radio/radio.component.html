@@ -4,13 +4,13 @@
 <ng-template #radio let-blur>
     <div class="d-flex align-items-center mT{{ blur ? 12 : 9 }}">
         <!-- RADIO -->
-        <div class="center radio bg-transparent pointer br50" [ngClass]="darkMode ? 'radioDark' : borderColor"  (click)="blurCanvas(blur)">
+        <div class="center radio {{ darkMode ? 'radioDark' : borderColor }} bg-transparent pointer br50"(click)="blurCanvas(blur)">
     
             <!-- RADIO CHECKED -->
             <div *ngIf="blur ? isBlur : !isBlur" class="radio-button br50" [style]="'background-' + (darkMode ? 'color: #d5dfec;' : 'image: ' + radioColor)"></div>
         </div>
     
         <!-- TEXT -->
-        <span class="radio-text pointer" [ngClass]="darkMode ? 'dmWhite' : ''" (click)="blurCanvas(blur)" translate> {{ blur ? 'blurs' : 'blurNone' }} </span>
+        <span class="radio-text pointer {{ darkMode ? 'dmWhite' : '' }}" (click)="blurCanvas(blur)" translate> {{ blur ? 'blurs' : 'blurNone' }} </span>
     </div>
 </ng-template>

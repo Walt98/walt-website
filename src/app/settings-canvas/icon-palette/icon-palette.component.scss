@@ -14,12 +14,11 @@
 {
     $shadow: #00000033, 0 0 10px 0px #00000024, 0 0 0 0 #0000001f;
     box-shadow: 0 0 20px -5px $shadow;
-    &:hover { box-shadow: 0 0 10px 0 $shadow; }
+    &:hover { box-shadow: 0 0 10px -3px $shadow; }
 }
 
 .check-icon
 {
     font-size: xx-large;
-    color: $white;
     transition: .1s;
 }
