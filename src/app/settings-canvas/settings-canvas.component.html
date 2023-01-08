@@ -7,7 +7,7 @@
     <!-- OFFCANVAS BODY -->
     <div class="settings-canvas BGwhite backdrop-filter p10 {{ clicked ? 'canvasShadow' : '' }} {{ toggleClicked ? 'dmWhite' : '' }} {{ canvasColor }}">
         <!-- CLOSE OFFCANVAS -->
-        <div class="container-fluid p12 d-flex justify-content-end">
+        <div class="container-fluid d-flex justify-content-end xPadding">
             <i class="bi bi-x-lg br50 pointer transition d-flex x-button {{ toggleClicked ? 'x-dark' : '' }}" (click)="clicked = false"></i>
         </div>
         
@@ -31,7 +31,7 @@
                     <!-- LAYOUT THEMES NON AVAILABLES -->
                     <div *ngIf="toggleClicked" class="dmWhite pY-7-12_6">
                         <span translate>
-                            layoutThemeNotAvailable
+                            themesNotAvailable
                         </span>
                     </div>
                 </div>

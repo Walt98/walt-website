@@ -4,6 +4,23 @@
 .Montserrat { @include font('Montserrat'); }
 .Roboto { @include font('Roboto'); }
 
+.div-spinner
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.app-spinner
+{
+    width: 8rem;
+    height: 8rem;
+}
+
 .body
 {
     width: 100vw;

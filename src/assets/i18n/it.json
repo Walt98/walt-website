@@ -2,7 +2,7 @@
     "contactMe": "Contattami",
     "aboutMe": "Chi sono",
     "layoutTheme": "Tema layout",
-    "layoutThemeNotAvailable": "Temi non disponibili in \"Modalità notturna\".",
+    "themesNotAvailable": "Temi non disponibili in \"Modalità notturna\".",
     "darkMode": "Modalità notturna",
     "canvasBlur": "Sfocatura finestra",
     "blurNone": "Nessuna",

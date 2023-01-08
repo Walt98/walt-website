@@ -1,4 +1,8 @@
-<div class="body absolute {{ font }}" [style]="'background-image: ' + (darkMode ? biDark : palette.bgImage)">
+<div *ngIf="!isReady" class="div-spinner BGwhite center">
+    <div class="spinner-border white app-spinner" role="status"></div>
+</div>
+
+<div #app class="body absolute {{ font ?? 'Montserrat' }}" [style]="'background-image: ' + (darkMode ? biDark : palette.bgImage)">
     <!-- LOGO & CONTACT ME -->
     <app-logo></app-logo>
 
