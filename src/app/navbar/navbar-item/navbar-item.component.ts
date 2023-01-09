@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AppService } from 'src/app/app.service';
+import { IPalette } from 'src/models/palette';
 
 @Component({
   selector: 'app-navbar-item',
@@ -9,37 +10,22 @@ import { AppService } from 'src/app/app.service';
 export class NavbarItemComponent implements OnInit
 {
   // INPUTS
-  @Input() routeLink?: string;
-  @Input() icon?: string;
-  @Input() title: string = '';
+  @Input() routeLink: string = "home";
+  @Input() icon: string = "home";
+  @Input() title: string = "Home";
 
   // CUSTOMIZERS
-  public darkMode?: boolean;
-  public palette: any;
+  public darkMode = false;
+  public palette: IPalette = {};
 
-  public colorClass?: string;
-  
   // BOOLEANS
-  public showTitle: boolean = false;
+  public showTitle = false;
 
   constructor(private appService: AppService) { }
 
   ngOnInit(): void
   {
-    this.appService.darkMode$.subscribe((value: string) => this.darkMode = value == 'on');
-    this.appService.palette$.subscribe((palette: any) => this.palette = palette);
-  }
-
-  public color(color: string): string
-  {
-    if (this.darkMode) return 'title-color-dark';
-    else switch (color)
-    {
-      case 'red': return 'title-color-red';
-      case 'green': return 'title-color-green';
-      case 'yellow': return 'title-color-yellow';
-      case 'purple': return 'title-color-purple';
-      default: return 'title-color-default';
-    }
+    this.appService.darkMode$.subscribe(value => this.darkMode = value == 'on');
+    this.appService.palette$.subscribe(palette => this.palette = palette);
   }
 }

@@ -13,14 +13,16 @@ export class LangSelectComponent implements OnInit, OnChanges
   @Input() settingsClicked?: boolean;
 
   // CUSTOMIZERS
-  public darkMode?: boolean;
-  public isBlur?: boolean;
-  public country: string = 'it';
-  public language: string = 'ITA';
+  public darkMode = false;
+  public isBlur = false;
 
   // BOOLEANS
-  public langClicked?: boolean;
-  public showSelect?: boolean;
+  public langClicked = false;
+  public showSelect = false;
+
+  // LANGUAGE VARIABLES
+  public country = 'it';
+  public language = 'ITA';
 
   constructor(private appService: AppService, private translate: TranslateService) { }
 
@@ -28,8 +30,8 @@ export class LangSelectComponent implements OnInit, OnChanges
   {
     this.country = this.translate.currentLang == 'it' ? 'it' : 'gb';
     this.language = this.translate.currentLang == 'it' ? 'ITA' : 'ENG';
-    this.appService.darkMode$.subscribe((darkMode: string) => this.darkMode = darkMode == 'on');
-    this.appService.blur$.subscribe((value: string) => this.isBlur = value == 'on');
+    this.appService.darkMode$.subscribe(darkMode => this.darkMode = darkMode == 'on');
+    this.appService.blur$.subscribe(value => this.isBlur = value == 'on');
   }
 
   ngOnChanges(changes: SimpleChanges): void

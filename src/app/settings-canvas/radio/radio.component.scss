@@ -2,7 +2,6 @@
 @import '../../classes.scss';
 
 .mT9 { margin-top: 9px; }
-.mT12 { margin-top: 12px; }
 
 .radio
 {
@@ -22,16 +21,10 @@
 
 .radio { border: $radioBorder; }
 
-.radioDark { border-color: $dmWhite; }
+.radio-Dark { border-color: $dmWhite; }
 
 .radio-default { border-color: $default; }
 .radio-red { border-color: $red; }
 .radio-green { border-color: $green; }
 .radio-yellow { border-color: $yellow; }
 .radio-purple { border-color: $purple; }
-
-.radio-button-default { background-color: $default; }
-.radio-button-red { background-color: $red; }
-.radio-button-green { background-color: $green; }
-.radio-button-yellow { background-color: $yellow; }
-.radio-button-purple { background-color: $purple; }

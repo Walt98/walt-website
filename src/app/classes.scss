@@ -13,10 +13,24 @@
 .bottom0 { bottom: 0; }
 .left0 { left: 0; }
 .right0 { right: 0; }
+
+// COLOR
 .white { color: $white; }
+.dmWhite { color: $dmWhite; }
+.default { color: $default; }
+.red { color: $red; }
+.green { color: $green; }
+.yellow { color: $yellow; }
+.purple { color: $purple; }
+
+// BACKGROUND-COLOR
 .bgWhite { background-color: $white; }
-.dmWhite { color: $dmWhite }
 .BGwhite { background-color: $bgWhite; }
+.bgDefault { background-color: $default; }
+.bgRed { background-color: $red; }
+.bgGreen { background-color: $green; }
+.bgYellow { background-color: $yellow; }
+.bgPurple { background-color: $purple; }
 
 .center
 { 

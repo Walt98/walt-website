@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AppService } from 'src/app/app.service';
+import { IPalette } from 'src/models/palette';
 
 @Component({
   selector: 'app-icon-palette',
@@ -9,49 +10,35 @@ import { AppService } from 'src/app/app.service';
 export class IconPaletteComponent implements OnInit
 {
   // INPUTS
-  @Input() bg?: string;
+  @Input() bg: string = "default";
 
-  // BOOLEANS
+  // CUSTOMIZERS
   public blur?: boolean;
-
-  public bgImage: string = "";
 
   constructor(private appService: AppService) { }
 
   ngOnInit(): void
   {
-    this.setGradient(this.bg ?? "");
-    this.appService.blur$.subscribe((value: string) => this.blur = value == 'on');
+    this.appService.blur$.subscribe(value => this.blur = value == 'on');
   }
 
   // SET PALETTE
   public setPalette()
   {
-    this.setGradient(this.bg ?? "");
-    let palette = { 'color': this.bg, 'bgImage': this.bgImage };
+    let palette: IPalette = { color: this.bg, bgImage: this.setGradient(this.bg) };
     localStorage.setItem('palette', JSON.stringify(palette));
     this.appService.setPalette(palette);
   }
 
-  public setGradient(bg: string)
+  public setGradient(bg: string): string
   {
     switch (bg)
     {
-      case 'red':
-        this.bgImage = 'linear-gradient(147.38deg, #b64c4c 0%, #6c1919 100%)';
-        break;
-      case 'green':
-        this.bgImage = 'linear-gradient(147.38deg, #6ab64c 0%, #196c59 100%)';
-        break;
-      case 'yellow':
-        this.bgImage = 'linear-gradient(147.38deg, #b6a14c 0%, #6c2a19 100%)';
-        break;
-      case 'purple':
-        this.bgImage = 'linear-gradient(147.38deg, #b086c0 0%, #226b79 100%)';
-        break;
-      default:
-        this.bgImage = 'linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)';
-        break;
+      case 'red': return 'linear-gradient(147.38deg, #b64c4c 0%, #6c1919 100%)';
+      case 'green': return 'linear-gradient(147.38deg, #6ab64c 0%, #196c59 100%)';
+      case 'yellow': return 'linear-gradient(147.38deg, #b6a14c 0%, #6c2a19 100%)';
+      case 'purple': return 'linear-gradient(147.38deg, #b086c0 0%, #226b79 100%)';
+      default: return 'linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)';
     }
   }
 }

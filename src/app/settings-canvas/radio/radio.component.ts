@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/app.service';
+import { IPalette } from 'src/models/palette';
 
 @Component({
   selector: 'app-radio',
@@ -9,32 +10,17 @@ import { AppService } from 'src/app/app.service';
 export class RadioComponent implements OnInit
 {
   // CUSTOMIZERS
-  public isBlur?: boolean;
-  public darkMode?: boolean;
-  public palette: any;
-
-  public radioColor: string = "linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)";
-  public borderColor?: string;
+  public isBlur = false;
+  public darkMode = false;
+  public palette: IPalette = {};
 
   constructor(private appService: AppService) { }
 
   ngOnInit(): void
   {
-    this.appService.blur$.subscribe((value: string) => this.isBlur = value == 'on');
-    this.appService.darkMode$.subscribe((value: string) => this.darkMode = value == 'on');
-    this.appService.palette$.subscribe((palette: any) =>
-    {
-      this.palette = palette;
-      if (!this.darkMode) this.radioColor = palette.bgImage;
-      switch (palette.color)
-      {
-        case 'red': this.borderColor = 'radio-red'; break;
-        case 'green': this.borderColor = 'radio-green'; break;
-        case 'yellow': this.borderColor = 'radio-yellow'; break;
-        case 'purple': this.borderColor = 'radio-purple'; break;
-        default: this.borderColor = 'radio-default'; break;
-      }
-    });
+    this.appService.blur$.subscribe(value => this.isBlur = value == 'on');
+    this.appService.darkMode$.subscribe(value => this.darkMode = value == 'on');
+    this.appService.palette$.subscribe(palette => this.palette = palette);
   }
 
   // SET BLUR

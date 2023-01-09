@@ -12,7 +12,7 @@ export class FontTextComponent implements OnInit
   @Input() font: string = "Montserrat";
 
   // CUSTOMIZERS
-  public darkMode?: boolean;
+  public darkMode = false;
 
   constructor(private appService: AppService) { }
 

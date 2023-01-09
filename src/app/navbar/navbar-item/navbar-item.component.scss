@@ -1,28 +1,24 @@
 @import '../../variables.scss';
 @import '../../classes.scss';
 
-.navbar-item-padding
+.navbar-item-icon
 {
     padding: 15px 19px;
     border-radius: 15px;
     &:hover { background-color: #ffffff2e; }
+    
+    & + span // ITEM TITLE
+    {
+        padding: 7.5px 15px;
+        border-radius: 7px;
+        margin-left: 70px;
+        box-shadow: 0 0 20px -5px #00000033,
+        0 0 10px 0px #00000024,
+        0 0 0 0 #0000001f;
+    }
 }
 
-.navbar-item-title
-{
-    padding: 7.5px 15px;
-    border-radius: 7px;
-    margin-left: 70px;
-}
-
-.title-color-dark
-{
-    background-color: #3b5462;
-    box-shadow: 0 0 20px -5px #00000033,
-    0 0 10px 0px #00000024,
-    0 0 0 0 #0000001f;
-}
-
+.title-color-dark { background-color: #3b5462; }
 .title-color-default { background-color: #19496C; }
 .title-color-red { background-color: #802424; }
 .title-color-green { background-color: #3a7826; }

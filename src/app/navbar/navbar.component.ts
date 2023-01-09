@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IPalette } from 'src/models/palette';
 import { AppService } from '../app.service';
 
 @Component({
@@ -10,30 +11,30 @@ import { AppService } from '../app.service';
 export class NavbarComponent implements OnInit
 {
   // CUSTOMIZERS
-  public darkMode?: boolean;
-  public palette: any;
+  public darkMode = false;
+  public palette: IPalette = {};
 
   // NAVBAR ITEMS CLASSES
-  public homeClass: string = '';
-  public aboutMeClass: string = '';
-  public contactMeClass: string = '';
+  public homeClass = '';
+  public aboutMeClass = '';
+  public contactMeClass = '';
 
   // CURRENT ROUTE
-  public currentRoute: string = 'home';
+  public currentRoute = 'home';
 
   constructor(private appService: AppService, private router: Router) { }
 
   ngOnInit(): void
   {
-    this.appService.darkMode$.subscribe((value: string) =>
+    this.appService.darkMode$.subscribe(value =>
     {
       this.darkMode = value == 'on';
       if (this.palette) this.onChangesActive();
     });
 
-    this.appService.palette$.subscribe((value: any) =>
+    this.appService.palette$.subscribe(palette =>
     {
-      this.palette = value;
+      this.palette = palette;
       this.onChangesActive();
     });
     
@@ -68,9 +69,9 @@ export class NavbarComponent implements OnInit
   }
 
   // SET NAVBAR-ITEM ACTIVE CLASS
-  public onChangesActive()
+  private onChangesActive()
   {
-    if (this.currentRoute == 'home' || this.currentRoute == '/')
+    if (["home", "/"].includes(this.currentRoute))
     {
       this.homeClass = this.active();
       this.aboutMeClass = '';
@@ -90,16 +91,5 @@ export class NavbarComponent implements OnInit
     }
   }
 
-  public active(): string
-  {
-    if (!this.darkMode) switch (this.palette.color)
-    {
-      case 'red': return 'active item-color-red';
-      case 'green': return 'active item-color-green';
-      case 'yellow': return 'active item-color-yellow';
-      case 'purple': return 'active item-color-purple';
-      default: return 'active item-color-default';
-    }
-    else return 'active item-color-dark';
-  }
+  private active = () => `active item-color-${this.darkMode ? 'dark' : this.palette.color}`;
 }

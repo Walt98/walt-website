@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IPalette } from 'src/models/palette';
 import { AppService } from '../app.service';
 
 @Component({
@@ -9,48 +10,40 @@ import { AppService } from '../app.service';
 export class SettingsCanvasComponent implements OnInit
 {
   // CUSTOMIZERS
-  public palette: any;
-  public colorClass?: string;
+  public palette: IPalette = {};
   public font?: string;
   public blur?: boolean;
   public canvasColor?: string;
   
   // BOOLEANS
-  public clicked: boolean = false;
-  public toggleClicked?: boolean;
+  public clicked = false;
+  public toggleClicked = false;
 
   constructor(private appService: AppService) { }
 
   ngOnInit(): void
   {
-    this.appService.darkMode$.subscribe((value: string) =>
+    this.appService.darkMode$.subscribe(value =>
     {
       this.toggleClicked = value == 'on';
-      if (value == 'on') this.canvasColor = this.blur ? 'darkBlur' : 'canvasDarkMode';
-      else this.canvasColor = this.blur ? 'blur' : '';
+      this.setCanvasColor();
     });
     
-    this.appService.blur$.subscribe((value: string) =>
+    this.appService.blur$.subscribe(value =>
     {
       this.blur = value == 'on';
-      if (this.toggleClicked) this.canvasColor = this.blur ? 'darkBlur' : 'canvasDarkMode';
-      else this.canvasColor = this.blur ? 'blur' : '';
+      this.setCanvasColor();
     });
 
-    this.appService.palette$.subscribe((value: any) =>
-    {
-      this.palette = value;
-      switch (value.color)
-      {
-        case 'red': this.colorClass = 'color-red'; break;
-        case 'green': this.colorClass = 'color-green'; break;
-        case 'yellow': this.colorClass = 'color-yellow'; break;
-        case 'purple': this.colorClass = 'color-purple'; break;
-        default: this.colorClass = 'color-default'; break;
-      }
-    });
+    this.appService.palette$.subscribe(value => this.palette = value);
+    this.appService.font$.subscribe(value => this.font = value);
+  }
 
-    this.appService.font$.subscribe((value: string) => this.font = value);
+  private setCanvasColor()
+  {
+    this.canvasColor = this.toggleClicked
+      ? (this.blur ? 'darkBlur' : 'canvasDarkMode')
+      : (this.blur ? 'blur' : '');
   }
 
   public activeIcon = (color: string): string => this.palette.color == color ? 'activeIcon' : '';

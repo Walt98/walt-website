@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AppService } from 'src/app/app.service';
+import { IPalette } from 'src/models/palette';
 
 @Component({
   selector: 'app-toggle',
@@ -9,40 +10,20 @@ import { AppService } from 'src/app/app.service';
 export class ToggleComponent implements OnInit
 {
   // INPUTS
-  @Input() toggleClicked?: boolean;
+  @Input() toggleClicked: boolean = false;
 
   // CUSTOMIZERS
-  public isBlur?: boolean;
-  public palette: any;
-  public darkMode?: boolean;
-
-  public gradient?: string;
+  public isBlur = false;
+  public darkMode = false;
+  public palette: IPalette = {};
 
   constructor(private appService: AppService) { }
 
   ngOnInit(): void
   {
-    this.appService.blur$.subscribe((value: string) => this.isBlur = value == 'on');
-
-    this.appService.palette$.subscribe((palette: any) =>
-    {
-      this.palette = palette;
-      this.setGradient();
-    });
-
-    this.appService.darkMode$.subscribe((value: string) =>
-    {
-      this.darkMode = value == "on";
-      this.setGradient();
-    });
-  }
-
-  // SET TOGGLE BACKGROUND GRADIENT
-  public setGradient()
-  {
-    this.gradient = this.darkMode
-      ? "linear-gradient(327.38deg, #6d93a3 0%, #1e3e55 100%);"
-      : this.palette.bgImage;
+    this.appService.blur$.subscribe(value => this.isBlur = value == 'on');
+    this.appService.darkMode$.subscribe(value => this.darkMode = value == "on");
+    this.appService.palette$.subscribe(palette => this.palette = palette);
   }
 
   public setDarkMode()

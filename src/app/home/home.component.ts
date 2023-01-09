@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IPalette } from 'src/models/palette';
 import { AppService } from '../app.service';
 
 @Component({
@@ -9,11 +10,9 @@ import { AppService } from '../app.service';
 export class HomeComponent implements OnInit
 {
   // CUSTOMIZERS
-  public palette: any;
+  public palette: IPalette = {};
   public darkMode: boolean = false;
   public font: string = 'Montserrat';
-  
-  public titleStyle?: string;
 
   constructor(private appService: AppService) { }
 

@@ -1,6 +1,6 @@
 <div class="d-flex align-items-center top0 canvasTransition absolute {{ clicked ? 'right0' : 'right270' }}">
     <!-- OFFCANVAS BUTTON -->
-    <div class="settings-div-button white pointer center {{ toggleClicked ? 'color-dark' : colorClass }}" (click)="clicked = !clicked">
+    <div class="settings-div-button white pointer center color-{{ toggleClicked ? 'dark' : palette.color }}" (click)="clicked = !clicked">
         <i class="bi bi-gear center fontSize33"></i>
     </div>
     

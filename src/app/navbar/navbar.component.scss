@@ -15,15 +15,15 @@ app-navbar-item
 
 :host
 {
-    ::ng-deep app-navbar-item.active div > i
+    ::ng-deep app-navbar-item.active i
     {
         background-color: $white;
         &:hover { background-color: $white !important; }
     }
-    ::ng-deep .item-color-dark div > i { color: #004766 !important; }
-    ::ng-deep .item-color-default div > i { color: $light-default !important; }
-    ::ng-deep .item-color-red div > i { color: $light-red !important; }
-    ::ng-deep .item-color-green div > i { color: $light-green !important; }
-    ::ng-deep .item-color-yellow div > i { color: $light-yellow !important; }
-    ::ng-deep .item-color-purple div > i { color: $light-purple !important; }
+    ::ng-deep .item-color-dark i { color: #004766 !important; }
+    ::ng-deep .item-color-default i { color: $light-default !important; }
+    ::ng-deep .item-color-red i { color: $light-red !important; }
+    ::ng-deep .item-color-green i { color: $light-green !important; }
+    ::ng-deep .item-color-yellow i { color: $light-yellow !important; }
+    ::ng-deep .item-color-purple i { color: $light-purple !important; }
 }

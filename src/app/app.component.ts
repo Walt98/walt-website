@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { delay, Subject } from 'rxjs';
+import { IPalette } from 'src/models/palette';
 import { AppService } from './app.service';
 
 @Component({
@@ -11,17 +12,17 @@ import { AppService } from './app.service';
 export class AppComponent implements OnInit, AfterViewInit
 {
   // CUSTOMIZERS
-  public palette: any;
-  public darkMode?: boolean;
+  public palette: IPalette = {};
+  public darkMode = false;
   public biDark = 'linear-gradient(147.38deg, #143650 0%, #000000 100%)';
-  public font?: string;
+  public font = "Montserrat";
   
   // ngAfterViewInit ASSETS
   @ViewChild("app") public app?: ElementRef;
   public isReady = false;
   public isReady$ = new Subject<boolean>();
 
-  constructor(private appService: AppService, private translate: TranslateService)
+  constructor(private appService: AppService, protected translate: TranslateService)
   {
     // SET DEFAULT LANGUAGE
     translate.setDefaultLang('it');
@@ -31,13 +32,13 @@ export class AppComponent implements OnInit, AfterViewInit
   ngOnInit(): void
   {
     if (!localStorage.getItem('lang')) localStorage.setItem('lang', 'it');
-    this.appService.darkMode$.subscribe((value: string) => this.darkMode = value == 'on');
-    this.appService.palette$.subscribe((value: any) =>
+    this.appService.darkMode$.subscribe(value => this.darkMode = value == 'on');
+    this.appService.font$.subscribe(value => this.font = value);
+    this.appService.palette$.subscribe(palette =>
     {
-      this.palette = value;
-      if (!localStorage.getItem('palette')) localStorage.setItem('palette', JSON.stringify(value));
+      this.palette = palette;
+      if (!localStorage.getItem('palette')) localStorage.setItem('palette', JSON.stringify(palette));
     });
-    this.appService.font$.subscribe((value: string) => this.font = value);
 
     // SHOW/HIDE SPINNER
     this.isReady$.pipe(delay(200)).subscribe(isReady => this.isReady = isReady);
