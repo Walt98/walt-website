@@ -46,26 +46,31 @@ export class NavbarComponent implements OnInit
     {
       if (e.type == 1)
       {
+        let item: INavbarItem;
+        this.items.forEach(i => i.class = "");
+
         if (e.url.includes('home') || e.url == '/')
         {
           this.currentRoute = 'home';
-          this.items.forEach((item, i) => item.class = i == 0 ? this.active() : '');
+          item = this.items[0];
         }
         else if (e.url.includes('about-me'))
         {
           this.currentRoute = 'about-me';
-          this.items.forEach((item, i) => item.class = i == 1 ? this.active() : '');
+          item = this.items[1];
         }
         else if (e.url.includes('contact-me'))
         {
           this.currentRoute = 'contact-me';
-          this.items.forEach((item, i) => item.class = i == 2 ? this.active() : '');
+          item = this.items[2];
         }
         else
         {
           this.currentRoute = 'technologies';
-          this.items.forEach((item, i) => item.class = i == 3 ? this.active() : '');
+          item = this.items[3];
         }
+
+        item.class = this.active();
       }
     });
   }
@@ -73,23 +78,16 @@ export class NavbarComponent implements OnInit
   // SET NAVBAR-ITEM ACTIVE CLASS
   private onChangesActive()
   {
-    if (["home", "/"].includes(this.currentRoute))
-    {
-      this.items.forEach((item, i) => item.class = i == 0 ? this.active() : '');
-    }
-    else if (this.currentRoute == 'about-me')
-    {
-      this.items.forEach((item, i) => item.class = i == 1 ? this.active() : '');
-    }
-    else if (this.currentRoute == 'contact-me')
-    {
-      this.items.forEach((item, i) => item.class = i == 2 ? this.active() : '');
-    }
-    else
-    {
-      this.items.forEach((item, i) => item.class = i == 3 ? this.active() : '');
-    }
+    let item: INavbarItem;
+    this.items.forEach(i => i.class = "");
+
+    if (["home", "/"].includes(this.currentRoute)) item = this.items[0];
+    else if (this.currentRoute == 'about-me') item = this.items[1];
+    else if (this.currentRoute == 'contact-me') item = this.items[2];
+    else item = this.items[3];
+    
+    item.class = this.active();
   }
 
-  private active = () => `active item-color-${this.darkMode ? 'dark' : this.palette?.color}`;
+  private active = () => `active item-color-${this.darkMode ? 'dark' : this.palette.color}`;
 }
