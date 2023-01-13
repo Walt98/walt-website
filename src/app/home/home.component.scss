@@ -18,11 +18,20 @@
     margin-bottom: 0;
     font-size: calc(1.5rem + 3vw);
     font-weight: 700;
-    background-size: 100%;
+    animation: bgPulse 3s ease infinite;
+    background-size: 200% 100%;
     background-repeat: repeat;
     background-clip: text;
+    -webkit-animation: bgPulse 3s ease infinite;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-text-fill-color: transparent;
+}
+
+@keyframes bgPulse
+{
+    0% { background-position: 0% }
+    50% { background-position: 50% }
+    100% { background-position: 0% }
 }
