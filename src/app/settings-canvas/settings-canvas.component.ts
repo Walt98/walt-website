@@ -19,6 +19,8 @@ export class SettingsCanvasComponent implements OnInit
   public clicked = false;
   public toggleClicked = false;
 
+  public colors = ['default', 'red', 'green', 'yellow', 'purple'];
+
   constructor(private appService: AppService) { }
 
   ngOnInit(): void

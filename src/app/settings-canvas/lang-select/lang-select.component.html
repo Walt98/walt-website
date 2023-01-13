@@ -1,4 +1,4 @@
-<div class="d-flex flex-column align-items-end justify-content-end h130">
+<div class="d-flex flex-column align-items-end justify-content-end h130" (clickOutside)="langClicked = false">
     <!-- LANGUAGES LIST -->
     <div *ngIf="langClicked" class="d-flex flex-column align-items-start dropdownLangs transition bg-transparent {{ isBlur ? (darkMode ? 'darkBlur' : 'blur') : '' }} opacity{{ showSelect ? '1 pointer noTranslateY' : '0 cursorDefault translateY10' }}">
         <div *ngFor="let code of ['it', 'gb']" class="center" (click)="setLanguage(code)">

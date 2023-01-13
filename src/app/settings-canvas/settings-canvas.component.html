@@ -21,11 +21,7 @@
                     </div>
                     <div *ngIf="!toggleClicked" class="col-12 d-flex align-items-center justify-content-between pY-13 h-67_5">
                         <!-- LAYOUT THEMES -->
-                        <app-icon-palette bg="default" [ngClass]="activeIcon('default')"></app-icon-palette>
-                        <app-icon-palette bg="red" [ngClass]="activeIcon('red')"></app-icon-palette>
-                        <app-icon-palette bg="green" [ngClass]="activeIcon('green')"></app-icon-palette>
-                        <app-icon-palette bg="yellow" [ngClass]="activeIcon('yellow')"></app-icon-palette>
-                        <app-icon-palette bg="purple" [ngClass]="activeIcon('purple')"></app-icon-palette>
+                        <app-icon-palette *ngFor="let bg of colors" [bg]="bg" [ngClass]="activeIcon(bg)"></app-icon-palette>
                     </div>
     
                     <!-- LAYOUT THEMES NON AVAILABLES -->
@@ -53,8 +49,7 @@
                     </div>
                     <div class="d-flex flex-column">
                         <!-- FONTS -->
-                        <app-font-text font="Montserrat" [ngClass]="activeFont('Montserrat')"></app-font-text>
-                        <app-font-text font="Roboto" [ngClass]="activeFont('Roboto')"></app-font-text>
+                        <app-font-text *ngFor="let font of ['Montserrat', 'Roboto']" [font]="font" [ngClass]="activeFont(font)"></app-font-text>
                     </div>
                 </div>
         
