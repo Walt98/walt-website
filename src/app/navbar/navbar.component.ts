@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { INavbarItem } from 'src/models/navbar-item';
 import { IPalette } from 'src/models/palette';
 import { AppService } from '../app.service';
 
@@ -14,13 +15,15 @@ export class NavbarComponent implements OnInit
   public darkMode = false;
   public palette: IPalette = {};
 
-  // NAVBAR ITEMS CLASSES
-  public homeClass = '';
-  public aboutMeClass = '';
-  public contactMeClass = '';
-
   // CURRENT ROUTE
   public currentRoute = 'home';
+
+  public items: INavbarItem[] = [
+    { class: '', link: "home", icon: "house", text: "Home", show: false },
+    { class: '', link: "about-me", icon: "person-circle", text: "aboutMe", show: false },
+    { class: '', link: "contact-me", icon: "send", text: "contactMe", show: false },
+    { class: '', link: "technologies", icon: "code-slash", text: "technologies", show: false },
+  ];
 
   constructor(private appService: AppService, private router: Router) { }
 
@@ -46,23 +49,22 @@ export class NavbarComponent implements OnInit
         if (e.url.includes('home') || e.url == '/')
         {
           this.currentRoute = 'home';
-          this.homeClass = this.active();
-          this.aboutMeClass = '';
-          this.contactMeClass = '';
+          this.items.forEach((item, i) => item.class = i == 0 ? this.active() : '');
         }
         else if (e.url.includes('about-me'))
         {
           this.currentRoute = 'about-me';
-          this.homeClass = '';
-          this.aboutMeClass = this.active();
-          this.contactMeClass = '';
+          this.items.forEach((item, i) => item.class = i == 1 ? this.active() : '');
+        }
+        else if (e.url.includes('contact-me'))
+        {
+          this.currentRoute = 'contact-me';
+          this.items.forEach((item, i) => item.class = i == 2 ? this.active() : '');
         }
         else
         {
-          this.currentRoute = 'contact-me';
-          this.homeClass = '';
-          this.aboutMeClass = '';
-          this.contactMeClass = this.active();
+          this.currentRoute = 'technologies';
+          this.items.forEach((item, i) => item.class = i == 3 ? this.active() : '');
         }
       }
     });
@@ -73,23 +75,21 @@ export class NavbarComponent implements OnInit
   {
     if (["home", "/"].includes(this.currentRoute))
     {
-      this.homeClass = this.active();
-      this.aboutMeClass = '';
-      this.contactMeClass = '';
+      this.items.forEach((item, i) => item.class = i == 0 ? this.active() : '');
     }
     else if (this.currentRoute == 'about-me')
     {
-      this.homeClass = '';
-      this.aboutMeClass = this.active();
-      this.contactMeClass = '';
+      this.items.forEach((item, i) => item.class = i == 1 ? this.active() : '');
+    }
+    else if (this.currentRoute == 'contact-me')
+    {
+      this.items.forEach((item, i) => item.class = i == 2 ? this.active() : '');
     }
     else
     {
-      this.homeClass = '';
-      this.aboutMeClass = '';
-      this.contactMeClass = this.active();
+      this.items.forEach((item, i) => item.class = i == 3 ? this.active() : '');
     }
   }
 
-  private active = () => `active item-color-${this.darkMode ? 'dark' : this.palette.color}`;
+  private active = () => `active item-color-${this.darkMode ? 'dark' : this.palette?.color}`;
 }

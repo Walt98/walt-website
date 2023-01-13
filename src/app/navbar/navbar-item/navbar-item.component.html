@@ -1,9 +1,0 @@
-<div class="d-flex align-items-center white">
-    <!-- ICON -->
-    <i [routerLink]="routeLink" class="bi bi-{{ icon }} font-xLarge pointer transition navbar-item-icon" (mouseover)="showTitle = true" (mouseleave)="showTitle = false"></i>
-    
-    <!-- TITLE -->
-    <span *ngIf="showTitle" class="zIndex1000 absolute title-color-{{ darkMode ? 'dark' : palette.color }}" translate>
-        {{ title }}
-    </span>
-</div>

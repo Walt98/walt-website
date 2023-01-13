@@ -45,10 +45,13 @@ export class LangSelectComponent implements OnInit, OnChanges
 
   public setLanguage(country: string)
   {
-    this.country = country;
-    this.language = country == 'it' ? 'ITA' : 'ENG';
-    this.translate.use(country == 'it' ? 'it' : 'en');
-    localStorage.setItem('lang', country == 'it' ? 'it' : 'en');
+    if (this.showSelect)
+    {
+      this.country = country;
+      this.language = country == 'it' ? 'ITA' : 'ENG';
+      this.translate.use(country == 'it' ? 'it' : 'en');
+      localStorage.setItem('lang', country == 'it' ? 'it' : 'en');
+    }
   }
 
   public showLang()

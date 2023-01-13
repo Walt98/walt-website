@@ -7,23 +7,42 @@
     width: $maxContent;
 }
 
-app-navbar-item
+.navbar-item
 {
     padding: 8px 21px;
     &:first-child { padding-top: 0; }
 }
 
-:host
+.active, .active:hover { @extend .bgWhite; }
+
+.item-color-dark { color: #004766; }
+.item-color-default { color: $light-default; }
+.item-color-red { color: $light-red; }
+.item-color-green { color: $light-green; }
+.item-color-yellow { color: $light-yellow; }
+.item-color-purple { color: $light-purple; }
+
+.navbar-item-icon
 {
-    ::ng-deep app-navbar-item.active i
+    padding: 15px 19px;
+    border-radius: 15px;
+    &:not(.navbar-item-icon.active):hover { background-color: #ffffff2e; }
+    
+    // ITEM TITLE
+    & + span
     {
-        background-color: $white;
-        &:hover { background-color: $white !important; }
+        padding: 7.5px 15px;
+        border-radius: 7px;
+        margin-left: 70px;
+        box-shadow: 0 0 20px -5px #00000033,
+        0 0 10px 0px #00000024,
+        0 0 0 0 #0000001f;
     }
-    ::ng-deep .item-color-dark i { color: #004766 !important; }
-    ::ng-deep .item-color-default i { color: $light-default !important; }
-    ::ng-deep .item-color-red i { color: $light-red !important; }
-    ::ng-deep .item-color-green i { color: $light-green !important; }
-    ::ng-deep .item-color-yellow i { color: $light-yellow !important; }
-    ::ng-deep .item-color-purple i { color: $light-purple !important; }
 }
+
+.title-color-dark { background-color: #3b5462; }
+.title-color-default { background-color: #19496C; }
+.title-color-red { background-color: #802424; }
+.title-color-green { background-color: #3a7826; }
+.title-color-yellow { background-color: #7a5825; }
+.title-color-purple { background-color: #644075; }

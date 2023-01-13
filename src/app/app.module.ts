@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './navbar/navbar.component';
-import { NavbarItemComponent } from './navbar/navbar-item/navbar-item.component';
 import { LogoComponent } from './logo/logo.component';
 import { HomeComponent } from './home/home.component';
 import { AboutMeComponent } from './about-me/about-me.component';
@@ -19,12 +18,12 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ToggleComponent } from './settings-canvas/toggle/toggle.component';
+import { TechnologiesComponent } from './technologies/technologies.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    NavbarItemComponent,
     LogoComponent,
     HomeComponent,
     AboutMeComponent,
@@ -34,7 +33,8 @@ import { ToggleComponent } from './settings-canvas/toggle/toggle.component';
     FontTextComponent,
     RadioComponent,
     LangSelectComponent,
-    ToggleComponent
+    ToggleComponent,
+    TechnologiesComponent
   ],
   imports: [
     BrowserModule,

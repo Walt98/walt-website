@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { ContactMeComponent } from './contact-me/contact-me.component';
 import { HomeComponent } from './home/home.component';
+import { TechnologiesComponent } from './technologies/technologies.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'about-me', component: AboutMeComponent },
   { path: 'contact-me', component: ContactMeComponent },
+  { path: 'technologies', component: TechnologiesComponent },
   { path: '**', redirectTo: 'home', pathMatch: 'full' },  // Wildcard route for a 404 page
 ];
 
