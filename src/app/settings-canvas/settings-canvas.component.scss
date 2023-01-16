@@ -5,17 +5,18 @@
 .xPadding { padding: 0 7px 12px 12px; }
 .hMax { height: $maxContent; }
 .settings-padding { padding: 0 10px 10px 10px; }
+.right270 { right: -270px; }
+.h-67_5 { height: 67.5px; }
+.pY-13 { padding: 13px 0; }
+.pY-7-12_6 { padding: 7px 0 12.6px; }
+.pT-5 { padding-top: 5px; }
+.fontSize33 { font-size: 33px; }
 
 .settings
 {
     height: calc(100vh - 67px);
     overflow-y: auto;
 }
-
-$canvasShadow: 0 2px 4px -1px #00000033, 0 4px 5px 0 #00000024, 0 1px 10px 0 #0000001f;
-
-.right270 { right: -270px; }
-.right0 { right: 0; }
 
 .x-button
 {
@@ -25,6 +26,8 @@ $canvasShadow: 0 2px 4px -1px #00000033, 0 4px 5px 0 #00000024, 0 1px 10px 0 #00
 }
 
 .x-dark:hover { background-color: #253a53; }
+
+$canvasShadow: 0 2px 4px -1px #00000033, 0 4px 5px 0 #00000024, 0 1px 10px 0 #0000001f;
 
 .settings-canvas
 {
@@ -60,8 +63,6 @@ $canvasShadow: 0 2px 4px -1px #00000033, 0 4px 5px 0 #00000024, 0 1px 10px 0 #00
         @include rotate(225deg);
     }
 }
-
-.fontSize33 { font-size: 33px; }
 
 .color-dark
 {
@@ -99,18 +100,11 @@ $canvasShadow: 0 2px 4px -1px #00000033, 0 4px 5px 0 #00000024, 0 1px 10px 0 #00
     &:hover { @include gradient(#c699d8, #287f91); }
 }
 
-.h-67_5 { height: 67.5px; } 
-
 .layout-style-title
 {
     font-size: larger;
     font-weight: 600;
 }
-
-.pY-13 { padding: 13px 0; }
-.pY-7-12_6 { padding: 7px 0 12.6px; }
-
-.pT-5 { padding-top: 5px; }
 
 :host
 {

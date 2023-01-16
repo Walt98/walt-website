@@ -1,6 +1,11 @@
 @import '../../variables.scss';
 @import '../../classes.scss';
 
+.pL-6px { padding-left: 6px; }
+.h130 { min-height: 130px; }
+.zIndex999 { z-index: 999; }
+.mL-2px { margin-left: 2px; }
+
 .lang-button
 {
     $size: 45px;
@@ -12,9 +17,6 @@
 .noTranslateX { @include translateX(0); }
 .noTranslateY { @include translateY(0); }
 .translateY10 { @include translateY(10px); }
-
-.zIndex999 { z-index: 999; }
-.mL-2px { margin-left: 2px; }
 
 .lang
 {
@@ -30,9 +32,6 @@
     padding: 7px 10px 7px 12px;
     border-radius: 5px;
 }
-
-.pL-6px { padding-left: 6px; }
-.h130 { min-height: 130px; }
 
 .blur { background-color: #f5f7fa4d; }
 .darkBlur { background-color: #162a4180; }

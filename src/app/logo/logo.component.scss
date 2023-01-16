@@ -1,29 +1,22 @@
 @import '../variables.scss';
 @import '../classes.scss';
 
-.h-104 { height: 104px; }
+.h-82 { height: 82px; }
 .w-25px { width: 25px; }
-
-.div-logo-contacts
-{
-    padding-left: 0;
-    padding-right: 1.5rem;
-}
+.mL40 { margin-left: 40px; }
+.white50 { color: #fefefe80; }
 
 .img-logo
 {
-    width: 100px;
-    height: auto;
-    padding: 15px;
-    margin-left: 3px;
+    padding: 10px;
+    margin-left: 2px;
 }
 
 .contacts
 {
-    padding: 43px 20px;
+    padding: 33px 20px;
     margin-right: 20px;
     text-decoration: none;
-    color: $white;
     font-size: 18px;
     &:hover { animation: contactMe 2s linear infinite; }
     z-index: 100;

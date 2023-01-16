@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { INavbarItem } from 'src/models/navbar-item';
 import { IPalette } from 'src/models/palette';
-import { AppService } from '../app.service';
+import { AppService } from 'src/services/app.service';
 
 @Component({
   selector: 'app-navbar',
@@ -46,10 +46,9 @@ export class NavbarComponent implements OnInit
     {
       if (e.type == 1)
       {
-        let item: INavbarItem;
-        this.items.forEach(i => i.class = "");
+        let item: INavbarItem | undefined = undefined;
 
-        if (e.url.includes('home') || e.url == '/')
+        if (e.url.includes('home') || e.urlAfterRedirects.includes('home'))
         {
           this.currentRoute = 'home';
           item = this.items[0];
@@ -70,7 +69,7 @@ export class NavbarComponent implements OnInit
           item = this.items[3];
         }
 
-        item.class = this.active();
+        this.active(item);
       }
     });
   }
@@ -78,16 +77,19 @@ export class NavbarComponent implements OnInit
   // SET NAVBAR-ITEM ACTIVE CLASS
   private onChangesActive()
   {
-    let item: INavbarItem;
-    this.items.forEach(i => i.class = "");
+    let item: INavbarItem | undefined = undefined;
 
     if (["home", "/"].includes(this.currentRoute)) item = this.items[0];
     else if (this.currentRoute == 'about-me') item = this.items[1];
     else if (this.currentRoute == 'contact-me') item = this.items[2];
     else item = this.items[3];
     
-    item.class = this.active();
+    this.active(item);
   }
 
-  private active = () => `active item-color-${this.darkMode ? 'dark' : this.palette.color}`;
+  private active(item: INavbarItem | undefined)
+  {
+    this.items.forEach(i => i.class = "");
+    if (!!item) item.class = `active item-color-${this.darkMode ? 'dark' : this.palette.color}`;
+  }
 }

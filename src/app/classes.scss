@@ -2,9 +2,9 @@
 
 .opacity0 { opacity: 0; }
 .opacity1 { opacity: 1; }
+.displayNone { display: none; }
 .pointer { cursor: pointer; }
 .cursorDefault { cursor: default; }
-.font-xLarge { font-size: x-large; }
 .zIndex1000 { z-index: 1000; }
 .absolute { position: absolute; }
 .br50 { border-radius: 50%; }
@@ -13,6 +13,10 @@
 .bottom0 { bottom: 0; }
 .left0 { left: 0; }
 .right0 { right: 0; }
+.pT0 { padding-top: 0; }
+.pR0 { padding-right: 0; }
+.pB0 { padding-bottom: 0; }
+.pL0 { padding-left: 0; }
 
 // COLOR
 .white { color: $white; }

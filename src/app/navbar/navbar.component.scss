@@ -1,6 +1,8 @@
 @import '../variables.scss';
 @import '../classes.scss';
 
+.font-26px { font-size: 26px; }
+
 .bg-navbar
 {
     height: 100vh;
@@ -9,7 +11,7 @@
 
 .navbar-item
 {
-    padding: 8px 21px;
+    padding: 7px 14px;
     &:first-child { padding-top: 0; }
 }
 
@@ -24,16 +26,16 @@
 
 .navbar-item-icon
 {
-    padding: 15px 19px;
-    border-radius: 15px;
+    padding: 14px;
+    border-radius: 13px;
     &:not(.navbar-item-icon.active):hover { background-color: #ffffff2e; }
     
     // ITEM TITLE
     & + span
     {
-        padding: 7.5px 15px;
+        padding: 7px 12px;
         border-radius: 7px;
-        margin-left: 70px;
+        margin-left: 62px;
         box-shadow: 0 0 20px -5px #00000033,
         0 0 10px 0px #00000024,
         0 0 0 0 #0000001f;

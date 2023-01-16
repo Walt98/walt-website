@@ -3,6 +3,7 @@
 
 .mL10 { margin-left: 10px; }
 .t4ms { transition: .4s; }
+.translateX27 { @include translateX(27px); }
 
 .toggle-shadow
 {
@@ -17,8 +18,6 @@
     margin-block: 13px;
     border-radius: 20px;
 }
-
-.translateX27 { @include translateX(27px); }
 
 .switch-button
 {

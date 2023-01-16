@@ -2,7 +2,7 @@
     <!-- ITEM -->
     <div *ngFor="let item of items" class="navbar-item d-flex align-items-center white">
         <!-- ICON -->
-        <i [routerLink]="item.link" class="bi bi-{{ item.icon }} {{ item.class }} navbar-item-icon font-xLarge pointer transition" (mouseover)="item.show = true" (mouseleave)="item.show = false"></i>
+        <i [routerLink]="item.link" class="bi bi-{{ item.icon }} {{ item.class }} d-flex navbar-item-icon font-26px pointer transition" (mouseover)="item.show = true" (mouseleave)="item.show = false"></i>
         
         <!-- TEXT -->
         <span *ngIf="item.show" class="zIndex1000 absolute title-color-{{ darkMode ? 'dark' : palette.color }}" translate>

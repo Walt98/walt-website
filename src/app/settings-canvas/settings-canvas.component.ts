@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IPalette } from 'src/models/palette';
-import { AppService } from '../app.service';
+import { AppService } from 'src/services/app.service';
 
 @Component({
   selector: 'app-settings-canvas',
@@ -19,7 +19,7 @@ export class SettingsCanvasComponent implements OnInit
   public clicked = false;
   public toggleClicked = false;
 
-  public colors = ['default', 'red', 'green', 'yellow', 'purple'];
+  public colors = ['default', 'green', 'yellow', 'red', 'purple'];
 
   constructor(private appService: AppService) { }
 

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AppService } from 'src/app/app.service';
+import { AppService } from 'src/services/app.service';
 
 @Component({
   selector: 'app-font-text',

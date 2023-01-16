@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AppService } from 'src/app/app.service';
+import { AppService } from 'src/services/app.service';
 
 @Component({
   selector: 'app-lang-select',

@@ -1,6 +1,9 @@
 @import './variables.scss';
 @import './classes.scss';
 
+.wMaxContent { width: $maxContent; }
+.hMaxContent { height: $maxContent; }
+
 .Montserrat { @include font('Montserrat'); }
 .Roboto { @include font('Roboto'); }
 
@@ -31,7 +34,7 @@
 
 .router-outlet
 {
-    height: calc(100vh - 104px);
+    height: calc(100vh - 82px);
     border-top-left-radius: 30px;
     padding: 20px 20px 0 20px;
     background-color: #fffffff2;
@@ -43,9 +46,6 @@
 
 .bgDark { background-color: #123752; }
 
-.wMaxContent { width: $maxContent; }
-.hMaxContent { height: $maxContent; }
-
 .overflowY
 {
     overflow-y: auto;
@@ -55,10 +55,8 @@
 .wallpaper
 {
     position: absolute;
-    top: 104px;
-    left: 104px;
-    width: auto;
-    height: 100%;
+    top: 82px;
+    left: 82px;
     border-top-left-radius: 30px;
     opacity: .3;
     filter: saturate(0);

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IPalette } from 'src/models/palette';
-import { AppService } from '../app.service';
+import { AppService } from 'src/services/app.service';
 
 @Component({
   selector: 'app-home',

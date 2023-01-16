@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import { TranslateService } from '@ngx-translate/core';
 import { delay, Subject } from 'rxjs';
 import { IPalette } from 'src/models/palette';
-import { AppService } from './app.service';
+import { AppService } from 'src/services/app.service';
 
 @Component({
   selector: 'app-root',
