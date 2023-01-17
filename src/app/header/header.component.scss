@@ -37,7 +37,7 @@
     margin-right: 10px;
     z-index: 100;
 
-    & .menu-button-top, .menu-button-middle, .menu-button-bottom
+    & div
     {
         background-color: white;
         border-radius: 5px;
@@ -46,18 +46,18 @@
         @extend .transition;
     }
 
-    & .menu-button-top { margin-left: auto; }
-    & .menu-button-bottom { margin-right: auto; }
+    & div:first-child { margin-left: auto; }
+    & div:last-child { margin-right: auto; }
     & .menu-button-middle
     {
         width: 30px;
         margin: 5px 0;
     }
 
-    &:hover
+    &.clicked
     {
-        & .menu-button-top { @include translateX(-15px) }
-        & .menu-button-bottom { @include translateX(15px) }
+        & div:first-child { @include translateX(-15px) }
+        & div:last-child { @include translateX(15px) }
     }
 }
 
@@ -67,6 +67,8 @@
     width: 280px;
     z-index: 1000;
 }
+
+.canvasShadow { box-shadow: 0 2px 4px -1px #00000033, 0 4px 5px 0 #00000024, 0 1px 10px 0 #0000001f; }
 
 .menu-item
 {

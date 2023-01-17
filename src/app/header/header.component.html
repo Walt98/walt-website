@@ -9,22 +9,22 @@
     </a>
 
     <ng-container *ngIf="!isLarge">
-        <div class="d-flex flex-column align-items-center menu-button pointer br50 white" tabindex="0" (click)="clicked = !clicked">
+        <div class="d-flex flex-column align-items-center menu-button {{ clicked ? 'clicked' : '' }} pointer br50 white" tabindex="0" (click)="clicked = !clicked">
             <div class="menu-button-top"></div>
             <div class="menu-button-middle"></div>
             <div class="menu-button-bottom"></div>
         </div>
     
         <!-- OFFCANVAS -->
-        <div class="offcanvas-menu absolute top0 backdrop-filter canvasTransition p10 {{ clicked ? 'left0' : 'left280' }} {{ darkMode ? 'dmWhite' : '' }} {{ offcanvasColor }}" (clickOutside)="checkOutside($event.target)">
+        <div class="offcanvas-menu absolute top0 backdrop-filter canvasTransition p10 {{ clicked ? 'left0 canvasShadow' : 'left280' }} {{ darkMode ? 'dmWhite' : '' }} {{ offcanvasColor }}" (clickOutside)="checkOutside($event.target)">
             <!-- CLOSE BUTTON -->
-            <div class="container-fluid d-flex justify-content-end xPadding" tabindex="0">
+            <div class="container-fluid d-flex justify-content-end xPadding">
                 <i class="bi bi-x-lg br50 pointer transition d-flex x-button {{ darkMode ? 'x-dark' : '' }}" (click)="clicked = false"></i>
             </div>
     
             <!-- BODY -->
             <ul class="d-flex flex-column align-items-center p-0 m-0 mt-2">
-                <li *ngFor="let item of items" class="d-flex align-items-center menu-item pointer {{ item.class }}" [routerLink]="item.link" (click)="clicked = false" tabindex="0">
+                <li *ngFor="let item of items" class="d-flex align-items-center menu-item pointer {{ item.class }}" [routerLink]="item.link" (click)="clicked = false">
                     <i class="bi bi-{{ item.icon }} d-flex me-2"></i>
                     <span translate> {{ item.text }} </span>
                 </li>

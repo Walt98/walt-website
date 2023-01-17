@@ -1,9 +1,8 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { delay, distinctUntilChanged, map, Subject, tap } from 'rxjs';
+import { delay, Subject } from 'rxjs';
 import { IPalette } from 'src/models/palette';
 import { AppService } from 'src/services/app.service';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 
 @Component({
