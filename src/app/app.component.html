@@ -14,7 +14,7 @@
         <!-- NAVBAR -->
         <app-navbar *ngIf="isLarge"></app-navbar>
         
-        <span class="container-fluid p-0 router-outlet overflowY {{ darkMode ? 'bgDark white' : '' }}">
+        <main class="container-fluid p-0 router-outlet overflowY {{ darkMode ? 'bgDark white' : '' }}">
             <!-- BACKGROUND -->
             <img class="wallpaper absolute" height="100%" width="auto" src="/assets/images/background-extended.webp" alt="background">
             
@@ -22,6 +22,6 @@
                 <!-- ROUTER OUTLET -->
                 <router-outlet></router-outlet>
             </div>
-        </span>
+        </main>
     </div>
 </div>

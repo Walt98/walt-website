@@ -1,5 +1,5 @@
-<div class="bg-navbar d-flex flex-column align-items-center">
-    <!-- ITEM -->
+<nav class="navbar-size d-flex flex-column align-items-center">
+    <!-- ITEMS -->
     <div *ngFor="let item of items" class="navbar-item d-flex align-items-center white">
         <!-- ICON -->
         <i [routerLink]="item.link" class="bi bi-{{ item.icon }} {{ item.class }} d-flex navbar-item-icon font-26px pointer transition" (mouseover)="item.show = true" (mouseleave)="item.show = false"></i>
@@ -9,4 +9,4 @@
             {{ item.text }}
         </span>
     </div>
-</div>
+</nav>
