@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { IPalette } from 'src/models/palette';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { INavbarItem } from 'src/models/navbar-item';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +21,21 @@ export class AppService
   public palette$ = new BehaviorSubject(JSON.parse(this.palette) as IPalette);
   public font$ = new BehaviorSubject(localStorage.getItem('font') ?? 'Montserrat');
   public blur$ = new BehaviorSubject(localStorage.getItem('blur') ?? 'on');
+  public breakpoint$ = new BehaviorSubject(false);
 
-  constructor() { }
+  // CONSTANTS
+  public readonly navbarItems: INavbarItem[] = [
+    { link: "home", icon: "house", text: "Home" },
+    { link: "about-me", icon: "person-circle", text: "aboutMe" },
+    { link: "contact-me", icon: "send", text: "contactMe" },
+    { link: "technologies", icon: "code-slash", text: "technologies" }
+  ];
+
+  constructor(private breakpoint: BreakpointObserver)
+  {
+    // BREAKPOINT
+    this.breakpoint.observe("(min-width: 992px)").subscribe(r => this.breakpoint$.next(r.matches));
+  }
 
   // NEXTS
   public setDarkMode = (value: string) => this.darkMode$.next(value);

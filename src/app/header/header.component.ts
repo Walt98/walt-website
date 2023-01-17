@@ -1,18 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IPalette } from 'src/models/palette';
 import { AppService } from 'src/services/app.service';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
-export class NavbarComponent implements OnInit
+export class HeaderComponent implements OnInit
 {
   // CUSTOMIZERS
   public darkMode = false;
-  public palette: IPalette = {};
+  public isBlur = false;
+  public offcanvasColor = "";
+
+  // BOOLEANS
+  public clicked = false;
+  public isLarge = false;
 
   public items = this.appService.navbarItems;
 
@@ -20,16 +24,18 @@ export class NavbarComponent implements OnInit
 
   ngOnInit(): void
   {
+    this.setOffcanvasColor();
+
+    this.appService.breakpoint$.subscribe(value => this.isLarge = value);
     this.appService.darkMode$.subscribe(value =>
     {
-      this.darkMode = value == 'on';
-      if (this.palette) this.onChangesActive();
+      this.darkMode = value == "on";
+      this.setOffcanvasColor();
     });
-
-    this.appService.palette$.subscribe(palette =>
+    this.appService.blur$.subscribe(value =>
     {
-      this.palette = palette;
-      this.onChangesActive();
+      this.isBlur = value == "on";
+      this.setOffcanvasColor();
     });
     
     // ROUTER CHANGES
@@ -39,7 +45,13 @@ export class NavbarComponent implements OnInit
     });
   }
 
-  // SET NAVBAR-ITEM ACTIVE CLASS
+  private setOffcanvasColor()
+  {
+    this.offcanvasColor = this.darkMode
+      ? (this.isBlur ? 'bgDarkModeBlur' : 'bgDarkMode')
+      : (this.isBlur ? 'bgBlur' : 'BGwhite');
+  }
+
   private onChangesActive(path = document.URL.replace(document.baseURI, ""))
   {
     let item = undefined;
@@ -53,6 +65,14 @@ export class NavbarComponent implements OnInit
       default: item = this.items[0]; break;
     }
     
-    if (!!item) item.class = `active item-color-${this.darkMode ? 'dark' : this.palette.color}`;
+    if (!!item) item.class = "active";
+  }
+
+  public checkOutside(target: any)
+  {
+    if (!target.classList.value.includes("menu-button") && this.clicked)
+    {
+      this.clicked = false;
+    }
   }
 }

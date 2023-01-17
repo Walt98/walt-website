@@ -1,12 +1,12 @@
-<div class="d-flex align-items-center top0 canvasTransition absolute {{ clicked ? 'right0' : 'right270' }}">
+<div class="d-flex align-items-center top0 canvasTransition absolute {{ clicked ? 'right0' : 'right280' }}">
     <!-- OFFCANVAS BUTTON -->
-    <div class="settings-div-button white pointer center color-{{ toggleClicked ? 'dark' : palette.color }}" (click)="clicked = !clicked">
-        <i class="bi bi-gear center fontSize33"></i>
+    <div class="settings-div-button white pointer center color-{{ toggleClicked ? 'dark' : palette.color }}" tabindex="0" (click)="clicked = !clicked">
+        <i class="bi bi-gear center settings-div-button-icon"></i>
     </div>
     
     <!-- OFFCANVAS BODY -->
-    <div class="settings-canvas BGwhite backdrop-filter p10 {{ clicked ? 'canvasShadow' : '' }} {{ toggleClicked ? 'dmWhite' : '' }} {{ canvasColor }}">
-        <!-- CLOSE OFFCANVAS -->
+    <div class="settings-canvas backdrop-filter p10 {{ clicked ? 'canvasShadow' : '' }} {{ toggleClicked ? 'dmWhite' : '' }} {{ canvasColor }}" (clickOutside)="checkOutside($event.target)">
+        <!-- CLOSE BUTTON -->
         <div class="container-fluid d-flex justify-content-end xPadding">
             <i class="bi bi-x-lg br50 pointer transition d-flex x-button {{ toggleClicked ? 'x-dark' : '' }}" (click)="clicked = false"></i>
         </div>

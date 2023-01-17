@@ -1,0 +1,80 @@
+@import '../variables.scss';
+@import '../classes.scss';
+
+.h-82 { height: 82px; }
+.w-25px { width: 25px; }
+.mL40 { margin-left: 40px; }
+.white50 { color: #fefefe80; }
+.left280 { left: -280px; }
+
+.img-logo
+{
+    padding: 10px;
+    margin-left: 2px;
+}
+
+.contacts
+{
+    padding: 33px 20px;
+    margin-right: 20px;
+    text-decoration: none;
+    font-size: 18px;
+    &:hover { animation: contactMe 2s linear infinite; }
+    z-index: 100;
+}
+@keyframes contactMe
+{
+    10% { margin-bottom: 10px; }
+    20% { margin-bottom: 0; }
+    30% { margin-bottom: 10px; }
+    40% { margin-bottom: 0; }
+}
+
+.menu-button
+{
+    font-size: xx-large;
+    padding: 10px 5px;
+    margin-right: 10px;
+    z-index: 100;
+
+    & .menu-button-top, .menu-button-middle, .menu-button-bottom
+    {
+        background-color: white;
+        border-radius: 5px;
+        height: 3px;
+        &:not(.menu-button-middle) { width: 15px; }
+        @extend .transition;
+    }
+
+    & .menu-button-top { margin-left: auto; }
+    & .menu-button-bottom { margin-right: auto; }
+    & .menu-button-middle
+    {
+        width: 30px;
+        margin: 5px 0;
+    }
+
+    &:hover
+    {
+        & .menu-button-top { @include translateX(-15px) }
+        & .menu-button-bottom { @include translateX(15px) }
+    }
+}
+
+.offcanvas-menu
+{
+    height: 100vh;
+    width: 280px;
+    z-index: 1000;
+}
+
+.menu-item
+{
+    text-decoration: none;
+    margin-bottom: 15px;
+    font-size: larger;
+    transition: .1s;
+    &:hover > span { text-decoration: underline; }
+}
+
+.active { font-weight: 600; }

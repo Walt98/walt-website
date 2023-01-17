@@ -4,23 +4,24 @@
 </div>
 
 <div #app class="body absolute {{ font }}" [style]="'background-image: ' + (darkMode ? biDark : palette.bgImage)">
-    <!-- LOGO & CONTACT ME -->
-    <app-logo></app-logo>
+    <!-- HEADER -->
+    <app-header></app-header>
 
     <!-- SETTINGS OFFCANVAS -->
     <app-settings-canvas></app-settings-canvas>
 
     <div class="container-fluid p-0 d-flex">
-        <span class="container-fluid d-flex p-0 m-0 wMaxContent">
-            <!-- VERTICAL NAVBAR -->
-            <app-navbar></app-navbar>
-        </span>
-        <span class="container-fluid router-outlet overflowY {{ darkMode ? 'bgDark white' : '' }}">
+        <!-- NAVBAR -->
+        <app-navbar *ngIf="isLarge"></app-navbar>
+        
+        <span class="container-fluid p-0 router-outlet overflowY {{ darkMode ? 'bgDark white' : '' }}">
             <!-- BACKGROUND -->
             <img class="wallpaper absolute" height="100%" width="auto" src="/assets/images/background.webp" alt="background">
             
-            <!-- ROUTER OUTLET -->
-            <router-outlet></router-outlet>
+            <div class="pNotB20">
+                <!-- ROUTER OUTLET -->
+                <router-outlet></router-outlet>
+            </div>
         </span>
     </div>
 </div>

@@ -44,10 +44,18 @@ export class SettingsCanvasComponent implements OnInit
   private setCanvasColor()
   {
     this.canvasColor = this.toggleClicked
-      ? (this.blur ? 'darkBlur' : 'canvasDarkMode')
-      : (this.blur ? 'blur' : '');
+      ? (this.blur ? 'bgDarkModeBlur' : 'bgDarkMode')
+      : (this.blur ? 'bgBlur' : 'BGwhite');
   }
 
   public activeIcon = (color: string): string => this.palette.color == color ? 'activeIcon' : '';
   public activeFont = (font: string): string => this.font == font ? 'activeFont' : '';
+
+  public checkOutside(target: any)
+  {
+    if (!target.classList.value.includes("settings-div-button") && this.clicked)
+    {
+      this.clicked = false;
+    }
+  }
 }

@@ -9,6 +9,8 @@
 .absolute { position: absolute; }
 .br50 { border-radius: 50%; }
 .transition { transition: .2s; }
+.canvasTransition { transition: .3s; }
+.p10 { padding: 10px; }
 .top0 { top: 0; }
 .bottom0 { bottom: 0; }
 .left0 { left: 0; }
@@ -35,6 +37,9 @@
 .bgGreen { background-color: $green; }
 .bgYellow { background-color: $yellow; }
 .bgPurple { background-color: $purple; }
+.bgDarkMode { background-color: #162a41; }
+.bgBlur { background-color: #f5f7fabf; }
+.bgDarkModeBlur { background-color: #162a4180; }
 
 .center
 { 
@@ -49,6 +54,15 @@
     -webkit-backdrop-filter: blur(10px);
     -moz-backdrop-filter: blur(10px);
 }
+
+.xPadding { padding: 0 7px 12px 12px; }
+.x-button
+{
+    padding: 7px;
+    -webkit-text-stroke: thin;
+    &:hover { background-color: #e9ecef; }
+}
+.x-dark:hover { background-color: #253a53; }
 
 @mixin translateX($px) { transform: translateX($px); }
 @mixin translateY($px) { transform: translateY($px); }

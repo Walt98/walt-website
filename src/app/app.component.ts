@@ -1,8 +1,10 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { delay, Subject } from 'rxjs';
+import { delay, distinctUntilChanged, map, Subject, tap } from 'rxjs';
 import { IPalette } from 'src/models/palette';
 import { AppService } from 'src/services/app.service';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
 
 @Component({
   selector: 'app-root',
@@ -16,6 +18,9 @@ export class AppComponent implements OnInit, AfterViewInit
   public darkMode = false;
   public biDark = 'linear-gradient(147.38deg, #143650 0%, #000000 100%)';
   public font = "Montserrat";
+
+  // BOOLEANS
+  public isLarge = false;
   
   // ngAfterViewInit ASSETS
   @ViewChild("app") public app?: ElementRef;
@@ -42,6 +47,9 @@ export class AppComponent implements OnInit, AfterViewInit
 
     // SHOW/HIDE SPINNER
     this.isReady$.pipe(delay(200)).subscribe(isReady => this.isReady = isReady);
+
+    // BREAKPOINT
+    this.appService.breakpoint$.subscribe(value => this.isLarge = value);
   }
 
   ngAfterViewInit(): void
