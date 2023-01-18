@@ -14,15 +14,16 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { SettingsCanvasComponent } from './settings-canvas/settings-canvas.component';
-import { PaletteComponent } from './settings-canvas/palette/palette.component';
+import { PaletteComponent } from './settings-canvas/components/palette/palette.component';
 import { ContactMeComponent } from './contact-me/contact-me.component';
-import { FontTextComponent } from './settings-canvas/font-text/font-text.component';
-import { RadioComponent } from './settings-canvas/radio/radio.component';
-import { LangSelectComponent } from './settings-canvas/lang-select/lang-select.component';
-import { ToggleComponent } from './settings-canvas/toggle/toggle.component';
+import { FontsComponent } from './settings-canvas/components/fonts/fonts.component';
+import { RadioComponent } from './settings-canvas/components/radio/radio.component';
+import { LangSelectComponent } from './settings-canvas/components/lang-select/lang-select.component';
+import { ToggleComponent } from './settings-canvas/components/toggle/toggle.component';
 import { TechnologiesComponent } from './technologies/technologies.component';
 
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { SettingsSectionComponent } from './settings-canvas/settings-section/settings-section.component';
 
 @NgModule({
   declarations: [
@@ -34,11 +35,12 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     SettingsCanvasComponent,
     PaletteComponent,
     ContactMeComponent,
-    FontTextComponent,
+    FontsComponent,
     RadioComponent,
     LangSelectComponent,
     ToggleComponent,
-    TechnologiesComponent
+    TechnologiesComponent,
+    SettingsSectionComponent
   ],
   imports: [
     BrowserModule,

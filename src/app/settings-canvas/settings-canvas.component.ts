@@ -11,13 +11,13 @@ export class SettingsCanvasComponent implements OnInit
 {
   // CUSTOMIZERS
   public palette: IPalette = {};
+  public darkMode = false;
   public font?: string;
   public blur?: boolean;
   public canvasColor?: string;
   
   // BOOLEANS
   public clicked = false;
-  public toggleClicked = false;
 
   constructor(private appService: AppService) { }
 
@@ -25,7 +25,7 @@ export class SettingsCanvasComponent implements OnInit
   {
     this.appService.darkMode$.subscribe(value =>
     {
-      this.toggleClicked = value == 'on';
+      this.darkMode = value == 'on';
       this.setCanvasColor();
     });
     
@@ -41,7 +41,7 @@ export class SettingsCanvasComponent implements OnInit
 
   private setCanvasColor()
   {
-    this.canvasColor = this.toggleClicked
+    this.canvasColor = this.darkMode
       ? (this.blur ? 'bgDarkModeBlur' : 'bgDarkMode')
       : (this.blur ? 'bgBlur' : 'BGwhite');
   }
@@ -50,7 +50,7 @@ export class SettingsCanvasComponent implements OnInit
 
   public checkOutside(target: any)
   {
-    if (!target.classList.value.includes("settings-div-button") && this.clicked)
+    if (!target.classList.value.includes("settings-button") && this.clicked)
     {
       this.clicked = false;
     }

@@ -1,15 +1,21 @@
-@import '../../classes.scss';
+@import '../../../classes.scss';
 
 .pL-6px { padding-left: 6px; }
-.h130 { min-height: 130px; }
 .zIndex999 { z-index: 999; }
 .mL-2px { margin-left: 2px; }
+
+.lang-select
+{
+    height: 107px;
+    margin-top: 20px;
+}
 
 .lang-button
 {
     $size: 45px;
     width: $size;
     height: $size;
+    margin-left: 10px;
 }
 .translate1 { @include translateX(35px); }
 .translate2 { @include translateX(40px); }
@@ -20,6 +26,7 @@
 .lang
 {
     padding: 5px 0;
+    width: 84px;
     & .bi-arrow-up-short::before { @extend .transition; }
 }
 .revertArrow::before { @include rotate(-180deg); }
@@ -30,6 +37,7 @@
     box-shadow: #00000063 0 0 10px 0;
     padding: 7px 10px 7px 12px;
     border-radius: 5px;
+    margin-right: 10px;
 }
 
 .blur { background-color: #f5f7fa4d; }

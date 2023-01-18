@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FontTextComponent } from './font-text.component';
+import { FontsComponent } from './fonts.component';
 
-describe('FontTextComponent', () => {
-  let component: FontTextComponent;
-  let fixture: ComponentFixture<FontTextComponent>;
+describe('FontsComponent', () => {
+  let component: FontsComponent;
+  let fixture: ComponentFixture<FontsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FontTextComponent ]
+      declarations: [ FontsComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FontTextComponent);
+    fixture = TestBed.createComponent(FontsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

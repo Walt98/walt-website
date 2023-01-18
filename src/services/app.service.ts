@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { IPalette } from 'src/models/palette';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { INavbarItem } from 'src/models/navbar-item';
@@ -25,6 +25,8 @@ export class AppService
 
   // CONSTANTS
   public readonly colors = ['default', 'green', 'yellow', 'red', 'purple'];
+  public readonly fonts = ['Montserrat', 'Roboto'];
+  public readonly langs = ['it', 'gb'];
   public readonly navbarItems: INavbarItem[] = [
     { link: "home", icon: "house", text: "Home" },
     { link: "about-me", icon: "person-circle", text: "aboutMe" },

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/services/app.service';
 import { IPalette } from 'src/models/palette';
 
@@ -9,27 +9,22 @@ import { IPalette } from 'src/models/palette';
 })
 export class ToggleComponent implements OnInit
 {
-  // INPUTS
-  @Input() toggleClicked: boolean = false;
-
   // CUSTOMIZERS
-  public isBlur = false;
-  public darkMode = false;
+  public clicked = false;
   public palette: IPalette = {};
 
   constructor(private appService: AppService) { }
 
   ngOnInit(): void
   {
-    this.appService.blur$.subscribe(value => this.isBlur = value == 'on');
-    this.appService.darkMode$.subscribe(value => this.darkMode = value == "on");
+    this.appService.darkMode$.subscribe(value => this.clicked = value == "on");
     this.appService.palette$.subscribe(palette => this.palette = palette);
   }
 
   public setDarkMode()
   {
-    this.toggleClicked = !this.toggleClicked;
-    let dark = this.toggleClicked ? 'on' : 'off';
+    this.clicked = !this.clicked;
+    let dark = this.clicked ? 'on' : 'off';
     localStorage.setItem('darkMode', dark);
     this.appService.setDarkMode(dark);
   }

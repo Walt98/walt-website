@@ -1,12 +1,11 @@
 @import '../classes.scss';
 
-.hMax { height: max-content; }
+:host ::ng-deep app-settings-section:first-child > div { padding-top: 0; }
+
 .settings-padding { padding: 0 10px 10px 10px; }
 .right280 { right: -280px; }
 .pY-7-12_6 { padding: 7px 0 12.6px; }
 .pT-5 { padding-top: 5px; }
-
-.settings-div-button-icon { font-size: 33px; }
 
 .settings
 {
@@ -21,7 +20,7 @@
     z-index: 102;
 }
 
-.settings-div-button
+.settings-button
 {
     $size: 50px;
     $radius: 5px;
@@ -39,6 +38,7 @@
         @include rotate(225deg);
     }
 }
+.settings-button-icon { font-size: 33px; }
 
 .color-dark
 {

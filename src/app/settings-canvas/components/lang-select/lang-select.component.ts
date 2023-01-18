@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AppService } from 'src/services/app.service';
 
@@ -7,56 +7,45 @@ import { AppService } from 'src/services/app.service';
   templateUrl: './lang-select.component.html',
   styleUrls: ['./lang-select.component.scss']
 })
-export class LangSelectComponent implements OnInit, OnChanges
+export class LangSelectComponent implements OnInit
 {
-  // INPUTS
-  @Input() settingsClicked?: boolean;
-
   // CUSTOMIZERS
   public darkMode = false;
   public isBlur = false;
 
   // BOOLEANS
-  public langClicked = false;
+  public clicked = false;
   public showSelect = false;
 
   // LANGUAGE VARIABLES
-  public country = 'it';
+  public lang = 'it';
   public language = 'ITA';
+  public langs = this.appService.langs;
 
   constructor(private appService: AppService, private translate: TranslateService) { }
 
   ngOnInit(): void
   {
-    this.country = this.translate.currentLang == 'it' ? 'it' : 'gb';
+    this.lang = this.translate.currentLang == 'it' ? 'it' : 'gb';
     this.language = this.translate.currentLang == 'it' ? 'ITA' : 'ENG';
     this.appService.darkMode$.subscribe(darkMode => this.darkMode = darkMode == 'on');
     this.appService.blur$.subscribe(value => this.isBlur = value == 'on');
   }
 
-  ngOnChanges(changes: SimpleChanges): void
-  {
-    if (!this.settingsClicked)
-    {
-      this.langClicked = false;
-      this.showSelect = false;
-    }
-  }
-
-  public setLanguage(country: string)
+  public setLanguage(lang: string)
   {
     if (this.showSelect)
     {
-      this.country = country;
-      this.language = country == 'it' ? 'ITA' : 'ENG';
-      this.translate.use(country == 'it' ? 'it' : 'en');
-      localStorage.setItem('lang', country == 'it' ? 'it' : 'en');
+      this.lang = lang;
+      this.language = lang == 'it' ? 'ITA' : 'ENG';
+      this.translate.use(lang == 'it' ? 'it' : 'en');
+      localStorage.setItem('lang', lang == 'it' ? 'it' : 'en');
     }
   }
 
   public showLang()
   {
-    this.langClicked = !this.langClicked;
+    this.clicked = !this.clicked;
     this.showSelect = false;
   }
 }

@@ -1,70 +1,53 @@
-<div class="d-flex align-items-center top0 canvasTransition absolute {{ clicked ? 'right0' : 'right280' }}">
+<div class="d-flex align-items-center top0 canvasTransition absolute right{{ clicked ? 0 : 280 }}">
     <!-- OFFCANVAS BUTTON -->
-    <div class="settings-div-button white pointer center color-{{ toggleClicked ? 'dark' : palette.color }}" tabindex="0" (click)="clicked = !clicked">
-        <i class="bi bi-gear center settings-div-button-icon"></i>
+    <div class="settings-button white pointer center color-{{ darkMode ? 'dark' : palette.color }}" tabindex="0" (click)="clicked = !clicked">
+        <i class="bi bi-gear center settings-button-icon"></i>
     </div>
     
     <!-- OFFCANVAS BODY -->
-    <div class="settings-canvas backdrop-filter p10 {{ clicked ? 'canvasShadow' : '' }} {{ toggleClicked ? 'dmWhite' : '' }} {{ canvasColor }}" (clickOutside)="checkOutside($event.target)">
+    <div class="settings-canvas backdrop-filter p10 {{ clicked ? 'canvasShadow' : '' }} {{ darkMode ? 'dmWhite' : '' }} {{ canvasColor }}" (clickOutside)="checkOutside($event.target)">
         <!-- CLOSE BUTTON -->
         <div class="container-fluid d-flex justify-content-end xPadding">
-            <i class="bi bi-x-lg br50 pointer transition d-flex x-button {{ toggleClicked ? 'x-dark' : '' }}" (click)="clicked = false"></i>
+            <i class="bi bi-x-lg br50 pointer transition d-flex x-button {{ darkMode ? 'x-dark' : '' }}" (click)="clicked = false"></i>
         </div>
         
         <!-- SETTINGS -->
         <div class="d-flex flex-wrap align-content-between justify-content-center settings">
-            <div class="w-100 hMax">
-                <!-- CHANGE LAYOUT THEME -->
-                <div class="container-fluid settings-padding">
-                    <div class="col-12 layout-style-title" translate>
-                        layoutTheme
-                    </div>
-                    
-                    <!-- LAYOUT THEMES -->
-                    <app-palette *ngIf="!toggleClicked"></app-palette>
-    
-                    <!-- LAYOUT THEMES NON AVAILABLES -->
-                    <div *ngIf="toggleClicked" class="dmWhite pY-7-12_6">
-                        <span translate>
-                            themesNotAvailable
-                        </span>
-                    </div>
-                </div>
+            <!-- SECTIONS -->
+            <div class="container-fluid p-0">
+                <!-- LAYOUT THEMES -->
+                <app-settings-section header="layoutTheme">
+                    <ng-container body>
+                        <!-- PALETTE -->
+                        <app-palette *ngIf="!darkMode"></app-palette>
+        
+                        <!-- LAYOUT THEMES NOT AVAILABLE -->
+                        <div *ngIf="darkMode" class="dmWhite pY-7-12_6">
+                            <span translate>
+                                themesNotAvailable
+                            </span>
+                        </div>
+                    </ng-container>
+                </app-settings-section>
         
                 <!-- DARK MODE -->
-                <div class="container-fluid p10">
-                    <div class="col-12 layout-style-title" translate>
-                        darkMode
-                    </div>
-                    
-                    <!-- DARK-MODE TOGGLE -->
-                    <app-toggle [toggleClicked]="toggleClicked"></app-toggle>
-                </div>
+                <app-settings-section header="darkMode">
+                    <app-toggle body></app-toggle>
+                </app-settings-section>
         
-                <!-- FONT -->
-                <div class="container-fluid p10">
-                    <div class="col-12 layout-style-title">
-                        Font
-                    </div>
-                    <div class="d-flex flex-column">
-                        <!-- FONTS -->
-                        <app-font-text *ngFor="let font of ['Montserrat', 'Roboto']" [font]="font" [ngClass]="activeFont(font)"></app-font-text>
-                    </div>
-                </div>
+                <!-- FONTS -->
+                <app-settings-section header="Font">
+                    <app-fonts body></app-fonts>
+                </app-settings-section>
         
-                <!-- BLURRED OFFCANVAS -->
-                <div class="container-fluid p10">
-                    <div class="col-12 layout-style-title" translate>
-                        canvasBlur
-                    </div>
-    
-                    <!-- RADIOS -->
-                    <app-radio></app-radio>
-                </div>
+                <!-- RADIO -->
+                <app-settings-section header="canvasBlur">
+                    <app-radio body></app-radio>
+                </app-settings-section>
             </div>
     
             <!-- CHANGE LANGUAGE SELECT -->
-            <app-lang-select [settingsClicked]="clicked"></app-lang-select>
+            <app-lang-select></app-lang-select>
         </div>
     </div>
 </div>
