@@ -1,11 +1,8 @@
-@import '../variables.scss';
 @import '../classes.scss';
 
-.hMax { height: $maxContent; }
+.hMax { height: max-content; }
 .settings-padding { padding: 0 10px 10px 10px; }
 .right280 { right: -280px; }
-.h-67_5 { height: 67.5px; }
-.pY-13 { padding: 13px 0; }
 .pY-7-12_6 { padding: 7px 0 12.6px; }
 .pT-5 { padding-top: 5px; }
 
@@ -83,10 +80,4 @@
 {
     font-size: larger;
     font-weight: 600;
-}
-
-:host
-{
-    ::ng-deep .activeFont > div > i,
-    ::ng-deep .activeIcon > div > i { opacity: 1 !important; }
 }

@@ -24,6 +24,7 @@ export class AppService
   public breakpoint$ = new BehaviorSubject(false);
 
   // CONSTANTS
+  public readonly colors = ['default', 'green', 'yellow', 'red', 'purple'];
   public readonly navbarItems: INavbarItem[] = [
     { link: "home", icon: "house", text: "Home" },
     { link: "about-me", icon: "person-circle", text: "aboutMe" },

@@ -14,7 +14,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { AboutMeComponent } from './about-me/about-me.component';
 import { SettingsCanvasComponent } from './settings-canvas/settings-canvas.component';
-import { IconPaletteComponent } from './settings-canvas/icon-palette/icon-palette.component';
+import { PaletteComponent } from './settings-canvas/palette/palette.component';
 import { ContactMeComponent } from './contact-me/contact-me.component';
 import { FontTextComponent } from './settings-canvas/font-text/font-text.component';
 import { RadioComponent } from './settings-canvas/radio/radio.component';
@@ -32,7 +32,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     HomeComponent,
     AboutMeComponent,
     SettingsCanvasComponent,
-    IconPaletteComponent,
+    PaletteComponent,
     ContactMeComponent,
     FontTextComponent,
     RadioComponent,

@@ -1,4 +1,3 @@
-@import '../variables.scss';
 @import '../classes.scss';
 
 .h-82 { height: 82px; }
@@ -56,8 +55,8 @@
 
     &.clicked
     {
-        & div:first-child { @include translateX(-15px) }
-        & div:last-child { @include translateX(15px) }
+        & div:first-child { @include translateX(-15px); }
+        & div:last-child { @include translateX(15px); }
     }
 }
 

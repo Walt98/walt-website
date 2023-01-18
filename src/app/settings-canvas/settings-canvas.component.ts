@@ -19,8 +19,6 @@ export class SettingsCanvasComponent implements OnInit
   public clicked = false;
   public toggleClicked = false;
 
-  public colors = ['default', 'green', 'yellow', 'red', 'purple'];
-
   constructor(private appService: AppService) { }
 
   ngOnInit(): void
@@ -48,7 +46,6 @@ export class SettingsCanvasComponent implements OnInit
       : (this.blur ? 'bgBlur' : 'BGwhite');
   }
 
-  public activeIcon = (color: string): string => this.palette.color == color ? 'activeIcon' : '';
   public activeFont = (font: string): string => this.font == font ? 'activeFont' : '';
 
   public checkOutside(target: any)

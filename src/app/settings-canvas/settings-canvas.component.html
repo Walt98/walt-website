@@ -19,10 +19,9 @@
                     <div class="col-12 layout-style-title" translate>
                         layoutTheme
                     </div>
-                    <div *ngIf="!toggleClicked" class="col-12 d-flex align-items-center justify-content-between pY-13 h-67_5">
-                        <!-- LAYOUT THEMES -->
-                        <app-icon-palette *ngFor="let bg of colors" [bg]="bg" [ngClass]="activeIcon(bg)"></app-icon-palette>
-                    </div>
+                    
+                    <!-- LAYOUT THEMES -->
+                    <app-palette *ngIf="!toggleClicked"></app-palette>
     
                     <!-- LAYOUT THEMES NON AVAILABLES -->
                     <div *ngIf="toggleClicked" class="dmWhite pY-7-12_6">
