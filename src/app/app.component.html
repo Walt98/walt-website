@@ -16,7 +16,7 @@
         
         <main class="container-fluid p-0 overflowY {{ darkMode ? 'bgDark white' : '' }}">
             <!-- BACKGROUND -->
-            <img class="wallpaper absolute" height="100%" width="auto" src="/assets/images/background-vanish.webp" alt="background">
+            <img draggable="false" (dragstart)="false" class="wallpaper absolute" height="100%" width="auto" src="/assets/images/background-vanish.webp" alt="background">
             
             <div class="router-outlet">
                 <!-- ROUTER OUTLET -->
