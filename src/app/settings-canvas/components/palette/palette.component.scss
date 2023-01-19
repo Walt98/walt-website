@@ -7,19 +7,19 @@
 .palette-icon
 {
     $size: 35px;
-    $constShadow: 0 0 20px -20px #00000033;
+    $partialShadow: 0 0 20px -20px #00000033;
 
     width: $size;
     height: $size;
     border-radius: 10px;
-    box-shadow: $constShadow,
+    box-shadow: $partialShadow,
     0 0 10px 0px #00000024,
     0 0 0 0 #0000001f;
 
     &:hover
     {
         transform: scale(1.15);
-        box-shadow: $constShadow,
+        box-shadow: $partialShadow,
         0 0 10px -5px #00000024,
         0 0 10px -5px #0000001f;
     }

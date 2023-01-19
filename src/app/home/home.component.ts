@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { IPalette } from 'src/models/palette';
 import { AppService } from 'src/services/app.service';
 
@@ -15,12 +14,12 @@ export class HomeComponent implements OnInit
   public darkMode: boolean = false;
   public font: string = 'Montserrat';
 
-  constructor(private appService: AppService, private title: Title) { }
+  constructor(private services: AppService) { }
 
   ngOnInit(): void
   {
-    this.appService.palette$.subscribe(palette => this.palette = palette);
-    this.appService.darkMode$.subscribe(value => this.darkMode = value == "on");
-    this.appService.font$.subscribe(font => this.font = font);
+    this.services.behavSubjects$.palette$.subscribe(palette => this.palette = palette);
+    this.services.behavSubjects$.darkMode$.subscribe(value => this.darkMode = value == "on");
+    this.services.behavSubjects$.font$.subscribe(font => this.font = font);
   }
 }

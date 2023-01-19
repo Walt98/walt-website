@@ -12,20 +12,20 @@ export class FontsComponent implements OnInit
   public darkMode = false;
   public fontInit = "Montserrat";
 
-  public fonts = this.appService.fonts;
+  public fonts = this.services.constants.fonts;
 
-  constructor(private appService: AppService) { }
+  constructor(private services: AppService) { }
 
   ngOnInit(): void
   {
-    this.appService.darkMode$.subscribe(value => this.darkMode = value == 'on');
-    this.appService.font$.subscribe(value => this.fontInit = value);
+    this.services.behavSubjects$.darkMode$.subscribe(value => this.darkMode = value == 'on');
+    this.services.behavSubjects$.font$.subscribe(value => this.fontInit = value);
   }
 
   public setFont(font: string)
   {
     this.fontInit = font;
     localStorage.setItem('font', font);
-    this.appService.setFont(font);
+    this.services.set.font(font);
   }
 }

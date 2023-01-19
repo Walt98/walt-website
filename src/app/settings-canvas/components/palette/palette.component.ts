@@ -13,14 +13,14 @@ export class PaletteComponent implements OnInit
   public blur = false;
   public palette: IPalette = {};
 
-  public colors = this.appService.colors;
+  public colors = this.services.constants.colors;
 
-  constructor(private appService: AppService) { }
+  constructor(private services: AppService) { }
 
   ngOnInit(): void
   {
-    this.appService.blur$.subscribe(value => this.blur = value == 'on');
-    this.appService.palette$.subscribe(palette => this.palette = palette);
+    this.services.behavSubjects$.blur$.subscribe(value => this.blur = value == 'on');
+    this.services.behavSubjects$.palette$.subscribe(palette => this.palette = palette);
   }
 
   // SET PALETTE
@@ -28,7 +28,7 @@ export class PaletteComponent implements OnInit
   {
     this.palette = { color: bg, bgImage: this.setGradient(bg) };
     localStorage.setItem('palette', JSON.stringify(this.palette));
-    this.appService.setPalette(this.palette);
+    this.services.set.palette(this.palette);
   }
 
   public setGradient(bg: string): string

@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { delay, Subject } from 'rxjs';
 import { IPalette } from 'src/models/palette';
 import { AppService } from 'src/services/app.service';
@@ -26,19 +25,19 @@ export class AppComponent implements OnInit, AfterViewInit
   public isReady = false;
   public isReady$ = new Subject<boolean>();
 
-  constructor(private appService: AppService, protected translate: TranslateService)
+  constructor(private services: AppService)
   {
     // SET DEFAULT LANGUAGE
-    translate.setDefaultLang('it');
-    translate.use(localStorage.getItem('lang') ?? 'it');
+    services.translate.setDefaultLang('it');
+    services.translate.use(localStorage.getItem('lang') ?? 'it');
   }
 
   ngOnInit(): void
   {
     if (!localStorage.getItem('lang')) localStorage.setItem('lang', 'it');
-    this.appService.darkMode$.subscribe(value => this.darkMode = value == 'on');
-    this.appService.font$.subscribe(value => this.font = value);
-    this.appService.palette$.subscribe(palette =>
+    this.services.behavSubjects$.darkMode$.subscribe(value => this.darkMode = value == 'on');
+    this.services.behavSubjects$.font$.subscribe(value => this.font = value);
+    this.services.behavSubjects$.palette$.subscribe(palette =>
     {
       this.palette = palette;
       if (!localStorage.getItem('palette')) localStorage.setItem('palette', JSON.stringify(palette));
@@ -48,7 +47,7 @@ export class AppComponent implements OnInit, AfterViewInit
     this.isReady$.pipe(delay(200)).subscribe(isReady => this.isReady = isReady);
 
     // BREAKPOINT
-    this.appService.breakpoint$.subscribe(value => this.isLarge = value);
+    this.services.behavSubjects$.breakpoint$.subscribe(value => this.isLarge = value);
   }
 
   ngAfterViewInit(): void

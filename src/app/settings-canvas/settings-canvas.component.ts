@@ -19,24 +19,24 @@ export class SettingsCanvasComponent implements OnInit
   // BOOLEANS
   public clicked = false;
 
-  constructor(private appService: AppService) { }
+  constructor(private services: AppService) { }
 
   ngOnInit(): void
   {
-    this.appService.darkMode$.subscribe(value =>
+    this.services.behavSubjects$.darkMode$.subscribe(value =>
     {
       this.darkMode = value == 'on';
       this.setCanvasColor();
     });
     
-    this.appService.blur$.subscribe(value =>
+    this.services.behavSubjects$.blur$.subscribe(value =>
     {
       this.blur = value == 'on';
       this.setCanvasColor();
     });
 
-    this.appService.palette$.subscribe(value => this.palette = value);
-    this.appService.font$.subscribe(value => this.font = value);
+    this.services.behavSubjects$.palette$.subscribe(value => this.palette = value);
+    this.services.behavSubjects$.font$.subscribe(value => this.font = value);
   }
 
   private setCanvasColor()

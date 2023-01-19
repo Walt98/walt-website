@@ -14,13 +14,13 @@ export class RadioComponent implements OnInit
   public darkMode = false;
   public palette: IPalette = {};
 
-  constructor(private appService: AppService) { }
+  constructor(private services: AppService) { }
 
   ngOnInit(): void
   {
-    this.appService.blur$.subscribe(value => this.isBlur = value == 'on');
-    this.appService.darkMode$.subscribe(value => this.darkMode = value == 'on');
-    this.appService.palette$.subscribe(palette => this.palette = palette);
+    this.services.behavSubjects$.blur$.subscribe(value => this.isBlur = value == 'on');
+    this.services.behavSubjects$.darkMode$.subscribe(value => this.darkMode = value == 'on');
+    this.services.behavSubjects$.palette$.subscribe(palette => this.palette = palette);
   }
 
   // SET BLUR
@@ -29,6 +29,6 @@ export class RadioComponent implements OnInit
     this.isBlur = isBlur;
     let blur = isBlur ? 'on' : 'off';
     localStorage.setItem('blur', blur);
-    this.appService.setBlur(blur);
+    this.services.set.blur(blur);
   }
 }

@@ -2,6 +2,7 @@
 
 .opacity0 { opacity: 0; }
 .opacity1 { opacity: 1; }
+.hidden { visibility: hidden; }
 .displayNone { display: none; }
 .pointer { cursor: pointer; }
 .cursorDefault { cursor: default; }
@@ -29,6 +30,7 @@
 .green { color: $green; }
 .yellow { color: $yellow; }
 .purple { color: $purple; }
+.dark { color: $dark; }
 
 // BACKGROUND-COLOR
 .bgWhite { background-color: $white; }
@@ -38,7 +40,7 @@
 .bgGreen { background-color: $green; }
 .bgYellow { background-color: $yellow; }
 .bgPurple { background-color: $purple; }
-.bgDarkMode { background-color: #162a41; }
+.bgDarkMode { background-color: $dark; }
 .bgBlur { background-color: #f5f7fabf; }
 .bgDarkModeBlur { background-color: #162a4180; }
 

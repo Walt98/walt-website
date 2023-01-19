@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { AppService } from 'src/services/app.service';
 
 @Component({
@@ -20,16 +19,16 @@ export class LangSelectComponent implements OnInit
   // LANGUAGE VARIABLES
   public lang = 'it';
   public language = 'ITA';
-  public langs = this.appService.langs;
+  public langs = this.services.constants.langs;
 
-  constructor(private appService: AppService, private translate: TranslateService) { }
+  constructor(private services: AppService) { }
 
   ngOnInit(): void
   {
-    this.lang = this.translate.currentLang == 'it' ? 'it' : 'gb';
-    this.language = this.translate.currentLang == 'it' ? 'ITA' : 'ENG';
-    this.appService.darkMode$.subscribe(darkMode => this.darkMode = darkMode == 'on');
-    this.appService.blur$.subscribe(value => this.isBlur = value == 'on');
+    this.lang = this.services.translate.currentLang == 'it' ? 'it' : 'gb';
+    this.language = this.services.translate.currentLang == 'it' ? 'ITA' : 'ENG';
+    this.services.behavSubjects$.darkMode$.subscribe(darkMode => this.darkMode = darkMode == 'on');
+    this.services.behavSubjects$.blur$.subscribe(value => this.isBlur = value == 'on');
   }
 
   public setLanguage(lang: string)
@@ -38,7 +37,7 @@ export class LangSelectComponent implements OnInit
     {
       this.lang = lang;
       this.language = lang == 'it' ? 'ITA' : 'ENG';
-      this.translate.use(lang == 'it' ? 'it' : 'en');
+      this.services.translate.use(lang == 'it' ? 'it' : 'en');
       localStorage.setItem('lang', lang == 'it' ? 'it' : 'en');
     }
   }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { IPalette } from 'src/models/palette';
 import { AppService } from 'src/services/app.service';
 
@@ -14,26 +13,26 @@ export class NavbarComponent implements OnInit
   public darkMode = false;
   public palette: IPalette = {};
 
-  public items = this.appService.navbarItems;
+  public items = this.services.constants.navbarItems;
 
-  constructor(private appService: AppService, private router: Router) { }
+  constructor(private services: AppService) { }
 
   ngOnInit(): void
   {
-    this.appService.darkMode$.subscribe(value =>
+    this.services.behavSubjects$.darkMode$.subscribe(value =>
     {
       this.darkMode = value == 'on';
       if (this.palette) this.onChangesActive();
     });
 
-    this.appService.palette$.subscribe(palette =>
+    this.services.behavSubjects$.palette$.subscribe(palette =>
     {
       this.palette = palette;
       this.onChangesActive();
     });
     
     // ROUTER CHANGES
-    this.router.events.subscribe((e: any) =>
+    this.services.router.events.subscribe((e: any) =>
     {
       if (e.type == 1) this.onChangesActive(e.url.slice(1));
     });

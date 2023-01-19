@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { Router } from '@angular/router';
 import { IPalette } from 'src/models/palette';
 import { AppService } from 'src/services/app.service';
 
@@ -22,34 +20,34 @@ export class HeaderComponent implements OnInit
   public clicked = false;
   public isLarge = false;
 
-  public items = this.appService.navbarItems;
+  public items = this.services.constants.navbarItems;
 
-  constructor(private appService: AppService, private router: Router, private title: Title) { }
+  constructor(private services: AppService) { }
 
   ngOnInit(): void
   {
-    this.appService.breakpoint$.subscribe(value => this.isLarge = value);
+    this.services.behavSubjects$.breakpoint$.subscribe(value => this.isLarge = value);
 
-    this.appService.palette$.subscribe(palette =>
+    this.services.behavSubjects$.palette$.subscribe(palette =>
     {
       this.palette = palette;
       this.setColors();
     });
     
-    this.appService.darkMode$.subscribe(value =>
+    this.services.behavSubjects$.darkMode$.subscribe(value =>
     {
       this.darkMode = value == "on";
       this.setColors();
     });
     
-    this.appService.blur$.subscribe(value =>
+    this.services.behavSubjects$.blur$.subscribe(value =>
     {
       this.isBlur = value == "on";
       this.setColors(false);
     });
     
     // ROUTER CHANGES
-    this.router.events.subscribe((e: any) =>
+    this.services.router.events.subscribe((e: any) =>
     {
       if (e.type == 1) this.onChangesActive(e.url.slice(1));
     });
@@ -61,7 +59,8 @@ export class HeaderComponent implements OnInit
       ? (this.isBlur ? 'bgDarkModeBlur' : 'bgDarkMode')
       : (this.isBlur ? 'bgBlur' : 'BGwhite');
     
-    if (cond) this.menuButtonColor = `menu-button-${ this.darkMode ? "dark" : this.palette.color }`;
+    const color = (this.palette.color ?? "default")[0].toUpperCase() + this.palette.color?.slice(1);
+    if (cond) this.menuButtonColor = `bg${ this.darkMode ? "DarkMode" : color }`;
   }
 
   private onChangesActive(path = document.URL.replace(document.baseURI, ""))

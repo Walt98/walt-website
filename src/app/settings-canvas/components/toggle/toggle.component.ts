@@ -13,12 +13,12 @@ export class ToggleComponent implements OnInit
   public clicked = false;
   public palette: IPalette = {};
 
-  constructor(private appService: AppService) { }
+  constructor(private services: AppService) { }
 
   ngOnInit(): void
   {
-    this.appService.darkMode$.subscribe(value => this.clicked = value == "on");
-    this.appService.palette$.subscribe(palette => this.palette = palette);
+    this.services.behavSubjects$.darkMode$.subscribe(value => this.clicked = value == "on");
+    this.services.behavSubjects$.palette$.subscribe(palette => this.palette = palette);
   }
 
   public setDarkMode()
@@ -26,6 +26,6 @@ export class ToggleComponent implements OnInit
     this.clicked = !this.clicked;
     let dark = this.clicked ? 'on' : 'off';
     localStorage.setItem('darkMode', dark);
-    this.appService.setDarkMode(dark);
+    this.services.set.darkMode(dark);
   }
 }

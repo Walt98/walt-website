@@ -2,9 +2,6 @@
 
 .h-82 { height: 82px; }
 .w-25px { width: 25px; }
-.mL40 { margin-left: 40px; }
-.white50 { color: #fefefe80; }
-.left280 { left: -280px; }
 
 .img-logo
 {
@@ -32,56 +29,60 @@
 .menu-button
 {
     font-size: xx-large;
-    padding: 13.5px 8px;
     margin-right: 20px;
-    z-index: 100;
+    z-index: 999;
+    position: absolute;
+    top: 18px;
+    transition: .3s ease;
+    border-radius: 200px;
+    box-shadow: 0 2px 4px -1px #00000033, 0 4px 5px 0 #00000024, 0 1px 10px 0 #0000001f;
 
-    & div
+    & div.menu-button-icon
     {
-        border-radius: 5px;
-        height: 3px;
-        &:not(.menu-button-middle) { width: 15px; }
-        @extend .transition;
-    }
+        padding: 13.5px 8px;
+        & div
+        {
+            border-radius: 5px;
+            height: 3px;
+            &:not(.menu-button-middle) { width: 15px; }
+            @extend .transition;
+        }
+        
+        & div:first-child { margin-left: auto; }
+        & div:last-child { margin-right: auto; }
 
-    & div:first-child { margin-left: auto; }
-    & div:last-child { margin-right: auto; }
-    & .menu-button-middle
-    {
-        width: 30px;
-        margin: 5px 0;
+        & .menu-button-middle
+        {
+            width: 30px;
+            margin: 5px 0;
+        }
     }
 
     &.clicked
     {
-        & div:first-child { @include translateX(-15px); }
-        & div:last-child { @include translateX(15px); }
+        padding-bottom: 195px;
+
+        & div > div:first-child { @include translateX(-15px); }
+        & div > div:last-child { @include translateX(15px); }
     }
 }
 
-.menu-button-dark > div { @extend .bgDarkMode; }
-.menu-button-default > div { @extend .bgDefault; }
-.menu-button-green > div { @extend .bgGreen; }
-.menu-button-red > div { @extend .bgRed; }
-.menu-button-yellow > div { @extend .bgYellow; }
-.menu-button-purple > div { @extend .bgPurple; }
-
-.offcanvas-menu
+.clicked + ul.menu-list
 {
-    height: 100vh;
-    width: 280px;
-    z-index: 1000;
+    top: 65px;
+    right: 27px;
+    z-index: 999;
+
+    & li
+    {
+        list-style: none;
+        transition: 0.3s ease;
+        transition-delay: calc(0.06s * var(--i));
+        font-size: 22px;
+        padding: 5px;
+        border-radius: 50%;
+        margin: 15px 0;
+
+        &:first-child { margin-top: 10px; }
+    }
 }
-
-.canvasShadow { box-shadow: 0 2px 4px -1px #00000033, 0 4px 5px 0 #00000024, 0 1px 10px 0 #0000001f; }
-
-.menu-item
-{
-    text-decoration: none;
-    margin-bottom: 15px;
-    font-size: larger;
-    transition: .1s;
-    &:hover > span { text-decoration: underline; }
-}
-
-.active { font-weight: 600; }

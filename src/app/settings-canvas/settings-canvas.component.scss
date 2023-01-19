@@ -17,20 +17,19 @@
 {
     height: 100vh;
     width: 280px;
-    z-index: 102;
+    z-index: 1000;
 }
 
 .settings-button
 {
     $size: 50px;
     $radius: 5px;
-    $settingsShadow: 0 0 5px 0 #00000033, 0 0 5px 0 #0000000f, 0 0 0 0 #0000001f;
     width: $size;
     height: $size;
     border-top-left-radius: $radius;
     border-bottom-left-radius: $radius;
     z-index: 102;
-    box-shadow: $settingsShadow;
+    box-shadow: 0 0 5px 0 #00000033, 0 0 5px 0 #0000000f, 0 0 0 0 #0000001f;
 
     &:hover > i
     {
@@ -74,10 +73,4 @@
 {
     @include gradient(#b086c0, #226b79);
     &:hover { @include gradient(#c699d8, #287f91); }
-}
-
-.layout-style-title
-{
-    font-size: larger;
-    font-weight: 600;
 }
