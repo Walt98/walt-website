@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { IPalette } from 'src/models/palette';
 import { AppService } from 'src/services/app.service';
@@ -23,7 +24,7 @@ export class HeaderComponent implements OnInit
 
   public items = this.appService.navbarItems;
 
-  constructor(private appService: AppService, private router: Router) { }
+  constructor(private appService: AppService, private router: Router, private title: Title) { }
 
   ngOnInit(): void
   {

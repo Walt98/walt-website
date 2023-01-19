@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { IPalette } from 'src/models/palette';
 import { AppService } from 'src/services/app.service';
 
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit
   public darkMode: boolean = false;
   public font: string = 'Montserrat';
 
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService, private title: Title) { }
 
   ngOnInit(): void
   {

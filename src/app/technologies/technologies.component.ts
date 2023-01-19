@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-technologies',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TechnologiesComponent implements OnInit
 {
-  constructor() { }
+  
+  constructor(private title: Title) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void
+  {
+
+  }
 }
