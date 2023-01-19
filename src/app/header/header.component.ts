@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IPalette } from 'src/models/palette';
 import { AppService } from 'src/services/app.service';
 
 @Component({
@@ -10,9 +11,11 @@ import { AppService } from 'src/services/app.service';
 export class HeaderComponent implements OnInit
 {
   // CUSTOMIZERS
+  public palette: IPalette = {};
   public darkMode = false;
   public isBlur = false;
-  public offcanvasColor = "";
+  public offcanvasColor = "bgBlur";
+  public menuButtonColor = "menu-button-default";
 
   // BOOLEANS
   public clicked = false;
@@ -24,18 +27,24 @@ export class HeaderComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.setOffcanvasColor();
-
     this.appService.breakpoint$.subscribe(value => this.isLarge = value);
+
+    this.appService.palette$.subscribe(palette =>
+    {
+      this.palette = palette;
+      this.setColors();
+    });
+    
     this.appService.darkMode$.subscribe(value =>
     {
       this.darkMode = value == "on";
-      this.setOffcanvasColor();
+      this.setColors();
     });
+    
     this.appService.blur$.subscribe(value =>
     {
       this.isBlur = value == "on";
-      this.setOffcanvasColor();
+      this.setColors(false);
     });
     
     // ROUTER CHANGES
@@ -45,11 +54,13 @@ export class HeaderComponent implements OnInit
     });
   }
 
-  private setOffcanvasColor()
+  private setColors(cond = true)
   {
     this.offcanvasColor = this.darkMode
       ? (this.isBlur ? 'bgDarkModeBlur' : 'bgDarkMode')
       : (this.isBlur ? 'bgBlur' : 'BGwhite');
+    
+    if (cond) this.menuButtonColor = `menu-button-${ this.darkMode ? "dark" : this.palette.color }`;
   }
 
   private onChangesActive(path = document.URL.replace(document.baseURI, ""))

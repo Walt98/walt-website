@@ -9,7 +9,7 @@
     </a>
 
     <ng-container *ngIf="!isLarge">
-        <div class="d-flex flex-column align-items-center menu-button {{ clicked ? 'clicked' : '' }} pointer br50 white" tabindex="0" (click)="clicked = !clicked">
+        <div class="d-flex flex-column align-items-center menu-button {{ clicked ? 'clicked' : '' }} {{ menuButtonColor }} pointer br50 bgWhite" tabindex="0" (click)="clicked = !clicked">
             <div class="menu-button-top"></div>
             <div class="menu-button-middle"></div>
             <div class="menu-button-bottom"></div>

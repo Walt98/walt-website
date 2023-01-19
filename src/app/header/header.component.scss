@@ -32,13 +32,12 @@
 .menu-button
 {
     font-size: xx-large;
-    padding: 10px 5px;
-    margin-right: 10px;
+    padding: 13.5px 8px;
+    margin-right: 20px;
     z-index: 100;
 
     & div
     {
-        background-color: white;
         border-radius: 5px;
         height: 3px;
         &:not(.menu-button-middle) { width: 15px; }
@@ -59,6 +58,13 @@
         & div:last-child { @include translateX(15px); }
     }
 }
+
+.menu-button-dark > div { @extend .bgDarkMode; }
+.menu-button-default > div { @extend .bgDefault; }
+.menu-button-green > div { @extend .bgGreen; }
+.menu-button-red > div { @extend .bgRed; }
+.menu-button-yellow > div { @extend .bgYellow; }
+.menu-button-purple > div { @extend .bgPurple; }
 
 .offcanvas-menu
 {
