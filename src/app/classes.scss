@@ -33,16 +33,16 @@
 .dark { color: $dark; }
 
 // BACKGROUND-COLOR
-.bgWhite { background-color: $white; }
-.BGwhite { background-color: $bgWhite; }
-.bgDefault { background-color: $default; }
-.bgRed { background-color: $red; }
-.bgGreen { background-color: $green; }
-.bgYellow { background-color: $yellow; }
-.bgPurple { background-color: $purple; }
-.bgDarkMode { background-color: $dark; }
-.bgBlur { background-color: #f5f7fabf; }
-.bgDarkModeBlur { background-color: #162a4180; }
+.bgWhite, .bgWhite::before, .bgWhite::after { background-color: $white; }
+.BGwhite, .BGwhite::before, .BGwhite::after { background-color: $bgWhite; }
+.bgDefault, .bgDefault::before, .bgDefault::after { background-color: $default; }
+.bgRed, .bgRed::before, .bgRed::after { background-color: $red; }
+.bgGreen, .bgGreen::before, .bgGreen::after { background-color: $green; }
+.bgYellow, .bgYellow::before, .bgYellow::after { background-color: $yellow; }
+.bgPurple, .bgPurple::before, .bgPurple::after { background-color: $purple; }
+.bgDarkMode, .bgDarkMode::before, .bgDarkMode::after { background-color: $dark; }
+.bgBlur, .bgBlur::before, .bgBlur::after { background-color: #f5f7fabf; }
+.bgDarkModeBlur, .bgDarkModeBlur::before, .bgDarkModeBlur::after { background-color: #162a4180; }
 
 .center
 { 
