@@ -1,6 +1,6 @@
 <div class="d-flex flex-column align-items-end justify-content-end lang-select">
     <!-- LANGUAGES LIST -->
-    <div id="lang-select-2" *ngIf="clicked" class="d-flex flex-column align-items-start dropdownLangs transition bg-transparent {{ isBlur ? (darkMode ? 'darkBlur' : 'blur') : '' }} opacity{{ showSelect ? '1 pointer noTranslateY' : '0 cursorDefault translateY10' }}">
+    <div id="lang-select-2" *ngIf="clicked" class="d-flex flex-column align-items-start dropdownLangs transition {{ isBlur ? (darkMode ? 'darkBlur' : 'blur') : '' }} opacity{{ showSelect ? '1 pointer noTranslateY' : '0 cursorDefault translateY10' }}">
         <div id="lang-select-3" *ngFor="let code of langs" class="center" (click)="setLanguage(code)">
             <!-- COUNTRY ICON -->
             <i id="lang-select-4" class="flag-icon flag-icon-{{ code }}"></i>

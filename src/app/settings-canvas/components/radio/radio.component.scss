@@ -1,5 +1,3 @@
-@import '../../../classes.scss';
-
 .mT9 { margin-top: 9px; }
 
 .radio
@@ -18,12 +16,11 @@
 
 .radio-text { padding: 0 10px; }
 
-.radio { border: $radioBorder; }
+.radio {@import '../../../classes'; border: $radioBorder; }
 
-.radio-Dark { border-color: $dmWhite; }
-
-.radio-default { border-color: $default; }
-.radio-red { border-color: $red; }
-.radio-green { border-color: $green; }
-.radio-yellow { border-color: $yellow; }
-.radio-purple { border-color: $purple; }
+.radio-Dark {@import '../../../classes'; border-color: $dmWhite; }
+.radio-default {@import '../../../classes'; border-color: $default; }
+.radio-red {@import '../../../classes'; border-color: $red; }
+.radio-green {@import '../../../classes'; border-color: $green; }
+.radio-yellow {@import '../../../classes'; border-color: $yellow; }
+.radio-purple {@import '../../../classes'; border-color: $purple; }

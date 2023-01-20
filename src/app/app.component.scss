@@ -1,10 +1,8 @@
-@import './classes.scss';
-
 .wMaxContent { width: max-content; }
 .hMaxContent { height: max-content; }
 
-.Montserrat { @include font('Montserrat'); }
-.Roboto { @include font('Roboto'); }
+.Montserrat { @import './classes'; @include font('Montserrat'); }
+.Roboto { @import './classes'; @include font('Roboto'); }
 
 .div-spinner
 {
@@ -60,6 +58,6 @@ main
 
 .router-outlet
 {
-    padding: 20px 20px 0 20px;
-    z-index: 100;
+    padding: 20px;
+    height: calc(100vh - 82px);
 }

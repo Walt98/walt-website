@@ -1,6 +1,4 @@
-@import '../../../classes.scss';
-
-.translateX26 { @include translateX(26px); }
+.translateX26 { @import '../../../classes'; @include translateX(26px); }
 
 .dark-mode-toggle
 {

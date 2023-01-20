@@ -1,5 +1,3 @@
-@import '../../../classes.scss';
-
 .pL-6px { padding-left: 6px; }
 .zIndex999 { z-index: 999; }
 .mL-2px { margin-left: 2px; }
@@ -17,19 +15,19 @@
     height: $size;
     margin-left: 10px;
 }
-.translate1 { @include translateX(35px); }
-.translate2 { @include translateX(40px); }
-.noTranslateX { @include translateX(0); }
-.noTranslateY { @include translateY(0); }
-.translateY10 { @include translateY(10px); }
+.translate1 { @import '../../../classes'; @include translateX(35px); }
+.translate2 { @import '../../../classes'; @include translateX(40px); }
+.noTranslateX { @import '../../../classes'; @include translateX(0); }
+.noTranslateY { @import '../../../classes'; @include translateY(0); }
+.translateY10 { @import '../../../classes'; @include translateY(10px); }
 
 .lang
 {
     padding: 5px 0;
     width: 84px;
-    & .bi-arrow-up-short::before { @extend .transition; }
+    & .bi-arrow-up-short::before { @import '../../../classes'; @extend .transition; }
 }
-.revertArrow::before { @include rotate(-180deg); }
+.revertArrow::before { @import '../../../classes'; @include rotate(-180deg); }
 
 .dropdownLangs
 {

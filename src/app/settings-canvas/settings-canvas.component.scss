@@ -1,5 +1,3 @@
-@import '../classes.scss';
-
 :host ::ng-deep app-settings-section:first-child > div { padding-top: 0; }
 
 .settings-padding { padding: 0 10px 10px 10px; }
@@ -34,6 +32,7 @@
     &:hover > i
     {
         transition: transform .9s cubic-bezier(0.42, 0.17, 0.53, 0.77);
+        @import '../classes';
         @include rotate(225deg);
     }
 }
@@ -41,36 +40,42 @@
 
 .color-dark
 {
+    @import '../classes';
     @include gradient(#587987, #1e3e55, $degRevert);
     &:hover { @include gradient(#6d93a3, #30536d, $degRevert); }
 }
 
 .color-default
 {
+    @import '../classes';
     @include gradient(#4C96B6, #19496C);
     &:hover { @include gradient(#6cb3d1, #2f678e); }
 }
 
 .color-red
 {
+    @import '../classes';
     @include gradient(#b64c4c, #6c1919);
     &:hover { @include gradient(#c76565, #8f3535); }
 }
 
 .color-green
 {
+    @import '../classes';
     @include gradient(#6ab64c, #196c59);
     &:hover { @include gradient(#86c86c, #3d8f7c); }
 }
 
 .color-yellow
 {
+    @import '../classes';
     @include gradient(#b6a14c, #6c2a19);
     &:hover { @include gradient(#c6b25e, #934e3c); }
 }
 
 .color-purple
 {
+    @import '../classes';
     @include gradient(#b086c0, #226b79);
     &:hover { @include gradient(#c699d8, #287f91); }
 }

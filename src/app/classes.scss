@@ -33,8 +33,8 @@
 .dark { color: $dark; }
 
 // BACKGROUND-COLOR
-.bgWhite, .bgWhite::before, .bgWhite::after { background-color: $white; }
-.BGwhite, .BGwhite::before, .BGwhite::after { background-color: $bgWhite; }
+.bgWhite { background-color: $white; }
+.BGwhite { background-color: $bgWhite; }
 .bgDefault, .bgDefault::before, .bgDefault::after { background-color: $default; }
 .bgRed, .bgRed::before, .bgRed::after { background-color: $red; }
 .bgGreen, .bgGreen::before, .bgGreen::after { background-color: $green; }

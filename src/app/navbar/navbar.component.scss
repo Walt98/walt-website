@@ -1,5 +1,3 @@
-@import '../classes.scss';
-
 .font-26px { font-size: 26px; }
 
 .navbar-size
@@ -14,14 +12,14 @@
     &:first-child { padding-top: 0; }
 }
 
-.active, .active:hover { @extend .bgWhite; }
+.active, .active:hover { @import '../classes'; background-color: $white; }
 
+.item-color-default { @import '../classes'; color: $light-default; }
+.item-color-red { @import '../classes'; color: $light-red; }
+.item-color-green { @import '../classes'; color: $light-green; }
+.item-color-yellow { @import '../classes'; color: $light-yellow; }
+.item-color-purple { @import '../classes'; color: $light-purple; }
 .item-color-dark { color: #004766; }
-.item-color-default { color: $light-default; }
-.item-color-red { color: $light-red; }
-.item-color-green { color: $light-green; }
-.item-color-yellow { color: $light-yellow; }
-.item-color-purple { color: $light-purple; }
 
 .navbar-item-icon
 {
