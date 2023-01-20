@@ -23,7 +23,7 @@
 .pL0 { padding-left: 0; }
 
 // COLOR
-.white { color: $white; }
+.white { color: $white !important; }
 .dmWhite { color: $dmWhite; }
 .default { color: $default; }
 .red { color: $red; }
