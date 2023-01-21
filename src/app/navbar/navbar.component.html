@@ -5,7 +5,10 @@
         <i [routerLink]="item.link" class="bi bi-{{ item.icon }} {{ item.class }} d-flex navbar-item-icon font-26px pointer transition" (mouseover)="item.show = true" (mouseleave)="item.show = false"></i>
         
         <!-- TEXT -->
-        <span *ngIf="item.show" class="zIndex1000 absolute title-color-{{ darkMode ? 'dark' : palette.color }}" translate>
+        <span *ngIf="item.show" class="zIndex1000 absolute item-title title-color-{{ darkMode ? 'dark' : palette.color }}" translate>
+            <!-- TITLE POINTER -->
+            <span class="title-pointer absolute"></span>
+            
             {{ item.text }}
         </span>
     </div>

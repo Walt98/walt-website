@@ -25,23 +25,70 @@
 {
     padding: 14px;
     border-radius: 13px;
-    &:not(.navbar-item-icon.active):hover { background-color: #ffffff2e; }
-    
-    // ITEM TITLE
-    & + span
+    &:not(.navbar-item-icon.active):hover { background-color: #ffffff2e; }   
+}
+
+// ITEM TITLE
+.item-title
+{
+    padding: 7px 12px;
+    border-radius: 7px;
+    margin-left: 62px;
+    box-shadow: 0 0 20px -5px #00000033,
+    0 0 10px 0px #00000024,
+    0 0 0 0 #0000001f;
+
+    & .title-pointer
     {
-        padding: 7px 12px;
-        border-radius: 7px;
-        margin-left: 62px;
-        box-shadow: 0 0 20px -5px #00000033,
-        0 0 10px 0px #00000024,
-        0 0 0 0 #0000001f;
+        width: 0;
+        height: 0;
+        border-bottom: 5px solid transparent;
+        border-top: 5px solid transparent;
+        border-right: 5px solid;
+        top: calc(50% - 4.8px);
+        left: -4.4px;
     }
 }
 
-.title-color-dark { background-color: #3b5462; }
-.title-color-default { background-color: #19496C; }
-.title-color-red { background-color: #802424; }
-.title-color-green { background-color: #3a7826; }
-.title-color-yellow { background-color: #7a5825; }
-.title-color-purple { background-color: #644075; }
+.title-color-dark
+{
+    $color: #3b5462;
+    background-color: $color;
+    & .title-pointer { border-right-color: $color; }
+}
+
+.title-color-default
+{
+    $color: #19496C;
+    background-color: $color;
+    & .title-pointer { border-right-color: $color; }
+}
+
+.title-color-red
+{
+    $color: #762020;
+    background-color: $color;
+    & .title-pointer { border-right-color: $color; }
+}
+
+.title-color-green
+{
+    $color: #3a7826;
+    background-color: $color;
+    & .title-pointer { border-right-color: $color; }
+}
+
+.title-color-yellow
+{
+    $color: #7a5825;
+    background-color: $color;
+    & .title-pointer { border-right-color: $color; }
+}
+
+.title-color-purple
+{
+    $color: #644075;
+    background-color: $color;
+    & .title-pointer { border-right-color: $color; }
+}
+
