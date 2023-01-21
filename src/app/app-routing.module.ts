@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { TechnologiesComponent } from './technologies/technologies.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'about-me', component: AboutMeComponent },
   { path: 'contact-me', component: ContactMeComponent },

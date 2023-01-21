@@ -13,6 +13,7 @@ export class PaletteComponent implements OnInit
   public blur = false;
   public palette: IPalette = {};
 
+  // CONSTANTS
   public colors = this.services.constants.colors;
 
   constructor(private services: AppService) { }

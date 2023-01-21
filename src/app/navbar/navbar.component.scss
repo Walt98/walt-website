@@ -33,7 +33,7 @@
 {
     padding: 7px 12px;
     border-radius: 7px;
-    margin-left: 62px;
+    left: 72.8px;
     box-shadow: 0 0 20px -5px #00000033,
     0 0 10px 0px #00000024,
     0 0 0 0 #0000001f;
@@ -52,7 +52,7 @@
 
 .title-color-dark
 {
-    $color: #3b5462;
+    $color: #3b5161;
     background-color: $color;
     & .title-pointer { border-right-color: $color; }
 }

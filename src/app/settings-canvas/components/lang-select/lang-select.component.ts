@@ -19,6 +19,8 @@ export class LangSelectComponent implements OnInit
   // LANGUAGE VARIABLES
   public lang = 'it';
   public language = 'ITA';
+
+  // CONSTANTS
   public langs = this.services.constants.langs;
 
   constructor(private services: AppService) { }

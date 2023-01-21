@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit
   public darkMode = false;
   public palette: IPalette = {};
 
+  // CONSTANTS
   public items = this.services.constants.navbarItems;
 
   constructor(private services: AppService) { }
@@ -22,7 +23,7 @@ export class NavbarComponent implements OnInit
     this.services.behavSubjects$.darkMode$.subscribe(value =>
     {
       this.darkMode = value == 'on';
-      if (this.palette) this.onChangesActive();
+      this.onChangesActive();
     });
 
     this.services.behavSubjects$.palette$.subscribe(palette =>
@@ -52,6 +53,6 @@ export class NavbarComponent implements OnInit
       default: item = this.items[0]; break;
     }
     
-    if (!!item) item.class = `active item-color-${this.darkMode ? 'dark' : this.palette.color}`;
+    item.class = `active item-color-${this.darkMode ? 'dark' : this.palette.color}`;
   }
 }

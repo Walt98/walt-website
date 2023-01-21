@@ -13,8 +13,8 @@
     margin-right: 20px;
     text-decoration: none;
     font-size: 18px;
-    &:hover { animation: contactMe 2s linear infinite; }
     z-index: 100;
+    &:hover { animation: contactMe 2s linear infinite; }
 }
 @keyframes contactMe
 {
@@ -26,11 +26,9 @@
 
 .menu-button
 {
-    @import '../classes';
     font-size: xx-large;
     margin-right: 20px;
     z-index: 999;
-    position: absolute;
     top: 18px;
     transition: .3s ease;
     border-radius: 200px;
@@ -38,6 +36,8 @@
 
     & div.menu-button-icon
     {
+        @import '../classes';
+        
         padding: 21.5px 8px;
 
         & div
@@ -74,6 +74,8 @@
 
     &.clicked
     {
+        @import '../classes';
+        
         padding-bottom: 190px;
 
         & div > div::before, & div > div::after { @include translateX(0); }

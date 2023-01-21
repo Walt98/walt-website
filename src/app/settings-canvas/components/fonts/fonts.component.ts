@@ -12,6 +12,7 @@ export class FontsComponent implements OnInit
   public darkMode = false;
   public fontInit = "Montserrat";
 
+  // CONSTANTS
   public fonts = this.services.constants.fonts;
 
   constructor(private services: AppService) { }
