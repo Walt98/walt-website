@@ -18,15 +18,15 @@
     
         <!-- SELECTED LANG -->
         <span id="lang-select-9" class="lang transition zIndex999 opacity{{ clicked ? '1' : '0' }}">
-            <span id="lang-select-10" class="{{ clicked ? 'pointer' : 'cursorDefault' }}" (click)="showSelect = !showSelect">
+            <span id="lang-select-10" class="d-flex align-items-center {{ clicked ? 'pointer' : 'cursorDefault' }}" (click)="showSelect = !showSelect">
                 <!-- COUNTRY ICON -->
                 <i id="lang-select-11" class="flag-icon flag-icon-{{ lang }}"></i>
 
                 <!-- COUNTRY NAME -->
-                <span id="lang-select-12" class="mL-2px"> {{ lang == 'it' ? 'ITA' : 'ENG' }} </span>
+                <span id="lang-select-12" class="lang-span"> {{ lang == 'it' ? 'ITA' : 'ENG' }} </span>
                 
                 <!-- CHECK ICON -->
-                <i id="lang-select-13" class="bi bi-arrow-up-short {{ showSelect ? 'revertArrow' : '' }}"></i>
+                <i id="lang-select-13" class="bi bi-arrow-up-short d-flex {{ showSelect ? 'revertArrow' : '' }}"></i>
             </span>
         </span>
     </div>

@@ -1,6 +1,6 @@
 .pL-6px { padding-left: 6px; }
 .zIndex999 { z-index: 999; }
-.mL-2px { margin-left: 2px; }
+.lang-span { margin: 0 5px 0 6px; }
 
 .lang-select
 {
@@ -13,7 +13,6 @@
     $size: 45px;
     width: $size;
     height: $size;
-    margin-left: 10px;
 }
 .translate1 { @import '../../../classes'; @include translateX(35px); }
 .translate2 { @import '../../../classes'; @include translateX(40px); }
@@ -23,19 +22,17 @@
 
 .lang
 {
+    @import '../../../classes';
     padding: 5px 0;
-    width: 84px;
-    & .bi-arrow-up-short::before { @import '../../../classes'; @extend .transition; }
+    & .bi-arrow-up-short::before { @extend .transition; }
 }
 .revertArrow::before { @import '../../../classes'; @include rotate(-180deg); }
 
 .dropdownLangs
 {
-    width: max-content;
     box-shadow: #00000063 0 0 10px 0;
     padding: 7px 10px 7px 12px;
     border-radius: 5px;
-    margin-right: 10px;
 }
 
 .blur { background-color: #f5f7fa4d; }

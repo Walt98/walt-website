@@ -22,7 +22,7 @@ export class AppService
   // SET BREAKPOINT
   protected breakpoint$ = this.breakpointObserver.observe("(min-width: 992px)");
 
-  // BEHAVIOR SUBJECTS
+  /** Customizers Behavior Subjects. */
   public readonly behavSubjects$ =
   {
     darkMode$: new BehaviorSubject(localStorage.getItem('darkMode') ?? 'off'),
@@ -32,7 +32,7 @@ export class AppService
     breakpoint$: new BehaviorSubject(false)
   }
 
-  // CONSTANTS
+  /** Constants. */
   public readonly constants =
   {
     colors: ['default', 'green', 'yellow', 'red', 'purple'],
@@ -46,7 +46,7 @@ export class AppService
     ] as INavbarItem[]
   }
 
-  // FUNCTIONS
+  /** Functions used to set Customizers (except Breakpoint). */
   public readonly set =
   {
     darkMode: (darkMode: string) => this.behavSubjects$.darkMode$.next(darkMode),

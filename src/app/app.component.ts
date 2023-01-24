@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { delay, Subject } from 'rxjs';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 import { IPalette } from 'src/models/palette';
 import { AppService } from 'src/services/app.service';
 
@@ -9,7 +9,7 @@ import { AppService } from 'src/services/app.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, AfterViewInit
+export class AppComponent implements OnInit
 {
   // CUSTOMIZERS
   public palette: IPalette = {};
@@ -20,16 +20,16 @@ export class AppComponent implements OnInit, AfterViewInit
   // BOOLEANS
   public isLarge = false;
   
-  // ngAfterViewInit ASSETS
-  @ViewChild("app") public app?: ElementRef;
+  @ViewChild("app") private app?: ElementRef;
+  private translate$ = new Observable<any>();
+  public isReady$ = new Subject<any>();
   public isReady = false;
-  public isReady$ = new Subject<boolean>();
 
   constructor(private services: AppService)
   {
     // SET DEFAULT LANGUAGE
     services.translate.setDefaultLang('it');
-    services.translate.use(localStorage.getItem('lang') ?? 'it');
+    this.translate$ = services.translate.use(localStorage.getItem('lang') ?? 'it');
   }
 
   ngOnInit(): void
@@ -43,15 +43,12 @@ export class AppComponent implements OnInit, AfterViewInit
       if (!localStorage.getItem('palette')) localStorage.setItem('palette', JSON.stringify(palette));
     });
 
-    // SHOW/HIDE SPINNER
-    this.isReady$.pipe(delay(200)).subscribe(isReady => this.isReady = isReady);
+    this.isReady$.subscribe(() => this.translate$.subscribe(() =>
+    {
+      if (!!this.app?.nativeElement) this.isReady = true;
+    }));
 
     // BREAKPOINT
     this.services.behavSubjects$.breakpoint$.subscribe(value => this.isLarge = value);
-  }
-
-  ngAfterViewInit(): void
-  {
-    this.isReady$.next(!!this.app?.nativeElement);
   }
 }
