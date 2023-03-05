@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from 'src/services/app.service';
+import { ShOptions } from 'src/services/sh-options.service';
 import { IPalette } from 'src/models/palette';
 
 @Component({
@@ -14,13 +14,13 @@ export class RadioComponent implements OnInit
   public darkMode = false;
   public palette: IPalette = {};
 
-  constructor(private services: AppService) { }
+  constructor(private options: ShOptions) { }
 
   ngOnInit(): void
   {
-    this.services.behavSubjects$.blur$.subscribe(value => this.isBlur = value == 'on');
-    this.services.behavSubjects$.darkMode$.subscribe(value => this.darkMode = value == 'on');
-    this.services.behavSubjects$.palette$.subscribe(palette => this.palette = palette);
+    this.options.$.get.blur(value => this.isBlur = value == 'on');
+    this.options.$.get.darkMode(value => this.darkMode = value == 'on');
+    this.options.$.get.palette(palette => this.palette = palette);
   }
 
   // SET BLUR
@@ -29,6 +29,6 @@ export class RadioComponent implements OnInit
     this.isBlur = isBlur;
     let blur = isBlur ? 'on' : 'off';
     localStorage.setItem('blur', blur);
-    this.services.set.blur(blur);
+    this.options.$.set.blur(blur);
   }
 }

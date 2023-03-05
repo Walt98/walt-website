@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IPalette } from 'src/models/palette';
-import { AppService } from 'src/services/app.service';
+import { ShOptions } from 'src/services/sh-options.service';
 
 @Component({
   selector: 'app-header',
@@ -18,15 +18,15 @@ export class HeaderComponent implements OnInit
   public isLarge = false;
 
   // CONSTANTS
-  public items = this.services.constants.navbarItems;
+  public items = this.options.CONSTS.NAVBAR_ITEMS;
 
-  constructor(private services: AppService) { }
+  constructor(private options: ShOptions) { }
 
   ngOnInit(): void
   {
-    this.services.behavSubjects$.breakpoint$.subscribe(value => this.isLarge = value);
-    this.services.behavSubjects$.palette$.subscribe(palette => this.palette = palette);
-    this.services.behavSubjects$.darkMode$.subscribe(value => this.darkMode = value == "on");
+    this.options.$.get.breakpoint(value => this.isLarge = value);
+    this.options.$.get.palette(palette => this.palette = palette);
+    this.options.$.get.darkMode(value => this.darkMode = value == "on");
   }
 
   public firstUpper = (str = "default"): string =>

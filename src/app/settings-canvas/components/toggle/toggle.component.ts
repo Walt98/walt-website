@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from 'src/services/app.service';
+import { ShOptions } from 'src/services/sh-options.service';
 import { IPalette } from 'src/models/palette';
 
 @Component({
@@ -13,12 +13,12 @@ export class ToggleComponent implements OnInit
   public clicked = false;
   public palette: IPalette = {};
 
-  constructor(private services: AppService) { }
+  constructor(private options: ShOptions) { }
 
   ngOnInit(): void
   {
-    this.services.behavSubjects$.darkMode$.subscribe(value => this.clicked = value == "on");
-    this.services.behavSubjects$.palette$.subscribe(palette => this.palette = palette);
+    this.options.$.get.darkMode(value => this.clicked = value == "on");
+    this.options.$.get.palette(palette => this.palette = palette);
   }
 
   public setDarkMode()
@@ -26,6 +26,6 @@ export class ToggleComponent implements OnInit
     this.clicked = !this.clicked;
     let dark = this.clicked ? 'on' : 'off';
     localStorage.setItem('darkMode', dark);
-    this.services.set.darkMode(dark);
+    this.options.$.set.darkMode(dark);
   }
 }

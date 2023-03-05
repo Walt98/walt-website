@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from 'src/services/app.service';
+import { ShOptions } from 'src/services/sh-options.service';
 
 @Component({
   selector: 'app-fonts',
@@ -13,20 +13,20 @@ export class FontsComponent implements OnInit
   public fontInit = "Montserrat";
 
   // CONSTANTS
-  public fonts = this.services.constants.fonts;
+  public fonts = this.options.CONSTS.FONTS;
 
-  constructor(private services: AppService) { }
+  constructor(private options: ShOptions) { }
 
   ngOnInit(): void
   {
-    this.services.behavSubjects$.darkMode$.subscribe(value => this.darkMode = value == 'on');
-    this.services.behavSubjects$.font$.subscribe(value => this.fontInit = value);
+    this.options.$.get.darkMode(value => this.darkMode = value == 'on');
+    this.options.$.get.font(value => this.fontInit = value);
   }
 
   public setFont(font: string)
   {
     this.fontInit = font;
     localStorage.setItem('font', font);
-    this.services.set.font(font);
+    this.options.$.set.font(font);
   }
 }

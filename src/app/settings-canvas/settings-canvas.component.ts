@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IPalette } from 'src/models/palette';
-import { AppService } from 'src/services/app.service';
+import { ShOptions } from 'src/services/sh-options.service';
 
 @Component({
   selector: 'app-settings-canvas',
@@ -19,34 +19,31 @@ export class SettingsCanvasComponent implements OnInit
   // BOOLEANS
   public clicked = false;
 
-  constructor(private services: AppService) { }
+  constructor(private options: ShOptions) { }
 
   ngOnInit(): void
   {
-    this.services.behavSubjects$.darkMode$.subscribe(value =>
+    this.options.$.get.darkMode(value =>
     {
       this.darkMode = value == 'on';
       this.setCanvasColor();
     });
     
-    this.services.behavSubjects$.blur$.subscribe(value =>
+    this.options.$.get.blur(value =>
     {
       this.blur = value == 'on';
       this.setCanvasColor();
     });
 
-    this.services.behavSubjects$.palette$.subscribe(value => this.palette = value);
-    this.services.behavSubjects$.font$.subscribe(value => this.font = value);
+    this.options.$.get.palette(value => this.palette = value);
+    this.options.$.get.font(value => this.font = value);
   }
 
-  private setCanvasColor()
-  {
-    this.canvasColor = this.darkMode
-      ? (this.blur ? 'bgDarkModeBlur' : 'bgDarkMode')
-      : (this.blur ? 'bgBlur' : 'BGwhite');
-  }
+  private setCanvasColor = () => this.canvasColor = this.darkMode
+    ? (this.blur ? "bgDarkModeBlur" : "bgDarkMode")
+    : (this.blur ? "bgBlur" : "BGwhite");
 
-  public activeFont = (font: string): string => this.font == font ? 'activeFont' : '';
+  public activeFont = (font: string): string => this.font == font ? "activeFont" : "";
 
   public checkOutside(target: any)
   {

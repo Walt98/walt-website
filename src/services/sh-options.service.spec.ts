@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AppService } from './app.service';
+import { ShOptions } from './sh-options.service';
 
-describe('AppService', () => {
-  let service: AppService;
+describe('ShOptions', () => {
+  let service: ShOptions;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AppService);
+    service = TestBed.inject(ShOptions);
   });
 
   it('should be created', () => {

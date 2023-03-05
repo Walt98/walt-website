@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { IPalette } from 'src/models/palette';
-import { AppService } from 'src/services/app.service';
+import { ShOptions } from 'src/services/sh-options.service';
 
 
 @Component({
@@ -25,19 +25,20 @@ export class AppComponent implements OnInit
   public isReady$ = new Subject<any>();
   public isReady = false;
 
-  constructor(private services: AppService)
+  constructor(private options: ShOptions)
   {
     // SET DEFAULT LANGUAGE
-    services.translate.setDefaultLang('it');
-    this.translate$ = services.translate.use(localStorage.getItem('lang') ?? 'it');
+    options._translate.setDefaultLang('it');
+    this.translate$ = options._translate.use(localStorage.getItem('lang') ?? 'it');
   }
 
   ngOnInit(): void
   {
     if (!localStorage.getItem('lang')) localStorage.setItem('lang', 'it');
-    this.services.behavSubjects$.darkMode$.subscribe(value => this.darkMode = value == 'on');
-    this.services.behavSubjects$.font$.subscribe(value => this.font = value);
-    this.services.behavSubjects$.palette$.subscribe(palette =>
+    this.options.$.get.darkMode(value => this.darkMode = value == 'on');
+    this.options.$.get.font(value => this.font = value);
+    this.options.$.get.breakpoint(value => this.isLarge = value);
+    this.options.$.get.palette(palette =>
     {
       this.palette = palette;
       if (!localStorage.getItem('palette')) localStorage.setItem('palette', JSON.stringify(palette));
@@ -47,8 +48,5 @@ export class AppComponent implements OnInit
     {
       if (!!this.app?.nativeElement) this.isReady = true;
     }));
-
-    // BREAKPOINT
-    this.services.behavSubjects$.breakpoint$.subscribe(value => this.isLarge = value);
   }
 }

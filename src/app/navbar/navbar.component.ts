@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IPalette } from 'src/models/palette';
-import { AppService } from 'src/services/app.service';
+import { ShOptions } from 'src/services/sh-options.service';
 
 @Component({
   selector: 'app-navbar',
@@ -14,26 +14,26 @@ export class NavbarComponent implements OnInit
   public palette: IPalette = {};
 
   // CONSTANTS
-  public items = this.services.constants.navbarItems;
+  public items = this.options.CONSTS.NAVBAR_ITEMS;
 
-  constructor(private services: AppService) { }
+  constructor(private options: ShOptions) { }
 
   ngOnInit(): void
   {
-    this.services.behavSubjects$.darkMode$.subscribe(value =>
+    this.options.$.get.darkMode(value =>
     {
       this.darkMode = value == 'on';
       this.onChangesActive();
     });
 
-    this.services.behavSubjects$.palette$.subscribe(palette =>
+    this.options.$.get.palette(palette =>
     {
       this.palette = palette;
       this.onChangesActive();
     });
     
     // ROUTER CHANGES
-    this.services.router.events.subscribe((e: any) =>
+    this.options._router.events.subscribe((e: any) =>
     {
       if (e.type == 1) this.onChangesActive(e.url.slice(1));
     });

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IPalette } from 'src/models/palette';
-import { AppService } from 'src/services/app.service';
+import { ShOptions } from 'src/services/sh-options.service';
 
 @Component({
   selector: 'app-home',
@@ -14,12 +14,12 @@ export class HomeComponent implements OnInit
   public darkMode: boolean = false;
   public font: string = 'Montserrat';
 
-  constructor(private services: AppService) { }
+  constructor(private options: ShOptions) { }
 
   ngOnInit(): void
   {
-    this.services.behavSubjects$.palette$.subscribe(palette => this.palette = palette);
-    this.services.behavSubjects$.darkMode$.subscribe(value => this.darkMode = value == "on");
-    this.services.behavSubjects$.font$.subscribe(font => this.font = font);
+    this.options.$.get.palette(palette => this.palette = palette);
+    this.options.$.get.darkMode(value => this.darkMode = value == "on");
+    this.options.$.get.font(font => this.font = font);
   }
 }

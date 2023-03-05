@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from 'src/services/app.service';
+import { ShOptions } from 'src/services/sh-options.service';
 import { IPalette } from 'src/models/palette';
 
 @Component({
@@ -14,14 +14,14 @@ export class PaletteComponent implements OnInit
   public palette: IPalette = {};
 
   // CONSTANTS
-  public colors = this.services.constants.colors;
+  public colors = this.options.CONSTS.COLORS;
 
-  constructor(private services: AppService) { }
+  constructor(private options: ShOptions) { }
 
   ngOnInit(): void
   {
-    this.services.behavSubjects$.blur$.subscribe(value => this.blur = value == 'on');
-    this.services.behavSubjects$.palette$.subscribe(palette => this.palette = palette);
+    this.options.$.get.blur(value => this.blur = value == 'on');
+    this.options.$.get.palette(palette => this.palette = palette);
   }
 
   // SET PALETTE
@@ -29,7 +29,7 @@ export class PaletteComponent implements OnInit
   {
     this.palette = { color: bg, bgImage: this.setGradient(bg) };
     localStorage.setItem('palette', JSON.stringify(this.palette));
-    this.services.set.palette(this.palette);
+    this.options.$.set.palette(this.palette);
   }
 
   public setGradient(bg: string): string

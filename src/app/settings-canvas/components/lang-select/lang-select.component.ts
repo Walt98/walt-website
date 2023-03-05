@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from 'src/services/app.service';
+import { ShOptions } from 'src/services/sh-options.service';
 
 @Component({
   selector: 'app-lang-select',
@@ -21,16 +21,16 @@ export class LangSelectComponent implements OnInit
   public language = 'ITA';
 
   // CONSTANTS
-  public langs = this.services.constants.langs;
+  public langs = this.options.CONSTS.LANGUAGES;
 
-  constructor(private services: AppService) { }
+  constructor(private options: ShOptions) { }
 
   ngOnInit(): void
   {
-    this.lang = this.services.translate.currentLang == 'it' ? 'it' : 'gb';
-    this.language = this.services.translate.currentLang == 'it' ? 'ITA' : 'ENG';
-    this.services.behavSubjects$.darkMode$.subscribe(darkMode => this.darkMode = darkMode == 'on');
-    this.services.behavSubjects$.blur$.subscribe(value => this.isBlur = value == 'on');
+    this.lang = this.options._translate.currentLang == 'it' ? 'it' : 'gb';
+    this.language = this.options._translate.currentLang == 'it' ? 'ITA' : 'ENG';
+    this.options.$.get.darkMode(darkMode => this.darkMode = darkMode == 'on');
+    this.options.$.get.blur(value => this.isBlur = value == 'on');
   }
 
   public setLanguage(lang: string)
@@ -39,7 +39,7 @@ export class LangSelectComponent implements OnInit
     {
       this.lang = lang;
       this.language = lang == 'it' ? 'ITA' : 'ENG';
-      this.services.translate.use(lang == 'it' ? 'it' : 'en');
+      this.options._translate.use(lang == 'it' ? 'it' : 'en');
       localStorage.setItem('lang', lang == 'it' ? 'it' : 'en');
     }
   }
