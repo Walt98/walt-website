@@ -1,27 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { ShOptions } from 'src/services/sh-options.service';
-import { IPalette } from 'src/models/palette';
+import { Component } from '@angular/core';
+import { BaseComponent } from 'src/base/base.component';
 
 @Component({
   selector: 'app-palette',
   templateUrl: './palette.component.html',
   styleUrls: ['./palette.component.scss']
 })
-export class PaletteComponent implements OnInit
+export class PaletteComponent extends BaseComponent
 {
-  // CUSTOMIZERS
-  public blur = false;
-  public palette: IPalette = {};
-
-  // CONSTANTS
-  public colors = this.options.CONSTS.COLORS;
-
-  constructor(private options: ShOptions) { }
-
-  ngOnInit(): void
+  override ngOnInit(): void
   {
-    this.options.$.get.blur(value => this.blur = value == 'on');
-    this.options.$.get.palette(palette => this.palette = palette);
+    super.ngOnInit();
+    
+    this.defaultBlur();
+    this.defaultPalette();
   }
 
   // SET PALETTE

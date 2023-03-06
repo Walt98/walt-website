@@ -1,30 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { ShOptions } from 'src/services/sh-options.service';
-import { IPalette } from 'src/models/palette';
+import { Component } from '@angular/core';
+import { BaseComponent } from 'src/base/base.component';
 
 @Component({
   selector: 'app-toggle',
   templateUrl: './toggle.component.html',
   styleUrls: ['./toggle.component.scss']
 })
-export class ToggleComponent implements OnInit
+export class ToggleComponent extends BaseComponent
 {
-  // CUSTOMIZERS
-  public clicked = false;
-  public palette: IPalette = {};
-
-  constructor(private options: ShOptions) { }
-
-  ngOnInit(): void
+  override ngOnInit(): void
   {
-    this.options.$.get.darkMode(value => this.clicked = value == "on");
-    this.options.$.get.palette(palette => this.palette = palette);
+    super.ngOnInit();
+    
+    this.defaultDarkMode();
+    this.defaultPalette();
   }
 
   public setDarkMode()
   {
-    this.clicked = !this.clicked;
-    const dark = this.clicked ? 'on' : 'off';
+    this.darkMode = !this.darkMode;
+    const dark = this.darkMode ? 'on' : 'off';
     localStorage.setItem('darkMode', dark);
     this.options.$.set.darkMode(dark);
   }

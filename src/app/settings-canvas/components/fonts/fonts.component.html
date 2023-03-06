@@ -1,12 +1,12 @@
 <div class="d-flex flex-column">
     <!-- FONTS -->
-    <div *ngFor="let font of fonts" class="d-flex align-items-center {{ darkMode ? 'dmWhite' : '' }}">
+    <div *ngFor="let value of FONTS" class="d-flex align-items-center {{ darkMode ? 'dmWhite' : '' }}">
         <!-- FONT NAME -->
-        <span class="pointer" (click)="setFont(font)" [style]="'font-family: ' + font + ', sans-serif'">
-            {{ font }}
+        <span class="pointer" (click)="setFont(value)" [style]="'font-family: ' + value + ', sans-serif'">
+            {{ value }}
         </span>
         
         <!-- CHECK ICON -->
-        <i class="bi bi-check center font-xLarge opacity{{ fontInit == font ? 1 : 0 }}"></i>
+        <i class="bi bi-check center font-xLarge opacity{{ font == value ? 1 : 0 }}"></i>
     </div>
 </div>

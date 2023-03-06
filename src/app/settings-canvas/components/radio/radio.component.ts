@@ -1,32 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { ShOptions } from 'src/services/sh-options.service';
-import { IPalette } from 'src/models/palette';
+import { Component } from '@angular/core';
+import { BaseComponent } from 'src/base/base.component';
 
 @Component({
   selector: 'app-radio',
   templateUrl: './radio.component.html',
   styleUrls: ['./radio.component.scss']
 })
-export class RadioComponent implements OnInit
+export class RadioComponent extends BaseComponent
 {
-  // CUSTOMIZERS
-  public isBlur = false;
-  public darkMode = false;
-  public palette: IPalette = {};
-
-  constructor(private options: ShOptions) { }
-
-  ngOnInit(): void
+  override ngOnInit(): void
   {
-    this.options.$.get.blur(value => this.isBlur = value == 'on');
-    this.options.$.get.darkMode(value => this.darkMode = value == 'on');
-    this.options.$.get.palette(palette => this.palette = palette);
+    super.ngOnInit();
+    
+    this.defaultBlur();
+    this.defaultDarkMode();
+    this.defaultPalette();
   }
 
   // SET BLUR
   public blurCanvas(isBlur: boolean)
   {
-    this.isBlur = isBlur;
+    this.blur = isBlur;
     const blur = isBlur ? 'on' : 'off';
     localStorage.setItem('blur', blur);
     this.options.$.set.blur(blur);

@@ -1,32 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { IPalette } from 'src/models/palette';
-import { ShOptions } from 'src/services/sh-options.service';
+import { Component } from '@angular/core';
+import { BaseComponent } from 'src/base/base.component';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit
+export class HeaderComponent extends BaseComponent
 {
-  // CUSTOMIZERS
-  public palette: IPalette = {};
-  public darkMode = false;
-
   // BOOLEANS
   public clicked = false;
-  public isLarge = false;
 
-  // CONSTANTS
-  public items = this.options.CONSTS.NAVBAR_ITEMS;
-
-  constructor(private options: ShOptions) { }
-
-  ngOnInit(): void
+  override ngOnInit(): void
   {
-    this.options.$.get.breakpoint(value => this.isLarge = value);
-    this.options.$.get.palette(palette => this.palette = palette);
-    this.options.$.get.darkMode(value => this.darkMode = value == "on");
+    super.ngOnInit();
+    
+    this.defaultBreakpoint();
+    this.defaultPalette();
+    this.defaultDarkMode();
   }
 
   public firstUpper = (str = "default"): string =>

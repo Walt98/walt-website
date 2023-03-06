@@ -1,25 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { IPalette } from 'src/models/palette';
-import { ShOptions } from 'src/services/sh-options.service';
+import { Component } from '@angular/core';
+import { BaseComponent } from 'src/base/base.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit
+export class HomeComponent extends BaseComponent
 {
-  // CUSTOMIZERS
-  public palette: IPalette = {};
-  public darkMode = false;
-  public font = 'Montserrat';
-
-  constructor(private options: ShOptions) { }
-
-  ngOnInit(): void
+  override ngOnInit(): void
   {
-    this.options.$.get.palette(palette => this.palette = palette);
-    this.options.$.get.darkMode(value => this.darkMode = value == "on");
-    this.options.$.get.font(font => this.font = font);
+    super.ngOnInit();
+    
+    this.defaultPalette();
+    this.defaultDarkMode();
+    this.defaultFont();
   }
 }

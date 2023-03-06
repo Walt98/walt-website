@@ -1,18 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { ShOptions } from 'src/services/sh-options.service';
+import { Component } from '@angular/core';
+import { BaseComponent } from 'src/base/base.component';
 
 @Component({
   selector: 'app-contact-me',
   templateUrl: './contact-me.component.html',
   styleUrls: ['./contact-me.component.scss']
 })
-export class ContactMeComponent implements OnInit
+export class ContactMeComponent extends BaseComponent
 {
-
-  constructor(private options: ShOptions) { }
-
-  ngOnInit(): void
+  override ngOnInit(): void
   {
-
+    super.ngOnInit();
   }
 }

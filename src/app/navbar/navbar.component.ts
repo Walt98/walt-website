@@ -1,36 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { IPalette } from 'src/models/palette';
-import { ShOptions } from 'src/services/sh-options.service';
+import { Component } from '@angular/core';
+import { BaseComponent } from 'src/base/base.component';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit
+export class NavbarComponent extends BaseComponent
 {
-  // CUSTOMIZERS
-  public darkMode = false;
-  public palette: IPalette = {};
-
-  // CONSTANTS
-  public items = this.options.CONSTS.NAVBAR_ITEMS;
-
-  constructor(private options: ShOptions) { }
-
-  ngOnInit(): void
+  override ngOnInit(): void
   {
-    this.options.$.get.darkMode(value =>
-    {
-      this.darkMode = value == 'on';
-      this.onChangesActive();
-    });
-
-    this.options.$.get.palette(palette =>
-    {
-      this.palette = palette;
-      this.onChangesActive();
-    });
+    super.ngOnInit();
+    
+    this.options.$.get.darkMode(value => this.next(value, 1, () => this.onChangesActive()));
+    this.options.$.get.palette(value => this.next(value, 3, () => this.onChangesActive()));
     
     // ROUTER CHANGES
     this.options._router.events.subscribe((e: any) =>
@@ -43,14 +26,14 @@ export class NavbarComponent implements OnInit
   private onChangesActive(path = document.URL.replace(document.baseURI, ""))
   {
     let item = undefined;
-    this.items.forEach(i => i.class = "");
+    this.NAVBAR_ITEMS.forEach(i => i.class = "");
 
     switch (path)
     {
-      case "about-me": item = this.items[1]; break;
-      case "contact-me": item = this.items[2]; break;
-      case "technologies": item = this.items[3]; break;
-      default: item = this.items[0]; break;
+      case "about-me": item = this.NAVBAR_ITEMS[1]; break;
+      case "contact-me": item = this.NAVBAR_ITEMS[2]; break;
+      case "technologies": item = this.NAVBAR_ITEMS[3]; break;
+      default: item = this.NAVBAR_ITEMS[0]; break;
     }
     
     item.class = `active item-color-${this.darkMode ? 'dark' : this.palette.color}`;

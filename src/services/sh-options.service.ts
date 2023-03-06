@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { IPalette } from 'src/models/palette';
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { INavbarItem } from 'src/models/navbar-item';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -13,66 +12,49 @@ import { $ } from 'src/models/get-set';
 })
 export class ShOptions
 {
-  // DEFAULT PALETTE
-  protected palette = localStorage.getItem('palette')
-  ?? JSON.stringify({
-    'color': 'default',
-    'bgImage': 'linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)'
-  });
-
-  // BEHAVIOR SUBJECTS
-  protected darkMode$ = new BehaviorSubject(localStorage.getItem('darkMode') ?? 'off');
-  protected palette$ = new BehaviorSubject(JSON.parse(this.palette) as IPalette);
-  protected font$ = new BehaviorSubject(localStorage.getItem('font') ?? 'Montserrat');
-  protected blur$ = new BehaviorSubject(localStorage.getItem('blur') ?? 'on');
-  protected breakpoint$ = new BehaviorSubject(false);
-
-  // BREAKPOINT OBSERVABLE
-  protected breakpoint = this._breakpointObserver.observe("(min-width: 992px)");
-
-  /** Constants */
-  public CONSTS =
+  private safe =
   {
-    COLORS: ['default', 'green', 'yellow', 'red', 'purple'],
-    FONTS: ['Montserrat', 'Roboto'],
-    LANGUAGES: ['it', 'gb'],
-    NAVBAR_ITEMS: [
-      { link: "home", icon: "house", text: "Home" },
-      { link: "about-me", icon: "person-circle", text: "aboutMe" },
-      { link: "contact-me", icon: "send", text: "contactMe" },
-      { link: "technologies", icon: "code-slash", text: "technologies" }
-    ] as INavbarItem[]
+    darkMode$: new BehaviorSubject(localStorage.getItem('darkMode') ?? 'off'),
+    palette$: new BehaviorSubject<IPalette>(JSON.parse(localStorage.getItem('palette') ?? '{"color": "default", "bgImage": "linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)"}')),
+    font$: new BehaviorSubject(localStorage.getItem('font') ?? 'Montserrat'),
+    blur$: new BehaviorSubject(localStorage.getItem('blur') ?? 'on'),
+    breakpoint$: new BehaviorSubject(true),
+    
+    breakpoint: this._breakpointObserver.observe("(min-width: 992px)")
   }
-
+  
   /** Customizers' reading and writing. */
   public $: $ =
   {
     get:
     {
-      darkMode: next => this.darkMode$.subscribe(next),
-      palette: next => this.palette$.subscribe(next),
-      font: next => this.font$.subscribe(next),
-      blur: next => this.blur$.subscribe(next),
-      breakpoint: next => this.breakpoint$.subscribe(next)
+      darkMode: next => this.safe.darkMode$.subscribe(next),
+      palette: next => this.safe.palette$.subscribe(next),
+      font: next => this.safe.font$.subscribe(next),
+      blur: next => this.safe.blur$.subscribe(next),
+      breakpoint: next => this.safe.breakpoint$.subscribe(next)
     },
 
     set:
     {
-      darkMode: value => this.darkMode$.next(value),
-      palette: value => this.palette$.next(value),
-      font: value => this.font$.next(value),
-      blur: value => this.blur$.next(value)
+      darkMode: value => this.safe.darkMode$.next(value),
+      palette: value => this.safe.palette$.next(value),
+      font: value => this.safe.font$.next(value),
+      blur: value => this.safe.blur$.next(value)
     }
   };
 
   constructor(
-    protected _breakpointObserver: BreakpointObserver,
+    private _breakpointObserver: BreakpointObserver,
     // PUBLIC SERVICES
     public _title: Title,
     public _router: Router,
     public _translate: TranslateService
   ) {
     // BREAKPOINT
-    this.breakpoint.subscribe(state => this.breakpoint$.next(state.matches));
+    this.safe.breakpoint.subscribe(state => this.safe.breakpoint$.next(state.matches));
+    
+    _translate.setDefaultLang('it');
+    _translate.use(localStorage.getItem('lang') ?? 'it');
   }
 }

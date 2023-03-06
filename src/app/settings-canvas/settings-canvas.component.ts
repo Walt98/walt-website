@@ -1,42 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { IPalette } from 'src/models/palette';
-import { ShOptions } from 'src/services/sh-options.service';
+import { Component } from '@angular/core';
+import { BaseComponent } from 'src/base/base.component';
 
 @Component({
   selector: 'app-settings-canvas',
   templateUrl: './settings-canvas.component.html',
   styleUrls: ['./settings-canvas.component.scss']
 })
-export class SettingsCanvasComponent implements OnInit
+export class SettingsCanvasComponent extends BaseComponent
 {
   // CUSTOMIZERS
-  public palette: IPalette = {};
-  public darkMode = false;
-  public font?: string;
-  public blur?: boolean;
   public canvasColor?: string;
   
   // BOOLEANS
   public clicked = false;
 
-  constructor(private options: ShOptions) { }
-
-  ngOnInit(): void
+  override ngOnInit(): void
   {
-    this.options.$.get.darkMode(value =>
-    {
-      this.darkMode = value == 'on';
-      this.setCanvasColor();
-    });
+    super.ngOnInit();
     
-    this.options.$.get.blur(value =>
-    {
-      this.blur = value == 'on';
-      this.setCanvasColor();
-    });
-
-    this.options.$.get.palette(value => this.palette = value);
-    this.options.$.get.font(value => this.font = value);
+    this.defaultFont();
+    this.defaultPalette();
+    this.options.$.get.darkMode(value => this.next(value, 1, () => this.setCanvasColor()));
+    this.options.$.get.blur(value => this.next(value, 2, () => this.setCanvasColor()));
   }
 
   private setCanvasColor = () => this.canvasColor = this.darkMode

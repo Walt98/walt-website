@@ -1,31 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { ShOptions } from 'src/services/sh-options.service';
+import { Component } from '@angular/core';
+import { BaseComponent } from 'src/base/base.component';
 
 @Component({
   selector: 'app-fonts',
   templateUrl: './fonts.component.html',
   styleUrls: ['./fonts.component.scss']
 })
-export class FontsComponent implements OnInit
+export class FontsComponent extends BaseComponent
 {
-  // CUSTOMIZERS
-  public darkMode = false;
-  public fontInit = "Montserrat";
-
-  // CONSTANTS
-  public fonts = this.options.CONSTS.FONTS;
-
-  constructor(private options: ShOptions) { }
-
-  ngOnInit(): void
+  override ngOnInit(): void
   {
-    this.options.$.get.darkMode(value => this.darkMode = value == 'on');
-    this.options.$.get.font(value => this.fontInit = value);
+    super.ngOnInit();
+    
+    this.defaultDarkMode();
+    this.defaultFont();
   }
 
   public setFont(font: string)
   {
-    this.fontInit = font;
+    this.font = font;
     localStorage.setItem('font', font);
     this.options.$.set.font(font);
   }

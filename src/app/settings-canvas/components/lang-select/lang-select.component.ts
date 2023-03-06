@@ -1,17 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { ShOptions } from 'src/services/sh-options.service';
+import { Component } from '@angular/core';
+import { BaseComponent } from 'src/base/base.component';
 
 @Component({
   selector: 'app-lang-select',
   templateUrl: './lang-select.component.html',
   styleUrls: ['./lang-select.component.scss']
 })
-export class LangSelectComponent implements OnInit
+export class LangSelectComponent extends BaseComponent
 {
-  // CUSTOMIZERS
-  public darkMode = false;
-  public isBlur = false;
-
   // BOOLEANS
   public clicked = false;
   public showSelect = false;
@@ -20,17 +16,14 @@ export class LangSelectComponent implements OnInit
   public lang = 'it';
   public language = 'ITA';
 
-  // CONSTANTS
-  public langs = this.options.CONSTS.LANGUAGES;
-
-  constructor(private options: ShOptions) { }
-
-  ngOnInit(): void
+  override ngOnInit(): void
   {
+    super.ngOnInit();
+    
     this.lang = this.options._translate.currentLang == 'it' ? 'it' : 'gb';
     this.language = this.options._translate.currentLang == 'it' ? 'ITA' : 'ENG';
-    this.options.$.get.darkMode(darkMode => this.darkMode = darkMode == 'on');
-    this.options.$.get.blur(value => this.isBlur = value == 'on');
+    this.defaultDarkMode();
+    this.defaultBlur();
   }
 
   public setLanguage(lang: string)
