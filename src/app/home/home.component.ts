@@ -11,8 +11,8 @@ export class HomeComponent implements OnInit
 {
   // CUSTOMIZERS
   public palette: IPalette = {};
-  public darkMode: boolean = false;
-  public font: string = 'Montserrat';
+  public darkMode = false;
+  public font = 'Montserrat';
 
   constructor(private options: ShOptions) { }
 

@@ -52,7 +52,7 @@ export class LangSelectComponent implements OnInit
 
   checkOutside(target: any)
   {
-    let id = target.id.includes("lang-select") ? +target.id.split("-")[2] : 1;
+    const id = target.id.includes("lang-select") ? +target.id.split("-")[2] : 1;
     const cond = this.clicked
               && ((this.showSelect && (!target.id.includes("lang-select") || id == 9 || id == 1))
                 || (!this.showSelect && ((id > 0 && id < 6) || id == 9)));

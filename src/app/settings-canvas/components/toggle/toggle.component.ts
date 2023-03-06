@@ -24,7 +24,7 @@ export class ToggleComponent implements OnInit
   public setDarkMode()
   {
     this.clicked = !this.clicked;
-    let dark = this.clicked ? 'on' : 'off';
+    const dark = this.clicked ? 'on' : 'off';
     localStorage.setItem('darkMode', dark);
     this.options.$.set.darkMode(dark);
   }

@@ -6,7 +6,7 @@ import { INavbarItem } from 'src/models/navbar-item';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { $ } from 'src/models/$';
+import { $ } from 'src/models/get-set';
 
 @Injectable({
   providedIn: 'root'
@@ -44,24 +44,24 @@ export class ShOptions
     ] as INavbarItem[]
   }
 
-  /** Customizers reading and writing. */
+  /** Customizers' reading and writing. */
   public $: $ =
   {
     get:
     {
-      darkMode: (next: (value: string) => void) => this.darkMode$.subscribe(next),
-      palette: (next: (value: IPalette) => void) => this.palette$.subscribe(next),
-      font: (next: (value: string) => void) => this.font$.subscribe(next),
-      blur: (next: (value: string) => void) => this.blur$.subscribe(next),
-      breakpoint: (next: (value: boolean) => void) => this.breakpoint$.subscribe(next)
+      darkMode: next => this.darkMode$.subscribe(next),
+      palette: next => this.palette$.subscribe(next),
+      font: next => this.font$.subscribe(next),
+      blur: next => this.blur$.subscribe(next),
+      breakpoint: next => this.breakpoint$.subscribe(next)
     },
 
     set:
     {
-      darkMode: (value: string) => this.darkMode$.next(value),
-      palette: (value: IPalette) => this.palette$.next(value),
-      font: (value: string) => this.font$.next(value),
-      blur: (value: string) => this.blur$.next(value)
+      darkMode: value => this.darkMode$.next(value),
+      palette: value => this.palette$.next(value),
+      font: value => this.font$.next(value),
+      blur: value => this.blur$.next(value)
     }
   };
 
