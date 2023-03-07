@@ -25,7 +25,7 @@ export class BaseComponent implements OnInit, OnDestroy
   public Customizer: ICustomizationParams =
   {
     DarkMode: false,
-    Palette: {},
+    Palette: { color: "default", bgImage: "linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)" },
     Font: "Montserrat",
     Blur: true,
     Breakpoint: true

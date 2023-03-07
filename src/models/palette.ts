@@ -1,5 +1,5 @@
 export interface IPalette
 {
-    color?: string;
-    bgImage?: string;
+    color: string;
+    bgImage: string;
 }
