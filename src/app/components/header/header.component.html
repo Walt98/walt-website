@@ -16,7 +16,7 @@
             </div>
         </div>
         <ul class="absolute p-0 m-0 menu-list {{ clicked ? 'visible' : 'hidden' }}">
-            <li *ngFor="let item of NAVBAR_ITEMS; index as i" class="pointer br50 opacity{{ clicked ? 1 : 0 }} {{ Customizer.DarkMode ? 'dark' : Customizer.Palette.color }}" style="--i: {{ i + 1 }}" [routerLink]="item.link" (click)="clicked = false">
+            <li *ngFor="let item of CONSTS.NAVBAR_ITEMS; index as i" class="pointer br50 opacity{{ clicked ? 1 : 0 }} {{ Customizer.DarkMode ? 'dark' : Customizer.Palette.color }}" style="--i: {{ i + 1 }}" [routerLink]="item.link" (click)="clicked = false">
                 <i class="bi bi-{{ item.icon }} d-flex"></i>
             </li>
         </ul>

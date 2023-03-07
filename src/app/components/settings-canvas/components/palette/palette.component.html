@@ -1,5 +1,5 @@
 <div class="col-12 d-flex align-items-center justify-content-between palette">
-    <div *ngFor="let color of COLORS" class="center palette-icon pointer transition" [style]="'background-image: ' + setGradient(color)" (click)="_payload.$.set.palette({ color: color, bgImage: setGradient(color) })">
+    <div *ngFor="let color of CONSTS.COLORS" class="center palette-icon pointer transition" [style]="'background-image: ' + setGradient(color)" (click)="_payload.$.set.palette({ color: color, bgImage: setGradient(color) })">
         <!-- CHECK ICON -->
         <i class="bi bi-check d-flex palette-icon-check white opacity{{ Customizer.Palette.color == color ? 1 : 0 }}"></i>
     </div>

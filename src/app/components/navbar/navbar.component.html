@@ -1,6 +1,6 @@
 <nav class="navbar-size d-flex flex-column align-items-center">
     <!-- ITEMS -->
-    <div *ngFor="let item of NAVBAR_ITEMS" class="navbar-item d-flex align-items-center white">
+    <div *ngFor="let item of CONSTS.NAVBAR_ITEMS" class="navbar-item d-flex align-items-center white">
         <!-- ICON -->
         <i [routerLink]="item.link" class="bi bi-{{ item.icon }} {{ item.class }} d-flex navbar-item-icon font-26px pointer transition" (mouseover)="item.show = true" (mouseleave)="item.show = false"></i>
         

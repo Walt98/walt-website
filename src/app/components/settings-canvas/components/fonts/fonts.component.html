@@ -1,6 +1,6 @@
 <div class="d-flex flex-column">
     <!-- FONTS -->
-    <div *ngFor="let value of FONTS" class="d-flex align-items-center {{ Customizer.DarkMode ? 'dmWhite' : '' }}">
+    <div *ngFor="let value of CONSTS.FONTS" class="d-flex align-items-center {{ Customizer.DarkMode ? 'dmWhite' : '' }}">
         <!-- FONT NAME -->
         <span class="pointer" (click)="_payload.$.set.font(value)" [style]="'font-family: ' + value + ', sans-serif'">
             {{ value }}

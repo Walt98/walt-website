@@ -20,8 +20,8 @@ export class AppComponent extends BaseComponent
   {
     super.ngOnInit();
     
-    const _isReady$ = this.isReady$.subscribe(() => this.isReady = true);
+    const isReady$_ = this.isReady$.subscribe(() => this.isReady = true);
 
-    this.subscriptions.push(_isReady$);
+    this.subscriptions.push(isReady$_);
   }
 }

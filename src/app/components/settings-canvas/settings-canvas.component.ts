@@ -18,10 +18,10 @@ export class SettingsCanvasComponent extends BaseComponent
   {
     super.ngOnInit();
     
-    const _darkMode = this._payload.$.get.darkMode(value => this.setCanvasColor());
-    const _blur = this._payload.$.get.blur(value => this.setCanvasColor());
+    const darkMode_ = this._payload.$.get.darkMode(value => this.setCanvasColor());
+    const blur_ = this._payload.$.get.blur(value => this.setCanvasColor());
 
-    this.subscriptions.push(...[_darkMode, _blur]);
+    this.subscriptions.push(...[darkMode_, blur_]);
   }
 
   private setCanvasColor = () => this.canvasColor = this.Customizer.DarkMode
