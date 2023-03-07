@@ -12,10 +12,4 @@ export class FontsComponent extends BaseComponent
   {
     super.ngOnInit();
   }
-
-  public setFont(font: string)
-  {
-    this.font = font;
-    this.payload.$.Set.Font(font);
-  }
 }

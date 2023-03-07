@@ -12,11 +12,4 @@ export class RadioComponent extends BaseComponent
   {
     super.ngOnInit();
   }
-
-  // SET BLUR
-  public blurCanvas(isBlur: boolean)
-  {
-    this.blur = isBlur;
-    this.payload.$.Set.Blur(isBlur ? 'on' : 'off');
-  }
 }

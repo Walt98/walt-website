@@ -13,13 +13,6 @@ export class PaletteComponent extends BaseComponent
     super.ngOnInit();
   }
 
-  // SET PALETTE
-  public setPalette(bg = "default")
-  {
-    this.palette = { color: bg, bgImage: this.setGradient(bg) };
-    this.payload.$.Set.Palette(this.palette);
-  }
-
   public setGradient(bg: string): string
   {
     const partial = "linear-gradient(147.38deg, ";

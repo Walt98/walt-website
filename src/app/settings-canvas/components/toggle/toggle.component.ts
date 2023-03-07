@@ -16,6 +16,6 @@ export class ToggleComponent extends BaseComponent
   public setDarkMode()
   {
     this.darkMode = !this.darkMode;
-    this.payload.$.Set.DarkMode(this.darkMode ? 'on' : 'off');
+    this._payload.$.Set.DarkMode(this.darkMode ? 'on' : 'off');
   }
 }

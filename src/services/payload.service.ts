@@ -10,7 +10,7 @@ import { $ } from 'src/models/get-set';
 @Injectable({
   providedIn: 'root'
 })
-export class Payload
+export class PayloadService
 {
   private private =
   {

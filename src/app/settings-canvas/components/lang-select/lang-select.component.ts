@@ -20,8 +20,8 @@ export class LangSelectComponent extends BaseComponent
   {
     super.ngOnInit();
     
-    this.lang = this.payload._translate.currentLang == 'it' ? 'it' : 'gb';
-    this.language = this.payload._translate.currentLang == 'it' ? 'ITA' : 'ENG';
+    this.lang = this._payload._translate.currentLang == 'it' ? 'it' : 'gb';
+    this.language = this._payload._translate.currentLang == 'it' ? 'ITA' : 'ENG';
   }
 
   public setLanguage(lang: string)
@@ -30,7 +30,7 @@ export class LangSelectComponent extends BaseComponent
     {
       this.lang = lang;
       this.language = lang == 'it' ? 'ITA' : 'ENG';
-      this.payload._translate.use(lang == 'it' ? 'it' : 'en');
+      this._payload._translate.use(lang == 'it' ? 'it' : 'en');
       localStorage.setItem('lang', lang == 'it' ? 'it' : 'en');
     }
   }

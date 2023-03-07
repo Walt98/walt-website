@@ -12,11 +12,11 @@ export class NavbarComponent extends BaseComponent
   {
     super.ngOnInit();
     
-    const _DarkMode = this.payload.$.Get.DarkMode(value => this.onChangesActive());
-    const _Palette = this.payload.$.Get.Palette(value => this.onChangesActive());
+    const _DarkMode = this._payload.$.Get.DarkMode(value => this.onChangesActive());
+    const _Palette = this._payload.$.Get.Palette(value => this.onChangesActive());
     
     // ROUTER CHANGES
-    const _events = this.payload._router.events.subscribe((e: any) =>
+    const _events = this._payload._router.events.subscribe((e: any) =>
     {
       if (e.type == 1) this.onChangesActive(e.url.slice(1));
     });

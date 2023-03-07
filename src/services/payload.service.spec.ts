@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { Payload } from './payload.service';
+import { PayloadService } from './payload.service';
 
-describe('Payload', () => {
-  let service: Payload;
+describe('PayloadService', () => {
+  let service: PayloadService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(Payload);
+    service = TestBed.inject(PayloadService);
   });
 
   it('should be created', () => {

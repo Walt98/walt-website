@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { INavbarItem } from 'src/models/navbar-item';
 import { IPalette } from 'src/models/palette';
-import { Payload } from 'src/services/payload.service';
+import { PayloadService } from 'src/services/payload.service';
 
 @Component({ template: `` })
 export class BaseComponent implements OnInit, OnDestroy
@@ -27,15 +27,18 @@ export class BaseComponent implements OnInit, OnDestroy
 
   protected subscriptions: Subscription[] = [];
 
-  constructor(public payload: Payload) { }
+  constructor(
+    /** Payload service used to get/set Customizers or to use external services. */
+    public _payload: PayloadService
+  ) { }
 
   ngOnInit(): void
   {
-    const _DarkMode = this.payload.$.Get.DarkMode(value => this.darkMode = value === "on");
-    const _Blur = this.payload.$.Get.Blur(value => this.blur = value === "on");
-    const _Palette = this.payload.$.Get.Palette(value => this.palette = value);
-    const _Font = this.payload.$.Get.Font(value => this.font = value);
-    const _Breakpoint = this.payload.$.Get.Breakpoint(value => this.breakpoint = value);
+    const _DarkMode = this._payload.$.Get.DarkMode(value => this.darkMode = value === "on");
+    const _Blur = this._payload.$.Get.Blur(value => this.blur = value === "on");
+    const _Palette = this._payload.$.Get.Palette(value => this.palette = value);
+    const _Font = this._payload.$.Get.Font(value => this.font = value);
+    const _Breakpoint = this._payload.$.Get.Breakpoint(value => this.breakpoint = value);
 
     this.subscriptions.push(...[_DarkMode, _Blur, _Palette, _Font, _Breakpoint]);
   }

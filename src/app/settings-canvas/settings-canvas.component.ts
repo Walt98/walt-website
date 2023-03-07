@@ -18,8 +18,8 @@ export class SettingsCanvasComponent extends BaseComponent
   {
     super.ngOnInit();
     
-    const _DarkMode = this.payload.$.Get.DarkMode(value => this.setCanvasColor());
-    const _Blur = this.payload.$.Get.Blur(value => this.setCanvasColor());
+    const _DarkMode = this._payload.$.Get.DarkMode(value => this.setCanvasColor());
+    const _Blur = this._payload.$.Get.Blur(value => this.setCanvasColor());
 
     this.subscriptions.push(...[_DarkMode, _Blur]);
   }

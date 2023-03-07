@@ -1,12 +1,12 @@
 <div *ngFor="let value of [true, false]" class="d-flex align-items-center mT9">
     <!-- RADIO -->
-    <div class="center radio pointer br50 radio-{{ darkMode ? 'Dark' : palette.color }}" (click)="blurCanvas(value)">
+    <div class="center radio pointer br50 radio-{{ darkMode ? 'Dark' : palette.color }}" (click)="_payload.$.Set.Blur(value ? 'on' : 'off')">
         <!-- RADIO CHECKED -->
         <div *ngIf="value ? blur : !blur" class="radio-button br50" [style]="'background-' + (darkMode ? 'color: #d5dfec;' : 'image: ' + (palette.bgImage ?? 'linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)'))"></div>
     </div>
 
     <!-- TEXT -->
-    <span class="radio-text pointer" (click)="blurCanvas(value)" translate>
+    <span class="radio-text pointer" (click)="_payload.$.Set.Blur(value ? 'on' : 'off')" translate>
         blur{{ value ? '' : 'None' }}
     </span>
 </div>
