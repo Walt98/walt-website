@@ -1,0 +1,27 @@
+<!-- SPINNER BACKGROUND -->
+<div *ngIf="!isReady" class="div-spinner center absolute left0 top0">
+    <div class="spinner-border white app-spinner" role="status"></div>
+</div>
+
+<div class="body absolute {{ Customizer.Font }}" [style]="'background-image: ' + (Customizer.DarkMode ? biDark : Customizer.Palette.bgImage)">
+    <!-- HEADER -->
+    <app-header></app-header>
+
+    <!-- SETTINGS OFFCANVAS -->
+    <app-settings-canvas></app-settings-canvas>
+
+    <div class="container-fluid p-0 d-flex">
+        <!-- NAVBAR -->
+        <app-navbar *ngIf="Customizer.Breakpoint"></app-navbar>
+        
+        <main class="container-fluid p-0 overflowY {{ Customizer.DarkMode ? 'bgDark white' : '' }}">
+            <!-- BACKGROUND -->
+            <img (load)="this.isReady$.next('')" class="wallpaper absolute" height="100%" width="auto" src="/assets/images/background-vanish.webp" alt="background">
+            
+            <div class="router-outlet">
+                <!-- ROUTER OUTLET -->
+                <router-outlet></router-outlet>
+            </div>
+        </main>
+    </div>
+</div>

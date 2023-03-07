@@ -5,7 +5,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { $ } from 'src/models/get-set';
+import { IPayloadBehavior$ } from 'src/models/payload-behavior';
 
 @Injectable({
   providedIn: 'root'
@@ -23,36 +23,36 @@ export class PayloadService
     breakpoint: this._breakpointObserver.observe("(min-width: 992px)")
   }
   
-  /** Customizers' reading and writing. */
-  public $: $ =
+  /** Object used to get/set customization params. */
+  public $: IPayloadBehavior$ =
   {
-    Get:
+    get:
     {
-      DarkMode: next => this.private.darkMode$.subscribe(next ?? (() => {})),
-      Palette: next => this.private.palette$.subscribe(next ?? (() => {})),
-      Font: next => this.private.font$.subscribe(next ?? (() => {})),
-      Blur: next => this.private.blur$.subscribe(next ?? (() => {})),
-      Breakpoint: next => this.private.breakpoint$.subscribe(next ?? (() => {}))
+      darkMode: next => this.private.darkMode$.subscribe(next ?? (() => {})),
+      palette: next => this.private.palette$.subscribe(next ?? (() => {})),
+      font: next => this.private.font$.subscribe(next ?? (() => {})),
+      blur: next => this.private.blur$.subscribe(next ?? (() => {})),
+      breakpoint: next => this.private.breakpoint$.subscribe(next ?? (() => {}))
     },
 
-    Set:
+    set:
     {
-      DarkMode: value =>
+      darkMode: value =>
       {
         localStorage.setItem("darkMode", value);
         this.private.darkMode$.next(value);
       },
-      Palette: value =>
+      palette: value =>
       {
         localStorage.setItem("palette", JSON.stringify(value));
         this.private.palette$.next(value);
       },
-      Font: value =>
+      font: value =>
       {
         localStorage.setItem("font", value);
         this.private.font$.next(value);
       },
-      Blur: value =>
+      blur: value =>
       {
         localStorage.setItem("blur", value);
         this.private.blur$.next(value);

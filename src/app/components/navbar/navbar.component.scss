@@ -1,0 +1,94 @@
+.font-26px { font-size: 26px; }
+
+.navbar-size
+{
+    height: calc(100vh - 82px);
+    width: max-content;
+}
+
+.navbar-item
+{
+    padding: 7px 14px;
+    &:first-child { padding-top: 0; }
+}
+
+.active, .active:hover { @import '../../assets/classes'; background-color: $white; }
+
+.item-color-default { @import '../../assets/classes'; color: $light-default; }
+.item-color-red { @import '../../assets/classes'; color: $light-red; }
+.item-color-green { @import '../../assets/classes'; color: $light-green; }
+.item-color-yellow { @import '../../assets/classes'; color: $light-yellow; }
+.item-color-purple { @import '../../assets/classes'; color: $light-purple; }
+.item-color-dark { color: #004766; }
+
+.navbar-item-icon
+{
+    padding: 14px;
+    border-radius: 13px;
+    &:not(.navbar-item-icon.active):hover { background-color: #ffffff2e; }   
+}
+
+// ITEM TITLE
+.item-title
+{
+    padding: 7px 12px;
+    border-radius: 7px;
+    left: 72.8px;
+    box-shadow: 0 0 20px -5px #00000033,
+    0 0 10px 0px #00000024,
+    0 0 0 0 #0000001f;
+
+    & .title-pointer
+    {
+        width: 0;
+        height: 0;
+        border-bottom: 5px solid transparent;
+        border-top: 5px solid transparent;
+        border-right: 5px solid;
+        top: calc(50% - 4.8px);
+        left: -4.4px;
+    }
+}
+
+.title-color-dark
+{
+    $color: #3b5161;
+    background-color: $color;
+    & .title-pointer { border-right-color: $color; }
+}
+
+.title-color-default
+{
+    $color: #19496C;
+    background-color: $color;
+    & .title-pointer { border-right-color: $color; }
+}
+
+.title-color-red
+{
+    $color: #762020;
+    background-color: $color;
+    & .title-pointer { border-right-color: $color; }
+}
+
+.title-color-green
+{
+    $color: #3a7826;
+    background-color: $color;
+    & .title-pointer { border-right-color: $color; }
+}
+
+.title-color-yellow
+{
+    $color: #7a5825;
+    background-color: $color;
+    & .title-pointer { border-right-color: $color; }
+}
+
+.title-color-purple
+{
+    $color: #644075;
+    background-color: $color;
+    & .title-pointer { border-right-color: $color; }
+}
+

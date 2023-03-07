@@ -1,0 +1,39 @@
+.pL-6px { padding-left: 6px; }
+.zIndex999 { z-index: 999; }
+.lang-span { margin: 0 5px 0 6px; }
+
+.lang-select
+{
+    height: 107px;
+    margin-top: 20px;
+}
+
+.lang-button
+{
+    $size: 45px;
+    width: $size;
+    height: $size;
+}
+.translate1 { @import '../../../../assets/classes'; @include translateX(35px); }
+.translate2 { @import '../../../../assets/classes'; @include translateX(40px); }
+.noTranslateX { @import '../../../../assets/classes'; @include translateX(0); }
+.noTranslateY { @import '../../../../assets/classes'; @include translateY(0); }
+.translateY10 { @import '../../../../assets/classes'; @include translateY(10px); }
+
+.lang
+{
+    @import '../../../../assets/classes';
+    padding: 5px 0;
+    & .bi-arrow-up-short::before { @extend .transition; }
+}
+.revertArrow::before { @import '../../../../assets/classes'; @include rotate(-180deg); }
+
+.dropdownLangs
+{
+    box-shadow: #00000063 0 0 10px 0;
+    padding: 7px 10px 7px 12px;
+    border-radius: 5px;
+}
+
+.blur { background-color: #f5f7fa4d; }
+.darkBlur { background-color: #162a4180; }

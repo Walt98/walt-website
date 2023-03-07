@@ -1,0 +1,60 @@
+.wMaxContent { width: max-content; }
+.hMaxContent { height: max-content; }
+
+.Montserrat { @import '../assets/classes'; @include font('Montserrat'); }
+.Roboto { @import '../assets/classes'; @include font('Roboto'); }
+
+.div-spinner
+{
+    width: 100vw;
+    height: 100vh;
+    z-index: 100000;
+    background-color: #00000080;
+}
+
+.app-spinner
+{
+    $diameter: 6.5rem;
+    width: $diameter;
+    height: $diameter;
+}
+
+.body
+{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+main
+{
+    height: calc(100vh - 82px);
+    border-top-left-radius: 30px;
+    background-color: #fffffff2;
+    box-shadow: -5px -5px 20px 0px #00000033,
+    0 4px 5px 0 #00000024,
+    0 1px 10px 0 #0000001f;
+    z-index: 101;
+}
+
+.bgDark { background-color: #123752; }
+
+.overflowY
+{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.wallpaper
+{
+    border-top-left-radius: 30px;
+    opacity: .3;
+    pointer-events: none;
+    // filter: saturate(0);
+}
+
+.router-outlet
+{
+    padding: 20px;
+    height: calc(100vh - 82px);
+}

@@ -1,0 +1,12 @@
+<div class="d-flex flex-column">
+    <!-- FONTS -->
+    <div *ngFor="let value of FONTS" class="d-flex align-items-center {{ Customizer.DarkMode ? 'dmWhite' : '' }}">
+        <!-- FONT NAME -->
+        <span class="pointer" (click)="_payload.$.set.font(value)" [style]="'font-family: ' + value + ', sans-serif'">
+            {{ value }}
+        </span>
+        
+        <!-- CHECK ICON -->
+        <i class="bi bi-check center font-xLarge opacity{{ Customizer.Font == value ? 1 : 0 }}"></i>
+    </div>
+</div>

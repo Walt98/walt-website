@@ -1,0 +1,12 @@
+<div *ngFor="let value of [true, false]" class="d-flex align-items-center mT9">
+    <!-- RADIO -->
+    <div class="center radio pointer br50 radio-{{ Customizer.DarkMode ? 'Dark' : Customizer.Palette.color }}" (click)="_payload.$.set.blur(value ? 'on' : 'off')">
+        <!-- RADIO CHECKED -->
+        <div *ngIf="value ? Customizer.Blur : !Customizer.Blur" class="radio-button br50" [style]="'background-' + (Customizer.DarkMode ? 'color: #d5dfec;' : 'image: ' + (Customizer.Palette.bgImage ?? 'linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)'))"></div>
+    </div>
+
+    <!-- TEXT -->
+    <span class="radio-text pointer" (click)="_payload.$.set.blur(value ? 'on' : 'off')" translate>
+        blur{{ value ? '' : 'None' }}
+    </span>
+</div>
