@@ -12,14 +12,13 @@ export class FontsComponent extends BaseComponent
   {
     super.ngOnInit();
     
-    this.defaultDarkMode();
-    this.defaultFont();
+    this.STOCK.DarkMode();
+    this.STOCK.Font();
   }
 
   public setFont(font: string)
   {
     this.font = font;
-    localStorage.setItem('font', font);
-    this.options.$.set.font(font);
+    this.payload.$.Set.Font(font);
   }
 }

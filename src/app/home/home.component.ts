@@ -12,8 +12,8 @@ export class HomeComponent extends BaseComponent
   {
     super.ngOnInit();
     
-    this.defaultPalette();
-    this.defaultDarkMode();
-    this.defaultFont();
+    this.STOCK.DarkMode();
+    this.STOCK.Font();
+    this.STOCK.Palette();
   }
 }

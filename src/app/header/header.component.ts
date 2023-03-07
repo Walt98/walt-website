@@ -15,9 +15,9 @@ export class HeaderComponent extends BaseComponent
   {
     super.ngOnInit();
     
-    this.defaultBreakpoint();
-    this.defaultPalette();
-    this.defaultDarkMode();
+    this.STOCK.Breakpoint();
+    this.STOCK.DarkMode();
+    this.STOCK.Palette();
   }
 
   public firstUpper = (str = "default"): string =>

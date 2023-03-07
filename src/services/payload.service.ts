@@ -10,9 +10,9 @@ import { $ } from 'src/models/get-set';
 @Injectable({
   providedIn: 'root'
 })
-export class ShOptions
+export class Payload
 {
-  private safe =
+  private private =
   {
     darkMode$: new BehaviorSubject(localStorage.getItem('darkMode') ?? 'off'),
     palette$: new BehaviorSubject<IPalette>(JSON.parse(localStorage.getItem('palette') ?? '{"color": "default", "bgImage": "linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)"}')),
@@ -26,21 +26,37 @@ export class ShOptions
   /** Customizers' reading and writing. */
   public $: $ =
   {
-    get:
+    Get:
     {
-      darkMode: next => this.safe.darkMode$.subscribe(next),
-      palette: next => this.safe.palette$.subscribe(next),
-      font: next => this.safe.font$.subscribe(next),
-      blur: next => this.safe.blur$.subscribe(next),
-      breakpoint: next => this.safe.breakpoint$.subscribe(next)
+      DarkMode: next => this.private.darkMode$.subscribe(next ?? (() => {})),
+      Palette: next => this.private.palette$.subscribe(next ?? (() => {})),
+      Font: next => this.private.font$.subscribe(next ?? (() => {})),
+      Blur: next => this.private.blur$.subscribe(next ?? (() => {})),
+      Breakpoint: next => this.private.breakpoint$.subscribe(next ?? (() => {}))
     },
 
-    set:
+    Set:
     {
-      darkMode: value => this.safe.darkMode$.next(value),
-      palette: value => this.safe.palette$.next(value),
-      font: value => this.safe.font$.next(value),
-      blur: value => this.safe.blur$.next(value)
+      DarkMode: value =>
+      {
+        localStorage.setItem("darkMode", value);
+        this.private.darkMode$.next(value);
+      },
+      Palette: value =>
+      {
+        localStorage.setItem("palette", JSON.stringify(value));
+        this.private.palette$.next(value);
+      },
+      Font: value =>
+      {
+        localStorage.setItem("font", value);
+        this.private.font$.next(value);
+      },
+      Blur: value =>
+      {
+        localStorage.setItem("blur", value);
+        this.private.blur$.next(value);
+      }
     }
   };
 
@@ -52,8 +68,9 @@ export class ShOptions
     public _translate: TranslateService
   ) {
     // BREAKPOINT
-    this.safe.breakpoint.subscribe(state => this.safe.breakpoint$.next(state.matches));
+    this.private.breakpoint.subscribe(state => this.private.breakpoint$.next(state.matches));
     
+    // TRANSLATE
     _translate.setDefaultLang('it');
     _translate.use(localStorage.getItem('lang') ?? 'it');
   }

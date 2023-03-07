@@ -12,15 +12,13 @@ export class ToggleComponent extends BaseComponent
   {
     super.ngOnInit();
     
-    this.defaultDarkMode();
-    this.defaultPalette();
+    this.STOCK.DarkMode();
+    this.STOCK.Palette();
   }
 
   public setDarkMode()
   {
     this.darkMode = !this.darkMode;
-    const dark = this.darkMode ? 'on' : 'off';
-    localStorage.setItem('darkMode', dark);
-    this.options.$.set.darkMode(dark);
+    this.payload.$.Set.DarkMode(this.darkMode ? 'on' : 'off');
   }
 }

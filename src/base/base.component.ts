@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { IGet$ } from 'src/models/get-set';
 import { INavbarItem } from 'src/models/navbar-item';
 import { IPalette } from 'src/models/palette';
-import { ShOptions } from 'src/services/sh-options.service';
+import { Payload } from 'src/services/payload.service';
 
 @Component({ template: `` })
-export class BaseComponent implements OnInit
+export class BaseComponent implements OnInit, OnDestroy
 {
   // CONSTANTS
   public COLORS = ['default', 'green', 'yellow', 'red', 'purple'];
@@ -16,6 +18,16 @@ export class BaseComponent implements OnInit
     { link: "contact-me", icon: "send", text: "contactMe" },
     { link: "technologies", icon: "code-slash", text: "technologies" }
   ] as INavbarItem[];
+
+  /** Functions used to set locale values based on subscriptions values. */
+  protected STOCK: IGet$ =
+  {
+    DarkMode: () => this.payload.$.Get.DarkMode(value => this.darkMode = value === "on"),
+    Palette: () => this.payload.$.Get.Palette(value => this.palette = value),
+    Font: () => this.payload.$.Get.Font(value => this.font = value),
+    Blur: () => this.payload.$.Get.Blur(value => this.blur = value === "on"),
+    Breakpoint: () => this.payload.$.Get.Breakpoint(value => this.breakpoint = value)
+  };
   
   // CUSTOMIZERS
   public darkMode = false;
@@ -24,11 +36,18 @@ export class BaseComponent implements OnInit
   public blur = true;
   public breakpoint = true;
 
-  constructor(public options: ShOptions) { }
+  protected subscriptions: Subscription[] = [];
+
+  constructor(public payload: Payload) { }
 
   ngOnInit(): void
   {
     
+  }
+
+  ngOnDestroy(): void
+  {
+    this.subscriptions.forEach($ => $.unsubscribe());
   }
 
   /** Set default values and add custom codes.
@@ -47,19 +66,4 @@ export class BaseComponent implements OnInit
     if (type === 5) this.breakpoint = value;
     func();
   }
-
-  /** Default method to set local dark mode. */
-  protected defaultDarkMode = () => this.options.$.get.darkMode(value => this.darkMode = value === "on");
-
-  /** Default method to set local palette. */
-  protected defaultPalette = () => this.options.$.get.palette(value => this.palette = value);
-  
-  /** Default method to set local font. */
-  protected defaultFont = () => this.options.$.get.font(value => this.font = value);
-  
-  /** Default method to set local blur. */
-  protected defaultBlur = () => this.options.$.get.blur(value => this.blur = value === "on");
-  
-  /** Default method to set local breakpoint. */
-  protected defaultBreakpoint = () => this.options.$.get.breakpoint(value => this.breakpoint = value);
 }

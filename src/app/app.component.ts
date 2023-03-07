@@ -24,12 +24,17 @@ export class AppComponent extends BaseComponent
     
     if (!localStorage.getItem('lang')) localStorage.setItem('lang', 'it');
     
-    this.defaultFont();
-    this.defaultDarkMode();
-    this.defaultBreakpoint();
-    this.options.$.get.palette(value => this.next(value, 3, () => this.setItem(value)));
+    this.STOCK.Breakpoint();
+    this.STOCK.DarkMode();
+    this.STOCK.Font();
+    this.payload.$.Get.Palette(value => this.next(value, 3, () => this.setItem(value)));
 
-    this.isReady$.subscribe(() => { if (!!this.app?.nativeElement) this.isReady = true; });
+    const _isReady$ = this.isReady$.subscribe(() =>
+    {
+      if (!!this.app?.nativeElement) this.isReady = true;
+    });
+
+    this.subscriptions.push(_isReady$);
   }
 
   private setItem(palette: IPalette)

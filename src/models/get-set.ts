@@ -4,34 +4,34 @@ import { IPalette } from "./palette";
 export interface $
 {
     /** Functions used to get Customizers. */
-    get: IGet$;
+    Get: IGet$;
 
     /** Functions used to set Customizers (except breakpoint). */
-    set: ISet$;
+    Set: ISet$;
 }
 
-interface IGet$
+export interface IGet$
 {
     /** Get dark mode value ("on" / "off"). */
-    darkMode(next: (value: string) => void): Subscription;
+    DarkMode(next?: (value: string) => void): Subscription;
     /** Get the palette. */
-    palette(next: (value: IPalette) => void): Subscription;
+    Palette(next?: (value: IPalette) => void): Subscription;
     /** Get the font. */
-    font(next: (value: string) => void): Subscription;
+    Font(next?: (value: string) => void): Subscription;
     /** Get blur value ("on" / "off"). */
-    blur(next: (value: string) => void): Subscription;
+    Blur(next?: (value: string) => void): Subscription;
     /** Used to understand if the display is large or not. */
-    breakpoint(next: (value: boolean) => void): Subscription;
+    Breakpoint(next?: (value: boolean) => void): Subscription;
 }
 
 interface ISet$
 {
     /** Set dark mode. */
-    darkMode(value: string): void;
+    DarkMode(value: string): void;
     /** Set the palette. */
-    palette(value: IPalette): void;
+    Palette(value: IPalette): void;
     /** Set the font. */
-    font(value: string): void;
+    Font(value: string): void;
     /** Set blur. */
-    blur(value: string): void;
+    Blur(value: string): void;
 }

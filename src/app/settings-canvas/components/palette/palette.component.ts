@@ -12,16 +12,15 @@ export class PaletteComponent extends BaseComponent
   {
     super.ngOnInit();
     
-    this.defaultBlur();
-    this.defaultPalette();
+    this.STOCK.Blur();
+    this.STOCK.Palette();
   }
 
   // SET PALETTE
   public setPalette(bg = "default")
   {
     this.palette = { color: bg, bgImage: this.setGradient(bg) };
-    localStorage.setItem('palette', JSON.stringify(this.palette));
-    this.options.$.set.palette(this.palette);
+    this.payload.$.Set.Palette(this.palette);
   }
 
   public setGradient(bg: string): string

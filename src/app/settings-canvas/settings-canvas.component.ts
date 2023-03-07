@@ -18,10 +18,10 @@ export class SettingsCanvasComponent extends BaseComponent
   {
     super.ngOnInit();
     
-    this.defaultFont();
-    this.defaultPalette();
-    this.options.$.get.darkMode(value => this.next(value, 1, () => this.setCanvasColor()));
-    this.options.$.get.blur(value => this.next(value, 2, () => this.setCanvasColor()));
+    this.STOCK.Font();
+    this.STOCK.Palette();
+    this.payload.$.Get.DarkMode(value => this.next(value, 1, () => this.setCanvasColor()));
+    this.payload.$.Get.Blur(value => this.next(value, 2, () => this.setCanvasColor()));
   }
 
   private setCanvasColor = () => this.canvasColor = this.darkMode
