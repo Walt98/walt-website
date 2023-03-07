@@ -21,7 +21,7 @@ export class SettingsCanvasComponent extends BaseComponent
     const darkMode_ = this._payload.$.get.darkMode(value => this.setCanvasColor());
     const blur_ = this._payload.$.get.blur(value => this.setCanvasColor());
 
-    this.subscriptions.push(...[darkMode_, blur_]);
+    this.subscriptions.push(darkMode_, blur_);
   }
 
   private setCanvasColor = () => this.canvasColor = this.Customizer.DarkMode

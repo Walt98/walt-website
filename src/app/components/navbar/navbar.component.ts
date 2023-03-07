@@ -21,7 +21,7 @@ export class NavbarComponent extends BaseComponent
       if (e.type == 1) this.onChangesActive(e.url.slice(1));
     });
 
-    this.subscriptions.push(...[darkMode_, palette_, events_]);
+    this.subscriptions.push(darkMode_, palette_, events_);
   }
 
   // SET NAVBAR-ITEM ACTIVE CLASS

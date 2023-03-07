@@ -46,7 +46,7 @@ export class BaseComponent implements OnInit, OnDestroy
     const font_ = this._payload.$.get.font(value => this.Customizer.Font = value);
     const breakpoint_ = this._payload.$.get.breakpoint(value => this.Customizer.Breakpoint = value);
 
-    this.subscriptions.push(...[darkMode_, blur_, palette_, font_, breakpoint_]);
+    this.subscriptions.push(darkMode_, blur_, palette_, font_, breakpoint_);
   }
 
   ngOnDestroy(): void
