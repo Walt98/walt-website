@@ -22,8 +22,6 @@ export class LangSelectComponent extends BaseComponent
     
     this.lang = this.payload._translate.currentLang == 'it' ? 'it' : 'gb';
     this.language = this.payload._translate.currentLang == 'it' ? 'ITA' : 'ENG';
-    this.STOCK.DarkMode();
-    this.STOCK.Blur();
   }
 
   public setLanguage(lang: string)

@@ -11,9 +11,6 @@ export class ToggleComponent extends BaseComponent
   override ngOnInit(): void
   {
     super.ngOnInit();
-    
-    this.STOCK.DarkMode();
-    this.STOCK.Palette();
   }
 
   public setDarkMode()

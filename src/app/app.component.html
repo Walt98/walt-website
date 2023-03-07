@@ -3,7 +3,7 @@
     <div class="spinner-border white app-spinner" role="status"></div>
 </div>
 
-<div #app class="body absolute {{ font }}" [style]="'background-image: ' + (darkMode ? biDark : palette.bgImage)">
+<div class="body absolute {{ font }}" [style]="'background-image: ' + (darkMode ? biDark : palette.bgImage)">
     <!-- HEADER -->
     <app-header></app-header>
 
@@ -16,7 +16,7 @@
         
         <main class="container-fluid p-0 overflowY {{ darkMode ? 'bgDark white' : '' }}">
             <!-- BACKGROUND -->
-            <img (load)="this.isReady$.next(null)" class="wallpaper absolute" height="100%" width="auto" src="/assets/images/background-vanish.webp" alt="background">
+            <img (load)="this.isReady$.next('')" class="wallpaper absolute" height="100%" width="auto" src="/assets/images/background-vanish.webp" alt="background">
             
             <div class="router-outlet">
                 <!-- ROUTER OUTLET -->

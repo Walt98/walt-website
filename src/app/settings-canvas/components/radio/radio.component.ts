@@ -11,10 +11,6 @@ export class RadioComponent extends BaseComponent
   override ngOnInit(): void
   {
     super.ngOnInit();
-    
-    this.STOCK.Blur();
-    this.STOCK.DarkMode();
-    this.STOCK.Palette();
   }
 
   // SET BLUR

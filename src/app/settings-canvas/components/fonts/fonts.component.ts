@@ -11,9 +11,6 @@ export class FontsComponent extends BaseComponent
   override ngOnInit(): void
   {
     super.ngOnInit();
-    
-    this.STOCK.DarkMode();
-    this.STOCK.Font();
   }
 
   public setFont(font: string)

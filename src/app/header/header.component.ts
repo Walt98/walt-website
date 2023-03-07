@@ -14,10 +14,6 @@ export class HeaderComponent extends BaseComponent
   override ngOnInit(): void
   {
     super.ngOnInit();
-    
-    this.STOCK.Breakpoint();
-    this.STOCK.DarkMode();
-    this.STOCK.Palette();
   }
 
   public firstUpper = (str = "default"): string =>

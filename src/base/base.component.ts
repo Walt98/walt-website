@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IGet$ } from 'src/models/get-set';
 import { INavbarItem } from 'src/models/navbar-item';
 import { IPalette } from 'src/models/palette';
 import { Payload } from 'src/services/payload.service';
@@ -19,16 +18,6 @@ export class BaseComponent implements OnInit, OnDestroy
     { link: "technologies", icon: "code-slash", text: "technologies" }
   ] as INavbarItem[];
 
-  /** Functions used to set locale values based on subscriptions values. */
-  protected STOCK: IGet$ =
-  {
-    DarkMode: () => this.payload.$.Get.DarkMode(value => this.darkMode = value === "on"),
-    Palette: () => this.payload.$.Get.Palette(value => this.palette = value),
-    Font: () => this.payload.$.Get.Font(value => this.font = value),
-    Blur: () => this.payload.$.Get.Blur(value => this.blur = value === "on"),
-    Breakpoint: () => this.payload.$.Get.Breakpoint(value => this.breakpoint = value)
-  };
-  
   // CUSTOMIZERS
   public darkMode = false;
   public palette: IPalette = {};
@@ -42,28 +31,17 @@ export class BaseComponent implements OnInit, OnDestroy
 
   ngOnInit(): void
   {
-    
+    const _DarkMode = this.payload.$.Get.DarkMode(value => this.darkMode = value === "on");
+    const _Blur = this.payload.$.Get.Blur(value => this.blur = value === "on");
+    const _Palette = this.payload.$.Get.Palette(value => this.palette = value);
+    const _Font = this.payload.$.Get.Font(value => this.font = value);
+    const _Breakpoint = this.payload.$.Get.Breakpoint(value => this.breakpoint = value);
+
+    this.subscriptions.push(...[_DarkMode, _Blur, _Palette, _Font, _Breakpoint]);
   }
 
   ngOnDestroy(): void
   {
     this.subscriptions.forEach($ => $.unsubscribe());
-  }
-
-  /** Set default values and add custom codes.
-   * @param type 1 —> darkMode
-   * @param type 2 —> blur
-   * @param type 3 —> palette
-   * @param type 4 —> font
-   * @param type 5 —> breakpoint
-   */
-  protected next(value: any, type: number, func: () => void)
-  {
-    if (type === 1) this.darkMode = value == 'on';
-    if (type === 2) this.blur = value == 'on';
-    if (type === 3) this.palette = value;
-    if (type === 4) this.font = value;
-    if (type === 5) this.breakpoint = value;
-    func();
   }
 }

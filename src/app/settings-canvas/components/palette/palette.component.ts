@@ -11,9 +11,6 @@ export class PaletteComponent extends BaseComponent
   override ngOnInit(): void
   {
     super.ngOnInit();
-    
-    this.STOCK.Blur();
-    this.STOCK.Palette();
   }
 
   // SET PALETTE

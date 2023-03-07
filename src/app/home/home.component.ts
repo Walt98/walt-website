@@ -11,9 +11,5 @@ export class HomeComponent extends BaseComponent
   override ngOnInit(): void
   {
     super.ngOnInit();
-    
-    this.STOCK.DarkMode();
-    this.STOCK.Font();
-    this.STOCK.Palette();
   }
 }

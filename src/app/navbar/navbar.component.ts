@@ -12,8 +12,8 @@ export class NavbarComponent extends BaseComponent
   {
     super.ngOnInit();
     
-    this.payload.$.Get.DarkMode(value => this.next(value, 1, () => this.onChangesActive()));
-    this.payload.$.Get.Palette(value => this.next(value, 3, () => this.onChangesActive()));
+    const _DarkMode = this.payload.$.Get.DarkMode(value => this.onChangesActive());
+    const _Palette = this.payload.$.Get.Palette(value => this.onChangesActive());
     
     // ROUTER CHANGES
     const _events = this.payload._router.events.subscribe((e: any) =>
@@ -21,7 +21,7 @@ export class NavbarComponent extends BaseComponent
       if (e.type == 1) this.onChangesActive(e.url.slice(1));
     });
 
-    this.subscriptions.push(_events);
+    this.subscriptions.push(...[_DarkMode, _Palette, _events]);
   }
 
   // SET NAVBAR-ITEM ACTIVE CLASS
