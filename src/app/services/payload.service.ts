@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { IPalette } from 'src/models/palette';
+import { IPalette } from 'src/app/models/palette';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { IPayloadBehavior$ } from 'src/models/payload-behavior';
+import { IPayloadBehavior$ } from 'src/app/models/payload-behavior';
 
 @Injectable({
   providedIn: 'root'

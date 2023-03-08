@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ICustomizationParams } from 'src/models/customizer';
-import { INavbarItem } from 'src/models/navbar-item';
-import { PayloadService } from 'src/services/payload.service';
+import { ICustomizationParams } from 'src/app/models/customizer';
+import { INavbarItem } from 'src/app/models/navbar-item';
+import { PayloadService } from 'src/app/services/payload.service';
 
 @Component({ template: `` })
 export class BaseComponent implements OnInit, OnDestroy
