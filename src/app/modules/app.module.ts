@@ -21,10 +21,10 @@ import { ToggleComponent } from '../components/settings-canvas/components/toggle
 import { SettingsSectionComponent } from '../components/settings-canvas/settings-section/settings-section.component';
 
 // PAGES
-import { HomeComponent } from '../pages/home/home.component';
-import { AboutMeComponent } from '../pages/about-me/about-me.component';
-import { ContactMeComponent } from '../pages/contact-me/contact-me.component';
-import { TechnologiesComponent } from '../pages/technologies/technologies.component';
+import { HomeComponent } from '../routes/home/home.component';
+import { AboutMeComponent } from '../routes/about-me/about-me.component';
+import { ContactMeComponent } from '../routes/contact-me/contact-me.component';
+import { TechnologiesComponent } from '../routes/technologies/technologies.component';
 
 // OTHER
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
