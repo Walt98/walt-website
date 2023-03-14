@@ -8,11 +8,6 @@ import { BaseComponent } from 'src/app/base.component';
 })
 export class PaletteComponent extends BaseComponent
 {
-  override ngOnInit(): void
-  {
-    super.ngOnInit();
-  }
-
   public setGradient(bg: string): string
   {
     const partial = "linear-gradient(147.38deg, ";

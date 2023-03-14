@@ -8,8 +8,5 @@ import { BaseComponent } from 'src/app/base.component';
 })
 export class ContactMeComponent extends BaseComponent
 {
-  override ngOnInit(): void
-  {
-    super.ngOnInit();
-  }
+  
 }

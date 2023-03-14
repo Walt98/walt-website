@@ -28,11 +28,11 @@ export class PayloadService
   {
     get:
     {
-      darkMode: next => this.private.darkMode$.subscribe(next ?? (() => {})),
-      palette: next => this.private.palette$.subscribe(next ?? (() => {})),
-      font: next => this.private.font$.subscribe(next ?? (() => {})),
-      blur: next => this.private.blur$.subscribe(next ?? (() => {})),
-      breakpoint: next => this.private.breakpoint$.subscribe(next ?? (() => {}))
+      darkMode: next => this.private.darkMode$.subscribe(next),
+      palette: next => this.private.palette$.subscribe(next),
+      font: next => this.private.font$.subscribe(next),
+      blur: next => this.private.blur$.subscribe(next),
+      breakpoint: next => this.private.breakpoint$.subscribe(next)
     },
 
     set:

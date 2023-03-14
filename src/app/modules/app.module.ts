@@ -20,7 +20,7 @@ import { LangSelectComponent } from '../components/settings-canvas/components/la
 import { ToggleComponent } from '../components/settings-canvas/components/toggle/toggle.component';
 import { SettingsSectionComponent } from '../components/settings-canvas/settings-section/settings-section.component';
 
-// PAGES
+// ROUTES
 import { HomeComponent } from '../routes/home/home.component';
 import { AboutMeComponent } from '../routes/about-me/about-me.component';
 import { ContactMeComponent } from '../routes/contact-me/contact-me.component';

@@ -1,3 +1,9 @@
+@mixin title-color($color)
+{
+    background-color: $color;
+    & .title-pointer { border-right-color: $color; }
+}
+
 .font-26px { font-size: 26px; }
 
 .navbar-size
@@ -50,45 +56,9 @@
     }
 }
 
-.title-color-dark
-{
-    $color: #3b5161;
-    background-color: $color;
-    & .title-pointer { border-right-color: $color; }
-}
-
-.title-color-default
-{
-    $color: #19496C;
-    background-color: $color;
-    & .title-pointer { border-right-color: $color; }
-}
-
-.title-color-red
-{
-    $color: #762020;
-    background-color: $color;
-    & .title-pointer { border-right-color: $color; }
-}
-
-.title-color-green
-{
-    $color: #3a7826;
-    background-color: $color;
-    & .title-pointer { border-right-color: $color; }
-}
-
-.title-color-yellow
-{
-    $color: #7a5825;
-    background-color: $color;
-    & .title-pointer { border-right-color: $color; }
-}
-
-.title-color-purple
-{
-    $color: #644075;
-    background-color: $color;
-    & .title-pointer { border-right-color: $color; }
-}
-
+.title-color-dark { @include title-color(#3b5161); }
+.title-color-default { @include title-color(#19496C); }
+.title-color-red { @include title-color(#762020); }
+.title-color-green { @include title-color(#3a7826); }
+.title-color-yellow { @include title-color(#7a5825); }
+.title-color-purple { @include title-color(#644075); }

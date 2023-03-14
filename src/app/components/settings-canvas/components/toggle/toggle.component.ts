@@ -8,11 +8,6 @@ import { BaseComponent } from 'src/app/base.component';
 })
 export class ToggleComponent extends BaseComponent
 {
-  override ngOnInit(): void
-  {
-    super.ngOnInit();
-  }
-
   public setDarkMode()
   {
     this.Customizer.DarkMode = !this.Customizer.DarkMode;
