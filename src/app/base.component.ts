@@ -7,6 +7,8 @@ import { PayloadService } from 'src/app/services/payload.service';
 @Component({ template: `` })
 export class BaseComponent implements OnInit, OnDestroy
 {
+  route = "Home";
+
   /** Navigation constants. */
   public readonly CONSTS =
   {
@@ -31,7 +33,8 @@ export class BaseComponent implements OnInit, OnDestroy
     Breakpoint: true
   };
 
-  protected subscriptions: Subscription[] = [];
+  /** Array of Subscriptions. */
+  subscriptions: Subscription[] = [];
 
   constructor(
     /** Payload service used to get/set customization params or to use external services. */
@@ -40,13 +43,14 @@ export class BaseComponent implements OnInit, OnDestroy
 
   ngOnInit(): void
   {
-    const darkMode_ = this._payload.$.get.darkMode(value => this.Customizer.DarkMode = value === "on");
-    const blur_ = this._payload.$.get.blur(value => this.Customizer.Blur = value === "on");
-    const palette_ = this._payload.$.get.palette(value => this.Customizer.Palette = value);
-    const font_ = this._payload.$.get.font(value => this.Customizer.Font = value);
-    const breakpoint_ = this._payload.$.get.breakpoint(value => this.Customizer.Breakpoint = value);
-
-    this.subscriptions.push(darkMode_, blur_, palette_, font_, breakpoint_);
+    this.subscriptions.push(
+      this._payload._translate.stream(this.route).subscribe(route => this._payload._title.setTitle(`${route} | WaltWebsite`)),
+      this._payload.$.get.darkMode(value => this.Customizer.DarkMode = value === "on"),
+      this._payload.$.get.blur(value => this.Customizer.Blur = value === "on"),
+      this._payload.$.get.palette(value => this.Customizer.Palette = value),
+      this._payload.$.get.font(value => this.Customizer.Font = value),
+      this._payload.$.get.breakpoint(value => this.Customizer.Breakpoint = value)
+    );
   }
 
   ngOnDestroy(): void

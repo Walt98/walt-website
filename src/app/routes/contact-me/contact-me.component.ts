@@ -8,5 +8,5 @@ import { BaseComponent } from 'src/app/base.component';
 })
 export class ContactMeComponent extends BaseComponent
 {
-  
+  override route = "contactMe";
 }
