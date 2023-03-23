@@ -8,5 +8,10 @@ import { BaseComponent } from 'src/app/base.component';
 })
 export class RadioComponent extends BaseComponent
 {
-  
+  ngOnInit()
+  {
+    this.getDarkMode();
+    this.getPalette();
+    this.getBlur();
+  }
 }

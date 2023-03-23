@@ -1,14 +1,14 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ICustomizationParams } from 'src/app/models/customizer';
 import { INavbarItem } from 'src/app/models/navbar-item';
 import { PayloadService } from 'src/app/services/payload.service';
 
-@Component({ template: `` })
-export class BaseComponent implements OnInit, OnDestroy
-{
-  route = "Home";
+declare type RouteName = "Home" | "aboutMe" | "contactMe" | "technologies";
 
+@Component({ template: `` })
+export class BaseComponent implements OnDestroy
+{
   /** Navigation constants. */
   public readonly CONSTS =
   {
@@ -41,20 +41,47 @@ export class BaseComponent implements OnInit, OnDestroy
     public _payload: PayloadService
   ) { }
 
-  ngOnInit(): void
-  {
-    this.subscriptions.push(
-      this._payload._translate.stream(this.route).subscribe(route => this._payload._title.setTitle(`${route} | WaltWebsite`)),
-      this._payload.$.get.darkMode(value => this.Customizer.DarkMode = value === "on"),
-      this._payload.$.get.blur(value => this.Customizer.Blur = value === "on"),
-      this._payload.$.get.palette(value => this.Customizer.Palette = value),
-      this._payload.$.get.font(value => this.Customizer.Font = value),
-      this._payload.$.get.breakpoint(value => this.Customizer.Breakpoint = value)
-    );
-  }
-
   ngOnDestroy(): void
   {
     this.subscriptions.forEach($ => $.unsubscribe());
+  }
+
+  /**
+   * Set the title of the current HTML document.
+   * @param route The name of the route.
+   */
+  protected setTitle(route: RouteName)
+  {
+    this.subscriptions.push(this._payload._translate.stream(route).subscribe(route => this._payload._title.setTitle(`${route} | WaltWebsite`)));
+  }
+
+  /** Get dark mode value. */
+  protected getDarkMode()
+  {
+    this.subscriptions.push(this._payload.$.get.darkMode(value => this.Customizer.DarkMode = value === "on"));
+  }
+
+  /** Get blur value. */
+  protected getBlur()
+  {
+    this.subscriptions.push(this._payload.$.get.blur(value => this.Customizer.Blur = value === "on"));
+  }
+
+  /** Get the palette. */
+  protected getPalette()
+  {
+    this.subscriptions.push(this._payload.$.get.palette(value => this.Customizer.Palette = value));
+  }
+
+  /** Get the font. */
+  protected getFont()
+  {
+    this.subscriptions.push(this._payload.$.get.font(value => this.Customizer.Font = value));
+  }
+
+  /** Get breakpoint value. */
+  protected getBreakpoint()
+  {
+    this.subscriptions.push(this._payload.$.get.breakpoint(value => this.Customizer.Breakpoint = value));
   }
 }

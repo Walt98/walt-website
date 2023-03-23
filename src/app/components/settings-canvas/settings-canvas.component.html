@@ -8,7 +8,7 @@
     <div class="settings-canvas backdrop-filter p10 {{ clicked ? 'canvasShadow' : '' }} {{ Customizer.DarkMode ? 'dmWhite' : '' }} {{ canvasColor }}" (clickOutside)="checkOutside($event.target)">
         <!-- CLOSE BUTTON -->
         <div class="container-fluid d-flex justify-content-end xPadding">
-            <i class="bi bi-x-lg br50 pointer transition d-flex x-button {{ Customizer.DarkMode ? 'x-dark' : '' }}" (click)="clicked = false"></i>
+            <i class="bi bi-x-lg br50 pointer transition d-flex x-button {{ Customizer.DarkMode ? 'x-dark' : '' }} {{ Customizer.Blur ? 'x-shadow' : '' }}" (click)="clicked = false"></i>
         </div>
         
         <!-- SETTINGS -->

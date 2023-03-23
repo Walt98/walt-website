@@ -8,5 +8,8 @@ import { BaseComponent } from 'src/app/base.component';
 })
 export class HomeComponent extends BaseComponent
 {
-  
+  ngOnInit()
+  {
+    this.setTitle("Home");
+  }
 }

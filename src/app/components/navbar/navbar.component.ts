@@ -8,12 +8,18 @@ import { BaseComponent } from '../../base.component';
 })
 export class NavbarComponent extends BaseComponent
 {
-  override ngOnInit(): void
+  ngOnInit(): void
   {
-    super.ngOnInit();
-    
-    const darkMode_ = this._payload.$.get.darkMode(value => this.onChangesActive());
-    const palette_ = this._payload.$.get.palette(value => this.onChangesActive());
+    const darkMode_ = this._payload.$.get.darkMode(value =>
+    {
+      this.Customizer.DarkMode = value === "on";
+      this.onChangesActive();
+    });
+    const palette_ = this._payload.$.get.palette(value =>
+    {
+      this.Customizer.Palette = value;
+      this.onChangesActive();
+    });
     
     // ROUTER CHANGES
     const events_ = this._payload._router.events.subscribe((e: any) =>

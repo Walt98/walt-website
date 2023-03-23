@@ -3,6 +3,19 @@
 .right280 { right: -280px; }
 .pY-7-12_6 { padding: 7px 0 12.6px; }
 .canvasTransition { transition: .3s; }
+.xPadding { padding: 0 7px 12px 12px; }
+
+.x-button
+{
+    padding: 7px;
+    -webkit-text-stroke: thin;
+    &:hover
+    {
+        background-color: #e9ecef;
+        &.x-shadow { box-shadow: 0 0 5px -1px #00000024; }
+    }
+}
+.x-dark:hover { background-color: #253a53; }
 
 .settings
 {

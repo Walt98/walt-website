@@ -8,6 +8,11 @@ import { BaseComponent } from 'src/app/base.component';
 })
 export class PaletteComponent extends BaseComponent
 {
+  ngOnInit()
+  {
+    this.getPalette();
+  }
+
   public setGradient(bg: string): string
   {
     const partial = "linear-gradient(147.38deg, ";

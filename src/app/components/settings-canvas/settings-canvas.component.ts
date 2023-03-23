@@ -14,12 +14,20 @@ export class SettingsCanvasComponent extends BaseComponent
   // BOOLEANS
   public clicked = false;
 
-  override ngOnInit(): void
+  ngOnInit(): void
   {
-    super.ngOnInit();
+    this.getPalette();
+    const darkMode_ = this._payload.$.get.darkMode(value =>
+    {
+      this.Customizer.DarkMode = value === "on";
+      this.setCanvasColor();
+    });
+    const blur_ = this._payload.$.get.blur(value =>
+    {
+      this.Customizer.Blur = value === "on";
+      this.setCanvasColor();
+    });
     
-    const darkMode_ = this._payload.$.get.darkMode(value => this.setCanvasColor());
-    const blur_ = this._payload.$.get.blur(value => this.setCanvasColor());
 
     this.subscriptions.push(darkMode_, blur_);
   }

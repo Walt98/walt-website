@@ -8,5 +8,8 @@ import { BaseComponent } from 'src/app/base.component';
 })
 export class TechnologiesComponent extends BaseComponent
 {
-  override route = "technologies";
+  ngOnInit()
+  {
+    this.setTitle("technologies");
+  }
 }

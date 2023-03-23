@@ -8,5 +8,8 @@ import { BaseComponent } from 'src/app/base.component';
 })
 export class AboutMeComponent extends BaseComponent
 {
-  override route = "aboutMe";
+  ngOnInit()
+  {
+    this.setTitle("aboutMe");
+  }
 }

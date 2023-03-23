@@ -8,5 +8,9 @@ import { BaseComponent } from 'src/app/base.component';
 })
 export class FontsComponent extends BaseComponent
 {
-  
+  ngOnInit()
+  {
+    this.getDarkMode();
+    this.getFont();
+  }
 }

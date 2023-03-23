@@ -16,9 +16,12 @@ export class AppComponent extends BaseComponent
   public isReady$ = new Subject<any>();
   public isReady = false;
 
-  override ngOnInit(): void
+  ngOnInit(): void
   {
-    super.ngOnInit();
+    this.getDarkMode();
+    this.getPalette();
+    this.getFont();
+    this.getBreakpoint();
     
     const isReady$_ = this.isReady$.subscribe(() => this.isReady = true);
 

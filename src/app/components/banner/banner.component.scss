@@ -1,0 +1,46 @@
+.banner
+{
+    background-color: #00000033;
+    border: 1px solid #00000005;
+    width: 100%;
+    border-radius: 13px;
+    box-shadow: -5px -5px 20px 0px #00000014,
+    0 4px 5px 0 #0000000a,
+    0 1px 10px 0 #0000002e;
+    margin-bottom: 20px;
+}
+
+.banner-body
+{
+    margin-bottom: 0;
+    font-weight: 700;
+    background-size: 200% 100%;
+    background-repeat: repeat;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+h1.banner-body
+{
+    padding: 30px;
+    font-size: calc(1.5rem + 3vw);
+}
+h2.banner-body
+{
+    padding: 20px;
+    font-size: calc(1rem + 3vw);
+}
+
+.textPulse
+{
+    animation: textPulse 3s ease infinite;
+    -webkit-animation: textPulse 3s ease infinite;
+}
+@keyframes textPulse
+{
+    0% { background-position: 0% }
+    50% { background-position: 75% }
+    100% { background-position: 0% }
+}

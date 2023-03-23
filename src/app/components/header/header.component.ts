@@ -11,6 +11,13 @@ export class HeaderComponent extends BaseComponent
   // BOOLEANS
   public clicked = false;
 
+  ngOnInit()
+  {
+    this.getBreakpoint();
+    this.getDarkMode();
+    this.getPalette();
+  }
+
   public firstUpper = (str = "default"): string =>
     this.Customizer.DarkMode ? "DarkMode" : str[0].toUpperCase() + str.slice(1);
 }

@@ -19,6 +19,7 @@ import { RadioComponent } from '../components/settings-canvas/components/radio/r
 import { LangSelectComponent } from '../components/settings-canvas/components/lang-select/lang-select.component';
 import { ToggleComponent } from '../components/settings-canvas/components/toggle/toggle.component';
 import { SettingsSectionComponent } from '../components/settings-canvas/settings-section/settings-section.component';
+import { BannerComponent } from '../components/banner/banner.component';
 
 // ROUTES
 import { HomeComponent } from '../routes/home/home.component';
@@ -45,6 +46,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     ToggleComponent,
     TechnologiesComponent,
     SettingsSectionComponent,
+    BannerComponent,
     BaseComponent
   ],
   imports: [

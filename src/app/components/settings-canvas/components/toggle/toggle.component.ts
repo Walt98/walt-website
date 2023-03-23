@@ -8,6 +8,12 @@ import { BaseComponent } from 'src/app/base.component';
 })
 export class ToggleComponent extends BaseComponent
 {
+  ngOnInit()
+  {
+    this.getPalette();
+    this.getDarkMode();
+  }
+
   public setDarkMode()
   {
     this.Customizer.DarkMode = !this.Customizer.DarkMode;
