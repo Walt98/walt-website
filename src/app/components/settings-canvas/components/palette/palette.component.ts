@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/base.component';
 
 @Component({
@@ -6,7 +6,7 @@ import { BaseComponent } from 'src/app/base.component';
   templateUrl: './palette.component.html',
   styleUrls: ['./palette.component.scss']
 })
-export class PaletteComponent extends BaseComponent
+export class PaletteComponent extends BaseComponent implements OnInit
 {
   ngOnInit()
   {

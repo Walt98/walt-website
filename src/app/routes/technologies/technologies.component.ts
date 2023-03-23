@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/base.component';
 
 @Component({
@@ -6,7 +6,7 @@ import { BaseComponent } from 'src/app/base.component';
   templateUrl: './technologies.component.html',
   styleUrls: ['./technologies.component.scss']
 })
-export class TechnologiesComponent extends BaseComponent
+export class TechnologiesComponent extends BaseComponent implements OnInit
 {
   ngOnInit()
   {

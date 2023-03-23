@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from '../../base.component';
 
 @Component({
@@ -6,7 +6,7 @@ import { BaseComponent } from '../../base.component';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent extends BaseComponent
+export class NavbarComponent extends BaseComponent implements OnInit
 {
   ngOnInit(): void
   {

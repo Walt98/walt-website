@@ -52,36 +52,50 @@ export class BaseComponent implements OnDestroy
    */
   protected setTitle(routeName: RouteName)
   {
-    this.subscriptions.push(this._payload._translate.stream(routeName).subscribe(route => this._payload._title.setTitle(`${route} | WaltWebsite`)));
+    this.subscriptions.push(
+      this._payload._translate.stream(routeName).subscribe(
+        (route: string) => this._payload._title.setTitle(`${route} | WaltWebsite`)
+      )
+    );
   }
 
   /** Get dark mode value. */
   protected getDarkMode()
   {
-    this.subscriptions.push(this._payload.$.get.darkMode(value => this.Customizer.DarkMode = value === "on"));
+    this.subscriptions.push(
+      this._payload.$.get.darkMode(value => this.Customizer.DarkMode = value === "on")
+    );
   }
 
   /** Get blur value. */
   protected getBlur()
   {
-    this.subscriptions.push(this._payload.$.get.blur(value => this.Customizer.Blur = value === "on"));
+    this.subscriptions.push(
+      this._payload.$.get.blur(value => this.Customizer.Blur = value === "on")
+    );
   }
 
   /** Get the palette. */
   protected getPalette()
   {
-    this.subscriptions.push(this._payload.$.get.palette(value => this.Customizer.Palette = value));
+    this.subscriptions.push(
+      this._payload.$.get.palette(value => this.Customizer.Palette = value)
+    );
   }
 
   /** Get the font. */
   protected getFont()
   {
-    this.subscriptions.push(this._payload.$.get.font(value => this.Customizer.Font = value));
+    this.subscriptions.push(
+      this._payload.$.get.font(value => this.Customizer.Font = value)
+    );
   }
 
   /** Get breakpoint value. */
   protected getBreakpoint()
   {
-    this.subscriptions.push(this._payload.$.get.breakpoint(value => this.Customizer.Breakpoint = value));
+    this.subscriptions.push(
+      this._payload.$.get.breakpoint(value => this.Customizer.Breakpoint = value)
+    );
   }
 }

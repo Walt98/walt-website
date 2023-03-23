@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/base.component';
 
 @Component({
@@ -6,7 +6,7 @@ import { BaseComponent } from 'src/app/base.component';
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.scss']
 })
-export class BannerComponent extends BaseComponent
+export class BannerComponent extends BaseComponent implements OnInit
 {
   @Input() body = "";
   @Input() textPulse = true;

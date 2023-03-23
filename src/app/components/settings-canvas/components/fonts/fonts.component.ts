@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/base.component';
 
 @Component({
@@ -6,7 +6,7 @@ import { BaseComponent } from 'src/app/base.component';
   templateUrl: './fonts.component.html',
   styleUrls: ['./fonts.component.scss']
 })
-export class FontsComponent extends BaseComponent
+export class FontsComponent extends BaseComponent implements OnInit
 {
   ngOnInit()
   {

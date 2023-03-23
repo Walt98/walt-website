@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/base.component';
 
 @Component({
@@ -6,7 +6,7 @@ import { BaseComponent } from 'src/app/base.component';
   templateUrl: './radio.component.html',
   styleUrls: ['./radio.component.scss']
 })
-export class RadioComponent extends BaseComponent
+export class RadioComponent extends BaseComponent implements OnInit
 {
   ngOnInit()
   {

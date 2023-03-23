@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from '../../base.component';
 
 @Component({
@@ -6,7 +6,7 @@ import { BaseComponent } from '../../base.component';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent extends BaseComponent
+export class HeaderComponent extends BaseComponent implements OnInit
 {
   // BOOLEANS
   public clicked = false;

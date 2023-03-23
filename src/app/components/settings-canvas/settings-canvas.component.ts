@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from '../../base.component';
 
 @Component({
@@ -6,7 +6,7 @@ import { BaseComponent } from '../../base.component';
   templateUrl: './settings-canvas.component.html',
   styleUrls: ['./settings-canvas.component.scss']
 })
-export class SettingsCanvasComponent extends BaseComponent
+export class SettingsCanvasComponent extends BaseComponent implements OnInit
 {
   // CUSTOMIZERS
   public canvasColor?: string;

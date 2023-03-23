@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from 'src/app/base.component';
 
 @Component({
@@ -6,7 +6,7 @@ import { BaseComponent } from 'src/app/base.component';
   templateUrl: './lang-select.component.html',
   styleUrls: ['./lang-select.component.scss']
 })
-export class LangSelectComponent extends BaseComponent
+export class LangSelectComponent extends BaseComponent implements OnInit
 {
   // BOOLEANS
   public clicked = false;
