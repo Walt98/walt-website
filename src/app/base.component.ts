@@ -48,11 +48,11 @@ export class BaseComponent implements OnDestroy
 
   /**
    * Set the title of the current HTML document.
-   * @param route The name of the route.
+   * @param routeName The name of the route.
    */
-  protected setTitle(route: RouteName)
+  protected setTitle(routeName: RouteName)
   {
-    this.subscriptions.push(this._payload._translate.stream(route).subscribe(route => this._payload._title.setTitle(`${route} | WaltWebsite`)));
+    this.subscriptions.push(this._payload._translate.stream(routeName).subscribe(route => this._payload._title.setTitle(`${route} | WaltWebsite`)));
   }
 
   /** Get dark mode value. */
