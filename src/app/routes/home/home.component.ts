@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BaseComponent } from 'src/app/base.component';
 
 @Component({
@@ -6,10 +6,7 @@ import { BaseComponent } from 'src/app/base.component';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent extends BaseComponent implements OnInit
+export class HomeComponent extends BaseComponent
 {
-  ngOnInit()
-  {
-    this.setTitle("Home");
-  }
+  
 }

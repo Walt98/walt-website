@@ -18,6 +18,12 @@ export class HeaderComponent extends BaseComponent implements OnInit
     this.getPalette();
   }
 
+  public setRoute(route: string)
+  {
+    this.clicked = false;
+    this._payload.$.set.route(route);
+  }
+
   public firstUpper = (str = "default"): string =>
     this.Customizer.DarkMode ? "DarkMode" : str[0].toUpperCase() + str.slice(1);
 }

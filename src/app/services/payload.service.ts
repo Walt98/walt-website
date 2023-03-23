@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { IPalette } from 'src/app/models/palette';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Title } from '@angular/platform-browser';
@@ -14,12 +14,17 @@ export class PayloadService
 {
   private private =
   {
+    // BEHAVIOR SUBJECTS
     darkMode$: new BehaviorSubject(localStorage.getItem('darkMode') ?? 'off'),
     palette$: new BehaviorSubject<IPalette>(JSON.parse(localStorage.getItem('palette') ?? '{"color": "default", "bgImage": "linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)"}')),
     font$: new BehaviorSubject(localStorage.getItem('font') ?? 'Montserrat'),
     blur$: new BehaviorSubject(localStorage.getItem('blur') ?? 'on'),
     breakpoint$: new BehaviorSubject(true),
+
+    // SUBJECTS
+    route$: new Subject<string>(),
     
+    // OBSERVABLES
     breakpoint: this._breakpointObserver.observe("(min-width: 992px)")
   }
   
@@ -32,6 +37,7 @@ export class PayloadService
       palette: next => this.private.palette$.subscribe(next),
       font: next => this.private.font$.subscribe(next),
       blur: next => this.private.blur$.subscribe(next),
+      route: next => this.private.route$.subscribe(next),
       breakpoint: next => this.private.breakpoint$.subscribe(next)
     },
 
@@ -56,7 +62,8 @@ export class PayloadService
       {
         localStorage.setItem("blur", value);
         this.private.blur$.next(value);
-      }
+      },
+      route: value => this.private.route$.next(value)
     }
   };
 

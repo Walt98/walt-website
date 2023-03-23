@@ -4,8 +4,6 @@ import { ICustomizationParams } from 'src/app/models/customizer';
 import { INavbarItem } from 'src/app/models/navbar-item';
 import { PayloadService } from 'src/app/services/payload.service';
 
-declare type RouteName = "Home" | "aboutMe" | "contactMe" | "technologies";
-
 @Component({ template: `` })
 export class BaseComponent implements OnDestroy
 {
@@ -44,18 +42,30 @@ export class BaseComponent implements OnDestroy
   ngOnDestroy(): void
   {
     this.subscriptions.forEach($ => $.unsubscribe());
+    this.subscriptions = [];
   }
 
-  /**
-   * Set the title of the current HTML document.
-   * @param routeName The name of the route.
+  /** Method that sets the title of the current HTML document based on the translation of the parameter.
+   * @param route
    */
-  protected setTitle(routeName: RouteName)
+  protected setTitle(route: string)
+  {
+    if (route === "home") route = "Home";
+    let arr = route.split("-");
+    if (arr.length > 1) arr[1] = "Me";
+
+    this.subscriptions.push(
+      this._payload._translate.stream(arr.join("")).subscribe(
+        (value: string) => this._payload._title.setTitle(`${value} | WaltWebsite`)
+      )
+    );
+  }
+
+  /** Get the current HTML document and set its title. */
+  protected getRoute()
   {
     this.subscriptions.push(
-      this._payload._translate.stream(routeName).subscribe(
-        (route: string) => this._payload._title.setTitle(`${route} | WaltWebsite`)
-      )
+      this._payload.$.get.route(value => this.setTitle(value))
     );
   }
 
