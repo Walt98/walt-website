@@ -2,13 +2,15 @@
 {
     background-color: #00000033;
     border: 1px solid #00000005;
-    width: 100%;
+    // width: 100%;
     border-radius: 13px;
     box-shadow: -5px -5px 20px 0px #00000014,
     0 4px 5px 0 #0000000a,
     0 1px 10px 0 #0000002e;
-    margin-bottom: 20px;
+    margin: 0 0 20px;
 }
+.w100 { width: 100%; }
+.wMax { width: max-content; }
 
 .banner-body
 {

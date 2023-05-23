@@ -10,7 +10,7 @@ export class FontsComponent extends BaseComponent implements OnInit
 {
   ngOnInit()
   {
-    this.getDarkMode();
-    this.getFont();
+    this.$.DarkMode();
+    this.$.Font();
   }
 }

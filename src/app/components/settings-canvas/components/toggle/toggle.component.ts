@@ -10,8 +10,8 @@ export class ToggleComponent extends BaseComponent implements OnInit
 {
   ngOnInit()
   {
-    this.getPalette();
-    this.getDarkMode();
+    this.$.Palette();
+    this.$.DarkMode();
   }
 
   public setDarkMode()

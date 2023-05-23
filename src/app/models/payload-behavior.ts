@@ -20,7 +20,7 @@ interface IGet$
     font(next: (value: string) => void): Subscription;
     /** Get blur value ("on" / "off"). */
     blur(next: (value: string) => void): Subscription;
-    /** Get the current HTML document. */
+    /** Get the title of the HTML document. */
     route(next: (value: string) => void): Subscription;
     /** Used to understand if the display is large or not. */
     breakpoint(next: (value: boolean) => void): Subscription;
@@ -36,6 +36,6 @@ interface ISet$
     font(value: string): void;
     /** Set blur. */
     blur(value: string): void;
-    /** Set the current HTML document. */
+    /** Set the title of the HTML document. */
     route(value: string): void;
 }

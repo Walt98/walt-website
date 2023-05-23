@@ -56,6 +56,7 @@ main
     border-top-left-radius: 30px;
     opacity: .3;
     pointer-events: none;
+    z-index: -1;
     // filter: saturate(0);
 }
 

@@ -13,9 +13,9 @@ export class HeaderComponent extends BaseComponent implements OnInit
 
   ngOnInit()
   {
-    this.getBreakpoint();
-    this.getDarkMode();
-    this.getPalette();
+    this.$.Breakpoint();
+    this.$.DarkMode();
+    this.$.Palette();
   }
 
   public setRoute(route: string)

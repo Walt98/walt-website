@@ -18,8 +18,8 @@ export class LangSelectComponent extends BaseComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.getDarkMode();
-    this.getBlur();
+    this.$.DarkMode();
+    this.$.Blur();
     
     this.lang = this._payload._translate.currentLang == 'it' ? 'it' : 'gb';
     this.language = this._payload._translate.currentLang == 'it' ? 'ITA' : 'ENG';

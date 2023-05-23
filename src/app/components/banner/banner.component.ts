@@ -11,10 +11,11 @@ export class BannerComponent extends BaseComponent implements OnInit
   @Input() body = "";
   @Input() textPulse = true;
   @Input() isTitle = false;
+  @Input() fitContent = false;
 
   ngOnInit()
   {
-    this.getDarkMode();
-    this.getPalette();
+    this.$.DarkMode();
+    this.$.Palette();
   }
 }

@@ -1,1 +1,10 @@
-<app-banner body="aboutMe" [textPulse]="false" [isTitle]="true"></app-banner>
+<app-banner body="aboutMe" [fitContent]="true" [isTitle]="true"></app-banner>
+
+<div class="row">
+    <div class="col-12 col-lg-4">
+        <img class="absolute transition {{ Customizer.DarkMode ? 'invert' : 1 }}" width="200px" height="auto" src="/assets/images/admin.png" alt="admin">
+    </div>
+    <div class="col-12 col-lg-8">
+        Ciao, mi chiamo Walter!
+    </div>
+</div>

@@ -18,13 +18,11 @@ export class AppComponent extends BaseComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.getDarkMode();
-    this.getPalette();
-    this.getFont();
-    this.getBreakpoint();
+    this.$.DarkMode();
+    this.$.Palette();
+    this.$.Font();
+    this.$.Breakpoint();
     
-    const isReady$_ = this.isReady$.subscribe(() => this.isReady = true);
-
-    this.subscriptions.push(isReady$_);
+    this.isReady$.subscribe(() => this.isReady = true);
   }
 }

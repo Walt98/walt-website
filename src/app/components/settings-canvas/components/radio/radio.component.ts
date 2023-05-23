@@ -10,8 +10,8 @@ export class RadioComponent extends BaseComponent implements OnInit
 {
   ngOnInit()
   {
-    this.getDarkMode();
-    this.getPalette();
-    this.getBlur();
+    this.$.DarkMode();
+    this.$.Palette();
+    this.$.Blur();
   }
 }

@@ -13,22 +13,22 @@ export class NavbarComponent extends BaseComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.getRoute();
+    this.$.Route();
 
-    const darkMode_ = this._payload.$.get.darkMode(value =>
+    this._payload.$.get.darkMode(value =>
     {
       this.Customizer.DarkMode = value === "on";
       this.onChangesActive();
     });
     
-    const palette_ = this._payload.$.get.palette(value =>
+    this._payload.$.get.palette(value =>
     {
       this.Customizer.Palette = value;
       this.onChangesActive();
     });
     
     // ROUTER CHANGES
-    const events_ = this._payload._router.events.subscribe((e: any) =>
+    this._payload._router.events.subscribe((e: any) =>
     {
       if (e.type == 1)
       {
@@ -40,8 +40,6 @@ export class NavbarComponent extends BaseComponent implements OnInit
         this.onChangesActive(e.url.slice(1));
       }
     });
-
-    this.subscriptions.push(darkMode_, palette_, events_);
   }
 
   public setRoute(route: string)

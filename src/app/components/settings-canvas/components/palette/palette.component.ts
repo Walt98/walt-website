@@ -10,7 +10,7 @@ export class PaletteComponent extends BaseComponent implements OnInit
 {
   ngOnInit()
   {
-    this.getPalette();
+    this.$.Palette();
   }
 
   public setGradient(bg: string): string

@@ -16,20 +16,17 @@ export class SettingsCanvasComponent extends BaseComponent implements OnInit
 
   ngOnInit(): void
   {
-    this.getPalette();
-    const darkMode_ = this._payload.$.get.darkMode(value =>
+    this.$.Palette();
+    this._payload.$.get.darkMode(value =>
     {
       this.Customizer.DarkMode = value === "on";
       this.setCanvasColor();
     });
-    const blur_ = this._payload.$.get.blur(value =>
+    this._payload.$.get.blur(value =>
     {
       this.Customizer.Blur = value === "on";
       this.setCanvasColor();
     });
-    
-
-    this.subscriptions.push(darkMode_, blur_);
   }
 
   private setCanvasColor = () => this.canvasColor = this.Customizer.DarkMode
