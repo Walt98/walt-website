@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, first } from 'rxjs';
 import { BaseComponent } from 'src/app/base.component';
 
 
@@ -23,6 +23,6 @@ export class AppComponent extends BaseComponent implements OnInit
     this.$.Font();
     this.$.Breakpoint();
     
-    this.isReady$.subscribe(() => this.isReady = true);
+    this.isReady$.pipe(first()).subscribe(() => this.isReady = true);
   }
 }

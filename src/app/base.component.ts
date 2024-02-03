@@ -6,8 +6,11 @@ import { INavigationConsts } from './models/navigation-consts';
 @Component({ template: `` })
 export class BaseComponent
 {
-  /** Navigation constants. */
-  CONSTS: INavigationConsts =
+  /** Navigation constants.
+   *
+   * **DON'T EDIT IT!**
+   */
+  readonly CONSTS: INavigationConsts =
   {
     COLORS: ["default", "green", "yellow", "red", "purple"],
     FONTS: ["Montserrat", "Roboto"],

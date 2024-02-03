@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { IPalette } from 'src/app/models/palette';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Title } from '@angular/platform-browser';
@@ -19,10 +19,8 @@ export class PayloadService
     palette$: new BehaviorSubject<IPalette>(JSON.parse(localStorage.getItem('palette') ?? '{"color": "default", "bgImage": "linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)"}')),
     font$: new BehaviorSubject(localStorage.getItem('font') ?? 'Montserrat'),
     blur$: new BehaviorSubject(localStorage.getItem('blur') ?? 'on'),
+    route$: new BehaviorSubject("home"),
     breakpoint$: new BehaviorSubject(true),
-
-    // SUBJECTS
-    route$: new Subject<string>(),
     
     // OBSERVABLES
     breakpoint: this._breakpointObserver.observe("(min-width: 992px)")
