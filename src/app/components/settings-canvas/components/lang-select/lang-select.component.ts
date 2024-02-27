@@ -21,8 +21,8 @@ export class LangSelectComponent extends BaseComponent implements OnInit
     this.$.DarkMode();
     this.$.Blur();
     
-    this.lang = this._payload._translate.currentLang == 'it' ? 'it' : 'gb';
-    this.language = this._payload._translate.currentLang == 'it' ? 'ITA' : 'ENG';
+    this.lang = this._payload._translate.currentLang === 'it' ? 'it' : 'gb';
+    this.language = this._payload._translate.currentLang === 'it' ? 'ITA' : 'ENG';
   }
 
   public setLanguage(lang: string)
@@ -30,9 +30,9 @@ export class LangSelectComponent extends BaseComponent implements OnInit
     if (this.showSelect)
     {
       this.lang = lang;
-      this.language = lang == 'it' ? 'ITA' : 'ENG';
-      this._payload._translate.use(lang == 'it' ? 'it' : 'en');
-      localStorage.setItem('lang', lang == 'it' ? 'it' : 'en');
+      this.language = lang === 'it' ? 'ITA' : 'ENG';
+      this._payload._translate.use(lang === 'it' ? 'it' : 'en');
+      localStorage.setItem('lang', lang === 'it' ? 'it' : 'en');
     }
   }
 
@@ -46,8 +46,8 @@ export class LangSelectComponent extends BaseComponent implements OnInit
   {
     const id = target.id.includes("lang-select") ? +target.id.split("-")[2] : 1;
     const cond = this.clicked
-              && ((this.showSelect && (!target.id.includes("lang-select") || id == 9 || id == 1))
-                || (!this.showSelect && ((id > 0 && id < 6) || id == 9)));
+              && ((this.showSelect && (!target.id.includes("lang-select") || id === 9 || id === 1))
+                || (!this.showSelect && ((id > 0 && id < 6) || id === 9)));
     
     if (cond)
     {

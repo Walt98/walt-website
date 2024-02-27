@@ -1,6 +1,6 @@
 <header class="container-fluid d-flex align-items-center justify-content-between h-82 p-0">
     <!-- LOGO -->
-    <img class="img-logo pointer" width="80px" height="auto" src="/assets/images/logo-2.png" alt="logo" routerLink="home" (click)="_payload.$.set.route('home')">
+    <img class="img-logo pointer" width="80px" height="auto" src="/assets/images/logo-2.png" alt="logo" routerLink="home" title="Home" (click)="_payload.$.set.route('home')">
     
     <!-- CONTACT ME -->
     <a *ngIf="Customizer.Breakpoint" routerLink="contact-me" class="d-flex contacts white" (click)="_payload.$.set.route('contact-me')" translate>
@@ -16,7 +16,7 @@
             </div>
         </div>
         <ul class="absolute p-0 m-0 menu-list {{ clicked ? 'visible' : 'hidden' }}">
-            <li *ngFor="let item of CONSTS.NAVBAR_ITEMS; index as i" class="pointer br50 opacity{{ clicked ? 1 : 0 }} {{ Customizer.DarkMode ? 'dark' : Customizer.Palette.color }}" style="--i: {{ i + 1 }}" [routerLink]="item.link" (click)="setRoute(item.link)">
+            <li *ngFor="let item of PARAMS.NAVBAR_ITEMS; index as i" class="pointer br50 opacity{{ clicked ? 1 : 0 }} {{ Customizer.DarkMode ? 'dark' : Customizer.Palette.color }}" style="--i: {{ i + 1 }}" [routerLink]="item.link" (click)="setRoute(item.link)">
                 <i class="bi bi-{{ item.icon }} d-flex"></i>
             </li>
         </ul>

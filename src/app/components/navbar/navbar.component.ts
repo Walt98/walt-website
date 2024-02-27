@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from '../../base.component';
+import { takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -27,9 +28,9 @@ export class NavbarComponent extends BaseComponent implements OnInit
     });
     
     // ROUTER CHANGES
-    this._payload._router.events.subscribe((e: any) =>
+    this._payload._router.events.pipe(takeUntil(this.destroy$)).subscribe((e: any) =>
     {
-      if (e.type == 1)
+      if (e.type === 1)
       {
         if (this.isOnInit)
         {
@@ -51,14 +52,14 @@ export class NavbarComponent extends BaseComponent implements OnInit
   private onChangesActive(path = document.URL.replace(document.baseURI, ""))
   {
     let item = undefined;
-    this.CONSTS.NAVBAR_ITEMS.forEach(i => i.class = "");
+    this.PARAMS.NAVBAR_ITEMS.forEach(i => i.class = "");
 
     switch (path)
     {
-      case "about-me": item = this.CONSTS.NAVBAR_ITEMS[1]; break;
-      case "contact-me": item = this.CONSTS.NAVBAR_ITEMS[2]; break;
-      case "technologies": item = this.CONSTS.NAVBAR_ITEMS[3]; break;
-      default: item = this.CONSTS.NAVBAR_ITEMS[0]; break;
+      case "about-me": item = this.PARAMS.NAVBAR_ITEMS[1]; break;
+      case "contact-me": item = this.PARAMS.NAVBAR_ITEMS[2]; break;
+      case "technologies": item = this.PARAMS.NAVBAR_ITEMS[3]; break;
+      default: item = this.PARAMS.NAVBAR_ITEMS[0]; break;
     }
     
     item.class = `active item-color-${this.Customizer.DarkMode ? 'dark' : this.Customizer.Palette.color}`;

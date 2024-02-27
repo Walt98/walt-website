@@ -33,7 +33,7 @@ export class SettingsCanvasComponent extends BaseComponent implements OnInit
     ? (this.Customizer.Blur ? "bgDarkModeBlur" : "bgDarkMode")
     : (this.Customizer.Blur ? "bgBlur" : "BGwhite");
 
-  public activeFont = (font: string): string => this.Customizer.Font == font ? "activeFont" : "";
+  public activeFont = (font: string): string => this.Customizer.Font === font ? "activeFont" : "";
 
   public checkOutside(target: any)
   {

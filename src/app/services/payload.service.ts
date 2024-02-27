@@ -12,31 +12,28 @@ import { IPayloadBehavior$ } from 'src/app/models/payload-behavior';
 })
 export class PayloadService
 {
-  private private =
-  {
-    // BEHAVIOR SUBJECTS
-    darkMode$: new BehaviorSubject(localStorage.getItem('darkMode') ?? 'off'),
-    palette$: new BehaviorSubject<IPalette>(JSON.parse(localStorage.getItem('palette') ?? '{"color": "default", "bgImage": "linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)"}')),
-    font$: new BehaviorSubject(localStorage.getItem('font') ?? 'Montserrat'),
-    blur$: new BehaviorSubject(localStorage.getItem('blur') ?? 'on'),
-    route$: new BehaviorSubject("home"),
-    breakpoint$: new BehaviorSubject(true),
-    
-    // OBSERVABLES
-    breakpoint: this._breakpointObserver.observe("(min-width: 992px)")
-  }
+  // BEHAVIOR SUBJECTS
+  private darkMode$ = new BehaviorSubject(localStorage.getItem('darkMode') ?? 'off');
+  private palette$ = new BehaviorSubject<IPalette>(JSON.parse(localStorage.getItem('palette') ?? '{"color": "default", "bgImage": "linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)"}'));
+  private font$ = new BehaviorSubject(localStorage.getItem('font') ?? 'Montserrat');
+  private blur$ = new BehaviorSubject(localStorage.getItem('blur') ?? 'on');
+  private route$ = new BehaviorSubject("home");
+  private breakpoint$ = new BehaviorSubject(true);
+
+  // OBSERVABLES
+  private breakpoint = this._breakpointObserver.observe("(min-width: 992px)");
   
   /** Object used to get/set customization params. */
   public $: IPayloadBehavior$ =
   {
     get:
     {
-      darkMode: next => this.private.darkMode$.subscribe(next),
-      palette: next => this.private.palette$.subscribe(next),
-      font: next => this.private.font$.subscribe(next),
-      blur: next => this.private.blur$.subscribe(next),
-      route: next => this.private.route$.subscribe(next),
-      breakpoint: next => this.private.breakpoint$.subscribe(next)
+      darkMode: next => this.darkMode$.subscribe(next),
+      palette: next => this.palette$.subscribe(next),
+      font: next => this.font$.subscribe(next),
+      blur: next => this.blur$.subscribe(next),
+      route: next => this.route$.subscribe(next),
+      breakpoint: next => this.breakpoint$.subscribe(next)
     },
 
     set:
@@ -44,24 +41,24 @@ export class PayloadService
       darkMode: value =>
       {
         localStorage.setItem("darkMode", value);
-        this.private.darkMode$.next(value);
+        this.darkMode$.next(value);
       },
       palette: value =>
       {
         localStorage.setItem("palette", JSON.stringify(value));
-        this.private.palette$.next(value);
+        this.palette$.next(value);
       },
       font: value =>
       {
         localStorage.setItem("font", value);
-        this.private.font$.next(value);
+        this.font$.next(value);
       },
       blur: value =>
       {
         localStorage.setItem("blur", value);
-        this.private.blur$.next(value);
+        this.blur$.next(value);
       },
-      route: value => this.private.route$.next(value)
+      route: value => this.route$.next(value)
     }
   };
 
@@ -73,7 +70,7 @@ export class PayloadService
     public _translate: TranslateService
   ) {
     // BREAKPOINT
-    this.private.breakpoint.subscribe(state => this.private.breakpoint$.next(state.matches));
+    this.breakpoint.subscribe(state => this.breakpoint$.next(state.matches));
     
     // TRANSLATE
     _translate.setDefaultLang('it');

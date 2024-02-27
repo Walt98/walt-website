@@ -1,16 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { ICustomizationParams } from 'src/app/models/customizer';
 import { PayloadService } from 'src/app/services/payload.service';
-import { INavigationConsts } from './models/navigation-consts';
+import { Subject, takeUntil } from 'rxjs';
+import { INavigationParams } from './models/navigation-params';
 
 @Component({ template: `` })
-export class BaseComponent
+export class BaseComponent implements OnDestroy
 {
-  /** Navigation constants.
-   *
-   * **DON'T EDIT IT!**
-   */
-  readonly CONSTS: INavigationConsts =
+  /** Read-only navigation pagameters. */
+  public readonly PARAMS: INavigationParams =
   {
     COLORS: ["default", "green", "yellow", "red", "purple"],
     FONTS: ["Montserrat", "Roboto"],
@@ -23,8 +21,10 @@ export class BaseComponent
     ]
   };
 
+  public destroy$ = new Subject<void>();
+
   /** An object that contains all customization params. */
-  Customizer: ICustomizationParams =
+  public Customizer: ICustomizationParams =
   {
     DarkMode: false,
     Palette: { color: "default", bgImage: "linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)" },
@@ -38,22 +38,28 @@ export class BaseComponent
     public _payload: PayloadService
   ) { }
 
+  ngOnDestroy(): void
+  {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
   /** Sets the title of the current HTML document based on the translation of the parameter.
    * @param route
    */
-  setTitle(route: string)
+  public setTitle(route: string)
   {
-    if (route === "home") route = "Home";
+    if (["home", ""].includes(route)) route = "Home";
     let arr = route.split("-");
     if (arr.length > 1) arr[1] = "Me";
     
-    this._payload._translate.stream(arr.join("")).subscribe(
+    this._payload._translate.stream(arr.join("")).pipe(takeUntil(this.destroy$)).subscribe(
       (value: string) => this._payload._title.setTitle(`${value} | WaltWebsite`)
     );
   }
 
   /** Object used to get default Customizer values. */
-  $ =
+  public $ =
   {
     /** Get dark mode value. */
     DarkMode: () => this._payload.$.get.darkMode(value => this.Customizer.DarkMode = value === "on"),

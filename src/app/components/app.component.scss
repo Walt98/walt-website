@@ -24,7 +24,6 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    // user-drag: none;
     -webkit-user-drag: none;
     user-select: none;
     -moz-user-select: none;
@@ -57,11 +56,21 @@ main
     opacity: .3;
     pointer-events: none;
     z-index: -1;
-    // filter: saturate(0);
 }
 
 .router-outlet
 {
     padding: 20px;
     height: calc(100vh - 82px);
+
+    & ::ng-deep :last-child
+    {
+        animation: fadeIn .8s normal;
+    }
+}
+
+@keyframes fadeIn
+{
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
