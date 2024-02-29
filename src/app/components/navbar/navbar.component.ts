@@ -32,12 +32,15 @@ export class NavbarComponent extends BaseComponent implements OnInit
     {
       if (e.type === 1)
       {
+        let path = e.url.slice(1);
+        if (!["", "about-me", "contact-me", "technologies"].includes(path)) path = "";
+
         if (this.isOnInit)
         {
-          this.setTitle(e.url.slice(1));
+          this.setTitle(path);
           this.isOnInit = false;
         }
-        this.onChangesActive(e.url.slice(1));
+        this.onChangesActive(path);
       }
     });
   }
