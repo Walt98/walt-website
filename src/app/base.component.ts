@@ -14,7 +14,7 @@ export class BaseComponent implements OnDestroy
     FONTS: ["Montserrat", "Roboto"],
     LANGUAGES: ["it", "gb"],
     NAVBAR_ITEMS: [
-      { link: "home", icon: "house", text: "Home" },
+      { link: "", icon: "house", text: "Home" },
       { link: "about-me", icon: "person-circle", text: "aboutMe" },
       { link: "contact-me", icon: "send", text: "contactMe" },
       { link: "technologies", icon: "code-slash", text: "technologies" }
@@ -49,7 +49,7 @@ export class BaseComponent implements OnDestroy
    */
   public setTitle(route: string)
   {
-    if (["home", ""].includes(route)) route = "Home";
+    if (route === "") route = "Home";
     let arr = route.split("-");
     if (arr.length > 1) arr[1] = "Me";
     

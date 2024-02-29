@@ -17,7 +17,7 @@ export class PayloadService
   private palette$ = new BehaviorSubject<IPalette>(JSON.parse(localStorage.getItem('palette') ?? '{"color": "default", "bgImage": "linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)"}'));
   private font$ = new BehaviorSubject(localStorage.getItem('font') ?? 'Montserrat');
   private blur$ = new BehaviorSubject(localStorage.getItem('blur') ?? 'on');
-  private route$ = new BehaviorSubject("home");
+  private route$ = new BehaviorSubject("");
   private breakpoint$ = new BehaviorSubject(true);
 
   // OBSERVABLES
