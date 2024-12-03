@@ -1,12 +1,31 @@
 {
-    "contactMe": "Contattami",
-    "aboutMe": "Chi sono",
-    "technologies": "Tecnologie",
-    "layoutTheme": "Tema layout",
-    "themesNotAvailable": "Temi non disponibili in \"Modalità notturna\".",
-    "darkMode": "Modalità notturna",
-    "canvasBlur": "Sfocatura finestra",
-    "blurNone": "Nessuna",
-    "blur": "Sfoca",
-    "homeTitle": "Scopri la potenza di un sito web moderno, veloce, robusto e flessibile!"
+    "window": {
+        "routes": {
+            "home": "Home",
+            "contactMe": "Contattami",
+            "aboutMe": "Chi sono",
+            "technologies": "Tecnologie"
+        },
+
+        "settings": {
+            "layoutTheme": "Tema layout",
+            "themesNotAvailable": "Temi non disponibili in \"Modalità notturna\".",
+            "darkMode": "Modalità notturna",
+            "canvasBlur": "Sfocatura finestra",
+            "blurNone": "Nessuna",
+            "blur": "Sfoca"
+        },
+
+        "contactMe!": "Contattami!"
+    },
+
+    "home": {
+        "bannerTitle": "Scopri la potenza di un sito web moderno, veloce, robusto e flessibile!"
+    },
+
+    "contactMe": {},
+    
+    "aboutMe": {},
+    
+    "technologies": {}
 }

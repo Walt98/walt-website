@@ -1,6 +1,6 @@
 <div class="container-fluid settings-section">
-    <div class="section-header" translate>
-        {{ header }}
+    <div class="section-header">
+        {{ header | translate: { Default: '' } }}
     </div>
 
     <ng-content select="[body]"></ng-content>

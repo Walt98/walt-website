@@ -5,11 +5,11 @@
         <i [routerLink]="item.link" class="bi bi-{{ item.icon }} {{ item.class }} d-flex navbar-item-icon font-26px pointer transition" (mouseover)="item.show = true" (mouseleave)="item.show = false" (click)="setRoute(item.link)"></i>
         
         <!-- TEXT -->
-        <span class="zIndex1000 absolute transition item-title title-color-{{ Customizer.DarkMode ? 'dark' : Customizer.Palette.color }} opacity{{ item.show ? 1 : 0 }}" translate>
+        <span class="zIndex1000 absolute transition item-title title-color-{{ Customizer.DarkMode ? 'dark' : Customizer.Palette.color }} opacity{{ item.show ? 1 : 0 }}">
             <!-- TITLE POINTER -->
             <span class="title-pointer absolute"></span>
             
-            {{ item.text }}
+            {{ 'window.routes.' + item.text | translate: { Default: '' } }}
         </span>
     </div>
 </nav>

@@ -3,9 +3,9 @@
     <img class="img-logo pointer" width="80px" height="auto" src="/assets/images/logo-2.png" alt="logo" routerLink="/" title="Home" (click)="_payload.$.set.route('')">
     
     <!-- CONTACT ME -->
-    <a *ngIf="Customizer.Breakpoint" routerLink="contact-me" class="d-flex contacts white" (click)="_payload.$.set.route('contact-me')" translate>
+    <a *ngIf="Customizer.Breakpoint" routerLink="contact-me" class="d-flex contacts white" (click)="_payload.$.set.route('contact-me')">
         <i class="bi bi-send d-flex align-items-center w-25px"></i>
-        contactMe <span> ! </span>
+        {{ 'window.contactMe!' | translate: { Default: '' } }}
     </a>
     
     <!-- SMALL SCREEN NAVBAR -->

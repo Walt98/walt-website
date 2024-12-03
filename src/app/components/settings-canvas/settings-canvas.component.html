@@ -16,22 +16,22 @@
             <!-- SECTIONS -->
             <div class="container-fluid p-0">
                 <!-- LAYOUT THEMES -->
-                <app-settings-section header="layoutTheme">
+                <app-settings-section header="window.settings.layoutTheme">
                     <ng-container body>
                         <!-- PALETTE -->
                         <app-palette *ngIf="!Customizer.DarkMode"></app-palette>
         
                         <!-- LAYOUT THEMES NOT AVAILABLE -->
                         <div *ngIf="Customizer.DarkMode" class="dmWhite pY-7-12_6">
-                            <span translate>
-                                themesNotAvailable
+                            <span>
+                                {{ 'window.settings.themesNotAvailable' | translate: { Default: '' } }}
                             </span>
                         </div>
                     </ng-container>
                 </app-settings-section>
         
                 <!-- DARK MODE -->
-                <app-settings-section header="darkMode">
+                <app-settings-section header="window.settings.darkMode">
                     <app-toggle body></app-toggle>
                 </app-settings-section>
         
@@ -41,7 +41,7 @@
                 </app-settings-section>
         
                 <!-- RADIO -->
-                <app-settings-section header="canvasBlur">
+                <app-settings-section header="window.settings.canvasBlur">
                     <app-radio body></app-radio>
                 </app-settings-section>
             </div>

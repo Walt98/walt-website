@@ -1,13 +1,13 @@
 <div class="container-fluid p-0 banner w{{ fitContent ? 'Max' : '100' }} backdrop-filter center">
     <ng-container *ngIf="body !== ''">
         <!-- TITLE BANNER -->
-        <h1 *ngIf="isTitle" class="banner-body text-center {{ textPulse ? 'textPulse' : '' }}" [style]="'background-image: ' + (Customizer.DarkMode ? 'linear-gradient(147.38deg, #9db0b9 0%, #365d78 100%)' : Customizer.Palette.bgImage)" translate>
-            {{ body }}
+        <h1 *ngIf="isTitle" class="banner-body text-center {{ textPulse ? 'textPulse' : '' }}" [style]="'background-image: ' + (Customizer.DarkMode ? 'linear-gradient(147.38deg, #9db0b9 0%, #365d78 100%)' : Customizer.Palette.bgImage)">
+            {{ body | translate: { Default: '' } }}
         </h1>
     
         <!-- DEFAULT BANNER -->
-        <h2 *ngIf="!isTitle" class="banner-body text-center {{ textPulse ? 'textPulse' : '' }}" [style]="'background-image: ' + (Customizer.DarkMode ? 'linear-gradient(147.38deg, #9db0b9 0%, #365d78 100%)' : Customizer.Palette.bgImage)" translate>
-            {{ body }}
+        <h2 *ngIf="!isTitle" class="banner-body text-center {{ textPulse ? 'textPulse' : '' }}" [style]="'background-image: ' + (Customizer.DarkMode ? 'linear-gradient(147.38deg, #9db0b9 0%, #365d78 100%)' : Customizer.Palette.bgImage)">
+            {{ body | translate: { Default: '' } }}
         </h2>
     </ng-container>
 

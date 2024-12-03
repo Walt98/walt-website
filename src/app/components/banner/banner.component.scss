@@ -37,8 +37,8 @@ h2.banner-body
 
 .textPulse
 {
-    animation: textPulse 3s ease infinite;
-    -webkit-animation: textPulse 3s ease infinite;
+    animation: textPulse 3s ease infinite !important;
+    -webkit-animation: textPulse 3s ease infinite !important;
 }
 @keyframes textPulse
 {

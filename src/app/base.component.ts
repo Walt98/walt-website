@@ -14,7 +14,7 @@ export class BaseComponent implements OnDestroy
     FONTS: ["Montserrat", "Roboto"],
     LANGUAGES: ["it", "gb"],
     NAVBAR_ITEMS: [
-      { link: "", icon: "house", text: "Home" },
+      { link: "", icon: "house", text: "home" },
       { link: "about-me", icon: "person-circle", text: "aboutMe" },
       { link: "contact-me", icon: "send", text: "contactMe" },
       { link: "technologies", icon: "code-slash", text: "technologies" }
