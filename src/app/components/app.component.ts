@@ -21,6 +21,7 @@ export class AppComponent extends BaseComponent implements OnInit
     this.$.DarkMode();
     this.$.Palette();
     this.$.Font();
+    this.$.TextSlider();
     this.$.Breakpoint();
     
     this.isReady$.pipe(takeUntil(this.destroy$)).subscribe(() => this.isReady = true);

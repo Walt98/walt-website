@@ -28,7 +28,7 @@
     height: 100vh;
     width: 280px;
     z-index: 1000;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .settings-button
@@ -49,7 +49,7 @@
         @include rotate(225deg);
     }
 }
-.settings-button-icon { font-size: 33px; }
+.settings-button-icon { font-size: 32px; }
 
 .color-dark
 {

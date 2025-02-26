@@ -8,18 +8,18 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { ClickOutsideModule } from 'ng-click-outside';
 
 // COMPONENTS
-import { BaseComponent } from '../base.component';
 import { AppComponent } from '../components/app.component';
+import { BaseComponent } from '../base.component';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { SettingsCanvasComponent } from '../components/settings-canvas/settings-canvas.component';
 import { PaletteComponent } from '../components/settings-canvas/components/palette/palette.component';
 import { FontsComponent } from '../components/settings-canvas/components/fonts/fonts.component';
-import { RadioComponent } from '../components/settings-canvas/components/radio/radio.component';
 import { LangSelectComponent } from '../components/settings-canvas/components/lang-select/lang-select.component';
 import { ToggleComponent } from '../components/settings-canvas/components/toggle/toggle.component';
 import { SettingsSectionComponent } from '../components/settings-canvas/settings-section/settings-section.component';
 import { BannerComponent } from '../components/banner/banner.component';
+import { TextSliderComponent } from '../components/settings-canvas/components/text-slider/text-slider.component';
 
 // ROUTES
 import { HomeComponent } from '../routes/home/home.component';
@@ -32,22 +32,25 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @NgModule({
   declarations: [
+    // COMPONENTS
     AppComponent,
+    BaseComponent,
     NavbarComponent,
     HeaderComponent,
-    HomeComponent,
-    AboutMeComponent,
     SettingsCanvasComponent,
     PaletteComponent,
-    ContactMeComponent,
     FontsComponent,
-    RadioComponent,
     LangSelectComponent,
     ToggleComponent,
-    TechnologiesComponent,
     SettingsSectionComponent,
     BannerComponent,
-    BaseComponent
+    TextSliderComponent,
+
+    // ROUTES
+    HomeComponent,
+    AboutMeComponent,
+    ContactMeComponent,
+    TechnologiesComponent,
   ],
   imports: [
     BrowserModule,

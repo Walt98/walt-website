@@ -1,7 +1,15 @@
-.settings-section { padding: 10px; }
+.settings-section
+{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 0;
+}
 
 .section-header
 {
-    font-size: larger;
+    font-size: calc(19px * var(--font-scale));
     font-weight: 600;
+    width: fit-content;
 }

@@ -27,12 +27,12 @@
 h1.banner-body
 {
     padding: 30px;
-    font-size: calc(1.5rem + 3vw);
+    font-size: calc((1.5rem * var(--font-scale)) + 3vw);
 }
 h2.banner-body
 {
     padding: 20px;
-    font-size: calc(1rem + 3vw);
+    font-size: calc((1rem * var(--font-scale)) + 3vw);
 }
 
 .textPulse

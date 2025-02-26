@@ -13,7 +13,8 @@
             "darkMode": "Dark mode",
             "canvasBlur": "Off-canvas blur",
             "blurNone": "None",
-            "blur": "Blurs"
+            "blur": "Blurs",
+            "textSize": "Text size"
         },
 
         "contactMe!": "Contact me!"

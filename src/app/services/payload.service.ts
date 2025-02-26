@@ -13,10 +13,10 @@ import { IPayloadBehavior$ } from 'src/app/models/payload-behavior';
 export class PayloadService
 {
   // BEHAVIOR SUBJECTS
-  private darkMode$ = new BehaviorSubject(localStorage.getItem('darkMode') ?? 'off');
   private palette$ = new BehaviorSubject<IPalette>(JSON.parse(localStorage.getItem('palette') ?? '{"color": "default", "bgImage": "linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)"}'));
+  private darkMode$ = new BehaviorSubject(localStorage.getItem('darkMode') ?? 'off');
   private font$ = new BehaviorSubject(localStorage.getItem('font') ?? 'Montserrat');
-  private blur$ = new BehaviorSubject(localStorage.getItem('blur') ?? 'on');
+  private textSlider$ = new BehaviorSubject(localStorage.getItem('textSlider') ?? '1');
   private route$ = new BehaviorSubject("");
   private breakpoint$ = new BehaviorSubject(true);
 
@@ -31,7 +31,7 @@ export class PayloadService
       darkMode: next => this.darkMode$.subscribe(next),
       palette: next => this.palette$.subscribe(next),
       font: next => this.font$.subscribe(next),
-      blur: next => this.blur$.subscribe(next),
+      textSlider: next => this.textSlider$.subscribe(next),
       route: next => this.route$.subscribe(next),
       breakpoint: next => this.breakpoint$.subscribe(next)
     },
@@ -53,10 +53,10 @@ export class PayloadService
         localStorage.setItem("font", value);
         this.font$.next(value);
       },
-      blur: value =>
+      textSlider: value =>
       {
-        localStorage.setItem("blur", value);
-        this.blur$.next(value);
+        localStorage.setItem("textSlider", value);
+        this.textSlider$.next(value);
       },
       route: value => this.route$.next(value)
     }

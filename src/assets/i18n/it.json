@@ -13,7 +13,8 @@
             "darkMode": "Modalità notturna",
             "canvasBlur": "Sfocatura finestra",
             "blurNone": "Nessuna",
-            "blur": "Sfoca"
+            "blur": "Sfoca",
+            "textSize": "Dimensione del testo"
         },
 
         "contactMe!": "Contattami!"

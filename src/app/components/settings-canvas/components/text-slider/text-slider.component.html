@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-evenly slider-lines">
+    <span class="slider-line"></span>
+    <span class="slider-line"></span>
+    <span class="slider-line"></span>
+    <span class="slider-line"></span>
+    <span class="slider-line"></span>
+</div>
+
+<input type="range" id="textSize" name="textSize" min=".75" max="1.25" step=".001" [value]="Customizer.TextSlider" (input)="setTextSize($event)"/>

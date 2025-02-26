@@ -22,16 +22,9 @@ export class SettingsCanvasComponent extends BaseComponent implements OnInit
       this.Customizer.DarkMode = value === "on";
       this.setCanvasColor();
     });
-    this._payload.$.get.blur(value =>
-    {
-      this.Customizer.Blur = value === "on";
-      this.setCanvasColor();
-    });
   }
 
-  private setCanvasColor = () => this.canvasColor = this.Customizer.DarkMode
-    ? (this.Customizer.Blur ? "bgDarkModeBlur" : "bgDarkMode")
-    : (this.Customizer.Blur ? "bgBlur" : "BGwhite");
+  private setCanvasColor = () => this.canvasColor = this.Customizer.DarkMode ? "bgDarkModeBlur" : "bgBlur";
 
   public activeFont = (font: string): string => this.Customizer.Font === font ? "activeFont" : "";
 

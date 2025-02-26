@@ -1,3 +1,9 @@
+// ROOTS
+:root {
+    --font-scale: 1;
+    --bs-body-font-size: calc(1rem * var(--font-scale));
+}
+
 // VARIABLES
 $default: #326f93;
 $red: #933434;
@@ -58,8 +64,8 @@ $radioBorder: 2px solid;
 .bgYellow, .bgYellow::before, .bgYellow::after { background-color: $yellow; }
 .bgPurple, .bgPurple::before, .bgPurple::after { background-color: $purple; }
 .bgDarkMode, .bgDarkMode::before, .bgDarkMode::after { background-color: $dark; }
-.bgBlur, .bgBlur::before, .bgBlur::after { background-color: #f5f7fabf; }
-.bgDarkModeBlur, .bgDarkModeBlur::before, .bgDarkModeBlur::after { background-color: #162a4180; }
+.bgBlur, .bgBlur::before, .bgBlur::after { background-color: #f5f7fab3; }
+.bgDarkModeBlur, .bgDarkModeBlur::before, .bgDarkModeBlur::after { background-color: #162a4199; }
 
 .center
 { 

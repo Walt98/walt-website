@@ -2,7 +2,7 @@
     <!-- ITEMS -->
     <div *ngFor="let item of PARAMS.NAVBAR_ITEMS" class="navbar-item d-flex align-items-center white">
         <!-- ICON -->
-        <i [routerLink]="item.link" class="bi bi-{{ item.icon }} {{ item.class }} d-flex navbar-item-icon font-26px pointer transition" (mouseover)="item.show = true" (mouseleave)="item.show = false" (click)="setRoute(item.link)"></i>
+        <i [routerLink]="item.link" class="bi bi-{{ item.icon }} {{ item.class }} d-flex navbar-item-icon icon-font-size pointer transition" (mouseover)="item.show = true" (mouseleave)="item.show = false" (click)="setRoute(item.link)"></i>
         
         <!-- TEXT -->
         <span class="zIndex1000 absolute transition item-title title-color-{{ Customizer.DarkMode ? 'dark' : Customizer.Palette.color }} opacity{{ item.show ? 1 : 0 }}">

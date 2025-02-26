@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RadioComponent } from './radio.component';
+import { TextSliderComponent } from './text-slider.component';
 
-describe('RadioComponent', () => {
-  let component: RadioComponent;
-  let fixture: ComponentFixture<RadioComponent>;
+describe('TextSliderComponent', () => {
+  let component: TextSliderComponent;
+  let fixture: ComponentFixture<TextSliderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RadioComponent ]
+      declarations: [ TextSliderComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(RadioComponent);
+    fixture = TestBed.createComponent(TextSliderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

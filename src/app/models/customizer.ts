@@ -2,9 +2,9 @@ import { IPalette } from "./palette";
 
 export interface ICustomizationParams
 {
-    DarkMode: boolean;
     Palette: IPalette;
+    DarkMode: boolean;
     Font: string;
-    Blur: boolean;
+    TextSlider: string;
     Breakpoint: boolean;
 }
