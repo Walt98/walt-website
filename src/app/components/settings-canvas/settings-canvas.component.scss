@@ -33,27 +33,43 @@
 
 .settings-button
 {
+    @import '../../assets/classes';
     $size: 50px;
-    $radius: 5px;
     width: $size;
     height: $size;
-    border-top-left-radius: $radius;
-    border-bottom-left-radius: $radius;
+    border-radius: 50%;
+    margin-right: 10px;
     z-index: 102;
-    box-shadow: 0 0 5px 0 #00000033, 0 0 5px 0 #0000000f, 0 0 0 0 #0000001f;
+    outline: 1px solid $white;
+    opacity: .5;
+    transition: .65s cubic-bezier(0.8, 0, 0, 1), opacity .2s ease;
 
-    &:hover > i
+    &:hover
     {
-        transition: transform .9s cubic-bezier(0.42, 0.17, 0.53, 0.77);
-        @import '../../assets/classes';
-        @include rotate(225deg);
+        opacity: 1;
+
+        & i
+        {
+            transition: transform .9s cubic-bezier(0.42, 0.17, 0.53, 0.77);
+            @include rotate(225deg);
+        }
     }
 }
+.settings-button.clicked
+{
+    $radius: 5px;
+    border-radius: 0;
+    border-top-left-radius: $radius;
+    border-bottom-left-radius: $radius;
+    margin-right: 0;
+}
+
 .settings-button-icon { font-size: 32px; }
 
 .color-dark
 {
     @import '../../assets/classes';
+    outline-color: $dmWhite;
     @include gradient(#587987, #1e3e55, $degRevert);
     &:hover { @include gradient(#6d93a3, #30536d, $degRevert); }
 }

@@ -2,4 +2,4 @@
     <span *ngFor="let n of [1,2,3,4,5]" class="slider-separator bg{{ Customizer.DarkMode ? 'DmWhite' : getFirstToUpperCase(Customizer.Palette.color) }}" [style]="getMargin(n)"></span>
 </div>
 
-<input type="range" id="textSize" name="textSize" min=".75" max="1.25" step=".125" class="bg{{ Customizer.DarkMode ? 'DmWhite' : getFirstToUpperCase(Customizer.Palette.color) }}" [value]="Customizer.TextSize" (input)="setTextSizeValue($event)"/>
+<input tabindex="-1" type="range" id="textSize" name="textSize" min=".75" max="1.25" step=".125" class="bg{{ Customizer.DarkMode ? 'DmWhite' : getFirstToUpperCase(Customizer.Palette.color) }}" [value]="Customizer.TextSize" (input)="setTextSizeValue($event)"/>

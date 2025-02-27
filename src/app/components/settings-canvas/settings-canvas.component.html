@@ -1,6 +1,6 @@
 <div class="d-flex align-items-center top0 canvasTransition absolute right{{ clicked ? 0 : 280 }}">
     <!-- OFFCANVAS BUTTON -->
-    <div class="settings-button white pointer center color-{{ Customizer.DarkMode ? 'dark' : Customizer.Palette.color }}" tabindex="0" (click)="clicked = !clicked">
+    <div class="settings-button transition white pointer center color-{{ Customizer.DarkMode ? 'dark' : Customizer.Palette.color }} {{ clicked ? 'clicked' : '' }}" tabindex="0" (click)="clicked = !clicked">
         <i class="bi bi-gear d-flex settings-button-icon"></i>
     </div>
 
