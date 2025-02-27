@@ -3,15 +3,15 @@ import { Subscription } from "rxjs";
 export interface ICustomizerUpdater
 {
     /** Set the palette. */
-    Palette: () => Subscription;
+    Palette: (callback?: () => void) => Subscription;
     /** Set dark mode value. */
-    DarkMode: () => Subscription;
+    DarkMode: (callback?: () => void) => Subscription;
     /** Set the font. */
-    Font: () => Subscription;
-    /** Set text slider value. */
-    TextSlider: () => Subscription;
+    Font: (callback?: () => void) => Subscription;
+    /** Set the text size. */
+    TextSize: (callback?: () => void) => Subscription;
     /** Set breakpoint value. */
-    Breakpoint: () => Subscription;
+    Breakpoint: (callback?: () => void) => Subscription;
     /** Get the current HTML document and set its title. */
     Route: () => Subscription;
 }

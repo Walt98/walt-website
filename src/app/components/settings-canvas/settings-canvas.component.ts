@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { BaseComponent } from '../../base.component';
+import { BaseDirective } from '../../base.directive';
 
 @Component({
   selector: 'app-settings-canvas',
   templateUrl: './settings-canvas.component.html',
   styleUrls: ['./settings-canvas.component.scss']
 })
-export class SettingsCanvasComponent extends BaseComponent implements OnInit
+export class SettingsCanvasComponent extends BaseDirective implements OnInit
 {
   // CUSTOMIZERS
   public canvasColor?: string;
-  
+
   // BOOLEANS
   public clicked = false;
 

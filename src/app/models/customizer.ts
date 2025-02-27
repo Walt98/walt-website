@@ -5,6 +5,6 @@ export interface ICustomizationParams
     Palette: IPalette;
     DarkMode: boolean;
     Font: string;
-    TextSlider: string;
+    TextSize: string;
     Breakpoint: boolean;
 }

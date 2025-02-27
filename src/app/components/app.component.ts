@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
-import { BaseComponent } from 'src/app/base.component';
-
+import { BaseDirective } from 'src/app/base.directive';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent extends BaseComponent implements OnInit
+export class AppComponent extends BaseDirective implements OnInit
 {
   // CUSTOMIZERS
-  public biDark = 'linear-gradient(147.38deg, #143650 0%, #000000 100%)';
+  public biDark = "linear-gradient(147.38deg, #143650 0%, #000000 100%)";
 
   public isReady$ = new Subject<void>();
   public isReady = false;
@@ -21,9 +20,8 @@ export class AppComponent extends BaseComponent implements OnInit
     this.$.DarkMode();
     this.$.Palette();
     this.$.Font();
-    this.$.TextSlider();
     this.$.Breakpoint();
-    
+
     this.isReady$.pipe(takeUntil(this.destroy$)).subscribe(() => this.isReady = true);
   }
 }

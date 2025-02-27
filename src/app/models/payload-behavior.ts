@@ -18,8 +18,8 @@ interface IGet$
     palette(next: (value: IPalette) => void): Subscription;
     /** Get the font. */
     font(next: (value: string) => void): Subscription;
-    /** Get text slider value (from 0.75 to 1.5). */
-    textSlider(next: (value: string) => void): Subscription;
+    /** Get the text size (from 0.75 to 1.5). */
+    textSize(next: (value: string) => void): Subscription;
     /** Get the title of the HTML document. */
     route(next: (value: string) => void): Subscription;
     /** Used to understand if the display is large or not. */
@@ -34,8 +34,8 @@ interface ISet$
     palette(value: IPalette): void;
     /** Set the font. */
     font(value: string): void;
-    /** Set text slider. */
-    textSlider(value: string): void;
+    /** Set the text size. */
+    textSize(value: string): void;
     /** Set the title of the HTML document. */
     route(value: string): void;
 }

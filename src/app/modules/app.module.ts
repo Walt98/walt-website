@@ -9,7 +9,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
 
 // COMPONENTS
 import { AppComponent } from '../components/app.component';
-import { BaseComponent } from '../base.component';
+import { BaseDirective } from '../base.directive';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { SettingsCanvasComponent } from '../components/settings-canvas/settings-canvas.component';
@@ -34,7 +34,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
   declarations: [
     // COMPONENTS
     AppComponent,
-    BaseComponent,
+    BaseDirective,
     NavbarComponent,
     HeaderComponent,
     SettingsCanvasComponent,

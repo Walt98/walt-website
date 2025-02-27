@@ -38,7 +38,7 @@
     & div.menu-button-icon
     {
         @import '../../assets/classes';
-        
+
         padding: 21.5px 8px;
 
         & div
@@ -76,7 +76,7 @@
     &.clicked
     {
         @import '../../assets/classes';
-        
+
         padding-bottom: 190px;
 
         & div > div::before, & div > div::after { @include translateX(0); }

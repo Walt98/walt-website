@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { BaseComponent } from '../../base.component';
+import { BaseDirective } from '../../base.directive';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent extends BaseComponent implements OnInit
+export class HeaderComponent extends BaseDirective implements OnInit
 {
   // BOOLEANS
   public clicked = false;

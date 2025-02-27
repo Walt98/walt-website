@@ -1,13 +1,13 @@
 <header class="container-fluid d-flex align-items-center justify-content-between h-82px p-0">
     <!-- LOGO -->
     <img class="img-logo pointer" width="80px" height="auto" src="/assets/images/logo-2.png" alt="logo" routerLink="/" title="Home" (click)="_payload.$.set.route('')">
-    
+
     <!-- CONTACT ME -->
     <a *ngIf="Customizer.Breakpoint" routerLink="contact-me" class="d-flex contacts white" (click)="_payload.$.set.route('contact-me')">
         <i class="bi bi-send d-flex align-items-center"></i>
         {{ 'window.contactMe!' | translate: { Default: '' } }}
     </a>
-    
+
     <!-- SMALL SCREEN NAVBAR -->
     <div *ngIf="!Customizer.Breakpoint" (clickOutside)="clicked = false">
         <div class="d-flex flex-column align-items-center menu-button absolute right0 {{ clicked ? 'clicked' : 'p-0' }} bgWhite" tabindex="0">

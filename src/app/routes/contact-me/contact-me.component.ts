@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { BaseComponent } from 'src/app/base.component';
+import { BaseDirective } from 'src/app/base.directive';
 
 @Component({
   selector: 'app-contact-me',
   templateUrl: './contact-me.component.html',
   styleUrls: ['./contact-me.component.scss']
 })
-export class ContactMeComponent extends BaseComponent
+export class ContactMeComponent extends BaseDirective
 {
   
 }

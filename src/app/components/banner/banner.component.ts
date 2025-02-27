@@ -1,12 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BaseComponent } from 'src/app/base.component';
+import { BaseDirective } from 'src/app/base.directive';
 
 @Component({
   selector: 'app-banner',
   templateUrl: './banner.component.html',
   styleUrls: ['./banner.component.scss']
 })
-export class BannerComponent extends BaseComponent implements OnInit
+export class BannerComponent extends BaseDirective implements OnInit
 {
   @Input() body = "";
   @Input() textPulse = true;

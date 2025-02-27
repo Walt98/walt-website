@@ -9,13 +9,13 @@
             <span id="lang-select-5" class="pL-6px"> {{ code === 'it' ? 'ITA' : 'ENG' }} </span>
         </div>
     </div>
-    
+
     <div id="lang-select-6" class="center">
         <!-- GLOBE BUTTON -->
         <span id="lang-select-7" class="center lang-button br50 zIndex1000 transition pointer translate{{ lang === 'it' ? 1 : 2 }} {{ clicked ? 'noTranslateX' : '' }}" (click)="showLang()" (clickOutside)="checkOutside($event.target)">
             <i id="lang-select-8" class="bi bi-globe2 fs-4 d-flex"></i>
         </span>
-    
+
         <!-- SELECTED LANG -->
         <span id="lang-select-9" class="lang transition zIndex999 opacity{{ clicked ? '1' : '0' }}">
             <span id="lang-select-10" class="d-flex align-items-center {{ clicked ? 'pointer' : 'cursorDefault' }}" (click)="showSelect = !showSelect">
@@ -24,7 +24,7 @@
 
                 <!-- COUNTRY NAME -->
                 <span id="lang-select-12" class="lang-span"> {{ lang === 'it' ? 'ITA' : 'ENG' }} </span>
-                
+
                 <!-- CHECK ICON -->
                 <i id="lang-select-13" class="bi bi-arrow-up-short d-flex {{ showSelect ? 'revertArrow' : '' }}"></i>
             </span>

@@ -3,14 +3,14 @@
     <div class="settings-button white pointer center color-{{ Customizer.DarkMode ? 'dark' : Customizer.Palette.color }}" tabindex="0" (click)="clicked = !clicked">
         <i class="bi bi-gear d-flex settings-button-icon"></i>
     </div>
-    
+
     <!-- OFFCANVAS BODY -->
     <div class="settings-canvas backdrop-filter p10 {{ clicked ? 'canvasShadow' : '' }} {{ Customizer.DarkMode ? 'dmWhite' : '' }} {{ canvasColor }}" (clickOutside)="checkOutside($event.target)">
         <!-- CLOSE BUTTON -->
         <div class="container-fluid d-flex justify-content-end xPadding">
             <i class="bi bi-x-lg br50 pointer transition d-flex x-button {{ Customizer.DarkMode ? 'x-dark' : '' }}" (click)="clicked = false"></i>
         </div>
-        
+
         <!-- SETTINGS -->
         <div class="d-flex flex-wrap align-content-between justify-content-center settings">
             <!-- SECTIONS -->
@@ -20,7 +20,7 @@
                     <ng-container body>
                         <!-- PALETTE -->
                         <app-palette *ngIf="!Customizer.DarkMode"></app-palette>
-        
+
                         <!-- LAYOUT THEMES NOT AVAILABLE -->
                         <div *ngIf="Customizer.DarkMode" class="dmWhite pY-7-12_6">
                             <span>
@@ -29,23 +29,23 @@
                         </div>
                     </ng-container>
                 </app-settings-section>
-        
+
                 <!-- DARK MODE -->
                 <app-settings-section header="window.settings.darkMode">
                     <app-toggle body></app-toggle>
                 </app-settings-section>
-        
+
                 <!-- FONTS -->
                 <app-settings-section header="Font">
                     <app-fonts body></app-fonts>
                 </app-settings-section>
-        
+
                 <!-- TEXT SIZE -->
                 <app-settings-section header="window.settings.textSize">
                     <app-text-slider body></app-text-slider>
                 </app-settings-section>
             </div>
-    
+
             <!-- CHANGE LANGUAGE SELECT -->
             <app-lang-select></app-lang-select>
         </div>

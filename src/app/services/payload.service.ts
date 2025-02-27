@@ -13,16 +13,16 @@ import { IPayloadBehavior$ } from 'src/app/models/payload-behavior';
 export class PayloadService
 {
   // BEHAVIOR SUBJECTS
-  private palette$ = new BehaviorSubject<IPalette>(JSON.parse(localStorage.getItem('palette') ?? '{"color": "default", "bgImage": "linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)"}'));
-  private darkMode$ = new BehaviorSubject(localStorage.getItem('darkMode') ?? 'off');
-  private font$ = new BehaviorSubject(localStorage.getItem('font') ?? 'Montserrat');
-  private textSlider$ = new BehaviorSubject(localStorage.getItem('textSlider') ?? '1');
+  private palette$ = new BehaviorSubject<IPalette>(JSON.parse(localStorage.getItem("palette") ?? '{"color": "default", "bgImage": "linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)"}'));
+  private darkMode$ = new BehaviorSubject(localStorage.getItem("darkMode") ?? "off");
+  private font$ = new BehaviorSubject(localStorage.getItem("font") ?? "Montserrat");
+  private textSlider$ = new BehaviorSubject(localStorage.getItem("textSlider") ?? "1");
   private route$ = new BehaviorSubject("");
   private breakpoint$ = new BehaviorSubject(true);
 
   // OBSERVABLES
   private breakpoint = this._breakpointObserver.observe("(min-width: 992px)");
-  
+
   /** Object used to get/set customization params. */
   public $: IPayloadBehavior$ =
   {
@@ -31,34 +31,18 @@ export class PayloadService
       darkMode: next => this.darkMode$.subscribe(next),
       palette: next => this.palette$.subscribe(next),
       font: next => this.font$.subscribe(next),
-      textSlider: next => this.textSlider$.subscribe(next),
+      textSize: next => this.textSlider$.subscribe(next),
       route: next => this.route$.subscribe(next),
       breakpoint: next => this.breakpoint$.subscribe(next)
     },
 
     set:
     {
-      darkMode: value =>
-      {
-        localStorage.setItem("darkMode", value);
-        this.darkMode$.next(value);
-      },
-      palette: value =>
-      {
-        localStorage.setItem("palette", JSON.stringify(value));
-        this.palette$.next(value);
-      },
-      font: value =>
-      {
-        localStorage.setItem("font", value);
-        this.font$.next(value);
-      },
-      textSlider: value =>
-      {
-        localStorage.setItem("textSlider", value);
-        this.textSlider$.next(value);
-      },
-      route: value => this.route$.next(value)
+      darkMode: value => this.setStorageAndNextValue("darkMode", value),
+      palette: value => this.setStorageAndNextValue("palette", value),
+      font: value => this.setStorageAndNextValue("font", value),
+      textSize: value => this.setStorageAndNextValue("textSlider", value),
+      route: value => this.setStorageAndNextValue("route", value)
     }
   };
 
@@ -71,9 +55,24 @@ export class PayloadService
   ) {
     // BREAKPOINT
     this.breakpoint.subscribe(state => this.breakpoint$.next(state.matches));
-    
+
     // TRANSLATE
-    _translate.setDefaultLang('it');
-    _translate.use(localStorage.getItem('lang') ?? 'it');
+    _translate.setDefaultLang("it");
+    _translate.use(localStorage.getItem("lang") ?? "it");
+  }
+
+  /**
+   * Set the item in localStorage if *property* is different from "route" and emits it to subscriptions.
+   * @param property Make sure is has the same name of the BehaviorSubject
+   * @param value Value to set and emit
+   */
+  private setStorageAndNextValue(property: string, value: string | IPalette)
+  {
+    const behavior = this[`${property}$` as keyof this] as unknown as BehaviorSubject<string | IPalette>;
+    const valueStr = typeof value === "string" ? value : JSON.stringify(value);
+
+    if (property !== "route") localStorage.setItem(property, valueStr);
+
+    behavior.next(value);
   }
 }

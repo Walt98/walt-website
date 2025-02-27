@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { BaseComponent } from 'src/app/base.component';
+import { BaseDirective } from 'src/app/base.directive';
 
 @Component({
   selector: 'app-toggle',
   templateUrl: './toggle.component.html',
   styleUrls: ['./toggle.component.scss']
 })
-export class ToggleComponent extends BaseComponent implements OnInit
+export class ToggleComponent extends BaseDirective implements OnInit
 {
   ngOnInit()
   {
@@ -17,6 +17,11 @@ export class ToggleComponent extends BaseComponent implements OnInit
   public setDarkMode()
   {
     this.Customizer.DarkMode = !this.Customizer.DarkMode;
-    this._payload.$.set.darkMode(this.Customizer.DarkMode ? 'on' : 'off');
+    this._payload.$.set.darkMode(this.Customizer.DarkMode ? "on" : "off");
+
+    if (this.Customizer.DarkMode)
+    {
+      document.documentElement.style.setProperty(`--gradient`, "linear-gradient(147.38deg, #a4c8d8 0%, #4989b9 100%)");
+    }
   }
 }

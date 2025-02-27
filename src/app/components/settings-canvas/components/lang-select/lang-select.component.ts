@@ -1,28 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import { BaseComponent } from 'src/app/base.component';
+import { BaseDirective } from 'src/app/base.directive';
 
 @Component({
   selector: 'app-lang-select',
   templateUrl: './lang-select.component.html',
   styleUrls: ['./lang-select.component.scss']
 })
-export class LangSelectComponent extends BaseComponent implements OnInit
+export class LangSelectComponent extends BaseDirective implements OnInit
 {
   // BOOLEANS
   public clicked = false;
   public showSelect = false;
 
   // LANGUAGE VARIABLES
-  public lang = 'it';
-  public language = 'ITA';
+  public lang = "it";
+  public language = "ITA";
 
   ngOnInit(): void
   {
     this.$.DarkMode();
-    this.$.TextSlider();
+    this.$.TextSize();
 
-    this.lang = this._payload._translate.currentLang === 'it' ? 'it' : 'gb';
-    this.language = this._payload._translate.currentLang === 'it' ? 'ITA' : 'ENG';
+    this.lang = this._payload._translate.currentLang === "it" ? "it" : "gb";
+    this.language = this._payload._translate.currentLang === "it" ? "ITA" : "ENG";
   }
 
   public setLanguage(lang: string)
@@ -30,9 +30,9 @@ export class LangSelectComponent extends BaseComponent implements OnInit
     if (this.showSelect)
     {
       this.lang = lang;
-      this.language = lang === 'it' ? 'ITA' : 'ENG';
-      this._payload._translate.use(lang === 'it' ? 'it' : 'en');
-      localStorage.setItem('lang', lang === 'it' ? 'it' : 'en');
+      this.language = lang === "it" ? "ITA" : "ENG";
+      this._payload._translate.use(lang === "it" ? "it" : "en");
+      localStorage.setItem("lang", lang === "it" ? "it" : "en");
     }
   }
 

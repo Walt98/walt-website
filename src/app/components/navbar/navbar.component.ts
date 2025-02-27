@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BaseComponent } from '../../base.component';
+import { BaseDirective } from '../../base.directive';
 import { takeUntil } from 'rxjs';
 
 @Component({
@@ -7,7 +7,7 @@ import { takeUntil } from 'rxjs';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent extends BaseComponent implements OnInit
+export class NavbarComponent extends BaseDirective implements OnInit
 {
   private isOnInit = true;
 
@@ -20,13 +20,13 @@ export class NavbarComponent extends BaseComponent implements OnInit
       this.Customizer.DarkMode = value === "on";
       this.onChangesActive();
     });
-    
+
     this._payload.$.get.palette(value =>
     {
       this.Customizer.Palette = value;
       this.onChangesActive();
     });
-    
+
     // ROUTER CHANGES
     this._payload._router.events.pipe(takeUntil(this.destroy$)).subscribe((e: any) =>
     {
@@ -64,7 +64,7 @@ export class NavbarComponent extends BaseComponent implements OnInit
       case "technologies": item = this.PARAMS.NAVBAR_ITEMS[3]; break;
       default: item = this.PARAMS.NAVBAR_ITEMS[0]; break;
     }
-    
-    item.class = `active item-color-${this.Customizer.DarkMode ? 'dark' : this.Customizer.Palette.color}`;
+
+    item.class = `active item-color-${this.Customizer.DarkMode ? "dark" : this.Customizer.Palette.color}`;
   }
 }

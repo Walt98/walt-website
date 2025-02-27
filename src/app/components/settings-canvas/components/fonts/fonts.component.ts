@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { BaseComponent } from 'src/app/base.component';
+import { BaseDirective } from 'src/app/base.directive';
 
 @Component({
   selector: 'app-fonts',
   templateUrl: './fonts.component.html',
   styleUrls: ['./fonts.component.scss']
 })
-export class FontsComponent extends BaseComponent implements OnInit
+export class FontsComponent extends BaseDirective implements OnInit
 {
   ngOnInit()
   {

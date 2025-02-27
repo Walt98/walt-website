@@ -1,12 +1,13 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Directive, OnDestroy } from '@angular/core';
 import { ICustomizationParams } from 'src/app/models/customizer';
 import { PayloadService } from 'src/app/services/payload.service';
 import { Subject, takeUntil } from 'rxjs';
 import { INavigationParams } from './models/navigation-params';
 import { ICustomizerUpdater } from './models/customizer-setter';
+import { IPalette } from './models/palette';
 
-@Component({ template: `` })
-export class BaseComponent implements OnDestroy
+@Directive({ selector: "base" })
+export class BaseDirective implements OnDestroy
 {
   /** Read-only navigation parameters. */
   public readonly PARAMS: INavigationParams =
@@ -28,7 +29,7 @@ export class BaseComponent implements OnDestroy
     Palette: { color: "default", bgImage: "linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)" },
     DarkMode: false,
     Font: "Montserrat",
-    TextSlider: "1",
+    TextSize: "1",
     Breakpoint: true
   };
 
@@ -45,7 +46,7 @@ export class BaseComponent implements OnDestroy
     this.destroy$.complete();
   }
 
-  /** Sets the title of the current HTML document based on the translation of the parameter.
+  /** Set the title of the current HTML document based on the translation of the parameter.
    * @param route
    */
   public setTitle(route: string)
@@ -62,17 +63,37 @@ export class BaseComponent implements OnDestroy
   /** Object used to update Customizer fields. */
   public $: ICustomizerUpdater =
   {
-    Palette: () => this._payload.$.get.palette(value => this.Customizer.Palette = value),
-    DarkMode: () => this._payload.$.get.darkMode(value => this.Customizer.DarkMode = value === "on"),
-    Font: () => this._payload.$.get.font(value => this.Customizer.Font = value),
-    TextSlider: () => this._payload.$.get.textSlider(value => this.setTextSlider(value)),
-    Breakpoint: () => this._payload.$.get.breakpoint(value => this.Customizer.Breakpoint = value),
+    Palette: (callback?: () => void) => this._payload.$.get.palette(value => this.update("Palette", value, callback)),
+
+    DarkMode: (callback?: () => void) => this._payload.$.get.darkMode(value => this.update("DarkMode", value, callback)),
+
+    Font: (callback?: () => void) => this._payload.$.get.font(value => this.update("Font", value, callback)),
+
+    TextSize: (callback?: () => void) => this._payload.$.get.textSize(value => this.update("TextSize", value, callback)),
+
+    Breakpoint: (callback?: () => void) => this._payload.$.get.breakpoint(value => this.update("Breakpoint", value, callback)),
+
     Route: () => this._payload.$.get.route(value => this.setTitle(value))
   }
 
-  private setTextSlider(value: string)
+  /** Update Customizer fields and use a callback if it exists. */
+  private update(param: keyof ICustomizationParams, value: string | boolean | IPalette, callback?: () => void)
   {
-    this.Customizer.TextSlider = value;
+    switch (param)
+    {
+      case "DarkMode": this.Customizer[param] = value === "on"; break;
+      case "Palette": this.Customizer[param] = value as IPalette; break;
+      case "Breakpoint": this.Customizer[param] = !!value; break;
+      case "TextSize": this.setTextSize(value + ""); break;
+      default: this.Customizer[param] = value + ""; break;
+    }
+
+    if (callback) callback();
+  }
+
+  private setTextSize(value: string)
+  {
+    this.Customizer.TextSize = value;
     document.documentElement.style.setProperty("--font-scale", value);
   }
 }

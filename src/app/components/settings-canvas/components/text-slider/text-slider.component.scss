@@ -1,13 +1,31 @@
-.slider-lines
+@mixin thumb-properties()
+{
+    width: 20px;
+    height: 20px;
+    background-image: var(--gradient);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 5px 0 #00000033, 0 0 5px 0 #0000000f, 0 0 0 0 #0000001f;
+}
+
+.slider-separators
 {
     width: 208px;
     margin-top: 13px;
 
-    & .slider-line
+    & .slider-separator
     {
-        background: white;
         width: 2px;
         height: 12px;
+
+        &:first-child,
+        &:last-child
+        {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            margin-top: 3px;
+        }
     }
 }
 
@@ -17,41 +35,25 @@ input[type="range"]
     width: 208px;
     height: 2px;
     border-radius: 3px;
-    margin-bottom: 30px;
     display: grid;
-    margin-top: -7px;
+    margin: -7px 0 30px;
 }
 
 /* Per Chrome e Safari */
 input[type="range"]::-webkit-slider-thumb
 {
     -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    background: #ff0000;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background 0.3s;
-
-    &:hover { background: #b30000; }
+    @include thumb-properties();
 }
 
 /* Stile per il cursore su Firefox */
 input[type="range"]::-moz-range-thumb
 {
-    width: 20px;
-    height: 20px;
-    background: #007bff;
-    border-radius: 50%;
-    cursor: pointer;
+    @include thumb-properties();
 }
 
 /* Stile per il cursore su Edge */
 input[type="range"]::-ms-thumb
 {
-    width: 20px;
-    height: 20px;
-    background: #007bff;
-    border-radius: 50%;
-    cursor: pointer;
+    @include thumb-properties();
 }

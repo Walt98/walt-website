@@ -6,11 +6,11 @@ import { ContactMeComponent } from '../routes/contact-me/contact-me.component';
 import { TechnologiesComponent } from '../routes/technologies/technologies.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about-me', component: AboutMeComponent },
-  { path: 'contact-me', component: ContactMeComponent },
-  { path: 'technologies', component: TechnologiesComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: "", component: HomeComponent },
+  { path: "about-me", component: AboutMeComponent },
+  { path: "contact-me", component: ContactMeComponent },
+  { path: "technologies", component: TechnologiesComponent },
+  { path: "**", redirectTo: "", pathMatch: "full" }
 ];
 
 @NgModule({
