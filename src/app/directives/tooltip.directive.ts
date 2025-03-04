@@ -62,7 +62,7 @@ export class TooltipDirective
       const pRight = windowWidth + width - right + 12;
 
       // Set X
-      if (windowWidth - right < 100) this.componentRef.instance.right = pRight;
+      if (windowWidth - right < 150) this.componentRef.instance.right = pRight;
       else this.componentRef.instance.left = pLeft;
 
       // Set Y
