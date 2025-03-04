@@ -6,8 +6,6 @@ export interface ICustomizerUpdater
     Palette: (callback?: () => void) => Subscription;
     /** Set dark mode value. */
     DarkMode: (callback?: () => void) => Subscription;
-    /** Set the font. */
-    Font: (callback?: () => void) => Subscription;
     /** Set the text size. */
     TextSize: (callback?: () => void) => Subscription;
     /** Set breakpoint value. */

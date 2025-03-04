@@ -17,7 +17,6 @@ import { SettingsCanvasComponent } from '../components/settings-canvas/settings-
 import { SettingsSectionComponent } from '../components/settings-canvas/settings-section/settings-section.component';
 import { PaletteComponent } from '../components/settings-canvas/components/palette/palette.component';
 import { ToggleComponent } from '../components/settings-canvas/components/toggle/toggle.component';
-import { FontsComponent } from '../components/settings-canvas/components/fonts/fonts.component';
 import { TextSliderComponent } from '../components/settings-canvas/components/text-slider/text-slider.component';
 import { LangSelectComponent } from '../components/settings-canvas/components/lang-select/lang-select.component';
 
@@ -46,7 +45,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     SettingsSectionComponent,
     PaletteComponent,
     ToggleComponent,
-    FontsComponent,
     TextSliderComponent,
     LangSelectComponent,
 

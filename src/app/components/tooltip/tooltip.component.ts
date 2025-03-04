@@ -18,7 +18,6 @@ export class TooltipComponent extends BaseDirective implements OnInit
   {
     this.$.Palette();
     this.$.DarkMode();
-    this.$.Font();
   }
 
   /**

@@ -16,8 +16,6 @@ interface IGet$
     darkMode(next: (value: string) => void): Subscription;
     /** Get the palette. */
     palette(next: (value: IPalette) => void): Subscription;
-    /** Get the font. */
-    font(next: (value: string) => void): Subscription;
     /** Get the text size (from 0.75 to 1.5). */
     textSize(next: (value: string) => void): Subscription;
     /** Get the title of the HTML document. */
@@ -32,8 +30,6 @@ interface ISet$
     darkMode(value: string): void;
     /** Set the palette. */
     palette(value: IPalette): void;
-    /** Set the font. */
-    font(value: string): void;
     /** Set the text size. */
     textSize(value: string): void;
     /** Set the title of the HTML document. */

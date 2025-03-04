@@ -4,7 +4,6 @@ export interface ICustomizationParams
 {
     Palette: IPalette;
     DarkMode: boolean;
-    Font: string;
     TextSize: string;
     Breakpoint: boolean;
 }

@@ -13,7 +13,6 @@ export class BaseDirective implements OnDestroy
   public readonly PARAMS: INavigationParams =
   {
     COLORS: ["default", "green", "yellow", "red", "purple"],
-    FONTS: ["Montserrat", "Roboto"],
     LANGUAGES: ["it", "gb"],
     NAVBAR_ITEMS: [
       { link: "", icon: "house", text: "home" },
@@ -28,7 +27,6 @@ export class BaseDirective implements OnDestroy
   {
     Palette: { color: "default", bgImage: "linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)" },
     DarkMode: false,
-    Font: "Montserrat",
     TextSize: "1",
     Breakpoint: true
   };
@@ -67,8 +65,6 @@ export class BaseDirective implements OnDestroy
 
     DarkMode: (callback?: () => void) => this._payload.$.get.darkMode(value => this.update("DarkMode", value, callback)),
 
-    Font: (callback?: () => void) => this._payload.$.get.font(value => this.update("Font", value, callback)),
-
     TextSize: (callback?: () => void) => this._payload.$.get.textSize(value => this.update("TextSize", value, callback)),
 
     Breakpoint: (callback?: () => void) => this._payload.$.get.breakpoint(value => this.update("Breakpoint", value, callback)),
@@ -85,10 +81,10 @@ export class BaseDirective implements OnDestroy
       case "Palette": this.Customizer[param] = value as IPalette; break;
       case "Breakpoint": this.Customizer[param] = !!value; break;
       case "TextSize": this.setTextSize(value + ""); break;
-      default: this.Customizer[param] = value + ""; break;
+      default: return;
     }
 
-    if (callback) callback();
+    if (!!callback) callback();
   }
 
   private setTextSize(value: string)

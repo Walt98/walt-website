@@ -26,8 +26,6 @@ export class SettingsCanvasComponent extends BaseDirective implements OnInit
 
   private setCanvasColor = () => this.canvasColor = this.Customizer.DarkMode ? "bgDarkModeBlur" : "bgBlur";
 
-  public activeFont = (font: string): string => this.Customizer.Font === font ? "activeFont" : "";
-
   public checkOutside(target: any)
   {
     if (!target.classList.value.includes("settings-button") && this.clicked)

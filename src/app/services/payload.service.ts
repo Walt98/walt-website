@@ -15,8 +15,7 @@ export class PayloadService
   // BEHAVIOR SUBJECTS
   private palette$ = new BehaviorSubject<IPalette>(JSON.parse(localStorage.getItem("palette") ?? '{"color": "default", "bgImage": "linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)"}'));
   private darkMode$ = new BehaviorSubject(localStorage.getItem("darkMode") ?? "off");
-  private font$ = new BehaviorSubject(localStorage.getItem("font") ?? "Montserrat");
-  private textSlider$ = new BehaviorSubject(localStorage.getItem("textSlider") ?? "1");
+  private textSize$ = new BehaviorSubject(localStorage.getItem("textSize") ?? "1");
   private route$ = new BehaviorSubject("");
   private breakpoint$ = new BehaviorSubject(true);
 
@@ -30,8 +29,7 @@ export class PayloadService
     {
       darkMode: next => this.darkMode$.subscribe(next),
       palette: next => this.palette$.subscribe(next),
-      font: next => this.font$.subscribe(next),
-      textSize: next => this.textSlider$.subscribe(next),
+      textSize: next => this.textSize$.subscribe(next),
       route: next => this.route$.subscribe(next),
       breakpoint: next => this.breakpoint$.subscribe(next)
     },
@@ -40,8 +38,7 @@ export class PayloadService
     {
       darkMode: value => this.setStorageAndNextValue("darkMode", value),
       palette: value => this.setStorageAndNextValue("palette", value),
-      font: value => this.setStorageAndNextValue("font", value),
-      textSize: value => this.setStorageAndNextValue("textSlider", value),
+      textSize: value => this.setStorageAndNextValue("textSize", value),
       route: value => this.setStorageAndNextValue("route", value)
     }
   };

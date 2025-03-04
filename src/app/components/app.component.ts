@@ -19,7 +19,6 @@ export class AppComponent extends BaseDirective implements OnInit
   {
     this.$.DarkMode();
     this.$.Palette();
-    this.$.Font();
     this.$.Breakpoint();
 
     this.isReady$.pipe(takeUntil(this.destroy$)).subscribe(() => this.isReady = true);

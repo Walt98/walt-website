@@ -1,9 +1,6 @@
 .wMaxContent { width: max-content; }
 .hMaxContent { height: max-content; }
 
-.Montserrat { @import '../assets/classes'; @include font('Montserrat'); }
-.Roboto { @import '../assets/classes'; @include font('Roboto'); }
-
 .div-spinner
 {
     width: 100vw;
