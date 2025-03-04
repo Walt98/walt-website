@@ -13,7 +13,6 @@
             "themesNotAvailable": "Themes not available in \"Dark mode\".",
             "darkMode": "Dark mode",
             "darkModeTip": "Enable the dark mode for the user interface.",
-            "fontTip": "Set the user interface font.",
             "textSize": "Text size",
             "textSizeTip": "Set the user interface text size.",
             "langSelectTip": "Set the user interface language."
