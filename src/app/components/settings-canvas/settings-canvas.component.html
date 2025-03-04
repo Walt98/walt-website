@@ -16,7 +16,7 @@
             <!-- SECTIONS -->
             <div class="container-fluid p-0">
                 <!-- LAYOUT THEMES -->
-                <app-settings-section header="window.settings.layoutTheme">
+                <app-settings-section header="window.settings.layoutTheme" tip="window.settings.layoutThemeTip">
                     <ng-container body>
                         <!-- PALETTE -->
                         <app-palette *ngIf="!Customizer.DarkMode"></app-palette>
@@ -31,17 +31,17 @@
                 </app-settings-section>
 
                 <!-- DARK MODE -->
-                <app-settings-section header="window.settings.darkMode">
+                <app-settings-section header="window.settings.darkMode" tip="window.settings.darkModeTip">
                     <app-toggle body></app-toggle>
                 </app-settings-section>
 
                 <!-- FONTS -->
-                <app-settings-section header="Font">
+                <app-settings-section header="Font" tip="window.settings.fontTip">
                     <app-fonts body></app-fonts>
                 </app-settings-section>
 
                 <!-- TEXT SIZE -->
-                <app-settings-section header="window.settings.textSize">
+                <app-settings-section header="window.settings.textSize" tip="window.settings.textSizeTip">
                     <app-text-slider body></app-text-slider>
                 </app-settings-section>
             </div>

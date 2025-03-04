@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BaseDirective } from '../../base.directive';
+import { BaseDirective } from '../../directives/base.directive';
 
 @Component({
   selector: 'app-header',

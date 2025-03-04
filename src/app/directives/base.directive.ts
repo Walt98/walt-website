@@ -2,9 +2,9 @@ import { Directive, OnDestroy } from '@angular/core';
 import { ICustomizationParams } from 'src/app/models/customizer';
 import { PayloadService } from 'src/app/services/payload.service';
 import { Subject, takeUntil } from 'rxjs';
-import { INavigationParams } from './models/navigation-params';
-import { ICustomizerUpdater } from './models/customizer-setter';
-import { IPalette } from './models/palette';
+import { INavigationParams } from '../models/navigation-params';
+import { ICustomizerUpdater } from '../models/customizer-setter';
+import { IPalette } from '../models/palette';
 
 @Directive({ selector: "base" })
 export class BaseDirective implements OnDestroy

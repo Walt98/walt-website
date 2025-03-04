@@ -9,12 +9,14 @@
 
         "settings": {
             "layoutTheme": "Layout theme",
+            "layoutThemeTip": "Set the user interface theme.",
             "themesNotAvailable": "Themes not available in \"Dark mode\".",
             "darkMode": "Dark mode",
-            "canvasBlur": "Off-canvas blur",
-            "blurNone": "None",
-            "blur": "Blurs",
-            "textSize": "Text size"
+            "darkModeTip": "Enable the dark mode for the user interface.",
+            "fontTip": "Set the user interface font.",
+            "textSize": "Text size",
+            "textSizeTip": "Set the user interface text size.",
+            "langSelectTip": "Set the user interface language."
         },
 
         "contactMe!": "Contact me!"

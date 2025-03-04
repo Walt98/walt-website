@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BaseDirective } from 'src/app/base.directive';
+import { BaseDirective } from 'src/app/directives/base.directive';
 
 @Component({
   selector: 'app-banner',

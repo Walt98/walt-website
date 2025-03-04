@@ -1,0 +1,91 @@
+@mixin tooltip-color($color)
+{
+    & .tooltip-message { background-color: $color !important; }
+    & .tooltip-pointer { border-right-color: $color !important; }
+}
+
+.Montserrat { @import '../../assets/classes'; @include font('Montserrat'); }
+.Roboto { @import '../../assets/classes'; @include font('Roboto'); }
+
+.tooltip-pointer
+{
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+
+    &.top-left
+    {
+        top: -12px;
+        left: -9px;
+        transform: rotate(135deg);
+        animation: slideLeftTop .1s;
+    }
+
+    &.top-right
+    {
+        top: -12px;
+        right: -18px;
+        transform: rotate(135deg);
+        animation: slideRightTop .1s;
+    }
+
+    &.bottom-left
+    {
+        bottom: -12px;
+        left: -18px;
+        transform: rotate(-45deg);
+        animation: slideLeftBottom .1s;
+    }
+
+    &.bottom-right
+    {
+        bottom: -12px;
+        right: -9px;
+        transform: rotate(-45deg);
+        animation: slideRightBottom .1s;
+    }
+}
+
+.tooltip-message
+{
+    font-size: var(--bs-body-font-size);
+    padding: 7px 12px;
+    border-radius: 7px;
+    box-shadow: 0 0 20px -5px #00000033,
+    0 0 10px 0px #00000024,
+    0 0 0 0 #0000001f;
+    min-width: 50px;
+    max-width: 200px;
+    transition: .1s;
+}
+
+.tooltip-color-dark { @include tooltip-color(#3b5161); }
+.tooltip-color-default { @include tooltip-color(#19496C); }
+.tooltip-color-red { @include tooltip-color(#762020); }
+.tooltip-color-green { @include tooltip-color(#3a7826); }
+.tooltip-color-yellow { @include tooltip-color(#7a5825); }
+.tooltip-color-purple { @include tooltip-color(#644075); }
+
+@keyframes slideLeftTop
+{
+    0% { left: 7px; }
+    100% { left: -9px; }
+}
+
+@keyframes slideRightTop
+{
+    0% { right: -2px; }
+    100% { right: -18px; }
+}
+
+@keyframes slideLeftBottom
+{
+    0% { left: -2px; }
+    100% { left: -18px; }
+}
+
+@keyframes slideRightBottom
+{
+    0% { right: 7px; }
+    100% { right: -9px; }
+}

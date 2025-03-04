@@ -34,11 +34,11 @@
 .settings-button
 {
     @import '../../assets/classes';
-    $size: 50px;
+    $size: 40px;
     width: $size;
     height: $size;
     border-radius: 50%;
-    margin-right: 10px;
+    margin-right: 7px;
     z-index: 102;
     outline: 1px solid $white;
     opacity: .5;
@@ -64,7 +64,7 @@
     margin-right: 0;
 }
 
-.settings-button-icon { font-size: 32px; }
+.settings-button-icon { font-size: 25px; }
 
 .color-dark
 {

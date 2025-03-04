@@ -1,0 +1,8 @@
+<div class="d-flex align-items-center absolute zIndex1000 tooltip-container tooltip-color-{{ Customizer.DarkMode ? 'dark' : Customizer.Palette.color }}" [style]="getStylePosition()">
+    <!-- TOOLTIP POINTER -->
+    <span class="tooltip-pointer absolute {{ bottom === 0 ? 'top' : 'bottom' }}-{{ right === 0 ? 'left' : 'right' }}"></span>
+
+    <span class="tooltip-message text-center {{ Customizer.DarkMode ? 'dmWhite' : 'white' }} {{ Customizer.Font }}">
+        {{ tooltip | translate: { Default: '' } }}
+    </span>
+</div>

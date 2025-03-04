@@ -1,9 +1,3 @@
-@mixin title-color($color)
-{
-    background-color: $color;
-    & .title-pointer { border-right-color: $color; }
-}
-
 .icon-font-size { font-size: 26px; }
 
 .navbar-size
@@ -33,32 +27,3 @@
     border-radius: 13px;
     &:not(.navbar-item-icon.active):hover { background-color: #ffffff2e; }   
 }
-
-// ITEM TITLE
-.item-title
-{
-    padding: 7px 12px;
-    border-radius: 7px;
-    left: 72.8px;
-    box-shadow: 0 0 20px -5px #00000033,
-    0 0 10px 0px #00000024,
-    0 0 0 0 #0000001f;
-
-    & .title-pointer
-    {
-        width: 0;
-        height: 0;
-        border-bottom: 5px solid transparent;
-        border-top: 5px solid transparent;
-        border-right: 5px solid;
-        top: calc(50% - 4.8px);
-        left: -4.4px;
-    }
-}
-
-.title-color-dark { @include title-color(#3b5161); }
-.title-color-default { @include title-color(#19496C); }
-.title-color-red { @include title-color(#762020); }
-.title-color-green { @include title-color(#3a7826); }
-.title-color-yellow { @include title-color(#7a5825); }
-.title-color-purple { @include title-color(#644075); }

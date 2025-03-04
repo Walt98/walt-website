@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BaseDirective } from '../../base.directive';
+import { BaseDirective } from '../../directives/base.directive';
 import { takeUntil } from 'rxjs';
 
 @Component({
@@ -14,18 +14,8 @@ export class NavbarComponent extends BaseDirective implements OnInit
   ngOnInit(): void
   {
     this.$.Route();
-
-    this._payload.$.get.darkMode(value =>
-    {
-      this.Customizer.DarkMode = value === "on";
-      this.onChangesActive();
-    });
-
-    this._payload.$.get.palette(value =>
-    {
-      this.Customizer.Palette = value;
-      this.onChangesActive();
-    });
+    this.$.Palette(() => this.onChangesActive());
+    this.$.DarkMode(() => this.onChangesActive());
 
     // ROUTER CHANGES
     this._payload._router.events.pipe(takeUntil(this.destroy$)).subscribe((e: any) =>

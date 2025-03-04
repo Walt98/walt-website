@@ -9,17 +9,21 @@ import { ClickOutsideModule } from 'ng-click-outside';
 
 // COMPONENTS
 import { AppComponent } from '../components/app.component';
-import { BaseDirective } from '../base.directive';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { HeaderComponent } from '../components/header/header.component';
-import { SettingsCanvasComponent } from '../components/settings-canvas/settings-canvas.component';
-import { PaletteComponent } from '../components/settings-canvas/components/palette/palette.component';
-import { FontsComponent } from '../components/settings-canvas/components/fonts/fonts.component';
-import { LangSelectComponent } from '../components/settings-canvas/components/lang-select/lang-select.component';
-import { ToggleComponent } from '../components/settings-canvas/components/toggle/toggle.component';
-import { SettingsSectionComponent } from '../components/settings-canvas/settings-section/settings-section.component';
 import { BannerComponent } from '../components/banner/banner.component';
+import { TooltipComponent } from '../components/tooltip/tooltip.component';
+import { SettingsCanvasComponent } from '../components/settings-canvas/settings-canvas.component';
+import { SettingsSectionComponent } from '../components/settings-canvas/settings-section/settings-section.component';
+import { PaletteComponent } from '../components/settings-canvas/components/palette/palette.component';
+import { ToggleComponent } from '../components/settings-canvas/components/toggle/toggle.component';
+import { FontsComponent } from '../components/settings-canvas/components/fonts/fonts.component';
 import { TextSliderComponent } from '../components/settings-canvas/components/text-slider/text-slider.component';
+import { LangSelectComponent } from '../components/settings-canvas/components/lang-select/lang-select.component';
+
+// DIRECTIVES
+import { BaseDirective } from '../directives/base.directive';
+import { TooltipDirective } from '../directives/tooltip.directive';
 
 // ROUTES
 import { HomeComponent } from '../routes/home/home.component';
@@ -34,17 +38,21 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
   declarations: [
     // COMPONENTS
     AppComponent,
-    BaseDirective,
     NavbarComponent,
     HeaderComponent,
-    SettingsCanvasComponent,
-    PaletteComponent,
-    FontsComponent,
-    LangSelectComponent,
-    ToggleComponent,
-    SettingsSectionComponent,
     BannerComponent,
+    TooltipComponent,
+    SettingsCanvasComponent,
+    SettingsSectionComponent,
+    PaletteComponent,
+    ToggleComponent,
+    FontsComponent,
     TextSliderComponent,
+    LangSelectComponent,
+
+    // DIRECTIVES
+    BaseDirective,
+    TooltipDirective,
 
     // ROUTES
     HomeComponent,

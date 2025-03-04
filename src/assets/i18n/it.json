@@ -9,12 +9,14 @@
 
         "settings": {
             "layoutTheme": "Tema layout",
+            "layoutThemeTip": "Modifica il tema dell'interfaccia utente.",
             "themesNotAvailable": "Temi non disponibili in \"Modalità notturna\".",
             "darkMode": "Modalità notturna",
-            "canvasBlur": "Sfocatura finestra",
-            "blurNone": "Nessuna",
-            "blur": "Sfoca",
-            "textSize": "Dimensione del testo"
+            "darkModeTip": "Attiva la modalità notturna per l'interfaccia utente.",
+            "fontTip": "Modifica il font dell'interfaccia utente.",
+            "textSize": "Dimensione del testo",
+            "textSizeTip": "Modifica la dimensione del testo dell'interfaccia utente.",
+            "langSelectTip": "Modifica la lingua dell'interfaccia utente."
         },
 
         "contactMe!": "Contattami!"
