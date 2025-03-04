@@ -2,9 +2,7 @@
     <div class="section-header d-flex align-items-center">
         <span class="flex-grow-1"> {{ header | translate: { Default: '' } }} </span>
 
-        <span class="infoTooltip">
-            <i [tooltip]="tip" class="bi bi-info-circle info-tip d-flex pointer"></i>
-        </span>
+        <i [tooltip]="tip" class="bi bi-info-circle info-tip d-flex pointer"></i>
     </div>
 
     <ng-content select="[body]"></ng-content>

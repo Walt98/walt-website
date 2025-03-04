@@ -51,18 +51,23 @@ export class TooltipDirective
     {
       this.componentRef.instance.tooltip = this.tooltip;
 
-      const { right, top, bottom, width } = this.elementRef.nativeElement.getBoundingClientRect();
+      const { top, bottom, right, width, height } = this.elementRef.nativeElement.getBoundingClientRect();
 
       const windowWidth = window.innerWidth;
       const windowHeight = window.innerHeight;
 
+      const pTop = top + (height / 2);
+      const pBottom = windowHeight - bottom + (height / 2);
+      const pLeft = right + 12;
+      const pRight = windowWidth + width - right + 12;
+
       // Set X
-      if (windowWidth - right < 50) this.componentRef.instance.right = windowWidth - right + width + 10;
-      else this.componentRef.instance.left = right + 10;
+      if (windowWidth - right < 100) this.componentRef.instance.right = pRight;
+      else this.componentRef.instance.left = pLeft;
 
       // Set Y
-      if (windowHeight - bottom < 32) this.componentRef.instance.bottom = windowHeight - bottom;
-      else this.componentRef.instance.top = top;
+      if (windowHeight - bottom < 100) this.componentRef.instance.bottom = pBottom;
+      else this.componentRef.instance.top = pTop;
     }
   }
 

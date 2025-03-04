@@ -68,24 +68,24 @@
 
 @keyframes slideLeftTop
 {
-    0% { left: 7px; }
+    0% { left: 0; }
     100% { left: -9px; }
 }
 
 @keyframes slideRightTop
 {
-    0% { right: -2px; }
+    0% { right: -9px; }
     100% { right: -18px; }
 }
 
 @keyframes slideLeftBottom
 {
-    0% { left: -2px; }
+    0% { left: -9px; }
     100% { left: -18px; }
 }
 
 @keyframes slideRightBottom
 {
-    0% { right: 7px; }
+    0% { right: 0; }
     100% { right: -9px; }
 }
