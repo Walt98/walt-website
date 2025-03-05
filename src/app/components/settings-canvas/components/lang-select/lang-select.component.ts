@@ -27,7 +27,7 @@ export class LangSelectComponent extends BaseDirective implements OnInit
 
   public setLanguage(lang: string)
   {
-    if (this.showSelect)
+    if (this.showSelect && lang !== this.lang)
     {
       this.lang = lang;
       this.language = lang === "it" ? "ITA" : "ENG";

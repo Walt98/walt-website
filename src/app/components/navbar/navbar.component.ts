@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseDirective } from '../../directives/base.directive';
 import { takeUntil } from 'rxjs';
+import { INavbarItem } from 'src/app/models/navbar-item';
 
 @Component({
   selector: 'app-navbar',
@@ -37,14 +38,16 @@ export class NavbarComponent extends BaseDirective implements OnInit
 
   public setRoute(route: string)
   {
-    this.onChangesActive(route);
-    this._payload.$.set.route(route);
+    if (route !== document.URL.replace(document.baseURI, ""))
+    {
+      this.onChangesActive(route);
+      this._payload.set$.route(route);
+    }
   }
 
-  // SET NAVBAR-ITEM ACTIVE CLASS
   private onChangesActive(path = document.URL.replace(document.baseURI, ""))
   {
-    let item = undefined;
+    let item!: INavbarItem;
     this.PARAMS.NAVBAR_ITEMS.forEach(i => i.class = "");
 
     switch (path)

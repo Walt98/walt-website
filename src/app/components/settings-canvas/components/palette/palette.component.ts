@@ -25,4 +25,12 @@ export class PaletteComponent extends BaseDirective implements OnInit
       default: return partial + "#4c96b6 0%, #19496c 100%)";
     }
   }
+
+  public onClick(color: string)
+  {
+    if (this.Customizer.Palette.color !== color)
+    {
+      this._payload.set$.palette({ color: color, bgImage: this.setGradient(color) });
+    }
+  }
 }

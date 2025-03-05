@@ -1,13 +1,16 @@
 {
-    "window": {
-        "routes": {
+    "window":
+    {
+        "routes":
+        {
             "home": "Home",
             "contactMe": "Contact Me",
             "aboutMe": "About Me",
             "technologies": "Technologies"
         },
 
-        "settings": {
+        "settings":
+        {
             "layoutTheme": "Layout theme",
             "layoutThemeTip": "Set the user interface theme.",
             "themesNotAvailable": "Themes not available in \"Dark mode\".",
@@ -21,7 +24,8 @@
         "contactMe!": "Contact me!"
     },
 
-    "home": {
+    "home":
+    {
         "bannerTitle": "Discover the power of a modern, fast, robust and flexible website!"
     },
 

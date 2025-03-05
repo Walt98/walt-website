@@ -1,9 +1,8 @@
 import { Directive, OnDestroy } from '@angular/core';
-import { ICustomizationParams } from 'src/app/models/customizer';
+import { ICustomizer, ICustomizerUpdater } from 'src/app/models/customizer';
 import { PayloadService } from 'src/app/services/payload.service';
-import { Subject, takeUntil } from 'rxjs';
+import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 import { INavigationParams } from '../models/navigation-params';
-import { ICustomizerUpdater } from '../models/customizer-setter';
 import { IPalette } from '../models/palette';
 
 @Directive({ selector: "base" })
@@ -23,7 +22,7 @@ export class BaseDirective implements OnDestroy
   };
 
   /** An object that contains all customization params. */
-  public Customizer: ICustomizationParams =
+  public Customizer: ICustomizer =
   {
     Palette: { color: "default", bgImage: "linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)" },
     DarkMode: false,
@@ -49,31 +48,44 @@ export class BaseDirective implements OnDestroy
    */
   public setTitle(route: string)
   {
-    if (route === "") route = "Home";
+    if (route === "") route = "home";
     let arr = route.split("-");
     if (arr.length > 1) arr[1] = "Me";
 
-    this._payload._translate.stream(arr.join("")).pipe(takeUntil(this.destroy$)).subscribe(
-      (value: string) => this._payload._title.setTitle(`${value} | WaltWebsite`)
-    );
+    this._payload._translate
+      .stream(`window.routes.${arr.join("")}`)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((value: string) =>
+        this._payload._title.setTitle(`${value} | WaltWebsite`));
   }
 
-  /** Object used to update Customizer fields. */
   public $: ICustomizerUpdater =
   {
-    Palette: (callback?: () => void) => this._payload.$.get.palette(value => this.update("Palette", value, callback)),
+    Palette: (callback?: () => void) => this.subscribe("palette$", callback),
+    DarkMode: (callback?: () => void) => this.subscribe("darkMode$", callback),
+    TextSize: (callback?: () => void) => this.subscribe("textSize$", callback),
+    Breakpoint: (callback?: () => void) => this.subscribe("breakpoint$", callback),
+    Route: () => this.subscribe("route$")
+  }
 
-    DarkMode: (callback?: () => void) => this._payload.$.get.darkMode(value => this.update("DarkMode", value, callback)),
+  /**
+   * Subscribe the behavior subject and update its Customizer param.
+   * @param bSub$ 
+   * @param callback 
+   */
+  private subscribe(bSub$: keyof PayloadService, callback?: () => void)
+  {
+    const name = (bSub$[0].toUpperCase() + bSub$.slice(1, bSub$.length - 1)) as keyof ICustomizer;
+    const behavior = this._payload[bSub$] as BehaviorSubject<any>;
 
-    TextSize: (callback?: () => void) => this._payload.$.get.textSize(value => this.update("TextSize", value, callback)),
-
-    Breakpoint: (callback?: () => void) => this._payload.$.get.breakpoint(value => this.update("Breakpoint", value, callback)),
-
-    Route: () => this._payload.$.get.route(value => this.setTitle(value))
+    behavior
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(value =>
+        bSub$ === "route$" ? this.setTitle(value) : this.update(name, value, callback));
   }
 
   /** Update Customizer fields and use a callback if it exists. */
-  private update(param: keyof ICustomizationParams, value: string | boolean | IPalette, callback?: () => void)
+  private update(param: keyof ICustomizer, value: string | boolean | IPalette, callback?: () => void)
   {
     switch (param)
     {

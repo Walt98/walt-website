@@ -18,14 +18,10 @@ export class TextSliderComponent extends BaseDirective implements OnInit
   public setTextSizeValue(event: any)
   {
     const value = event.target.value;
-    this._payload.$.set.textSize(value);
+    this._payload.set$.textSize(value);
   }
 
-  public getFirstToUpperCase(color: string)
-  {
-    const first = color[0].toUpperCase();
-    return first + color.substring(1);
-  }
+  public firstUpper = (color: string) => color[0].toUpperCase() + color.slice(1);
 
   public getMargin(index: number)
   {

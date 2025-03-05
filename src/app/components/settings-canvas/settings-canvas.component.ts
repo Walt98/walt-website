@@ -17,11 +17,7 @@ export class SettingsCanvasComponent extends BaseDirective implements OnInit
   ngOnInit(): void
   {
     this.$.Palette();
-    this._payload.$.get.darkMode(value =>
-    {
-      this.Customizer.DarkMode = value === "on";
-      this.setCanvasColor();
-    });
+    this.$.DarkMode(() => this.setCanvasColor());
   }
 
   private setCanvasColor = () => this.canvasColor = this.Customizer.DarkMode ? "bgDarkModeBlur" : "bgBlur";

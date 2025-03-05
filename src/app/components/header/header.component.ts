@@ -18,12 +18,16 @@ export class HeaderComponent extends BaseDirective implements OnInit
     this.$.Palette();
   }
 
-  public setRoute(route: string)
+  public setRoute(route = "")
   {
     this.clicked = false;
-    this._payload.$.set.route(route);
+
+    if (route !== document.URL.replace(document.baseURI, ""))
+    {
+      this._payload.set$.route(route);
+    }
   }
 
-  public firstUpper = (str = "default"): string =>
+  public firstUpper = (str = "default") =>
     this.Customizer.DarkMode ? "DarkMode" : str[0].toUpperCase() + str.slice(1);
 }

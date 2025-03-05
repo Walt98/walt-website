@@ -17,7 +17,7 @@ export class ToggleComponent extends BaseDirective implements OnInit
   public setDarkMode()
   {
     this.Customizer.DarkMode = !this.Customizer.DarkMode;
-    this._payload.$.set.darkMode(this.Customizer.DarkMode ? "on" : "off");
+    this._payload.set$.darkMode(this.Customizer.DarkMode ? "on" : "off");
 
     if (this.Customizer.DarkMode)
     {

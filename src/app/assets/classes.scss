@@ -1,8 +1,9 @@
 // ROOTS
-:root {
+:root
+{
     --font-scale: 1;
     --bs-body-font-size: calc(1rem * var(--font-scale));
-    --gradient: linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%);
+    --gradient: linear-gradient($deg, #4c96b6 0%, #19496c 100%);
 }
 
 // VARIABLES
@@ -20,10 +21,8 @@ $dark: #162a41;
 $dmWhite: #d5dfec;
 $white: #fefefe;
 $bgWhite: #F5F7FA;
-$transparent: transparent;
 $deg: 147.38deg;
 $degRevert: 327.38deg;
-$radioBorder: 2px solid;
 
 .opacity0 { opacity: 0; }
 .opacity1 { opacity: 1; }
@@ -33,7 +32,6 @@ $radioBorder: 2px solid;
 .cursorDefault { cursor: default; }
 .zIndex1000 { z-index: 1000; }
 .absolute { position: absolute; }
-.fixed { position: fixed; }
 .br50 { border-radius: 50%; }
 .transition { transition: .2s ease; }
 .canvasShadow { box-shadow: 0 2px 4px -1px #00000033, 0 4px 5px 0 #00000024, 0 1px 10px 0 #0000001f; }
@@ -87,5 +85,4 @@ $radioBorder: 2px solid;
 @mixin translateX($px) { transform: translateX($px); }
 @mixin translateY($px) { transform: translateY($px); }
 @mixin rotate($deg) { transform: rotate($deg); }
-@mixin font($name, $family: sans-serif) { font-family: $name, $family; }
 @mixin gradient($c1, $c2, $gDeg: $deg) { background-image: linear-gradient($gDeg, $c1 0%, $c2 100%); }

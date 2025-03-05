@@ -1,13 +1,16 @@
 {
-    "window": {
-        "routes": {
+    "window":
+    {
+        "routes":
+        {
             "home": "Home",
             "contactMe": "Contattami",
             "aboutMe": "Chi sono",
             "technologies": "Tecnologie"
         },
 
-        "settings": {
+        "settings":
+        {
             "layoutTheme": "Tema layout",
             "layoutThemeTip": "Modifica il tema dell'interfaccia utente.",
             "themesNotAvailable": "Temi non disponibili in \"Modalità notturna\".",
@@ -21,7 +24,8 @@
         "contactMe!": "Contattami!"
     },
 
-    "home": {
+    "home":
+    {
         "bannerTitle": "Scopri la potenza di un sito web moderno, veloce, robusto e flessibile!"
     },
 
