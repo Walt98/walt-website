@@ -16,8 +16,8 @@
             </div>
         </div>
         <ul class="absolute p-0 m-0 menu-list {{ clicked ? 'visible' : 'hidden' }}">
-            <li *ngFor="let item of PARAMS.NAVBAR_ITEMS; index as i" class="pointer br50 opacity{{ clicked ? 1 : 0 }} {{ Customizer.DarkMode ? 'dark' : Customizer.Palette.color }}" style="--i: {{ i + 1 }}" [routerLink]="item.link" (click)="setRoute(item.link)">
-                <i [tooltip]="'window.routes.' + item.text" class="bi bi-{{ item.icon }} d-flex"></i>
+            <li *ngFor="let item of PARAMS.NAVBAR_ITEMS; index as i" class="pointer br50 opacity{{ clicked ? 1 : 0 }} {{ Customizer.DarkMode ? 'dark' : Customizer.Palette.color }}" style="--i: {{ i + 1 }}" [tooltip]="'window.routes.' + item.text" [routerLink]="item.link" (click)="setRoute(item.link)">
+                <i class="bi bi-{{ item.icon }} d-flex"></i>
             </li>
         </ul>
     </div>

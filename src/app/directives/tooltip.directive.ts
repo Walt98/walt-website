@@ -14,8 +14,7 @@ export class TooltipDirective
     private injector: Injector
   ) { }
 
-  @HostListener("mouseenter")
-  private onMouseEnter()
+  @HostListener("mouseenter") private onMouseEnter()
   {
     if (!this.componentRef)
     {
@@ -36,8 +35,7 @@ export class TooltipDirective
     }
   }
 
-  @HostListener("mouseleave")
-  private onMouseLeave()
+  @HostListener("mouseleave") private onMouseLeave()
   {
     this.destroy();
   }
