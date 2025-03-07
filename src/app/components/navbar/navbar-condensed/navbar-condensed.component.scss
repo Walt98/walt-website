@@ -1,0 +1,79 @@
+.menu-button
+{
+    font-size: calc(24px * var(--font-scale));
+    margin-right: 20px;
+    z-index: 999;
+    top: 18px;
+    transition: .3s ease;
+    border-radius: 200px;
+    box-shadow: 0 2px 4px -1px #00000033, 0 4px 5px 0 #00000024, 0 1px 10px 0 #0000001f;
+
+    & div.menu-button-icon
+    {
+        @import "../../../assets/classes.scss";
+
+        padding: 21.5px 8px;
+
+        & div
+        {
+            $h: 3px;
+            $w: 15px;
+            $br: 5px;
+            $mT: 8px;
+
+            height: $h;
+            width: calc($w * 2);
+            border-radius: $br;
+
+            &::before, &::after
+            {
+                content: '';
+                border-radius: $br;
+                height: $h;
+                width: $w;
+                @extend .transition;
+            }
+            &::before
+            {
+                margin-top: calc($mT * -1);
+                @include translateX($w);
+            }
+            &::after
+            {
+                margin-top: $mT;
+                @include translateX(calc($w * -1));
+            }
+        }
+    }
+
+    &.clicked
+    {
+        @import "../../../assets/classes";
+
+        padding-bottom: 190px;
+
+        & div > div::before, & div > div::after { @include translateX(0); }
+    }
+}
+
+.clicked + ul.menu-list
+{
+    top: 72px;
+    right: 27px;
+    z-index: 999;
+
+    & li
+    {
+        list-style: none;
+        transition: 0.3s ease;
+        transition-delay: calc(0.06s * var(--i));
+        font-size: 22px;
+        padding: 5px;
+        margin: 15px 0;
+
+        &:first-child { margin-top: 0; }
+        &:last-child { margin-bottom: 0; }
+
+        &:hover > i { transform: scale(1.15); }
+    }
+}

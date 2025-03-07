@@ -1,0 +1,12 @@
+<div (clickOutside)="clicked = false">
+    <div class="d-flex flex-column align-items-center menu-button absolute right0 {{ clicked ? 'clicked' : 'p-0' }} bgWhite" tabindex="0">
+        <div class="menu-button-icon pointer br50" (click)="clicked = !clicked">
+            <div class="menu-button-line transition d-flex bg{{ firstUp(Customizer.Palette.color) }}"></div>
+        </div>
+    </div>
+    <ul class="absolute p-0 m-0 menu-list {{ clicked ? 'visible' : 'hidden' }}">
+        <li *ngFor="let item of PARAMS.NAVBAR_ITEMS; index as i" class="pointer br50 opacity{{ clicked ? 1 : 0 }} {{ Customizer.DarkMode ? 'dark' : Customizer.Palette.color }}" style="--i: {{ i + 1 }}" [tooltip]="'window.routes.' + item.text" [routerLink]="item.link" (click)="clicked = false">
+            <i class="bi bi-{{ item.icon }} d-flex"></i>
+        </li>
+    </ul>
+</div>

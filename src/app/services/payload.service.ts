@@ -13,21 +13,24 @@ import { ISetter$ } from 'src/app/models/payload-setter';
 export class PayloadService
 {
   // BEHAVIOR SUBJECTS
-  public palette$ = new BehaviorSubject<IPalette>(JSON.parse(localStorage.getItem("palette") ?? '{"color": "default", "bgImage": "linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)"}'));
-  public darkMode$ = new BehaviorSubject(localStorage.getItem("darkMode") ?? "off");
-  public textSize$ = new BehaviorSubject(localStorage.getItem("textSize") ?? "1");
-  public route$ = new BehaviorSubject("");
-  public breakpoint$ = new BehaviorSubject(true);
+  private breakpoint = new BehaviorSubject(true);
+  private palette = new BehaviorSubject<IPalette>(JSON.parse(localStorage.getItem("palette") ?? '{"color": "default", "bgImage": "linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)"}'));
+  private darkMode = new BehaviorSubject(localStorage.getItem("darkMode") ?? "off");
+  private textSize = new BehaviorSubject(localStorage.getItem("textSize") ?? "1");
 
   // OBSERVABLES
-  public breakpoint = this._breakpointObserver.observe("(min-width: 992px)");
+  private breakpointState$ = this._breakpointObserver.observe("(min-width: 992px)");
+  public breakpoint$ = this.breakpoint.asObservable();
+  public palette$ = this.palette.asObservable();
+  public darkMode$ = this.darkMode.asObservable();
+  public textSize$ = this.textSize.asObservable();
 
+  /** Customization params setter. */
   public set$: ISetter$ =
   {
-    darkMode: value => this.setStorageAndNextValue("darkMode", value),
     palette: value => this.setStorageAndNextValue("palette", value),
-    textSize: value => this.setStorageAndNextValue("textSize", value),
-    route: value => this.setStorageAndNextValue("route", value)
+    darkMode: value => this.setStorageAndNextValue("darkMode", value),
+    textSize: value => this.setStorageAndNextValue("textSize", value)
   }
 
   constructor(
@@ -38,7 +41,7 @@ export class PayloadService
     public _translate: TranslateService
   ) {
     // BREAKPOINT
-    this.breakpoint.subscribe(state => this.breakpoint$.next(state.matches));
+    this.breakpointState$.subscribe(state => this.breakpoint.next(state.matches));
 
     // TRANSLATE
     _translate.setDefaultLang("it");
@@ -52,11 +55,10 @@ export class PayloadService
    */
   private setStorageAndNextValue(property: string, value: string | IPalette)
   {
-    const behavior = this[`${property}$` as keyof this] as unknown as BehaviorSubject<string | IPalette>;
+    const behavior = this[property as keyof this] as unknown as BehaviorSubject<string | IPalette>;
     const valueStr = typeof value === "string" ? value : JSON.stringify(value);
 
-    if (property !== "route") localStorage.setItem(property, valueStr);
-
+    localStorage.setItem(property, valueStr);
     behavior.next(value);
   }
 }

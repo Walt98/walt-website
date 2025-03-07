@@ -2,6 +2,6 @@
     <!-- ITEMS -->
     <div *ngFor="let item of PARAMS.NAVBAR_ITEMS" class="navbar-item d-flex align-items-center white">
         <!-- ICON -->
-        <i [tooltip]="'window.routes.' + item.text" [routerLink]="item.link" class="bi bi-{{ item.icon }} {{ item.class }} d-flex navbar-item-icon icon-font-size pointer transition" (mouseover)="item.show = true" (mouseleave)="item.show = false" (click)="setRoute(item.link)"></i>
+        <i [tooltip]="'window.routes.' + item.text" [routerLink]="item.link" class="bi bi-{{ item.icon }} {{ item.class }} d-flex navbar-item-icon icon-font-size pointer transition" (mouseover)="item.show = true" (mouseleave)="item.show = false" (click)="this.onChangesActive(item.link)"></i>
     </div>
 </nav>

@@ -8,26 +8,8 @@ import { BaseDirective } from '../../directives/base.directive';
 })
 export class HeaderComponent extends BaseDirective implements OnInit
 {
-  // BOOLEANS
-  public clicked = false;
-
   ngOnInit()
   {
     this.$.Breakpoint();
-    this.$.DarkMode();
-    this.$.Palette();
   }
-
-  public setRoute(route = "")
-  {
-    this.clicked = false;
-
-    if (route !== document.URL.replace(document.baseURI, ""))
-    {
-      this._payload.set$.route(route);
-    }
-  }
-
-  public firstUpper = (str = "default") =>
-    this.Customizer.DarkMode ? "DarkMode" : str[0].toUpperCase() + str.slice(1);
 }

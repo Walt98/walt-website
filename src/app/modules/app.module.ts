@@ -10,6 +10,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
 // COMPONENTS
 import { AppComponent } from '../components/app.component';
 import { NavbarComponent } from '../components/navbar/navbar.component';
+import { NavbarCondensedComponent } from '../components/navbar/navbar-condensed/navbar-condensed.component';
 import { HeaderComponent } from '../components/header/header.component';
 import { BannerComponent } from '../components/banner/banner.component';
 import { TooltipComponent } from '../components/tooltip/tooltip.component';
@@ -38,6 +39,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     // COMPONENTS
     AppComponent,
     NavbarComponent,
+    NavbarCondensedComponent,
     HeaderComponent,
     BannerComponent,
     TooltipComponent,

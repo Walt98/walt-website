@@ -22,11 +22,7 @@
                         <app-palette *ngIf="!Customizer.DarkMode"></app-palette>
 
                         <!-- LAYOUT THEMES NOT AVAILABLE -->
-                        <div *ngIf="Customizer.DarkMode" class="dmWhite pY-7-12_6">
-                            <span>
-                                {{ 'window.settings.themesNotAvailable' | translate: { Default: '' } }}
-                            </span>
-                        </div>
+                        <div *ngIf="Customizer.DarkMode" class="dmWhite pY-7-12_6" translate="window.settings.themesNotAvailable"></div>
                     </ng-container>
                 </app-settings-section>
 

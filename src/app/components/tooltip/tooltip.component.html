@@ -2,7 +2,6 @@
     <!-- TOOLTIP POINTER -->
     <span class="tooltip-pointer absolute {{ bottom === 0 ? 'top' : 'bottom' }}-{{ right === 0 ? 'left' : 'right' }}"></span>
 
-    <span class="tooltip-message text-center {{ Customizer.DarkMode ? 'dmWhite' : 'white' }}">
-        {{ tooltip | translate: { Default: '' } }}
-    </span>
+    <!-- TOOLTIP TEXT -->
+    <span class="tooltip-message text-center {{ Customizer.DarkMode ? 'dmWhite' : 'white' }}" [translate]="tooltip"></span>
 </div>

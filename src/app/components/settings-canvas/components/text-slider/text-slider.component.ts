@@ -11,8 +11,8 @@ export class TextSliderComponent extends BaseDirective implements OnInit
   ngOnInit()
   {
     this.$.TextSize();
-    this.$.DarkMode(() => this.setRoot());
-    this.$.Palette(() => this.setRoot());
+    this.$.DarkMode(() => this.setGradient());
+    this.$.Palette(() => this.setGradient());
   }
 
   public setTextSizeValue(event: any)
@@ -20,8 +20,6 @@ export class TextSliderComponent extends BaseDirective implements OnInit
     const value = event.target.value;
     this._payload.set$.textSize(value);
   }
-
-  public firstUpper = (color: string) => color[0].toUpperCase() + color.slice(1);
 
   public getMargin(index: number)
   {
@@ -35,7 +33,7 @@ export class TextSliderComponent extends BaseDirective implements OnInit
     return res;
   }
 
-  private setRoot()
+  private setGradient()
   {
     let res = "linear-gradient(147.38deg, ";
 

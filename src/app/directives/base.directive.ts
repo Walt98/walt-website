@@ -1,7 +1,7 @@
 import { Directive, OnDestroy } from '@angular/core';
 import { ICustomizer, ICustomizerUpdater } from 'src/app/models/customizer';
 import { PayloadService } from 'src/app/services/payload.service';
-import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
+import { Observable, Subject, takeUntil } from 'rxjs';
 import { INavigationParams } from '../models/navigation-params';
 import { IPalette } from '../models/palette';
 
@@ -14,7 +14,7 @@ export class BaseDirective implements OnDestroy
     COLORS: ["default", "green", "yellow", "red", "purple"],
     LANGUAGES: ["it", "gb"],
     NAVBAR_ITEMS: [
-      { link: "", icon: "house", text: "home" },
+      { link: "home", icon: "house", text: "home" },
       { link: "about-me", icon: "person-circle", text: "aboutMe" },
       { link: "contact-me", icon: "send", text: "contactMe" },
       { link: "technologies", icon: "code-slash", text: "technologies" }
@@ -24,16 +24,24 @@ export class BaseDirective implements OnDestroy
   /** An object that contains all customization params. */
   public Customizer: ICustomizer =
   {
+    Breakpoint: true,
     Palette: { color: "default", bgImage: "linear-gradient(147.38deg, #4c96b6 0%, #19496c 100%)" },
     DarkMode: false,
-    TextSize: "1",
-    Breakpoint: true
+    TextSize: "1"
   };
 
   public destroy$ = new Subject<void>();
 
+  public $: ICustomizerUpdater =
+  {
+    Breakpoint: (callback?: () => void) => this.subscribe("breakpoint$", callback),
+    Palette: (callback?: () => void) => this.subscribe("palette$", callback),
+    DarkMode: (callback?: () => void) => this.subscribe("darkMode$", callback),
+    TextSize: (callback?: () => void) => this.subscribe("textSize$", callback)
+  }
+
   constructor(
-    /** Payload service used to get/set customization params or to use external services. */
+    /** Project service. */
     public _payload: PayloadService
   ) { }
 
@@ -43,30 +51,8 @@ export class BaseDirective implements OnDestroy
     this.destroy$.complete();
   }
 
-  /** Set the title of the current HTML document based on the translation of the parameter.
-   * @param route
-   */
-  public setTitle(route: string)
-  {
-    if (route === "") route = "home";
-    let arr = route.split("-");
-    if (arr.length > 1) arr[1] = "Me";
-
-    this._payload._translate
-      .stream(`window.routes.${arr.join("")}`)
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((value: string) =>
-        this._payload._title.setTitle(`${value} | WaltWebsite`));
-  }
-
-  public $: ICustomizerUpdater =
-  {
-    Palette: (callback?: () => void) => this.subscribe("palette$", callback),
-    DarkMode: (callback?: () => void) => this.subscribe("darkMode$", callback),
-    TextSize: (callback?: () => void) => this.subscribe("textSize$", callback),
-    Breakpoint: (callback?: () => void) => this.subscribe("breakpoint$", callback),
-    Route: () => this.subscribe("route$")
-  }
+  /** Set the first char to uppercase. */
+  public firstUpper = (str: string) => str[0].toUpperCase() + str.slice(1);
 
   /**
    * Subscribe the behavior subject and update its Customizer param.
@@ -76,12 +62,11 @@ export class BaseDirective implements OnDestroy
   private subscribe(bSub$: keyof PayloadService, callback?: () => void)
   {
     const name = (bSub$[0].toUpperCase() + bSub$.slice(1, bSub$.length - 1)) as keyof ICustomizer;
-    const behavior = this._payload[bSub$] as BehaviorSubject<any>;
+    const behavior = this._payload[bSub$] as Observable<any>;
 
     behavior
       .pipe(takeUntil(this.destroy$))
-      .subscribe(value =>
-        bSub$ === "route$" ? this.setTitle(value) : this.update(name, value, callback));
+      .subscribe(value => this.update(name, value, callback));
   }
 
   /** Update Customizer fields and use a callback if it exists. */
@@ -89,9 +74,9 @@ export class BaseDirective implements OnDestroy
   {
     switch (param)
     {
-      case "DarkMode": this.Customizer[param] = value === "on"; break;
-      case "Palette": this.Customizer[param] = value as IPalette; break;
       case "Breakpoint": this.Customizer[param] = !!value; break;
+      case "Palette": this.Customizer[param] = value as IPalette; break;
+      case "DarkMode": this.Customizer[param] = value === "on"; break;
       case "TextSize": this.setTextSize(value + ""); break;
       default: return;
     }
