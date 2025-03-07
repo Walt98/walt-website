@@ -12,7 +12,7 @@
 
     <div id="lang-select-6" class="center">
         <!-- GLOBE BUTTON -->
-        <span id="lang-select-7" class="center lang-button br50 zIndex1000 transition pointer translate{{ lang === 'it' ? 1 : 2 }} {{ clicked ? 'noTranslateX' : '' }}" (click)="showLang()" (clickOutside)="checkOutside($event.target)">
+        <span id="lang-select-7" class="center lang-button br50 zIndex1000 transition pointer translate{{ lang === 'it' ? 1 : 2 }} {{ clicked ? 'noTranslateX' : '' }}" (click)="showLang()" (clickOutside)="checkOutside($event.target)" tooltip="window.settings.langSelectTip">
             <i id="lang-select-8" class="bi bi-globe2 fs-4 d-flex"></i>
         </span>
 
