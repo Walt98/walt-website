@@ -12,13 +12,13 @@
         "settings":
         {
             "layoutTheme": "Layout theme",
-            "layoutThemeTip": "Set the user interface theme.",
+            "layoutThemeTip": "Customize the interface colors to match your preferences.",
             "themesNotAvailable": "Themes not available in \"Dark mode\".",
             "darkMode": "Dark mode",
-            "darkModeTip": "Enable the dark mode for the user interface.",
+            "darkModeTip": "Enable the dark mode to reduce eye strain in low-light environments.",
             "textSize": "Text size",
-            "textSizeTip": "Set the user interface text size.",
-            "langSelectTip": "Set the user interface language."
+            "textSizeTip": "Adjust the text size for a more comfortable reading experience.",
+            "langSelectTip": "Change the interface language based on your preferences."
         },
 
         "contactMe!": "Contact me!"

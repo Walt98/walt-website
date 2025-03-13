@@ -12,13 +12,13 @@
         "settings":
         {
             "layoutTheme": "Tema layout",
-            "layoutThemeTip": "Modifica il tema dell'interfaccia utente.",
+            "layoutThemeTip": "Personalizza i colori dell'interfaccia per adattarli ai tuoi gusti.",
             "themesNotAvailable": "Temi non disponibili in \"Modalità notturna\".",
             "darkMode": "Modalità notturna",
-            "darkModeTip": "Attiva la modalità notturna per l'interfaccia utente.",
+            "darkModeTip": "Attiva la modalità notturna per ridurre l'affaticamento visivo in ambienti con poca luce.",
             "textSize": "Dimensione del testo",
-            "textSizeTip": "Modifica la dimensione del testo dell'interfaccia utente.",
-            "langSelectTip": "Modifica la lingua dell'interfaccia utente."
+            "textSizeTip": "Regola la dimensione del testo per una lettura più confortevole.",
+            "langSelectTip": "Modifica la lingua dell'interfaccia in base alle tue preferenze."
         },
 
         "contactMe!": "Contattami!"

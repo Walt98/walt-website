@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BaseDirective } from 'src/app/directives/base.directive';
 
 @Component({
@@ -6,7 +6,10 @@ import { BaseDirective } from 'src/app/directives/base.directive';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent extends BaseDirective
+export class HomeComponent extends BaseDirective implements OnInit
 {
-  
+  ngOnInit()
+  {
+    this.setTitle("Home");
+  }
 }

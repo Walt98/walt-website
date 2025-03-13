@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, first } from 'rxjs';
 import { IPalette } from 'src/app/models/palette';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Title } from '@angular/platform-browser';
-import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ISetter$ } from 'src/app/models/payload-setter';
+import { IRoutes } from '../models/routesTranslations';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,6 @@ export class PayloadService
   private textSize = new BehaviorSubject(localStorage.getItem("textSize") ?? "1");
 
   // OBSERVABLES
-  private breakpointState$ = this._breakpointObserver.observe("(min-width: 992px)");
   public breakpoint$ = this.breakpoint.asObservable();
   public palette$ = this.palette.asObservable();
   public darkMode$ = this.darkMode.asObservable();
@@ -33,19 +32,32 @@ export class PayloadService
     textSize: value => this.setStorageAndNextValue("textSize", value)
   }
 
+  /** Contains all translations; the first is the italian one. */
+  public routes!: IRoutes;
+
   constructor(
     private _breakpointObserver: BreakpointObserver,
     // PUBLIC SERVICES
     public _title: Title,
-    public _router: Router,
     public _translate: TranslateService
   ) {
-    // BREAKPOINT
-    this.breakpointState$.subscribe(state => this.breakpoint.next(state.matches));
+    this.useBreakpoint();
+    this.useTranslate();
+  }
 
-    // TRANSLATE
-    _translate.setDefaultLang("it");
-    _translate.use(localStorage.getItem("lang") ?? "it");
+  /** Subscribe the *_breakpointObserver* service observable. */
+  private useBreakpoint()
+  {
+    this._breakpointObserver
+      .observe("(min-width: 992px)")
+      .subscribe(state => this.breakpoint.next(state.matches));
+  }
+
+  /** Set the default and initial language and get all translations. */
+  private useTranslate()
+  {
+    this._translate.setDefaultLang("it");
+    this._translate.use(localStorage.getItem("lang") ?? "it").pipe(first());
   }
 
   /**

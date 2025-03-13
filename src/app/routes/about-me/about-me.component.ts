@@ -11,5 +11,6 @@ export class AboutMeComponent extends BaseDirective implements OnInit
   ngOnInit(): void
   {
     this.$.DarkMode();
+    this.setTitle("Chi sono", "About me");
   }
 }

@@ -1,7 +1,7 @@
 import { Directive, OnDestroy } from '@angular/core';
 import { ICustomizer, ICustomizerUpdater } from 'src/app/models/customizer';
 import { PayloadService } from 'src/app/services/payload.service';
-import { Observable, Subject, takeUntil } from 'rxjs';
+import { first, Observable, Subject, takeUntil } from 'rxjs';
 import { INavigationParams } from '../models/navigation-params';
 import { IPalette } from '../models/palette';
 
@@ -51,9 +51,6 @@ export class BaseDirective implements OnDestroy
     this.destroy$.complete();
   }
 
-  /** Set the first char to uppercase. */
-  public firstUpper = (str: string) => str[0].toUpperCase() + str.slice(1);
-
   /**
    * Subscribe the behavior subject and update its Customizer param.
    * @param bSub$ 
@@ -88,5 +85,31 @@ export class BaseDirective implements OnDestroy
   {
     this.Customizer.TextSize = value;
     document.documentElement.style.setProperty("--font-scale", value);
+  }
+
+  /** Set the first char to uppercase. */
+  public firstUpper = (str: string) => str[0].toUpperCase() + str.slice(1);
+
+  /**
+   * Set the current HTML document title.
+   * @param it Italian title
+   * @param en English title; if it doesn't exist, the title will not be changed on change language
+  */
+  public setTitle(it: string, en?: string)
+  {
+    // Set it on initialization
+    const routeInit = this._payload._translate.currentLang === "it" ? it : en;
+    this._payload._title.setTitle(`${routeInit} | WaltWebsite`);
+
+    if (!!en)
+    {
+      this._payload._translate.onLangChange
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(e =>
+      {
+        const res = e.lang === "it" ? it : en;
+        this._payload._title.setTitle(`${res} | WaltWebsite`);
+      });
+    }
   }
 }

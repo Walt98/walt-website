@@ -26,6 +26,20 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+
+    &::before
+    {
+        $overflow: -14px;   // -(height * blur)
+        content: "";
+        position: absolute;
+        top: 0;
+        left: $overflow;
+        width: calc(100% + ($overflow * (-2)));
+        height: 2px;
+        pointer-events: none;
+        background: black;
+        filter: blur(7px);
+    }
 }
 
 main
